@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+  <object name="izug.blog"
+          meta_type="Filesystem Directory View"
+          directory="izug.blog:skins/izug.blog"/>
+
+  <skin-path name="*">
+   <layer name="izug.blog"
+          insert-after="custom" />
+  </skin-path>
+
+</object>
