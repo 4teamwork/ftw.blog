@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: izug.blog
+Version: 0.1dev
+Summary: iZug Quills configuration package.
+Home-page: https://svn.4teamwork.ch/repos/zug/izug.blog
+Author: 4teamwork.ch
+Author-email: info@4teamwork.ch
+License: GPL
+Description: UNKNOWN
+Keywords: izug quills blog
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Framework :: Zope2
+Classifier: Framework :: Zope3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

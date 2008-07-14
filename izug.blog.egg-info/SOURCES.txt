@@ -1,0 +1,14 @@
+README.txt
+setup.cfg
+setup.py
+izug/__init__.py
+izug.blog.egg-info/PKG-INFO
+izug.blog.egg-info/SOURCES.txt
+izug.blog.egg-info/dependency_links.txt
+izug.blog.egg-info/entry_points.txt
+izug.blog.egg-info/namespace_packages.txt
+izug.blog.egg-info/not-zip-safe
+izug.blog.egg-info/requires.txt
+izug.blog.egg-info/top_level.txt
+izug/blog/__init__.py
+izug/blog/tests.py
