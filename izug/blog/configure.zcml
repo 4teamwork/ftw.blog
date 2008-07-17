@@ -18,4 +18,6 @@
 
     <cmf:registerDirectory name="izug.blog"/>
 
+    <include package=".portlets" />
+
 </configure>

@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="izug.blog">
+
+     <plone:portlet
+         name="izug.blog.portlets.category_portlet"
+         interface=".category_portlet.ICategoryPortlet"
+         assignment=".category_portlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".category_portlet.Renderer"
+         addview=".category_portlet.AddForm"
+         editview=".category_portlet.EditForm"
+         />
+
+</configure>
