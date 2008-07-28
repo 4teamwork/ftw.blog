@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="quills">
+
+  <body>
+    <metal:feed fill-slot="head_slot">
+      <metal:block metal:use-macro="context/quills_header_macros/macros/feed-links"></metal:block>
+
+    </metal:feed>
+    <div metal:fill-slot="main"
+         tal:define="entry_content nocall:context;
+                     entry view/getWeblogEntry;
+                     weblog_content python:view.getWeblogContentObject();
+                     weblog python:view.getWeblog();
+                     wvconfig view/getConfig;">
+
+      <div tal:replace="structure provider:plone.abovecontenttitle" />
+      <h1 class="documentFirstHeading">
+        <metal:field use-macro="python:here.widget('title', mode='view')">
+          Title
+        </metal:field>
+      </h1>
+      <!-- Commented out for now, we don't want the global keywords, we
+           want our own system.
+           <div tal:replace="structure provider:plone.belowcontenttitle" />
+      -->
+      <metal:macro use-macro="context/entry_macros/macros/byline" />
+      <metal:macro use-macro="context/entry_macros/macros/filed-under" />
+      <metal:macro use-macro="context/entry_macros/macros/topic-images" />
+      <p class="weblog-entry-only-excerpt">
+        <metal:field use-macro="python:here.widget('description', mode='view')">
+          Description
+        </metal:field>
+      </p>
+      <div tal:replace="structure provider:plone.abovecontentbody" />
+      <div>
+        <metal:field use-macro="python:here.widget('text', mode='view')">
+          Main text
+        </metal:field>
+      </div>
+      <metal:main_macro define-macro="main"
+            tal:define="portal_type python:here.getPortalTypeName().lower().replace(' ', '_');
+            base_macros here/base/macros;
+            view_template python:'%s_view' % portal_type;
+            view_macros python:path('here/%s/macros|nothing' % view_template);
+            folderlisting_macro view_macros/folderlisting | folderlisting | base_macros/folderlisting;
+            ">
+
+        <metal:use_body use-macro="folderlisting_macro" />
+
+      </metal:main_macro>
+      <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </div>
+  </body>
+</html>
