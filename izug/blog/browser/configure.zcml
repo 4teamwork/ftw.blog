@@ -1,15 +1,3 @@
 <configure xmlns="http://namespaces.zope.org/browser">
 
-      <page
-          for="izug.blog.interfaces.IWeblogFolderishItem"
-          class="quills.app.browser.weblogview.WeblogEntryView"
-          template="weblogentry_view.pt"
-          allowed_interface="quills.core.browser.interfaces.IWeblogEntryView"
-          permission="zope2.View"
-          name="weblogentry_folderish_view" />
-
-      <defaultView
-          for="izug.blog.interfaces.IWeblogFolderishItem"
-          name="weblogentry_folderish_view" />
-
 </configure>

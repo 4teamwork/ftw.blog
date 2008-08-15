@@ -2,8 +2,5 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
-    <permission name="izug.blog: Add WeblogFolderishEntry" acquire="False">
-      <role name="Manager" />
-    </permission>
   </permissions>
 </rolemap>

@@ -8,6 +8,3 @@ from izug.blog import blogMessageFactory as _
 
 # -*- extra stuff goes here -*-
 
-class IWeblogFolderishItem(Interface):
-    """WeblogFolderishItem"""
-

@@ -3,10 +3,4 @@
 
  <!-- Portlet type registrations -->
 
- <portlet
-   addview="izug.blog.portlets.category_portlet"
-   title="Category Portlet"
-   description=""
-   />
-
 </portlets>
