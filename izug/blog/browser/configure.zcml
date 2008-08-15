@@ -1,3 +1,13 @@
-<configure xmlns="http://namespaces.zope.org/browser">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="izug.blog">
+
+
+    <!-- Resource directory -->
+    <browser:resourceDirectory
+        name="izug.blog.icons"
+        directory="icons"
+        /> 
 
 </configure>

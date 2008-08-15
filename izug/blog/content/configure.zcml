@@ -6,5 +6,44 @@
     <!-- configure your content components here -->
 
     <!-- -*- extra stuff goes here -*- -->
+    <class class=".blogitem.BlogItem">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IBlogItem"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IBlogItem"
+            />
+
+    </class>
+    <class class=".blogcategory.BlogCategory">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IBlogCategory"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IBlogCategory"
+            />
+
+    </class>
+    <class class=".blog.Blog">
+
+        <require
+            permission="zope2.View"
+            interface="..interfaces.IBlog"
+            />
+
+        <require
+            permission="cmf.ModifyPortalContent"
+            set_schema="..interfaces.IBlog"
+            />
+
+    </class>
 
 </configure>
