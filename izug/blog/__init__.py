@@ -31,6 +31,10 @@ def initialize(context):
     # course, even if we import the module several times, it is only run
     # once.
 
+#    import content.blog
+#    import content.blogcategory
+#    import content.blogentry
+
     content_types, constructors, ftis = atapi.process_types(
         atapi.listTypes(config.PROJECTNAME),
         config.PROJECTNAME)

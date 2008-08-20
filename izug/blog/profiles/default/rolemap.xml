@@ -2,7 +2,7 @@
 <rolemap>
   <permissions>
     <!-- -*- extra stuff goes here -*- -->
-    <permission name="izug.blog: Add Blog Item" acquire="False">
+    <permission name="izug.blog: Add Blog Entry" acquire="False">
       <role name="Manager" />
     </permission>
     <permission name="izug.blog: Add Blog Category" acquire="False">

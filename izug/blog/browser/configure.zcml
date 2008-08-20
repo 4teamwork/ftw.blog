@@ -10,4 +10,14 @@
         directory="icons"
         /> 
 
+   <browser:page
+      for="*"
+      name="blog_entry_view"
+      class=".views.BlogEntryView"
+      permission="zope.Public"
+      template="blog_entry_view.pt"
+      />  
+
+
+
 </configure>

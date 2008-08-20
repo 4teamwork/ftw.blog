@@ -8,8 +8,8 @@ from izug.blog import blogMessageFactory as _
 
 # -*- extra stuff goes here -*-
 
-class IBlogItem(Interface):
-    """iZug Blog Item"""
+class IBlogEntry(Interface):
+    """iZug Blog Entry"""
 
 class IBlogCategory(Interface):
     """iZug Blog Category"""

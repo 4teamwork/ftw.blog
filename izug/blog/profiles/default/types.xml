@@ -8,7 +8,7 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
-  <object name="Blog Item"
+  <object name="Blog Entry"
     meta_type="Factory-based Type Information with dynamic views" />
   <object name="Blog Category"
     meta_type="Factory-based Type Information with dynamic views" />

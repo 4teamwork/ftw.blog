@@ -3,19 +3,18 @@
     xmlns:five="http://namespaces.zope.org/five"
     i18n_domain="izug.blog">
 
-    <!-- configure your content components here -->
 
-    <!-- -*- extra stuff goes here -*- -->
-    <class class=".blogitem.BlogItem">
+
+    <class class=".blogentry.BlogEntry">
 
         <require
             permission="zope2.View"
-            interface="..interfaces.IBlogItem"
+            interface="..interfaces.IBlogEntry"
             />
 
         <require
             permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IBlogItem"
+            set_schema="..interfaces.IBlogEntry"
             />
 
     </class>

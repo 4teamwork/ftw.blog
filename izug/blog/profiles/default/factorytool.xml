@@ -10,7 +10,7 @@
 <object name="portal_factory" meta_type="Plone Factory Tool">
   <factorytypes>
     <!-- -*- extra stuff goes here -*- -->
-    <type portal_type="Blog Item" />
+    <type portal_type="Blog Entry" />
     <type portal_type="Blog Category" />
     <type portal_type="Blog" />
   </factorytypes>
