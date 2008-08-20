@@ -1,0 +1,54 @@
+     
+
+<tal:master define="level options/level|python:0;
+                    uids options/uids;
+                    fieldName options/fieldName;
+                    children options/children | nothing;
+                    bottomLevel options/bottomLevel | nothing;
+                    normalizeString nocall:context/plone_utils/normalizeString;
+                    viewActions here/portal_properties/site_properties/typesUseViewActionInListings|python:();
+                    member context/portal_membership/getAuthenticatedMember|nothing;
+                    member_id member/getId|nothing;
+                    plone_view context/@@plone">
+                    
+  <metal:main define-macro="nav_main">
+    <tal:navitem repeat="node children">
+    <li class="classificationItem"
+        tal:define="children   node/children;
+                    item       node/item;
+                    useView    python:item.portal_type in viewActions;
+                    item_icon  python:plone_view.getIcon(item);
+                    itemUrl    python:test(useView, item.getURL() + '/view', item.getURL());
+                    linkRemote python:item.getRemoteUrl and item.Creator != member_id;
+                    isCurrent  node/currentItem;
+                    sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));"   
+        tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
+
+                <span tal:attributes="onclick string:javacript:l_widget.toggleSubset(this,'$sub_id');
+                                      class python: not children and 'imagePadding' or ''">
+
+                    <img tal:condition="nocall:children" tal:attributes="src python:here.portal_url()+'/arrowRight.gif'" />
+                    <input class="noborder"
+                           tabindex=""
+                           type="checkbox"
+                           tal:condition="python:level > 0"
+                           tal:attributes="name fieldName;
+                                           checked python:test((node['uid'] in uids), 'checked', nothing);
+                                           value node/uid;
+                                           id item/id" />                    
+                    <span tal:replace="item/Title">Selected Item Title</span>
+                </span>
+        <ul tal:attributes="class python:'navTree navTreeLevel'+str(level);
+                            id sub_id;
+                            style python:level==0 and 'display:block' or 'display:none';"
+            tal:define="level python:level+1;"
+            tal:condition="nocall:children">
+            <metal:recurse use-macro="here/category_widget_edit_view/macros/nav_main"/>
+        </ul>
+    </li>
+    </tal:navitem>
+
+  </metal:main>
+
+</tal:master>
+

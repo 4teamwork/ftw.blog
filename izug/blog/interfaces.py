@@ -17,3 +17,8 @@ class IBlogCategory(Interface):
 class IBlog(Interface):
     """iZug Blog"""
 
+class ICategoryWidget(Interface):
+    """
+    """
+    
+

@@ -18,6 +18,25 @@
       template="blog_entry_view.pt"
       />  
 
+  <browser:page
+      for="*"
+      name="category_widget_view"
+      class=".widgets.category_widget.SitemapView"
+      permission="zope.Public"
+      />
+
+  <browser:page
+      for="*"
+      name="category_widget_builder_view"
+      class=".widgets.category_widget.SiteMapStructure"
+      permission="zope.Public"
+      allowed_attributes="siteMap"
+      />
+      
+   <adapter for="*
+                ..interfaces.ICategoryWidget"
+            factory=".widgets.category_widget.CategoryWidgetStrategy"
+            provides="plone.app.layout.navigation.interfaces.INavtreeStrategy" />
 
 
 </configure>

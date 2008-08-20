@@ -9,3 +9,5 @@ ADD_PERMISSIONS = {
     'Blog Category': 'izug.blog: Add Blog Category',
     'Blog': 'izug.blog: Add Blog',
 }
+
+product_globals = globals()

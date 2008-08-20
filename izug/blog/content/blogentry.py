@@ -13,9 +13,30 @@ from izug.blog.config import PROJECTNAME
 
 
 from izug.contentpage.content.contentpage import ContentPage, ContentPageSchema
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 
-BlogEntrySchema = ContentPageSchema.copy()
+schema = atapi.Schema((
+    atapi.ReferenceField(
+        name='categories',
+        widget=ReferenceBrowserWidget(
+            label=_('Categories'),
+            allow_browse=False,
+            show_results_without_query=True,
+            restrict_browsing_to_startup_directory=True,
+            base_query={"portal_type": "Blog Catgory", "sort_on": "sortable_title"},
+            macro='category_reference_widget',
+        ),
+        allowed_types=('ClassificationItem',),
+        multiValued=1,
+        schemata='categorization',
+        relationship='blog_categories'
+    ),
+
+
+))
+
+BlogEntrySchema = schema.copy() + ContentPageSchema.copy()
 
 schemata.finalizeATCTSchema(BlogEntrySchema, folderish=True, moveDiscussion=False)
 

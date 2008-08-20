@@ -14,6 +14,12 @@ from Products.CMFCore.permissions import setDefaultRoles
 
 blogMessageFactory = MessageFactory('izug.blog')
 
+
+from Products.CMFCore.DirectoryView import registerDirectory
+registerDirectory('skins', config.product_globals)
+
+
+
 def initialize(context):
     """Initializer called when used as a Zope 2 product.
 
