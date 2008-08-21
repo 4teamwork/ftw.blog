@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<object>
+  <hidden manager="plone.belowcontenttitle" skinname="iZug Theme">
+        <viewlet name="plone.belowcontenttitle.documentbyline" />
+  </hidden>
+</object>

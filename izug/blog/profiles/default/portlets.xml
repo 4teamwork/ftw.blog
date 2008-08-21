@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
-<portlets>
-
- <!-- Portlet type registrations -->
-
+<portlets> 
+ <portletmanager 
+   name="blog.portlets"
+   type="izug.blog.interfaces.IBlogPortlets"
+ />
+ 
+  <portlet 
+   addview="blog.categories.portlet"
+   title="Blog Categories Portlet"
+   description="A portlet for izug blog, which shows the category structure."
+   />
+ 
 </portlets>
+

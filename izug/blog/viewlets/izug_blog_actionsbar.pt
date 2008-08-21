@@ -1,0 +1,7 @@
+<div class="actionsBar">
+
+<input type="text" name="searchable_text" />
+<input type="submit" name="search_blog" value="Search the Blog" />
+
+
+</div>

@@ -8,10 +8,13 @@
 
 <body>
 
-<div metal:fill-slot="main">
+<div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-  
-        <h1 tal:content="here/Title" />
+      <h1 tal:content="here/Title" />
+
+      <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+      <div class="leftColumn">
 
         <span class="documentByLine"
               tal:define="item_creator here/Creator;
@@ -31,7 +34,7 @@
                  </tal:name>
                     at 
                  <span class="dateCreated"
-                       tal:content="python:toLocalizedTime(item_created)"
+                       tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
                        i18n:name="created">from date</span> in 
                  
                  <tal:rep repeat="cat_uid item_categories">
@@ -40,7 +43,7 @@
                                    brain_title brain/Title | nothing;
                                    brain_url   brain/getURL | nohting"
                        tal:condition="brain" 
-                       tal:attributes="href string:?getCategorieUids=${cat_uid}"
+                       tal:attributes="href string:?getCategoryUids=${cat_uid}"
                        class="categories" 
                        href="#" 
                        tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
@@ -52,6 +55,14 @@
         <p tal:content="here/Description" />
         
         <tal:block content="structure provider:zug.simplelayout.listing" />
+     </div>
+     <div class="rightColumn">
+        Call Portlet Manager
+        <tal:block replace="structure provider:blog.portlets" />
+     </div>
+     
+     <div class="visualClear">&nbsp;</div>
+     
   </metal:main-macro>
 </div>
 

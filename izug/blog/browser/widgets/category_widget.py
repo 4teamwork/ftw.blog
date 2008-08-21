@@ -20,8 +20,8 @@ class SitemapView(BrowserView):
         context = aq_inner(self.context)
         request = context.REQUEST
         
-        fieldName = request['fieldName']
-        uids = request['uids']
+        fieldName = request.get('fieldName',False)
+        uids = request.get('uids',False)
         
         view = getMultiAdapter((context, self.request),
                                name='category_widget_builder_view')
@@ -59,6 +59,11 @@ class SiteMapStructure(BrowserView):
         #some modifications for Izug.blog
         strategy.showAllParents = True
         strategy.excludedIds = {}
-        strategy.rootPath = '/'.join(context.aq_parent.getPhysicalPath()) + '/categories'
+        
+        #search for blogroot
+        bloglevel = context
+        while bloglevel.Type() != 'Blog':
+            bloglevel = bloglevel.aq_parent
+        strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + '/categories'
 
         return buildFolderTree(context, obj=context, query=query, strategy=strategy)

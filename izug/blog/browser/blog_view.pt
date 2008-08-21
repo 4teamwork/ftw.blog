@@ -8,23 +8,21 @@
 
 <body>
 
-    <div metal:fill-slot="main">
+    <div metal:fill-slot="main" class="blogEntryView">
     <metal:main-macro define-macro="main"
                       tal:define="kssClassesView context/@@kss_field_decorator_view;
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                                   templateId template/getId">
 
+      <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
+          Title or id
+      </h1>
+
+      <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+      <div class="leftColumn">
+
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-        <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
-            Title or id
-        </h1>
-
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-        <p metal:use-macro="here/kss_generic_macros/macros/generic_description_view">
-            Description
-        </p>
 
         <div tal:replace="structure provider:plone.abovecontentbody" />
 
@@ -97,7 +95,7 @@
                                  </tal:name>
                                     at 
                                  <span class="dateCreated"
-                                       tal:content="python:toLocalizedTime(item_created)"
+                                       tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
                                        i18n:name="created">from date</span> in 
                                  
                                  <tal:rep repeat="cat_uid item_categories">
@@ -106,7 +104,7 @@
                                                    brain_title brain/Title | nothing;
                                                    brain_url   brain/getURL | nohting"
                                        tal:condition="brain" 
-                                       tal:attributes="href string:?getCategorieUids=${cat_uid}"
+                                       tal:attributes="href string:?getCategoryUids=${cat_uid}"
                                        class="categories" 
                                        href="#" 
                                        tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
@@ -141,7 +139,11 @@
         </metal:listingmacro>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
-
+      </div>
+       <div class="rightColumn">
+          Call Portlet Manager
+          <tal:block replace="structure provider:blog.portlets" />
+       </div>
     </metal:main-macro>
     </div>
 

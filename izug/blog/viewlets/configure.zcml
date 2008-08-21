@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+
+
+    <browser:viewlet
+        view="..interfaces.IBlogView"
+        name="izug.blog.actionsbar"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.izugBlogActionsBar"
+        permission="zope2.View"
+        />
+
+
+    <browser:viewlet
+        view="..interfaces.IBlogEntryView"
+        name="izug.blog.actionsbar"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.izugBlogActionsBar"
+        permission="zope2.View"
+        />
+
+</configure>

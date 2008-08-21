@@ -9,6 +9,10 @@
         name="izug.blog.icons"
         directory="icons"
         /> 
+    <browser:resourceDirectory
+        name="izug.blog.css"
+        directory="stylesheets"
+        />
 
    <browser:page
       for="*"

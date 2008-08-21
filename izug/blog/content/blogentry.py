@@ -33,8 +33,6 @@ schema = atapi.Schema((
         schemata='categorization',
         relationship='blog_categories'
     ),
-
-
 ))
 
 BlogEntrySchema = schema.copy() + ContentPageSchema.copy()
@@ -73,7 +71,7 @@ class BlogEntry(ContentPage):
         
         first_block = contents[0]
         block_text = first_block.getText()
-        teaser_text = len(block_text) > 200 and block_text[200:] + ' ...' or block_text
+        teaser_text = len(block_text) > 200 and block_text[:200] + ' ...' or block_text
         return teaser_text 
     
     
