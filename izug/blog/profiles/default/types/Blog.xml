@@ -15,10 +15,12 @@
   <property name="allowed_content_types">
     <element value="Blog Entry" />
     <element value="Blog Category"/>
+    <element value="Topic" />
   </property>
   <property name="allow_discussion">False</property>
-  <property name="default_view">base_view</property>
+  <property name="default_view">blog_view</property>
   <property name="view_methods">
+    <element value="blog_view" />
     <element value="base_view" />
   </property>
   <alias from="(Default)" to="(dynamic view)" />

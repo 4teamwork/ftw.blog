@@ -38,5 +38,12 @@
             factory=".widgets.category_widget.CategoryWidgetStrategy"
             provides="plone.app.layout.navigation.interfaces.INavtreeStrategy" />
 
+   <browser:page
+      for="*"
+      name="blog_view"
+      class=".views.BlogView"
+      permission="zope.Public"
+      template="blog_view.pt"
+      />  
 
 </configure>
