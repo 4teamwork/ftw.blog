@@ -9,11 +9,14 @@
                     item       node/item;
                     linkRemote python:item.getRemoteUrl and item.Creator != member_id;
                     isCurrent  node/currentItem;
-                    sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));"   
+                    sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));
+                    uid        node/uid"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
                          
-                    <span tal:replace="item/Title">Selected Item Title</span>
+                    <a tal:attributes="href string:./blog_view?getCategoryUids=${uid}"
+                       tal:content="item/Title">Selected Item Title</a>
+                    <span class="SubItems" tal:content="string:(${node/count_refs})" />
 
         <ul tal:attributes="class python:'navTree navTreeLevel'+str(level);"
             tal:define="level python:level+1;"

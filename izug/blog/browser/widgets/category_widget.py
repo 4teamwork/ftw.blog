@@ -40,8 +40,10 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
     use default sitemap strategy
     """
     def decoratorFactory(self, node):
+        rc = getToolByName(self.context,'portal_catalog')
         oldnode = super(CategoryWidgetStrategy, self).decoratorFactory(node)
         oldnode['uid'] = node['item'].UID
+        oldnode['count_refs'] = len(rc({'portal_type':'Blog Entry','getCategoryUids': oldnode['uid']}))
         return oldnode 
 
 class SiteMapStructure(BrowserView):

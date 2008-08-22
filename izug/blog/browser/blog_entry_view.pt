@@ -43,7 +43,7 @@
                                    brain_title brain/Title | nothing;
                                    brain_url   brain/getURL | nohting"
                        tal:condition="brain" 
-                       tal:attributes="href string:?getCategoryUids=${cat_uid}"
+                       tal:attributes="href string:./blog_view?getCategoryUids=${cat_uid}"
                        class="categories" 
                        href="#" 
                        tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />

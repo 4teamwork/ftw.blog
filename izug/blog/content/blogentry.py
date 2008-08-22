@@ -53,7 +53,7 @@ class BlogEntry(ContentPage):
     
     #returns the category uid and the parent category uid
     def getCategoryUids(self):
-        cats = self.getCategories()
+        cats = aq_inner(self).getCategories()
         uids = [c.UID() for c in cats]
         parent_uids = []
         for pc in cats:

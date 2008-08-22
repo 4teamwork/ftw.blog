@@ -7,6 +7,7 @@
       i18n:domain="izug.blog">
 
 <body>
+    
 
     <div metal:fill-slot="main" class="blogEntryView">
     <metal:main-macro define-macro="main"
