@@ -1,6 +1,6 @@
 from Products.Five.browser import BrowserView
 from zope.interface import implements
-from izug.blog.interfaces import IBlogView, IBlogEntryView
+from izug.blog.interfaces import IBlogView, IBlogEntryView, IBlog
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from Acquisition import aq_inner
@@ -30,7 +30,7 @@ class BlogView(BrowserView):
             querystring = querystring and '?' + querystring or querystring
             
             level = context
-            while level.Type() not in ['Blog','Topic', 'Collection']:
+            while not IBlog.providedBy(bloglevel):
                 level = level.aq_parent
             
             url = level.absolute_url() + querystring

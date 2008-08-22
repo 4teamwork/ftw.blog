@@ -7,7 +7,8 @@ from Products.Five import BrowserView
 
 from Products.CMFPlone.browser.interfaces import ISitemapView
 
-from izug.blog.interfaces import ICategoryWidget
+from izug.blog.interfaces import ICategoryWidget, IBlog
+
 
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
@@ -64,7 +65,7 @@ class SiteMapStructure(BrowserView):
         
         #search for blogroot
         bloglevel = context
-        while bloglevel.Type() != 'Blog':
+        while not IBlog.providedBy(bloglevel):
             bloglevel = bloglevel.aq_parent
         strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + '/categories'
 
