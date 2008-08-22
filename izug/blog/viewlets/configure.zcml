@@ -22,4 +22,12 @@
         permission="zope2.View"
         />
 
+    <browser:viewlet
+        view="..interfaces.IBlogEntryView"
+        name="izug.blog.navigation"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.izugBlogNavigation"
+        permission="zope2.View"
+        />
+
 </configure>

@@ -1,0 +1,14 @@
+<div class="blogNavigation"
+     tal:define="next view/next;
+                 prev view/prev">
+
+    <a class="prevLink" 
+       tal:condition="prev"
+       tal:attributes="href prev/url" 
+       tal:content="string:< ${prev/title}" />
+    <a class="nextLink" 
+       tal:condition="next"
+       tal:attributes="href next/url" 
+       tal:content="string: ${next/title} >" />
+
+</div>

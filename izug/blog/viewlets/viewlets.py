@@ -26,3 +26,38 @@ class izugBlogActionsBar(ViewletBase):
         # provides that marker, we should do it here as well.
         if IViewView.providedBy(self.__parent__):
             alsoProvides(self, IViewView)
+            
+            
+class izugBlogNavigation(ViewletBase):
+    render = ViewPageTemplateFile('izug_blog_navigation.pt')
+    
+    def update(self):
+        context = aq_inner(self.context)
+        parent = context.aq_parent
+        catalog = getToolByName(context,'portal_catalog')
+
+        query = {}
+        query['portal_type'] = 'Blog Entry'
+        query['sort_on'] = 'created'
+        query['path'] = '/'.join(parent.getPhysicalPath())
+        results = catalog(query)
+
+        uids = [b.UID for b in results]
+        current_uid = context.UID()
+        current_index = uids.index(current_uid)
+        #we have to convert the new indexes to strings, otherwhise this two lines blow will no work correctly
+        prev_index = current_index != 0 and str(current_index - 1) or False
+        next_index = current_index != len(uids)-1 and str(current_index+1) or False
+        
+        if prev_index:
+            prev = dict(title=self.cropTitle(results[int(prev_index)].Title),
+                        url = results[int(prev_index)].getURL())
+        if next_index:
+            next = dict(title=self.cropTitle(results[int(next_index)].Title),
+                        url = results[int(next_index)].getURL())
+        self.prev = prev_index and prev
+        self.next = next_index and next
+            
+    def cropTitle(self,title):
+        return len(title) > 20 and title[:20] + '... ' or title
+        
