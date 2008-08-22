@@ -13,7 +13,15 @@
         renderer=".categories.Renderer"
         addview=".categories.AddForm"
         />
-        
+
+    <plone:portlet
+        name="blog.tags.portlet"
+        interface=".tags.ITagsPortlet"
+        assignment=".tags.Assignment"
+        renderer=".tags.Renderer"
+        addview=".tags.AddForm"
+        editview=".tags.EditForm"
+        />        
         
     <browser:page
         for="plone.portlets.interfaces.ILocalPortletAssignable"

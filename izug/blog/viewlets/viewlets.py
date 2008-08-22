@@ -5,6 +5,7 @@ from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
 from plone.app.layout.globals.interfaces import IViewView 
 from zope.interface import implements, alsoProvides
+from plone.app.layout.viewlets.comments import CommentsViewlet
 
 class izugBlogActionsBar(ViewletBase):
     render = ViewPageTemplateFile('izug_blog_actionsbar.pt')
@@ -61,3 +62,5 @@ class izugBlogNavigation(ViewletBase):
     def cropTitle(self,title):
         return len(title) > 20 and title[:20] + '... ' or title
         
+class CommentsViewlet(CommentsViewlet):
+    render = ViewPageTemplateFile('izug_comments.pt')

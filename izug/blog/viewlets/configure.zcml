@@ -30,4 +30,14 @@
         permission="zope2.View"
         />
 
+    <!-- overwrite comments -->
+    <browser:viewlet
+        name="plone.comments"
+        view="..interfaces.IBlogEntryView"
+        for="Products.CMFCore.interfaces.IContentish"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        class=".viewlets.CommentsViewlet"
+        permission="zope2.View"
+        />
+
 </configure>

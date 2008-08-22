@@ -70,6 +70,7 @@
                                        item_end item/end/ISO|item/EndDate|nothing;
                                        item_categories item/getCategoryUids | nothing;
                                        item_teaser_text item/getTeaserText | nothing;
+                                       item_tags item/getTags |nothing;
                                    ">
 
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='Blog Entry'">
@@ -114,7 +115,12 @@
                             </span>
                         </span>
                         <div class="teaserText" 
-                              tal:content="structure item_teaser_text"/>
+                              tal:content="structure item_teaser_text">
+                        </div>
+                        
+                        <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
+                            TagListing
+                        </div>
 
                     </div>
 
@@ -142,7 +148,6 @@
         <div tal:replace="structure provider:plone.belowcontentbody" />
       </div>
        <div class="rightColumn">
-          Call Portlet Manager
           <tal:block replace="structure provider:blog.portlets" />
        </div>
     </metal:main-macro>

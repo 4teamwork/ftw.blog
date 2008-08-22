@@ -55,9 +55,21 @@
         <p tal:content="here/Description" />
         
         <tal:block content="structure provider:zug.simplelayout.listing" />
+        
+        <tal:def define="item_tags here/getTags">
+            <div class="Tags" metal:define-macro="taglisting">
+             <tal:rep repeat="tag item_tags">
+                <a tal:define="tag_url string: ./blog_view?getTags=${tag} | nohting"
+                   tal:condition="tag" 
+                   tal:attributes="href tag_url"
+                   class="TagsItem" 
+                   href="#" 
+                   tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
+             </tal:rep>
+            </div>
+        </tal:def>        
      </div>
      <div class="rightColumn">
-        Call Portlet Manager
         <tal:block replace="structure provider:blog.portlets" />
      </div>
      
