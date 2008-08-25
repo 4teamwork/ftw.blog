@@ -13,7 +13,8 @@
     <dd class="portletItem">
     
         <tal:rep repeat="tag tags">
-            <span tal:attributes="style string:font-size:${tag/fontsize}em;"
+            <a tal:attributes="style string:font-size:${tag/fontsize}em;
+                                href string:./blog_view?getTags=${tag/title}"
                   tal:content="tag/title" />
         </tal:rep>
     </dd>

@@ -23,6 +23,7 @@ class BlogView(BrowserView):
 
     def __call__(self):
         context = aq_inner(self.context).aq_explicit
+        
         if context.Type() in ['Blog','Topic', 'Collection']:
             return self.template()
         else:
@@ -30,7 +31,7 @@ class BlogView(BrowserView):
             querystring = querystring and '?' + querystring or querystring
             
             level = context
-            while not IBlog.providedBy(bloglevel):
+            while not IBlog.providedBy(level):
                 level = level.aq_parent
             
             url = level.absolute_url() + querystring

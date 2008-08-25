@@ -76,6 +76,7 @@ class Renderer(base.Renderer):
                             fontsize=round(size,1))
                 tagclouds.append(info)
             
+            tagclouds.sort(lambda x, y: cmp(x['title'], y['title']))
             self.tagclouds = tagclouds
         else:
             self.tagclouds = []
