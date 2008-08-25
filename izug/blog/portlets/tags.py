@@ -67,8 +67,10 @@ class Renderer(base.Renderer):
                 numberofblogs = len(catalog(query))
                 
                 #calc tagclouds --> http://de.wikipedia.org/wiki/TagCloud
-                size = float((maxsize*(numberofblogs-minimal)))/float((maximal-minimal))
-                
+                try:
+                    size = float((maxsize*(numberofblogs-minimal)))/float((maximal-minimal))
+                except ZeroDivisionError:
+                    size = 1
                 if numberofblogs <= minimal or size < minsize:
                     size = float(self.data.minsize)
                 
