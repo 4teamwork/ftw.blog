@@ -15,7 +15,7 @@
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                                   templateId template/getId">
 
-      <h1 metal:use-macro="here/kss_generic_macros/macros/generic_title_view">
+      <h1 tal:content="here/Title">
           Title or id
       </h1>
 

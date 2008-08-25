@@ -50,4 +50,19 @@
       template="blog_view.pt"
       />  
 
+   <browser:page
+      for="*"
+      name="create_blog_entry_path"
+      class=".views.createBlogEntryPath"
+      permission="zope2.View"
+      />  
+
+   <browser:page
+      for="*"
+      name="blog-settings"
+      class=".views.BlogSettings"
+      permission="cmf.ManagePortal"
+      template="blog_settings.pt"
+      />  
+
 </configure>

@@ -6,7 +6,7 @@
   <object name="new_entry" meta_type="CMF Action" i18n:domain="izug.blog">
    <property name="title" i18n:translate="">New Blog Entry</property>
    <property name="description" i18n:translate=""></property>
-   <property name="url_expr">string:./blog_view/createObject?type_name=Blog+Entry</property>
+   <property name="url_expr">nocall:here/@@create_blog_entry_path/URL</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
   </object>
@@ -17,6 +17,23 @@
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
   </object>
+ </object>
 
+ <object name="blog_settings_actions" meta_type="CMF Action Category">
+  <property name="title"></property>
+  <object name="new_entry" meta_type="CMF Action" i18n:domain="izug.blog">
+   <property name="title" i18n:translate="">Manage Blog Portlets</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">string:./@@manage-blog-portlets</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+  </object>
+  <object name="blog_settings" meta_type="CMF Action" i18n:domain="izug.blog">
+   <property name="title" i18n:translate="">Manage Categories</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">nocall:here/@@blog-settings/categoriesUrl</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+  </object>
  </object>
 </object>

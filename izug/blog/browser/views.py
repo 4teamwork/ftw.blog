@@ -9,8 +9,12 @@ from Products.CMFCore.utils import getToolByName
 
 class BlogEntryView(BrowserView):
     implements(IBlogEntryView)
-    """
-    """
+
+    def BlogTitle(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return level.Title()
     
 class BlogView(BrowserView):
     implements(IBlogView)
@@ -36,3 +40,30 @@ class BlogView(BrowserView):
             
             url = level.absolute_url() + querystring
             self.context.REQUEST.RESPONSE.redirect(url)
+            
+            
+class createBlogEntryPath(BrowserView):
+
+    def URL(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return '%s/createObject?type_name=Blog+Entry' % level.absolute_url()
+
+
+class BlogSettings(BrowserView):
+    def objectActions(self):
+        context = aq_inner(self.context)
+        context_state = getMultiAdapter((context, self.request),
+                                        name=u'plone_context_state')
+
+        return context_state.actions().get('blog_settings_actions', [])
+        
+    def categoriesUrl(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return '%s/categories' % level.absolute_url()
+
+
+    

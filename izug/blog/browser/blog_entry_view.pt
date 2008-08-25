@@ -10,11 +10,15 @@
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-      <h1 tal:content="here/Title" />
+      <h1 tal:content="view/BlogTitle" />
 
       <div tal:replace="structure provider:plone.belowcontenttitle" />
 
       <div class="leftColumn">
+
+        <span class="title">
+           <h2 tal:content="here/Title" />
+        </span>
 
         <span class="documentByLine"
               tal:define="item_creator here/Creator;
