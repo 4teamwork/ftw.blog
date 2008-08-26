@@ -9,6 +9,12 @@ from Products.CMFCore.utils import getToolByName
 
 class BlogEntryView(BrowserView):
     implements(IBlogEntryView)
+    template=ViewPageTemplateFile("blog_entry_view.pt")
+    
+    def __call__(self):
+        context = aq_inner(self.context).aq_explicit
+        context.REQUEST.set('disable_border',1)
+        return self.template()
     
 class BlogView(BrowserView):
     implements(IBlogView)
@@ -21,6 +27,9 @@ class BlogView(BrowserView):
 
     def __call__(self):
         context = aq_inner(self.context).aq_explicit
+        
+        #hide the green contentmenu-bar
+        context.REQUEST.set('disable_border',1)
         
         if context.Type() in ['Blog','Topic', 'Collection']:
             return self.template()
@@ -59,5 +68,15 @@ class BlogSettings(BrowserView):
             level = level.aq_parent
         return '%s/categories' % level.absolute_url()
 
+    def managePortletUrl(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return '%s/@@manage-blog-portlets' % level.absolute_url()
 
+    def editBlog(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return '%s/edit' % level.absolute_url()
     
