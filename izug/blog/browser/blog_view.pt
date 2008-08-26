@@ -9,23 +9,17 @@
 <body>
     
 
-    <div metal:fill-slot="main" class="blogEntryView">
+    <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main"
                       tal:define="kssClassesView context/@@kss_field_decorator_view;
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                                   templateId template/getId">
 
-      <h1 tal:content="here/Title">
-          Title or id
-      </h1>
-
       <div tal:replace="structure provider:plone.belowcontenttitle" />
-
+        <div class="actionsSubBar"><!-- empty --></div>
+      
+      <div id="blogColumns" class="clearfix">
       <div class="leftColumn">
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
 
         <div metal:define-macro="text-field-view"
              id="parent-fieldname-text" class="stx"
@@ -75,12 +69,11 @@
 
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='Blog Entry'">
 
-                        <span class="title">
+                        <h2>
                             <a href="#"
-                               tal:attributes="href item_url">
-                               <h2 tal:content="item_title_or_id" />
-                            </a>
-                        </span>
+                               tal:attributes="href item_url"
+                               tal:content="item_title_or_id" />
+                        </h2>
 
                         <span class="documentByLine">
                             <span i18n:translate="label_blog_byline">

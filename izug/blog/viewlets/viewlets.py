@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.globals.interfaces import IViewView 
 from zope.interface import implements, alsoProvides
 from plone.app.layout.viewlets.comments import CommentsViewlet
+from izug.blog.interfaces import IBlog
 
 class izugBlogActionsBar(ViewletBase):
     render = ViewPageTemplateFile('izug_blog_actionsbar.pt')
@@ -28,6 +29,11 @@ class izugBlogActionsBar(ViewletBase):
         if IViewView.providedBy(self.__parent__):
             alsoProvides(self, IViewView)
             
+    def BlogTitle(self):
+        level = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(level):
+            level = level.aq_parent
+        return level.Title()
             
 class izugBlogNavigation(ViewletBase):
     render = ViewPageTemplateFile('izug_blog_navigation.pt')

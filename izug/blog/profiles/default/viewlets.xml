@@ -3,4 +3,8 @@
   <hidden manager="plone.belowcontenttitle" skinname="iZug Theme">
         <viewlet name="plone.belowcontenttitle.documentbyline" />
   </hidden>
+  <hidden manager="plone.belowcontent" skinname="iZug Theme">
+        <viewlet name="plone.comments" />
+  </hidden>
+
 </object>

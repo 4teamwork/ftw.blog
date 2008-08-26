@@ -1,19 +1,1 @@
-div.blogView,
-div.blogEntryView {
-  float:left;
-}
-
-div.blogView div.leftColumn,
-div.blogEntryView div.leftColumn{
-  float:left;
-  width:47em;
-
-}
-
-div.blogView div.rightColumn,
-div.blogEntryView div.rightColumn{
-  float:left;
-  width:24.5em;
-
-}
 

@@ -10,58 +10,53 @@
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-      <h1 tal:content="view/BlogTitle" />
 
       <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-      <div class="leftColumn">
-
-        <span class="title">
+      
+      <div id="blogColumns" class="clearfix">
+        <div class="leftColumn">
            <h2 tal:content="here/Title" />
-        </span>
-
-        <span class="documentByLine"
-              tal:define="item_creator here/Creator;
-                          item_created here/CreationDate;
-                          item_categories here/getCategoryUids;">
-            <span i18n:translate="label_blog_byline">
-
-                <tal:name tal:condition="item_creator"
-                    tal:define="author python:mtool.getMemberInfo(item_creator)">
-                  <span i18n:translate="label_by_author">
-                      <span tal:content="python:author and author['fullname'] or item_creator"
-                            tal:omit-tag="not:author"
-                            i18n:name="author">
-                        Bob Dobalina
-                      </span>
-                  </span>
-                 </tal:name>
-                    at 
-                 <span class="dateCreated"
-                       tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
-                       i18n:name="created">from date</span> in 
-                 
-                 <tal:rep repeat="cat_uid item_categories">
-                    <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
-                                   brain       python:len(cat_brains) and cat_brains[0] or False;
-                                   brain_title brain/Title | nothing;
-                                   brain_url   brain/getURL | nohting"
-                       tal:condition="brain" 
-                       tal:attributes="href string:./blog_view?getCategoryUids=${cat_uid}"
-                       class="categories" 
-                       href="#" 
-                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+           <span class="documentByLine"
+                 tal:define="item_creator here/Creator;
+                             item_created here/CreationDate;
+                             item_categories here/getCategoryUids;">
+               <span i18n:translate="label_blog_byline">
+                    <tal:name tal:condition="item_creator"
+                       tal:define="author python:mtool.getMemberInfo(item_creator)">
+                     <span i18n:translate="label_by_author">
+                         <span tal:content="python:author and author['fullname'] or item_creator"
+                               tal:omit-tag="not:author"
+                               i18n:name="author">
+                           Bob Dobalina
+                         </span>
+                     </span>
+                    </tal:name>
+                       at 
+                    <span class="dateCreated"
+                          tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
+                          i18n:name="created">from date</span> in 
                     
-                 </tal:rep>
-            </span>
-        </span>
+                    <tal:rep repeat="cat_uid item_categories">
+                       <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                                      brain       python:len(cat_brains) and cat_brains[0] or False;
+                                      brain_title brain/Title | nothing;
+                                      brain_url   brain/getURL | nohting"
+                          tal:condition="brain" 
+                          tal:attributes="href string:./blog_view?getCategoryUids=${cat_uid}"
+                          class="categories" 
+                          href="#" 
+                          tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+                       
+                    </tal:rep>
+               </span>
+           </span>
 
         <p tal:content="here/Description" />
         
         <tal:block content="structure provider:zug.simplelayout.listing" />
         
         <tal:def define="item_tags here/getTags">
-            <div class="Tags" metal:define-macro="taglisting">
+            <div class="tags" metal:define-macro="taglisting">
              <tal:rep repeat="tag item_tags">
                 <a tal:define="tag_url string: ./blog_view?getTags=${tag}"
                    tal:condition="tag" 
@@ -71,13 +66,14 @@
                    tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
              </tal:rep>
             </div>
-        </tal:def>        
+        </tal:def>
+        
+     <tal:block replace="structure provider:blog.belowcontent" />
      </div>
      <div class="rightColumn">
-        <tal:block replace="structure provider:blog.portlets" />
+         <tal:block replace="structure provider:blog.portlets" />
      </div>
      
-     <div class="visualClear">&nbsp;</div>
      
   </metal:main-macro>
 </div>

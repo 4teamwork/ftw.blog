@@ -32,12 +32,18 @@
 
     <!-- overwrite comments -->
     <browser:viewlet
-        name="plone.comments"
+        name="blog.comments"
         view="..interfaces.IBlogEntryView"
-        for="Products.CMFCore.interfaces.IContentish"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+        manager="..interfaces.IBlogBelowContent"
         class=".viewlets.CommentsViewlet"
         permission="zope2.View"
         />
+        
+	<browser:viewletManager
+	    name="blog.belowcontent"
+	    provides="..interfaces.IBlogBelowContent"
+	    permission="zope2.View"
+	    class="plone.app.viewletmanager.manager.OrderedViewletManager"
+	    />
 
 </configure>

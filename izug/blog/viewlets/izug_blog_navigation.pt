@@ -1,14 +1,22 @@
-<div class="blogNavigation"
+<div class="actionsSubBar"
      tal:define="next view/next;
                  prev view/prev">
+  <div class="blogNavigation clearfix">
+    <ul>
+      <li class="backward">
+        <a tal:condition="prev"
+           tal:attributes="href prev/url;
+                           title prev/title" 
+           tal:content="prev/title" />
+      </li>
+      <li class="forward">
+        <a tal:condition="next"
+           tal:attributes="href next/url;
+                           title next/title" 
+           tal:content="next/title" />
 
-    <a class="prevLink" 
-       tal:condition="prev"
-       tal:attributes="href prev/url" 
-       tal:content="string:< ${prev/title}" />
-    <a class="nextLink" 
-       tal:condition="next"
-       tal:attributes="href next/url" 
-       tal:content="string: ${next/title} >" />
-
+      </li>
+    </ul>
+  </div>
 </div>
+

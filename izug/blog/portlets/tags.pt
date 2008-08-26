@@ -1,6 +1,6 @@
-<tal:block i18n:domain="izug.blog"
-           define="tags view/tagclouds">
-<dl class="portlet portletBlogCategory">
+<div class="portletWrapper" i18n:domain="izug.blog"
+           tal:define="tags view/tagclouds">
+<dl class="portlet portletTagcloud clearfix">
 
     <dt class="portletHeader">
         <span class="portletTopLeft"/>
@@ -10,15 +10,12 @@
         <span class="portletTopRight"/>
     </dt>
 
-    <dd class="portletItem">
-    
-        <tal:rep repeat="tag tags">
-            <a tal:attributes="style string:font-size:${tag/fontsize}em;
-                                href string:./blog_view?getTags=${tag/title}"
-                  tal:content="tag/title" />
-        </tal:rep>
+    <dd tal:repeat="tag tags" class="portletItem">
+      <a tal:attributes="style string:font-size:${tag/fontsize}em;
+                         href string:./blog_view?getTags=${tag/title}"
+         tal:content="tag/title" />
     </dd>
 
 </dl>
 
-</tal:block>
+</div>

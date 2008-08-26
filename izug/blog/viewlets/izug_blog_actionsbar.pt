@@ -1,32 +1,25 @@
-<div class="actionsBar">
-
-    <span class="searchForm">
-        <form method="get" action="./blog_view">
-            <input type="text" name="searchable_text" />
-            <input type="submit" name="search_blog" value="Search the Blog" />
+<div class="actionsBar clearfis">
+    <h1 tal:content="view/BlogTitle" />
+    <div class="actionsBarContent clearfix">
+        <form method="get" action="./blog_view" class="searchForm clearfix">
+            <input type="text" name="searchable_text" class="text" />
+            <input type="submit" name="search_blog" value="Search the Blog" class="submit" />
         </form>
-    </span>
+        <tal:docactions tal:condition="view/object_actions">
+        <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
 
-    <tal:docactions tal:condition="view/object_actions">
-    <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
-
-    <ul class="blogActions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
-
-    <tal:actions repeat="daction view/object_actions">
-        <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-            <a href=""
-               tal:attributes="href daction/url;
-                               title daction/description"
-               tal:content="daction/title">
-                
-                </a>
-        </li>
-    </tal:actions>
-
-    </ul>
-
-    </tal:docactions>
-
-
-
+        <ul class="blogActions clearfix" tal:define="normalizeString nocall: context/@@plone/normalizeString">
+        <tal:actions repeat="daction view/object_actions">
+            <li tal:attributes="id python:'document-action-' + normalizeString(daction['id']);
+                                class python:not repeat['daction'].end and 'divider' or ''">
+                <a href=""
+                   tal:attributes="href daction/url;
+                                   title daction/description"
+                   tal:content="daction/title">
+                    </a>
+            </li>
+        </tal:actions>
+        </ul>
+        </tal:docactions>
+    </div>
 </div>

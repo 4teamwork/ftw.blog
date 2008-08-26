@@ -1,23 +1,19 @@
-<tal:block i18n:domain="izug.blog">
-<dl class="portlet portletBlogCategory">
+<div class="portletWrapper" i18n:domain="izug.blog">
+<dl class="portlet portletBlogCategory clearfix">
 
     <dt class="portletHeader">
-        <span class="portletTopLeft"/>
         <span i18n:translate="">
            Categories
         </span>
-        <span class="portletTopRight"/>
     </dt>
 
     <dd class="portletItem">
-            <ul id="classification-tree"
-                class="navTreeLevel0 visualNoMarker"
-                tal:define="view context/@@category_portlet_view;">
+            <tal:block define="view context/@@category_portlet_view;">
                 <tal:sitemap replace="structure view/createSiteMap" />
-            </ul>
+            </tal:block>
         
     </dd>
 
 </dl>
 
-</tal:block>
+</div>

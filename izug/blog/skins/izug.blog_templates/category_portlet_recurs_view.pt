@@ -4,7 +4,7 @@
                     
   <metal:main define-macro="nav_main">
     <tal:navitem repeat="node children">
-    <li class="classificationItem"
+    <tal:def 
         tal:define="children   node/children;
                     item       node/item;
                     linkRemote python:item.getRemoteUrl and item.Creator != member_id;
@@ -13,17 +13,17 @@
                     uid        node/uid"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
-                         
+        <dd class="portletItem">                         
                     <a tal:attributes="href string:./blog_view?getCategoryUids=${uid}"
-                       tal:content="item/Title">Selected Item Title</a>
-                    <span class="SubItems" tal:content="string:(${node/count_refs})" />
+                       tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
+        </dd>
 
-        <ul tal:attributes="class python:'navTree navTreeLevel'+str(level);"
-            tal:define="level python:level+1;"
+
+        <dl tal:define="level python:level+1;"
             tal:condition="nocall:children">
             <metal:recurse use-macro="here/category_portlet_recurs_view/macros/nav_main"/>
-        </ul>
-    </li>
+        </dl>
+    </tal:def>
     </tal:navitem>
 
   </metal:main>

@@ -9,12 +9,6 @@ from Products.CMFCore.utils import getToolByName
 
 class BlogEntryView(BrowserView):
     implements(IBlogEntryView)
-
-    def BlogTitle(self):
-        level = aq_inner(self.context).aq_explicit
-        while not IBlog.providedBy(level):
-            level = level.aq_parent
-        return level.Title()
     
 class BlogView(BrowserView):
     implements(IBlogView)
