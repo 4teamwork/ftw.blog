@@ -7,6 +7,7 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 
+
 from izug.blog import blogMessageFactory as _
 from izug.blog.interfaces import IBlogEntry
 from izug.blog.config import PROJECTNAME
@@ -23,6 +24,7 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import Reference
 schema = atapi.Schema((
     atapi.ReferenceField(
         name='categories',
+        required=True,
         widget=ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,
@@ -52,7 +54,19 @@ schema = atapi.Schema((
 
 BlogEntrySchema = schema.copy() + ContentPageSchema.copy()
 
-schemata.finalizeATCTSchema(BlogEntrySchema, folderish=True, moveDiscussion=False)
+#hide some fields
+if BlogEntrySchema.has_key('subject'):
+    BlogEntrySchema['subject'].widget.visible = -1
+if BlogEntrySchema.has_key('location'):
+    BlogEntrySchema['location'].widget.visible = -1
+if BlogEntrySchema.has_key('language'):
+    BlogEntrySchema['language'].widget.visible = -1
+
+#move schemata  
+ms = atapi.ManagedSchema(BlogEntrySchema.fields())
+ms.moveSchemata('default',-1)
+
+schemata.finalizeATCTSchema(ms, folderish=True, moveDiscussion=False)
 
 #inherid from izug.contentpage
 
@@ -61,7 +75,7 @@ class BlogEntry(ContentPage):
     implements(IBlogEntry)
 
     portal_type = "Blog Entry"
-    schema = BlogEntrySchema
+    schema = ms
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
