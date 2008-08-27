@@ -3,11 +3,9 @@
 <dl class="portlet portletTagcloud clearfix">
 
     <dt class="portletHeader">
-        <span class="portletTopLeft"/>
         <span i18n:translate="">
            TagCloud
         </span>
-        <span class="portletTopRight"/>
     </dt>
 
     <dd tal:repeat="tag tags" class="portletItem">
