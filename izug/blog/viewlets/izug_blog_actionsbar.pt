@@ -14,8 +14,10 @@
                                 class python:not repeat['daction'].end and 'divider' or ''">
                 <a href=""
                    tal:attributes="href daction/url;
-                                   title daction/description"
-                   tal:content="daction/title">
+                                   title daction/description">
+				<img src="" alt=""
+					 tal:attributes="src python: daction.has_key('icon') and daction['icon'] or '';
+					 				 alt daction/title" />
                     </a>
             </li>
         </tal:actions>
