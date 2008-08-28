@@ -74,9 +74,13 @@ class izugBlogListNavigation(ViewletBase):
     def update(self):
         catalog = getToolByName(self.context,'portal_catalog')
 
+        bloglevel = aq_inner(self.context).aq_explicit
+        while not IBlog.providedBy(bloglevel):
+            bloglevel = bloglevel.aq_parent
+
         query = {}
         query['portal_type'] = 'Blog Entry'
-        query['path'] = '/'.join(aq_inner(self.context).getPhysicalPath())
+        query['path'] = '/'.join(bloglevel.getPhysicalPath())
         allItems = len(catalog(query))
 
 

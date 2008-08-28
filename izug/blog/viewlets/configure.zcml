@@ -37,6 +37,13 @@
         class=".viewlets.izugBlogListNavigation"
         permission="zope2.View"
         />
+    <browser:viewlet
+        view="..interfaces.IBlogView"
+        name="izug.bloglist.navigation"
+        manager="..interfaces.IBlogBelowContent"
+        class=".viewlets.izugBlogListNavigation"
+        permission="zope2.View"
+        />
 
     <!-- overwrite comments -->
     <browser:viewlet
