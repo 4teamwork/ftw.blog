@@ -27,12 +27,25 @@ class BlogView(BrowserView):
 
     def __call__(self):
         context = aq_inner(self.context).aq_explicit
-        
+        req = context.REQUEST
         #hide the green contentmenu-bar
-        context.REQUEST.set('disable_border',1)
+        req.set('disable_border',1)
         
-        if context.Type() in ['Blog','Topic', 'Collection']:
+        
+        if context.Type() == 'Collection':
             return self.template()
+        elif context.Type() == 'Blog':
+            #set some default blog query options
+            req.set('sort_on','created')
+            req.set('sort_order','reverse')
+            req.set('portal_type','Blog Entry')
+            limit_display = req.get('limit_display',5)
+            req.set('limit_display',limit_display)
+            b_start = req.get('b_start',0)
+            req.set('b_start',b_start)
+
+            return self.template()
+            
         else:
             querystring = context.REQUEST.get('QUERY_STRING','')
             querystring = querystring and '?' + querystring or querystring

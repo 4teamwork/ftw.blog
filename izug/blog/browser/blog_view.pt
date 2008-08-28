@@ -16,21 +16,9 @@
                                   templateId template/getId">
 
       <div tal:replace="structure provider:plone.belowcontenttitle" />
-        <div class="actionsSubBar"><!-- empty --></div>
       
       <div id="blogColumns" class="clearfix">
       <div class="leftColumn">
-
-        <div metal:define-macro="text-field-view"
-             id="parent-fieldname-text" class="stx"
-             tal:define="kss_class python:getKssClasses('text',
-                         templateId=templateId, macro='text-field-view');
-                         text here/getText|nothing"
-             tal:condition="text"
-             tal:attributes="class python:test(here.Format() in ('text/structured',
-                                                   'text/x-rst', ), 'stx' + kss_class, 'plain' + kss_class)">
-            <div metal:define-slot="inside" tal:replace="structure text">The body</div>
-        </div>
 
         <metal:listingmacro define-macro="listing">
         <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
@@ -69,10 +57,14 @@
 
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='Blog Entry'">
 
-                        <h2>
+                        <h2 class="clearfix">
                             <a href="#"
-                               tal:attributes="href item_url"
+                               tal:attributes="href item_url;
+                                               title item_title_or_id"
                                tal:content="item_title_or_id" />
+                            <a tal:attributes="href string:${item_url}/edit" title="Beitrag bearbeiten" class="edit">
+                            <img tal:attributes="src string:++resource++izug.theme.images/icon_edit.gif"/>
+                            </a>
                         </h2>
 
                         <span class="documentByLine">
@@ -120,11 +112,7 @@
                 </tal:block>
                 </tal:entry>
             </div>
-            
-            <!-- Navigation -->
-            <tal:block condition="not:is_a_topic">
-                <div metal:use-macro="here/batch_macros/macros/navigation" />
-            </tal:block>
+
             
         </tal:listing>
         <metal:empty metal:define-slot="no_items_in_listing">

@@ -7,6 +7,7 @@ from plone.app.layout.globals.interfaces import IViewView
 from zope.interface import implements, alsoProvides
 from plone.app.layout.viewlets.comments import CommentsViewlet
 from izug.blog.interfaces import IBlog
+from izug.blog import blogMessageFactory as _
 
 class izugBlogActionsBar(ViewletBase):
     render = ViewPageTemplateFile('izug_blog_actionsbar.pt')
@@ -67,6 +68,47 @@ class izugBlogNavigation(ViewletBase):
             
     def cropTitle(self,title):
         return len(title) > 20 and title[:20] + '... ' or title
+
+class izugBlogListNavigation(ViewletBase):
+    render = ViewPageTemplateFile('izug_blog_navigation.pt')
+    def update(self):
+        catalog = getToolByName(self.context,'portal_catalog')
+
+        query = {}
+        query['portal_type'] = 'Blog Entry'
+        query['path'] = '/'.join(aq_inner(self.context).getPhysicalPath())
+        allItems = len(catalog(query))
+
+
+        b_start = int(self.context.REQUEST.get('b_start',0))
+        b_size = int(self.context.REQUEST.get('b_size',5))
+        b_size = aq_inner(self.context).Type() == 'Collection' and int(self.context.getItemCount()) or b_size
         
+        b_diff_prev = b_start + b_size
+        b_diff_next = b_start - b_size
+        
+        if b_diff_prev >= allItems:
+           prev_url = False
+        else:
+            querystring_prev = '?b_start=%s' % b_diff_prev
+            prev_url = aq_inner(self.context).absolute_url() + querystring_prev
+        
+        self.prev = prev_url and dict(title=_(u'Aeltere Eintraege'),url=prev_url) or False
+
+        if b_diff_next < 0:
+            next_url = False
+        else:
+            querystring_next = '?b_start=%s' % b_diff_next
+            next_url = aq_inner(self.context).absolute_url() + querystring_next
+            
+        self.next = next_url and dict(title=_(u'Neuere Eintraege'),url=next_url) or False
+
+
+
+        
+        
+
+
+
 class CommentsViewlet(CommentsViewlet):
     render = ViewPageTemplateFile('izug_comments.pt')
