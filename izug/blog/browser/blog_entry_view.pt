@@ -50,8 +50,6 @@
                     </tal:rep>
                </span>
            </span>
-
-        <p tal:content="here/Description" />
         
         <tal:block content="structure provider:zug.simplelayout.listing" />
         
