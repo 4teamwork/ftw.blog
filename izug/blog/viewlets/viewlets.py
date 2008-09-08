@@ -75,9 +75,15 @@ class izugBlogListNavigation(ViewletBase):
 
         blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
         bloglevel = blogutils.getBlogRoot(self.context)
+        
+        category = self.context.REQUEST.get('getCategoryUids','')
+        tags = self.context.REQUEST.get('getTags','')
+        extend_querystring = category and '&getCategoryUids=%s' % category or ''
+        extend_querystring += tags and '&getTags=%s' % tags or ''
 
         query = {}
         query['portal_type'] = 'Blog Entry'
+        query['getCategoryUids'] = category
         query['path'] = '/'.join(bloglevel.getPhysicalPath())
         allItems = len(catalog(query))
 
@@ -93,7 +99,7 @@ class izugBlogListNavigation(ViewletBase):
            prev_url = False
         else:
             querystring_prev = '?b_start=%s' % b_diff_prev
-            prev_url = aq_inner(self.context).absolute_url() + querystring_prev
+            prev_url = aq_inner(self.context).absolute_url() + querystring_prev + extend_querystring
         
         self.prev = prev_url and dict(title=_(u'Aeltere Eintraege'),url=prev_url) or False
 
@@ -101,7 +107,7 @@ class izugBlogListNavigation(ViewletBase):
             next_url = False
         else:
             querystring_next = '?b_start=%s' % b_diff_next
-            next_url = aq_inner(self.context).absolute_url() + querystring_next
+            next_url = aq_inner(self.context).absolute_url() + querystring_next + extend_querystring
             
         self.next = next_url and dict(title=_(u'Neuere Eintraege'),url=next_url) or False
 

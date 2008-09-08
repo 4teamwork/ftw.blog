@@ -10,8 +10,7 @@
 
 <tal:block 
     define="
-        syn context/portal_syndication; 
-        objectList python:list(syn.getSyndicatableContent(here))">
+        objectList python:here.queryCatalog()">
     <metal:block use-macro="context/rss_template/macros/master">
         <metal:block fill-slot="syndication">
             <syn:updatePeriod tal:content="python:syn.getUpdatePeriod(context) or default">hourly</syn:updatePeriod>

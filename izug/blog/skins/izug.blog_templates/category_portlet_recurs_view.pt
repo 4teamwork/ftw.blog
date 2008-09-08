@@ -16,9 +16,8 @@
 
         <dd class="portletItem" tal:define="showrss python:level == 0;
                                             member python:context.portal_membership.getAuthenticatedMember();
-                                            blog_root nocall:here/@@blog-root;
                                             rss_url string:${here/portal_url}/++dashboard++plone.dashboard2+${member/id}/+/portlets.rss;
-                                            rss_param string:?form.url=${blog_root}/rss_blog_view?getCategoryUids=${uid};
+                                            rss_param string:?form.url=${here/absolute_url}/rss_blog_view?getCategoryUids=${uid};
                                             rss_param_referer string:&referer=${here/portal_url}"> 
             <span class="rss clearfix" tal:omit-tag="not:showrss">                    
                     <a tal:attributes="href link_url"

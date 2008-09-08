@@ -31,7 +31,6 @@ class BlogView(BrowserView):
         req = context.REQUEST
         #hide the green contentmenu-bar
         req.set('disable_border',1)
-        rss = req.get('rss',0)
         querystring = context.REQUEST.get('QUERY_STRING','')
         querystring = querystring and '?' + querystring or querystring        
         
@@ -57,7 +56,11 @@ class BlogView(BrowserView):
             level = blogutils.getBlogRoot(context)
             
             url = level.absolute_url() + querystring
-            self.context.REQUEST.RESPONSE.redirect(url)
+            if not self.__name__ == 'rss_blog_view':
+                self.context.REQUEST.RESPONSE.redirect(url)
+            else:
+                url = level.absolute_url() + '/rss_blog_view' + querystring
+                self.context.REQUEST.RESPONSE.redirect(url)
             
         if self.__name__ == 'rss_blog_view':
             self.template=ViewPageTemplateFile("rss_blog_view.pt")
