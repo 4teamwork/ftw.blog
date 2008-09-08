@@ -49,6 +49,14 @@
       permission="zope.Public"
       template="blog_view.pt"
       />  
+      
+   <browser:page
+      for="*"
+      name="rss_blog_view"
+      class=".views.BlogView"
+      permission="zope.Public"
+      template="rss_blog_view.pt"
+      />  
 
    <browser:page
       for="*"

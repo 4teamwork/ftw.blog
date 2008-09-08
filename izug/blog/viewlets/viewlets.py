@@ -1,12 +1,12 @@
 from plone.app.layout.viewlets import ViewletBase
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility
 from Products.CMFCore.utils import getToolByName
 from plone.app.layout.globals.interfaces import IViewView 
 from zope.interface import implements, alsoProvides
 from plone.app.layout.viewlets.comments import CommentsViewlet
-from izug.blog.interfaces import IBlog
+from izug.blog.interfaces import IBlog, IBlogUtils
 from izug.blog import blogMessageFactory as _
 
 class izugBlogActionsBar(ViewletBase):
@@ -31,9 +31,8 @@ class izugBlogActionsBar(ViewletBase):
             alsoProvides(self, IViewView)
             
     def BlogTitle(self):
-        level = aq_inner(self.context).aq_explicit
-        while not IBlog.providedBy(level):
-            level = level.aq_parent
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        level = blogutils.getBlogRoot(self.context)
         return level.Title()
             
 class izugBlogNavigation(ViewletBase):
@@ -74,9 +73,8 @@ class izugBlogListNavigation(ViewletBase):
     def update(self):
         catalog = getToolByName(self.context,'portal_catalog')
 
-        bloglevel = aq_inner(self.context).aq_explicit
-        while not IBlog.providedBy(bloglevel):
-            bloglevel = bloglevel.aq_parent
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        bloglevel = blogutils.getBlogRoot(self.context)
 
         query = {}
         query['portal_type'] = 'Blog Entry'

@@ -5,6 +5,12 @@
     i18n_domain="izug.blog">
 
     <five:registerPackage package="." initialize=".initialize" />
+    
+    <!-- first, we have register our utility -->
+    <utility
+     provides=".interfaces.IBlogUtils"
+     factory=".utility.BlogUtils"
+     name="izug.blog.utils" />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile

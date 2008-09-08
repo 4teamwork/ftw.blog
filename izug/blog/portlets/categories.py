@@ -10,6 +10,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone import PloneMessageFactory as _
 from zope.component import getMultiAdapter, queryMultiAdapter, getUtility
 from Products.CMFPlone.browser.interfaces import ISitemapView
+from izug.blog.interfaces import IBlogUtils
 
 class ICategoriesPortlet(IPortletDataProvider):
     """
@@ -25,8 +26,6 @@ class Renderer(base.Renderer):
     def __init__(self, context, request, view, manager, data):
         self.context = context
         self.data = data
-
-       
         
     render = ViewPageTemplateFile('categories.pt')
 
@@ -54,3 +53,8 @@ class CategoryPortletSitemapView(BrowserView):
         # XXX: The recursion should probably be done in python code
         return context.category_portlet_recurs_view(children=data.get('children',[]),
                                              level=0, bottomLevel=0)
+                                             
+class BlogRoot(BrowserView):
+    def __call__(self):
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        return blogutils.getBlogRoot(self.context).absolute_url()

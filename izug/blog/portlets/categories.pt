@@ -8,8 +8,8 @@
     </dt>
 
     <dd class="portletItem">
-            <tal:block define="view context/@@category_portlet_view;">
-                <tal:sitemap replace="structure view/createSiteMap" />
+            <tal:block define="sitemap context/@@category_portlet_view">
+                <tal:sitemap replace="structure sitemap/createSiteMap" />
             </tal:block>
         
     </dd>

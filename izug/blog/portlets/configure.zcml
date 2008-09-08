@@ -37,5 +37,12 @@
         name="category_portlet_view"
         permission="zope.Public"
     />
+    
+    <browser:page
+        for="*"
+        class=".categories.BlogRoot"
+        name="blog-root"
+        permission="zope.Public"
+    />
 
 </configure>

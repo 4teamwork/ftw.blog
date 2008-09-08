@@ -1,5 +1,5 @@
 from Acquisition import aq_inner
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter,getUtility
 from zope.interface import implements
 
 from Products.CMFCore.utils import getToolByName
@@ -7,7 +7,7 @@ from Products.Five import BrowserView
 
 from Products.CMFPlone.browser.interfaces import ISitemapView
 
-from izug.blog.interfaces import ICategoryWidget, IBlog
+from izug.blog.interfaces import ICategoryWidget, IBlog, IBlogUtils
 
 
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
@@ -63,10 +63,10 @@ class SiteMapStructure(BrowserView):
         strategy.showAllParents = True
         strategy.excludedIds = {}
         
-        #search for blogroot
-        bloglevel = context
-        while not IBlog.providedBy(bloglevel):
-            bloglevel = bloglevel.aq_parent
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        bloglevel = blogutils.getBlogRoot(context)
+            
+            
         strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + '/categories'
 
         return buildFolderTree(context, obj=context, query=query, strategy=strategy)

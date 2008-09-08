@@ -1,6 +1,6 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
-                    bottomLevel options/bottomLevel | nothing;">
+                    bottomLevel options/bottomLevel | nothing">
                     
   <metal:main define-macro="nav_main">
     <tal:navitem repeat="node children">
@@ -10,12 +10,25 @@
                     linkRemote python:item.getRemoteUrl and item.Creator != member_id;
                     isCurrent  node/currentItem;
                     sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));
-                    uid        node/uid"
+                    uid        node/uid;
+                    link_url   string:./blog_view?getCategoryUids=${uid};"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
-        <dd class="portletItem">                         
-                    <a tal:attributes="href string:./blog_view?getCategoryUids=${uid}"
+        <dd class="portletItem" tal:define="showrss python:level == 0;
+                                            member python:context.portal_membership.getAuthenticatedMember();
+                                            blog_root nocall:here/@@blog-root;
+                                            rss_url string:${here/portal_url}/++dashboard++plone.dashboard2+${member/id}/+/portlets.rss;
+                                            rss_param string:?form.url=${blog_root}/rss_blog_view?getCategoryUids=${uid};
+                                            rss_param_referer string:&referer=${request/ACTUAL_URL}"> 
+            <span class="rss clearfix" tal:omit-tag="not:showrss">                    
+                    <a tal:attributes="href link_url"
                        tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
+                    <a tal:condition="showrss"
+                       class="rssIcon" title="RSS Feed" href="#"
+                       tal:attributes="href string:${rss_url}${rss_param}${rss_param_referer}">
+                        <img alt="RSS" tal:attributes="src string:++resource++izug.theme.images/icon_rss.gif"/>
+                    </a>
+            </span>
         </dd>
 
 

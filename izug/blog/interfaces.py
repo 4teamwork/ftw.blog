@@ -9,7 +9,6 @@ from zope.viewlet.interfaces import IViewletManager
 
 from izug.blog import blogMessageFactory as _
 
-# -*- extra stuff goes here -*-
 
 class IBlogEntry(ISimpleLayoutContainer):
     """iZug Blog Entry"""
@@ -40,6 +39,11 @@ class IBlogPortlets(IPortletManager):
     
 class IBlogBelowContent(IViewletManager):
     """
+    """
+    
+class IBlogUtils(Interface):
+    """
+    provides Blog utilities
     """
 
 
