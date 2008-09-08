@@ -6,12 +6,26 @@ from zope.interface import implements, directlyProvides
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 from izug.blog import blogMessageFactory as _
 from izug.blog.interfaces import IBlog
 from izug.blog.config import PROJECTNAME
 
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
+
+    atapi.ReferenceField(
+        name='orgunit',
+        required=True,
+        widget=ReferenceBrowserWidget(
+            label=_('Organisation Unit'),
+            base_query={'portal_type': 'OrgUnit'},
+            force_close_on_insert=True,
+        ),
+        allowed_types=('OrgUnit',),
+        multiValued=False,
+        relationship='blog_orgunit'
+    ), 
 
     # -*- Your Archetypes field definitions here ... -*-
 
