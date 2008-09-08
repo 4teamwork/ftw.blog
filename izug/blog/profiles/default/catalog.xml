@@ -5,12 +5,15 @@
  </index> 
  <index name="getTags" meta_type="KeywordIndex">
   <indexed_attr value="getTags"/>
- </index> 
- 
+ </index>  
  <index name="getTeaserText" meta_type="FieldIndex">
   <indexed_attr value="getTeaserText"/>
  </index> 
-
+ <index name="InfosForArchiv" meta_type="FieldIndex">
+  <indexed_attr value="InfosForArchiv"/>
+ </index>
+ 
+ <column value="InfosForArchiv" />
  <column value="getCategoryUids" />
  <column value="getTeaserText" />
  <column value="getTags" />

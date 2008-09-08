@@ -54,7 +54,3 @@ class CategoryPortletSitemapView(BrowserView):
         return context.category_portlet_recurs_view(children=data.get('children',[]),
                                              level=0, bottomLevel=0)
                                              
-class BlogRoot(BrowserView):
-    def __call__(self):
-        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
-        return blogutils.getBlogRoot(self.context).absolute_url()

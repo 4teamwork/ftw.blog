@@ -17,6 +17,11 @@
    description="A portlet for izug blog, which shows the tagcloud.">
       <for interface="izug.blog.interfaces.IBlogPortlets" />      
    </portlet>
- 
+  <portlet 
+   addview="blog.archiv.portlet"
+   title="Blog Archiv Portlet"
+   description="A portlet for izug blog, which shows the tagcloud.">
+      <for interface="izug.blog.interfaces.IBlogPortlets" />      
+   </portlet> 
 </portlets>
 

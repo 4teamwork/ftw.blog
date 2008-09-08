@@ -78,12 +78,16 @@ class izugBlogListNavigation(ViewletBase):
         
         category = self.context.REQUEST.get('getCategoryUids','')
         tags = self.context.REQUEST.get('getTags','')
+        archiv = self.context.REQUEST.get('InfosForArchiv','')
         extend_querystring = category and '&getCategoryUids=%s' % category or ''
         extend_querystring += tags and '&getTags=%s' % tags or ''
+        extend_querystring += archiv and '&InfosForArchiv=%s' % archiv or ''
 
         query = {}
         query['portal_type'] = 'Blog Entry'
         query['getCategoryUids'] = category
+        query['getTags'] = tags
+        query['InfosForArchiv'] = archiv
         query['path'] = '/'.join(bloglevel.getPhysicalPath())
         allItems = len(catalog(query))
 

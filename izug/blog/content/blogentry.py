@@ -14,7 +14,7 @@ from izug.blog.config import PROJECTNAME
 from Acquisition import aq_inner
 from Products.AddRemoveWidget import AddRemoveWidget
 from Products.CMFCore.utils import getToolByName
-
+from DateTime import DateTime
 
 
 from izug.contentpage.content.contentpage import ContentPage, ContentPageSchema
@@ -89,7 +89,7 @@ class BlogEntry(ContentPage):
             puid = aq_inner(pc).aq_parent.UID()
             if puid not in parent_uids:
                 parent_uids.append(puid)
-                
+                DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
     
     #returns teaser text for blog listing
@@ -110,6 +110,8 @@ class BlogEntry(ContentPage):
             if i and type(i)==type(''):
                 items.add(i,i)
         return items
-
+        
+    def InfosForArchiv(self):
+        return DateTime(self.CreationDate()).strftime('%m/01/%Y')
 
 atapi.registerType(BlogEntry, PROJECTNAME)

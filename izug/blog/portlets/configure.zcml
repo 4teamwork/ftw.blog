@@ -22,6 +22,15 @@
         addview=".tags.AddForm"
         editview=".tags.EditForm"
         />        
+
+    <plone:portlet
+        name="blog.archiv.portlet"
+        interface=".archiv.IArchivePortlet"
+        assignment=".archiv.Assignment"
+        renderer=".archiv.Renderer"
+        addview=".archiv.AddForm"
+        />        
+
         
     <browser:page
         for="plone.portlets.interfaces.ILocalPortletAssignable"
@@ -38,11 +47,5 @@
         permission="zope.Public"
     />
     
-    <browser:page
-        for="*"
-        class=".categories.BlogRoot"
-        name="blog-root"
-        permission="zope.Public"
-    />
 
 </configure>
