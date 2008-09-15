@@ -5,6 +5,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
 from zope.component import getMultiAdapter, getUtility
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import _createObjectByType
 from izug.blog import blogMessageFactory as _
 
 
@@ -121,9 +122,11 @@ class BlogSettings(BrowserView):
         
     def categoriesUrl(self):
         level = self.getBlog(self.context)
+        import pdb;pdb.set_trace()
         content_ids = [i.id for i in level.listFolderContents()]
         if 'categories' not in content_ids:
-            level.invokeFactory('Blog Category','categories')
+            #level.invokeFactory('Blog Category','categories')
+            _createObjectByType('Blog Category',level,'categories')
         return '%s/categories' % level.absolute_url()
 
     def managePortletUrl(self):
