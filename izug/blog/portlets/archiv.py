@@ -31,7 +31,19 @@ class Renderer(base.Renderer):
 
     def update(self):
         catalog = getToolByName(self.context, 'portal_catalog')
-        values = list(catalog.uniqueValuesFor('InfosForArchiv'))
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        blogroot =  blogutils.getBlogRoot(self.context)
+        root_path ='/'.join(blogroot.getPhysicalPath())
+        
+        allEntries = catalog({'path':root_path, 
+                              'portal_type':'Blog Entry'})
+                              
+        values = []
+        for entry in allEntries:
+            value = entry.InfosForArchiv
+            if value not in values:
+                values.append(value)
+        
         values.sort()
         
         infos = []

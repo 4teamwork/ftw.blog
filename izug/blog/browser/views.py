@@ -121,6 +121,9 @@ class BlogSettings(BrowserView):
         
     def categoriesUrl(self):
         level = self.getBlog(self.context)
+        content_ids = [i.id for i in level.listFolderContents()]
+        if 'categories' not in content_ids:
+            level.invokeFactory('Blog Category','categories')
         return '%s/categories' % level.absolute_url()
 
     def managePortletUrl(self):

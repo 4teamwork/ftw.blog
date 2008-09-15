@@ -4,6 +4,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
+from izug.blog.interfaces import IBlogUtils
 
 from zope import schema
 from zope.formlib import form
@@ -19,17 +20,17 @@ class ITagsPortlet(IPortletDataProvider):
     maxsize = schema.ASCIILine(title=_(u'Max. Fontsize'),
                        description=_(u'Size in em'),
                        required=True,
-                       default='2em')
+                       default='2')
 
     minsize = schema.ASCIILine(title=_(u'Min. Fontsize'),
                        description=_(u'Size in em'),
                        required=True,
-                       default='0.7em')
+                       default='0.7')
 
 class Assignment(base.Assignment):
     implements(ITagsPortlet)
     
-    def __init__(self, maxsize='2em',minsize='0.7em'):
+    def __init__(self, maxsize='2',minsize='0.7'):
         self.maxsize = maxsize
         self.minsize = minsize
 
@@ -43,10 +44,24 @@ class Renderer(base.Renderer):
         self.data = data
 
         catalog = getToolByName(self.context,'portal_catalog')
-        alltags = catalog.uniqueValuesFor("getTags")
+        
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        blogroot =  blogutils.getBlogRoot(self.context)
+        root_path ='/'.join(blogroot.getPhysicalPath())
+        
+        allEntries = catalog({'path':root_path, 
+                              'portal_type':'Blog Entry'})
+                              
+        alltags = []
+        for entry in allEntries:
+            for tag in entry.getTags:
+                if tag not in alltags:
+                    alltags.append(tag)
+                    
+        
         query = {}
         query['portal_type'] = 'Blog Entry'
-
+        query['path'] = root_path
         weightlist = []
         for tag in alltags:
             query['getTags'] = tag
@@ -92,8 +107,8 @@ class AddForm(base.AddForm):
     description = _(u"This portlet displays the TagCloud from izug.blog")
 
     def create(self, data):
-        return Assignment(maxsize=data.get('maxsize', '2em'),
-                          minsize=data.get('minsize', '0.7em'))
+        return Assignment(maxsize=data.get('maxsize', '2'),
+                          minsize=data.get('minsize', '0.7'))
 
 class EditForm(base.EditForm):
     form_fields = form.Fields(ITagsPortlet)
