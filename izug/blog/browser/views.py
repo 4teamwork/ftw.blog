@@ -122,7 +122,6 @@ class BlogSettings(BrowserView):
         
     def categoriesUrl(self):
         level = self.getBlog(self.context)
-        import pdb;pdb.set_trace()
         content_ids = [i.id for i in level.listFolderContents()]
         if 'categories' not in content_ids:
             #level.invokeFactory('Blog Category','categories')
