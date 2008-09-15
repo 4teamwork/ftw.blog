@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="Blog Category"
    meta_type="Factory-based Type Information with dynamic views"
-   i18n:domain="izug.blog" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+   i18n:domain="izug" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
   <property name="title" i18n:translate="">Blog Category</property>
   <property name="description"
     i18n:translate="">iZug Blog Category</property>

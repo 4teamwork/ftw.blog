@@ -2,9 +2,9 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
+      lang="de"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="izug.blog">
+      i18n:domain="izug">
 
 <body>
 
@@ -13,9 +13,23 @@
 
       <div tal:replace="structure provider:plone.belowcontenttitle" />
       
-      <div id="blogColumns" class="clearfix">
+      <div id="blogColumns blogItem" class="clearfix">
         <div class="leftColumn">
-           <h2 tal:content="here/Title" />
+            <h2 class="clearfix">
+                <span tal:content="here/Title" />
+                <tal:if condition="python:member.has_permission('Modify portal content',here)">
+                    <a tal:attributes="href string:${here/absolute_url}/edit" 
+                       title="Beitrag bearbeiten" 
+                       class="edit">
+                        <img tal:attributes="src string:++resource++izug.theme.images/icon_edit.gif"/>
+                    </a>
+                    <a tal:attributes="href string:${here/absolute_url}/delete_confirmation" 
+                       title="Beitrag loeschen" 
+                       class="edit">
+                        <img tal:attributes="src string:${portal_url}/delete_icon.gif"/>
+                    </a>
+                </tal:if>
+            </h2>
            <span class="documentByLine"
                  tal:define="item_creator here/Creator;
                              item_created here/CreationDate;
@@ -23,19 +37,18 @@
                <span i18n:translate="label_blog_byline">
                     <tal:name tal:condition="item_creator"
                        tal:define="author python:mtool.getMemberInfo(item_creator)">
-                     <span i18n:translate="label_by_author">
                          <span tal:content="python:author and author['fullname'] or item_creator"
                                tal:omit-tag="not:author"
                                i18n:name="author">
                            Bob Dobalina
                          </span>
-                     </span>
                     </tal:name>
-                       at 
+                       am 
                     <span class="dateCreated"
                           tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
                           i18n:name="created">from date</span> in 
                     
+               </span>
                     <tal:rep repeat="cat_uid item_categories">
                        <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                       brain       python:len(cat_brains) and cat_brains[0] or False;
@@ -48,11 +61,33 @@
                           tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
                        
                     </tal:rep>
-               </span>
            </span>
-        
-        <tal:block content="structure provider:zug.simplelayout.listing" />
-        
+            
+            <div class="#" id="#"
+				            tal:define="slclass view/getCSSClass;"
+				            tal:attributes="id here/id;
+								            class string:simplelayout-block-wrapper ${slclass};">
+
+	            <div class="sl-img-wrapper" tal:condition="here/getImage|nothing">
+	
+					            <a  
+						            tal:attributes="
+										            rel string:gb_image[];
+										            title context/Title;
+										            href string:${context/absolute_url}/image
+										            "
+										            tal:omit-tag="not: here/getImageClickable|nothing"
+					            >
+						            <img tal:replace="structure view/getImageTag" />
+					            </a>
+	            </div>
+	            <div class="sl-text-wrapper" tal:content="structure here/getText | nothing"></div>
+            </div>
+            
+        <br style="clear:both;">
+            
+            
+
         <tal:def define="item_tags here/getTags">
             <div class="tags" metal:define-macro="taglisting">
              <tal:rep repeat="tag item_tags">

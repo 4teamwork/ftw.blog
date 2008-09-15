@@ -24,10 +24,8 @@
                     sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));"   
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
-                <span tal:attributes="onclick string:javacript:l_widget.toggleSubset(this,'$sub_id');
-                                      class python: not children and 'imagePadding' or ''">
+                <span tal:attributes="class python: not children and 'imagePadding' or ''">
 
-                    <img tal:condition="nocall:children" tal:attributes="src python:here.portal_url()+'/arrowRight.gif'" />
                     <input class="noborder"
                            tabindex=""
                            type="checkbox"
@@ -39,8 +37,7 @@
                     <span tal:replace="item/Title">Selected Item Title</span>
                 </span>
         <ul tal:attributes="class python:'navTree navTreeLevel'+str(level);
-                            id sub_id;
-                            style python:level==0 and 'display:block' or 'display:none';"
+                            id sub_id;"
             tal:define="level python:level+1;"
             tal:condition="nocall:children">
             <metal:recurse use-macro="here/category_widget_edit_view/macros/nav_main"/>

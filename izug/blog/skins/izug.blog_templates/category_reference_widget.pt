@@ -68,22 +68,7 @@
                          fieldName python:fieldName+':list';
                          uids python:same_type(value, []) and value or [value];
                          vlen python:len(vocab);">
-            <script tal:content="python:'var base_url = \''+here.portal_url()+'\''" />
-            <script>
-            var l_widget = new Object();
-            var arrow_right = base_url+'/arrowRight.gif'
-            var arrow_down = base_url+'/arrowDown.gif'
-            l_widget.toggleSubset = function(el,sub_id){	            var sub_el = document.getElementById(sub_id);
-	            if (sub_el){
-	                with(sub_el.style)
-		                display == 'block' ? display = 'none' : display = 'block';  
-	                img = el.childNodes[1]
-	                with(img)
-		                src == arrow_right ? src = arrow_down: src = arrow_right;
-                }
-            }
 
-            </script>
 
             <ul id="classification-tree"
                 class="navTreeLevel0 visualNoMarker"

@@ -18,6 +18,7 @@ from DateTime import DateTime
 
 
 from izug.contentpage.content.contentpage import ContentPage, ContentPageSchema
+from izug.block.content.block import Block, BlockSchema
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 
 
@@ -35,7 +36,7 @@ schema = atapi.Schema((
         ),
         allowed_types=('ClassificationItem',),
         multiValued=1,
-        schemata='categorization',
+        schemata='default',
         relationship='blog_categories'
     ),
 
@@ -43,7 +44,7 @@ schema = atapi.Schema((
         name='tags',
         multiValued=1,
         vocabulary='getAllTags',
-        schemata='categorization',
+        schemata='default',
         widget=AddRemoveWidget(
             label=_('Tags'),
         ),
@@ -52,7 +53,7 @@ schema = atapi.Schema((
 
 ))
 
-BlogEntrySchema = schema.copy() + ContentPageSchema.copy()
+BlogEntrySchema = schema.copy() + ContentPageSchema.copy() + BlockSchema.copy()
 
 #hide some fields
 if BlogEntrySchema.has_key('subject'):
@@ -60,7 +61,18 @@ if BlogEntrySchema.has_key('subject'):
 if BlogEntrySchema.has_key('location'):
     BlogEntrySchema['location'].widget.visible = -1
 if BlogEntrySchema.has_key('language'):
-    BlogEntrySchema['language'].widget.visible = -1
+    BlogEntrySchema['language'].widget.visible = -1    
+
+BlogEntrySchema['title'].required = 1
+BlogEntrySchema['title'].searchable = 1
+BlogEntrySchema['description'].widget.visible = 1
+
+if BlogEntrySchema.has_key('showTitle'):
+    BlogEntrySchema['showTitle'].default = 1
+    BlogEntrySchema['showTitle'].widget.visible = -1
+
+BlogEntrySchema.moveField('categories', pos='bottom')
+BlogEntrySchema.moveField('tags', pos='bottom')
 
 #move schemata  
 ms = atapi.ManagedSchema(BlogEntrySchema.fields())
@@ -70,7 +82,7 @@ schemata.finalizeATCTSchema(ms, folderish=True, moveDiscussion=False)
 
 #inherid from izug.contentpage
 
-class BlogEntry(ContentPage):
+class BlogEntry(Block,ContentPage):
     """iZug Blog Entry"""
     implements(IBlogEntry)
 
@@ -94,13 +106,10 @@ class BlogEntry(ContentPage):
     
     #returns teaser text for blog listing
     def getTeaserText(self):
-        contents = self.listFolderContents(contentFilter={'portal_type':'Block'})
-        if not contents:
-            return ''
         
-        first_block = contents[0]
-        block_text = first_block.getText()
-        teaser_text = len(block_text) > 200 and block_text[:200] + ' ...' or block_text
+        block_text = self.getText()
+    
+        teaser_text = len(block_text) > 200 and block_text[:200] + '...' or block_text
         return teaser_text 
     
     def getAllTags(self):
@@ -113,5 +122,7 @@ class BlogEntry(ContentPage):
         
     def InfosForArchiv(self):
         return DateTime(self.CreationDate()).strftime('%m/01/%Y')
+
+
 
 atapi.registerType(BlogEntry, PROJECTNAME)

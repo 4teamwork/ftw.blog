@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="izug.blog">
+      i18n:domain="izug">
 
 <body>
     
@@ -71,7 +71,7 @@
 
                                 <tal:name tal:condition="item_creator"
                                     tal:define="author python:mtool.getMemberInfo(item_creator)">
-                                  <span i18n:translate="label_by_author">
+                                  <span>
                                       <span tal:content="python:author and author['fullname'] or item_creator"
                                             tal:omit-tag="not:author"
                                             i18n:name="author">
@@ -83,6 +83,7 @@
                                  <span class="dateCreated"
                                        tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
                                        i18n:name="created">from date</span> in 
+                            </span>
                                  
                                  <tal:rep repeat="cat_uid item_categories">
                                     <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
@@ -96,7 +97,7 @@
                                        tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
                                     
                                  </tal:rep>
-                            </span>
+
                         </span>
                         <div class="teaserText" 
                               tal:content="structure item_teaser_text">

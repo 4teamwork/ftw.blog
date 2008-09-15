@@ -12,7 +12,7 @@ from Products.CMFCore.permissions import setDefaultRoles
 # This will be imported with the special name "_" in most modules. Strings
 # like _(u"message") will then be extracted by i18n tools for translation.
 
-blogMessageFactory = MessageFactory('izug.blog')
+blogMessageFactory = MessageFactory('izug')
 
 
 from Products.CMFCore.DirectoryView import registerDirectory

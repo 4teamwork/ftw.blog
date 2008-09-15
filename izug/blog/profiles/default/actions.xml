@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <object name="blog_actions" meta_type="CMF Action Category">
   <property name="title"></property>
-  <object name="togglesledit" meta_type="CMF Action" i18n:domain="zug">
+  <object name="togglesledit" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">Toggle Editmode</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:javascript:sl.toggleEditMode()</property>
@@ -13,23 +13,24 @@
    <property name="permissions">
     <element value="Add portal content"/>
    </property>
-   <property name="visible">True</property>
+   <property name="visible">False</property>
   </object>
-  <object name="new_entry" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="new_entry" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">New Blog Entry</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">nocall:here/@@create_blog_entry_path/URL</property>
    <property name="icon_expr"></property>
    <property name="available_expr">python: object.Type() in ['Blog','Topic','Collection']</property>
   </object>
-  <object name="new_block_entry" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="new_block_entry" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">New Block Entry</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:./createObject?type_name=Block</property>
    <property name="icon_expr"></property>
    <property name="available_expr">python:object.portal_type in here.portal_properties.izug_simplelayout_properties.types_use_simplelayout</property>
+   <property name="visible">False</property>
   </object>
-  <object name="blog_settings" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="blog_settings" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">Blog Settings</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:./@@blog-settings</property>
@@ -39,21 +40,21 @@
  </object>
  <object name="blog_settings_actions" meta_type="CMF Action Category">
   <property name="title"></property>
-  <object name="manage_blog_portlets" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="manage_blog_portlets" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">Manage Blog Portlets</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">nocall:here/@@blog-settings/managePortletUrl</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
   </object>
-  <object name="manage_blog_categories" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="manage_blog_categories" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">Manage Categories</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">nocall:here/@@blog-settings/categoriesUrl</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
   </object>
-  <object name="edit_blog" meta_type="CMF Action" i18n:domain="izug.blog">
+  <object name="edit_blog" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">Edit Blog</property>
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">nocall:here/@@blog-settings/editBlog</property>

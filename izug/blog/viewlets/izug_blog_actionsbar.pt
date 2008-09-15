@@ -1,9 +1,10 @@
-<div class="actionsBar clearfis">
+<div class="actionsBar clearfis" i18n:domain="izug">
     <h1 tal:content="view/BlogTitle" />
     <div class="actionsBarContent clearfix">
         <form method="get" action="./blog_view" class="searchForm clearfix">
             <input type="text" name="searchable_text" class="text" />
-            <input type="submit" name="search_blog" value="Search the Blog" class="submit" />
+            <input type="submit" name="search_blog" i18n:attributes="value blog_search_button"
+                   value="Search the Blog" class="submit" />
         </form>
         <tal:docactions tal:condition="view/object_actions">
         <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
