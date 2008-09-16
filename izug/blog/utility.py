@@ -9,20 +9,12 @@ from DateTime import DateTime
 import logging
 logger = logging.getLogger('blogutils')
 
-
-def blogRootCacheKey(fun, self, context):
-    hour = DateTime().hour()
-    cachekey = "%s%s" % (context.UID(),hour)
-    return hash(cachekey)
-
-
 class BlogUtils(object):
     """
     blog utilities
     """
     implements(IBlogUtils)
     
-    @ram.cache(blogRootCacheKey)
     def getBlogRoot(self,context):
         level = aq_inner(context).aq_explicit
         while not IBlog.providedBy(level):

@@ -122,10 +122,18 @@ class BlogSettings(BrowserView):
         
     def categoriesUrl(self):
         level = self.getBlog(self.context)
-        content_ids = [i.id for i in level.listFolderContents()]
+        catalog = getToolByName(self.context,'portal_catalog')
+        content_ids = [i.id for i in catalog({'portal_type':'Blog Category',
+                                              'path':{'query':'/'.join(level.getPhysicalPath()), 'depth':1}
+                                              }
+                                             )]
         if 'categories' not in content_ids:
             #level.invokeFactory('Blog Category','categories')
             _createObjectByType('Blog Category',level,'categories')
+            cat = getattr(level,'categories',False)
+            if cat:
+                cat.setTitle('Kategorien')
+                cat.reindexObject()
         return '%s/categories' % level.absolute_url()
 
     def managePortletUrl(self):
