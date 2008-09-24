@@ -29,7 +29,6 @@
                     <input class="noborder"
                            tabindex=""
                            type="checkbox"
-                           tal:condition="python:level > 0"
                            tal:attributes="name fieldName;
                                            checked python:test((node['uid'] in uids), 'checked', nothing);
                                            value node/uid;

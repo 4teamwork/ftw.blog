@@ -98,8 +98,10 @@ class BlogEntry(Block,ContentPage):
         uids = [c.UID() for c in cats]
         parent_uids = []
         for pc in cats:
-            puid = aq_inner(pc).aq_parent.UID()
-            if puid not in parent_uids:
+            parent = aq_inner(pc).aq_parent
+            puid = parent.UID()
+            grand_parent = aq_inner(parent).aq_parent
+            if puid not in parent_uids and grand_parent.Type()=='Blog Category':
                 parent_uids.append(puid)
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
