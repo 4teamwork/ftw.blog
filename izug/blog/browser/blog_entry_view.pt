@@ -8,6 +8,26 @@
 
 <body>
 
+<metal:block metal:fill-slot="css_slot">
+    <style type="text/css"
+           tal:content="structure python:'<!-- @import url(%s/++resource++izug.greybox/gb_styles.css); -->' % context.portal_url()">css import</style>
+</metal:block>
+
+<metal:block metal:fill-slot="javascript_head_slot">
+    <script type="text/javascript" tal:content="python: 'var GB_ROOT_DIR = \'%s%s\'' % (here.portal_url.getPortalObject().absolute_url(), '/++resource++izug.greybox/')">
+        var GB_ROOT_DIR = "http://mydomain.com/greybox/";
+    </script>
+      <script type="text/javascript"
+              tal:attributes="src string:${here/portal_url}/++resource++izug.greybox/AJS.js">
+      </script>
+      <script type="text/javascript"
+              tal:attributes="src string:${here/portal_url}/++resource++izug.greybox/AJS_fx.js">
+      </script>
+      <script type="text/javascript"
+              tal:attributes="src string:${here/portal_url}/++resource++izug.greybox/gb_scripts.js">
+      </script>
+</metal:block>
+
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
 
@@ -72,7 +92,7 @@
 	
 					            <a  
 						            tal:attributes="
-										            rel string:gb_image[];
+										            rel string:gb_page_fs[];
 										            title context/Title;
 										            href string:${context/absolute_url}/image
 										            "
