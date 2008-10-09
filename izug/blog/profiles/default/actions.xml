@@ -20,7 +20,7 @@
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">nocall:here/@@create_blog_entry_path/URL</property>
    <property name="icon_expr"></property>
-   <property name="available_expr">python: object.Type() in ['Blog','Topic','Collection']</property>
+   <property name="available_expr"></property>
   </object>
   <object name="new_block_entry" meta_type="CMF Action" i18n:domain="izug">
    <property name="title" i18n:translate="">New Block Entry</property>
