@@ -25,6 +25,7 @@
                             more_url more_url|request/more_url|string:folder_contents;
                             is_a_topic python:here.Type()=='Collection';
                             folderContents folderContents|nothing; folderContents python:folderContents or is_a_topic and here.queryCatalog(contentFilter,batch=True) or here.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+							toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                             use_view_action site_properties/typesUseViewActionInListings|python:();
                             over_limit python: limit_display and len(folderContents) > limit_display;
                             folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
@@ -81,20 +82,19 @@
                                  </tal:name>
                                     at 
                                  <span class="dateCreated"
-                                       tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
+                                       tal:content="python:toLocalizedTime(item_created, long_format=1)"
                                        i18n:name="created">from date</span> in 
                             </span>
-                                 
                                  <tal:rep repeat="cat_uid item_categories">
                                     <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                                    brain       python:len(cat_brains) and cat_brains[0] or False;
                                                    brain_title brain/Title | nothing;
-                                                   brain_url   brain/getURL | nohting"
+                                                   brain_url   brain/getURL | nothing"
                                        tal:condition="brain" 
                                        tal:attributes="href string:?getCategoryUids=${cat_uid}"
                                        class="categories" 
                                        href="#" 
-                                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+                                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " /> 
                                     
                                  </tal:rep>
 

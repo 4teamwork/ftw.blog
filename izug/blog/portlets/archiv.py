@@ -4,7 +4,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
-
+from zope.i18n import translate
 from zope import schema
 from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -12,6 +12,21 @@ from Products.CMFPlone import PloneMessageFactory as _
 from zope.component import getMultiAdapter, queryMultiAdapter, getUtility
 from izug.blog.interfaces import IBlogUtils
 from DateTime import DateTime
+
+MONTHS_GER = {
+			'01':u'Januar',
+			'02':u'Februar',
+			'03':unicode('M\xc3\xa4arz','utf-8'),
+			'04':u'April',
+			'05':u'Mai',
+			'06':u'Juni',
+			'07':u'Juli',
+			'08':u'August',
+			'09':u'September',
+			'10':u'Oktober',
+			'11':u'November',
+			'12':u'Dezember',	
+}
 
 class IArchivePortlet(IPortletDataProvider):
     """
@@ -27,7 +42,14 @@ class Renderer(base.Renderer):
     def __init__(self, context, request, view, manager, data):
         self.context = context
         self.data = data
+        self.request = request
+        self._translation_service = getToolByName(context, 'translation_service')
 
+    def zLocalizedTime(self, time, long_format=False):
+        """Convert time to localized time
+        """
+        context = aq_inner(self.context) 
+        return u"%s %s" % (MONTHS_GER[time.strftime("%m")], time.strftime('%Y'))
 
     def update(self):
         catalog = getToolByName(self.context, 'portal_catalog')
@@ -38,18 +60,19 @@ class Renderer(base.Renderer):
         allEntries = catalog({'path':root_path, 
                               'portal_type':'Blog Entry'})
                               
-        values = []
+        values = {}
         for entry in allEntries:
-            value = entry.InfosForArchiv
-            if value not in values:
-                values.append(value)
-        
-        values.sort()
+            value = entry.created
+            key = value.strftime('%B %Y')
+            if not values.has_key(key):
+                values[key] = value
+        values = values.values()
+        values.sort(reverse=1)
         
         infos = []
         for v in values:
-            infos.append(dict(title = DateTime(v).strftime('%B %Y'),
-                              url = self.context.absolute_url()+'/blog_view?InfosForArchiv=' + v
+            infos.append(dict(title = self.zLocalizedTime(v),
+                              url = self.context.absolute_url()+'/blog_view?InfosForArchiv=' + v.strftime('%m/01/%Y')
                               )
                         )
             

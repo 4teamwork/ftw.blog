@@ -22,7 +22,6 @@
                tal:content="python:obj.Title() or obj.absolute_url(relative=1)">
               Sole target object's title
             </a>
-
             <a href="#"
                tal:condition="python:portal.portal_interface.objectImplements(ref,'Products.Archetypes.interfaces.referenceengine.IContentReference')"
                tal:attributes="href python:ref.getContentObject().absolute_url();

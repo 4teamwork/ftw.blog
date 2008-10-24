@@ -65,7 +65,8 @@
                     </tal:name>
                        am 
                     <span class="dateCreated"
-                          tal:content="python:modules['DateTime'].DateTime(item_created).strftime('%d. %B %Y')"
+						  tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
+                          tal:content="python:toLocalizedTime(item_created, long_format=1)"
                           i18n:name="created">from date</span> in 
                     
                </span>

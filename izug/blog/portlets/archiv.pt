@@ -10,7 +10,7 @@
     <dd tal:repeat="a view/archivlist" class="portletItem">
         <a tal:attributes="href a/url;
                            title a/title" 
-           tal:content="a/title" />
+           tal:content="a/title" i18n:translate=""/>
     </dd>
 
 </dl>
