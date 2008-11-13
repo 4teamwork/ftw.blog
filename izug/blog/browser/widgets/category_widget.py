@@ -28,6 +28,9 @@ class SitemapView(BrowserView):
                                name='category_widget_builder_view')
         data = view.CategoryMap()
 
+        if data is None:
+            return None
+        
         #properties = getToolByName(context, 'portal_properties')
         #navtree_properties = getattr(properties, 'navtree_properties')
         #bottomLevel = navtree_properties.getProperty('bottomLevel', 0)
@@ -66,7 +69,8 @@ class SiteMapStructure(BrowserView):
         blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
         bloglevel = blogutils.getBlogRoot(context)
             
-            
+        if bloglevel is None:
+            return None
+        
         strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + '/categories'
-
         return buildFolderTree(context, obj=context, query=query, strategy=strategy)

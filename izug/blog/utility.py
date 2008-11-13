@@ -6,8 +6,6 @@ from zope.component import getUtility
 from plone.memoize import ram
 from Products.CMFCore.utils import getToolByName 
 from DateTime import DateTime
-import logging
-logger = logging.getLogger('blogutils')
 
 class BlogUtils(object):
     """
@@ -17,8 +15,11 @@ class BlogUtils(object):
     
     def getBlogRoot(self,context):
         level = aq_inner(context).aq_explicit
+        portal_state = getMultiAdapter((context, context.REQUEST), name=u'plone_portal_state')
+        portal_root = portal_state.portal()
         while not IBlog.providedBy(level):
+            if level == portal_root:
+                return None
             level = level.aq_parent
 
-        logger.info('utils function is no cached')
         return level
