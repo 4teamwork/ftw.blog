@@ -27,4 +27,9 @@
     <include package=".portlets" />
     <include package=".viewlets" />
 
+    <subscriber
+        for=".interfaces.IBlog
+             zope.app.container.interfaces.IObjectAddedEvent"
+        handler=".eventhandlers.objectAddedHandler" />
+
 </configure>
