@@ -11,7 +11,7 @@
                     isCurrent  node/currentItem;
                     sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));
                     uid        node/uid;
-                    link_url   string:./blog_view?getCategoryUids=${uid};"
+                    link_url   string:./view?getCategoryUids=${uid};"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
         <dd class="portletItem" tal:define="showrss python:level == 0;
