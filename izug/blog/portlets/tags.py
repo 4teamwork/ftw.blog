@@ -4,7 +4,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from plone.app.portlets.portlets import base
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
-from izug.blog.interfaces import IBlogUtils
+from izug.blog.interfaces import IBlogUtils, ITaggable
 
 from zope import schema
 from zope.formlib import form
@@ -50,7 +50,7 @@ class Renderer(base.Renderer):
         root_path ='/'.join(blogroot.getPhysicalPath())
         
         allEntries = catalog({'path':root_path, 
-                              'portal_type':'Blog Entry'})
+                              'object_provides' : ITaggable.__identifier__})
                               
         alltags = []
         for entry in allEntries:

@@ -19,6 +19,15 @@ class IBlogCategory(Interface):
 class IBlog(Interface):
     """iZug Blog"""
 
+class IArchivable(Interface):
+    """Archiveable"""
+
+class ICategorizable(Interface):
+    """Categorizeable"""
+
+class ITaggable(Interface):
+    """Taggable"""
+
 class ICategoryWidget(Interface):
     """
     """

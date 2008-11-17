@@ -10,7 +10,7 @@ from zope.formlib import form
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFPlone import PloneMessageFactory as _
 from zope.component import getMultiAdapter, queryMultiAdapter, getUtility
-from izug.blog.interfaces import IBlogUtils
+from izug.blog.interfaces import IBlogUtils, IArchivable
 from DateTime import DateTime
 
 MONTHS_GER = {
@@ -57,8 +57,8 @@ class Renderer(base.Renderer):
         blogroot =  blogutils.getBlogRoot(self.context)
         root_path ='/'.join(blogroot.getPhysicalPath())
         
-        allEntries = catalog({'path':root_path, 
-                              'portal_type':'Blog Entry'})
+        allEntries = catalog({'path' : root_path,
+                              'object_provides' : IArchivable.__identifier__})
                               
         values = {}
         for entry in allEntries:
@@ -72,7 +72,7 @@ class Renderer(base.Renderer):
         infos = []
         for v in values:
             infos.append(dict(title = self.zLocalizedTime(v),
-                              url = self.context.absolute_url()+'/blog_view?InfosForArchiv=' + v.strftime('%m/01/%Y')
+                              url = self.context.absolute_url()+'/view?InfosForArchiv=' + v.strftime('%m/01/%Y')
                               )
                         )
             
