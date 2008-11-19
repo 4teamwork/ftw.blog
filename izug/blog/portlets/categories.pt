@@ -7,7 +7,7 @@
         </span>
     </dt>
 
-    <dd class="portletItem">
+    <dd class="portletItem" tal:define="dummy python:context.REQUEST.set('blogroot',view.blogroot)">
             <tal:block define="sitemap context/@@category_portlet_view">
                 <tal:sitemap replace="structure sitemap/createSiteMap" />
             </tal:block>

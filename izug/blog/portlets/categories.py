@@ -27,6 +27,15 @@ class Renderer(base.Renderer):
         self.context = context
         self.data = data
         
+    def update(self):
+        blogutils = getUtility(IBlogUtils,name='izug.blog.utils')
+        blogroot = blogutils.getBlogRoot(self.context)
+        
+        if blogroot:
+            self.blogroot = blogroot.absolute_url()
+        else:
+            self.blogroot = ''
+        
     render = ViewPageTemplateFile('categories.pt')
 
 
@@ -41,7 +50,7 @@ class CategoryPortletSitemapView(BrowserView):
     def createSiteMap(self):
         context = aq_inner(self.context)
         request = context.REQUEST
-        
+               
         #IMPORTANT use category widget builder!
         view = getMultiAdapter((context, self.request),
                                name='category_widget_builder_view')
@@ -53,4 +62,7 @@ class CategoryPortletSitemapView(BrowserView):
         # XXX: The recursion should probably be done in python code
         return context.category_portlet_recurs_view(children=data.get('children',[]),
                                              level=0, bottomLevel=0)
+                                             
+                                             
+                                             
                                              

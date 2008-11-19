@@ -1,6 +1,7 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
-                    bottomLevel options/bottomLevel | nothing">
+                    bottomLevel options/bottomLevel | nothing;
+                    blogroot python:request.get('blogroot','')">
                     
   <metal:main define-macro="nav_main">
     <tal:navitem repeat="node children">
@@ -11,7 +12,7 @@
                     isCurrent  node/currentItem;
                     sub_id     python:'sublevel_%s_%s' %(item['id'],str(level+1));
                     uid        node/uid;
-                    link_url   string:./view?getCategoryUids=${uid};"
+                    link_url   string:${blogroot}/view?getCategoryUids=${uid};"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
         <dd class="portletItem" tal:define="showrss python:level == 0;

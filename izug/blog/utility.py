@@ -21,5 +21,4 @@ class BlogUtils(object):
             if level == portal_root:
                 return None
             level = level.aq_parent
-
         return level

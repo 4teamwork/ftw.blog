@@ -98,6 +98,8 @@ class Renderer(base.Renderer):
         else:
             self.tagclouds = []
        
+       
+        self.blogroot = blogroot.absolute_url()
         
     render = ViewPageTemplateFile('tags.pt')
 
