@@ -5,6 +5,22 @@
 
 
 
+    <five:implements
+        class=".blogentry.BlogEntry"
+        interface="izug.blog.interfaces.ICategorizable"
+        />
+
+    <five:implements
+        class=".blogentry.BlogEntry"
+        interface="izug.blog.interfaces.IArchivable"
+        />
+
+    <five:implements
+        class=".blogentry.BlogEntry"
+        interface="izug.blog.interfaces.ITaggable"
+        />
+
+
     <class class=".blogentry.BlogEntry">
 
         <require
