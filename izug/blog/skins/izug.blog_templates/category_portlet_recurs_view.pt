@@ -21,13 +21,13 @@
                                             rss_param string:?form.url=${here/absolute_url}/rss_blog_view?getCategoryUids=${uid};
                                             rss_param_referer string:&referer=${here/portal_url}"> 
             <span class="rss clearfix" tal:omit-tag="not:showrss">                    
-                    <a tal:attributes="href link_url"
-                       tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
                     <a tal:condition="showrss"
                        class="rssIcon" title="RSS Feed" href="#"
                        tal:attributes="href string:${rss_url}${rss_param}${rss_param_referer}">
                         <img alt="RSS" tal:attributes="src string:++resource++izug.theme.images/icon_rss.gif"/>
                     </a>
+                    <a tal:attributes="href link_url"
+                       tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
             </span>
         </dd>
 
