@@ -22,9 +22,9 @@
                                             rss_param_referer string:&referer=${here/portal_url}"> 
             <span class="rss clearfix" tal:omit-tag="not:showrss">                    
                     <a tal:condition="showrss"
-                       class="rssIcon" title="RSS Feed" href="#"
+                       class="rssIcon" title="Zum Dashboard hinzuf&uuml;gen" href="#"
                        tal:attributes="href string:${rss_url}${rss_param}${rss_param_referer}">
-                        <img alt="RSS" tal:attributes="src string:++resource++izug.theme.images/icon_rss.gif"/>
+                        <img alt="+" tal:attributes="src string:++resource++izug.blog.icons/icon_merkliste.gif"/>
                     </a>
                     <a tal:attributes="href link_url"
                        tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
