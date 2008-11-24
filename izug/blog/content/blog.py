@@ -25,6 +25,11 @@ BlogSchema['description'].storage = atapi.AnnotationStorage()
 
 schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
 
+# hide schematas ..
+for field in BlogSchema.keys():
+    if BlogSchema[field].schemata in ['categorization']:
+        BlogSchema[field].widget.visible['edit'] = 'invisible'
+
 class Blog(folder.ATFolder):
     """iZug Blog"""
     implements(IBlog)
