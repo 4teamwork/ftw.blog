@@ -4,12 +4,15 @@
     <!-- -*- extra stuff goes here -*- -->
     <permission name="izug.blog: Add Blog Entry" acquire="False">
       <role name="Manager" />
+      <role name="Contributor" />
     </permission>
     <permission name="izug.blog: Add Blog Category" acquire="False">
       <role name="Manager" />
+      <role name="Contributor" />
     </permission>
     <permission name="izug.blog: Add Blog" acquire="False">
       <role name="Manager" />
+      <role name="Contributor" />
     </permission>
   </permissions>
 </rolemap>
