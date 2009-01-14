@@ -54,7 +54,7 @@ class Renderer(base.Renderer):
                               
         alltags = []
         for entry in allEntries:
-            for tag in entry.getTags:
+            for tag in entry.tags:
                 if tag not in alltags:
                     alltags.append(tag)
                     
@@ -64,7 +64,7 @@ class Renderer(base.Renderer):
         query['path'] = root_path
         weightlist = []
         for tag in alltags:
-            query['getTags'] = tag
+            query['tags'] = tag
             count = len(catalog(query))
             weightlist.append(count)
         weightlist.sort()
@@ -78,7 +78,7 @@ class Renderer(base.Renderer):
            
             tagclouds = []
             for tag in alltags:
-                query['getTags'] = tag
+                query['tags'] = tag
                 numberofblogs = len(catalog(query))
                 
                 #calc tagclouds --> http://de.wikipedia.org/wiki/TagCloud

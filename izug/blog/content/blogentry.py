@@ -40,17 +40,6 @@ schema = atapi.Schema((
         relationship='blog_categories'
     ),
 
-    atapi.LinesField(
-        name='tags',
-        multiValued=1,
-        vocabulary='getAllTags',
-        schemata='default',
-        widget=AddRemoveWidget(
-            label=_('Tags'),
-        ),
-    ),
-
-
 ))
 
 BlogEntrySchema = schema.copy() + ContentPageSchema.copy() + BlockSchema.copy()
@@ -72,7 +61,6 @@ if BlogEntrySchema.has_key('showTitle'):
     BlogEntrySchema['showTitle'].widget.visible = -1
 
 BlogEntrySchema.moveField('categories', pos='bottom')
-BlogEntrySchema.moveField('tags', pos='bottom')
 
 #move schemata  
 ms = atapi.ManagedSchema(BlogEntrySchema.fields())
@@ -114,17 +102,8 @@ class BlogEntry(Block,ContentPage):
         teaser_text = len(block_text) > 200 and block_text[:200] + '...' or block_text
         return teaser_text 
     
-    def getAllTags(self):
-        catalog = getToolByName(self, "portal_catalog")
-        items = atapi.DisplayList(())
-        for i in catalog.uniqueValuesFor("getTags"):
-            if i and type(i)==type(''):
-                items.add(i,i)
-        return items
-        
     def InfosForArchiv(self):
         return DateTime(self.CreationDate()).strftime('%m/01/%Y')
-
 
 
 atapi.registerType(BlogEntry, PROJECTNAME)

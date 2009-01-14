@@ -52,7 +52,7 @@
                                        item_end item/end/ISO|item/EndDate|nothing;
                                        item_categories item/getCategoryUids | nothing;
                                        item_teaser_text item/getTeaserText | nothing;
-                                       item_tags item/getTags |nothing;
+                                       item_tags item/tags |nothing;
                                    ">
 
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='Blog Entry'">

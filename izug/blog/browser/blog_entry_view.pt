@@ -110,10 +110,10 @@
             
             
 
-        <tal:def define="item_tags here/getTags">
+        <tal:def define="item_tags here/tags">
             <div class="tags" metal:define-macro="taglisting">
              <tal:rep repeat="tag item_tags">
-                <a tal:define="tag_url string: ./blog_view?getTags=${tag}"
+                <a tal:define="tag_url string: ./blog_view?tags=${tag}"
                    tal:condition="tag" 
                    tal:attributes="href tag_url"
                    class="TagsItem" 
