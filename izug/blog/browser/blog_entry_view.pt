@@ -43,7 +43,8 @@
                        class="edit">
                         <img tal:attributes="src string:++resource++izug.theme.images/icon_edit.gif"/>
                     </a>
-                    <a tal:attributes="href string:${here/absolute_url}/delete_confirmation" 
+                    <a condition="python:member.has_permission('Delete Object',here)
+                       tal:attributes="href string:${here/absolute_url}/delete_confirmation" 
                        title="Beitrag loeschen" 
                        class="edit">
                         <img tal:attributes="src string:${portal_url}/delete_icon.gif"/>
