@@ -28,6 +28,11 @@
     <include package=".portlets" />
     <include package=".viewlets" />
 
+    <class class=".content.blog.Blog"
+           zcml:condition="installed izug.tagging">
+        <implements interface="izug.tagging.interfaces.tagging.ITagRoot" />
+    </class>
+
     <class class=".content.blogentry.BlogEntry"
            zcml:condition="installed izug.tagging">
         <implements interface="izug.tagging.interfaces.tagging.ITaggable" />

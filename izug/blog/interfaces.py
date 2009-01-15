@@ -25,9 +25,6 @@ class IArchivable(Interface):
 class ICategorizable(Interface):
     """Categorizeable"""
 
-class ITaggable(Interface):
-    """Taggable"""
-
 class ICategoryWidget(Interface):
     """
     """

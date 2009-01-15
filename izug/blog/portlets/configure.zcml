@@ -15,15 +15,6 @@
         />
 
     <plone:portlet
-        name="blog.tags.portlet"
-        interface=".tags.ITagsPortlet"
-        assignment=".tags.Assignment"
-        renderer=".tags.Renderer"
-        addview=".tags.AddForm"
-        editview=".tags.EditForm"
-        />        
-
-    <plone:portlet
         name="blog.archiv.portlet"
         interface=".archiv.IArchivePortlet"
         assignment=".archiv.Assignment"
