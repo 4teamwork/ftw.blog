@@ -1,9 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="izug.blog">
-
-
 
     <five:implements
         class=".blogentry.BlogEntry"
@@ -16,43 +15,41 @@
         />
 
     <class class=".blogentry.BlogEntry">
-
         <require
             permission="zope2.View"
             interface="..interfaces.IBlogEntry"
             />
-
         <require
             permission="cmf.ModifyPortalContent"
             set_schema="..interfaces.IBlogEntry"
             />
-
     </class>
-    <class class=".blogcategory.BlogCategory">
 
+    <class class=".blogcategory.BlogCategory">
         <require
             permission="zope2.View"
             interface="..interfaces.IBlogCategory"
             />
-
         <require
             permission="cmf.ModifyPortalContent"
             set_schema="..interfaces.IBlogCategory"
             />
-
     </class>
-    <class class=".blog.Blog">
 
+    <class class=".blog.Blog">
         <require
             permission="zope2.View"
             interface="..interfaces.IBlog"
             />
-
         <require
             permission="cmf.ModifyPortalContent"
             set_schema="..interfaces.IBlog"
             />
+    </class>
 
+    <class class=".blogentry.BlogEntry"
+           zcml:condition="installed izug.tagging">
+        <implements interface="izug.tagging.interfaces.tagging.ITaggable" />
     </class>
 
 </configure>

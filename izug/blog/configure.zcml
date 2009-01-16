@@ -2,7 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="izug.blog">
 
     <five:registerPackage package="." initialize=".initialize" />
@@ -27,16 +26,6 @@
     <include package=".content" />
     <include package=".portlets" />
     <include package=".viewlets" />
-
-    <class class=".content.blog.Blog"
-           zcml:condition="installed izug.tagging">
-        <implements interface="izug.tagging.interfaces.tagging.ITagRoot" />
-    </class>
-
-    <class class=".content.blogentry.BlogEntry"
-           zcml:condition="installed izug.tagging">
-        <implements interface="izug.tagging.interfaces.tagging.ITaggable" />
-    </class>
 
     <subscriber
         for=".interfaces.IBlog

@@ -2,7 +2,10 @@
 """
 
 from zope.interface import implements, directlyProvides
+from zope.interface import alsoProvides, noLongerProvides
 
+from AccessControl import ClassSecurityInfo
+from Products.CMFCore.permissions import ModifyPortalContent, View
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
@@ -11,9 +14,17 @@ from izug.blog import blogMessageFactory as _
 from izug.blog.interfaces import IBlog
 from izug.blog.config import PROJECTNAME
 
+from izug.tagging.interfaces.tagging import ITagRoot
+
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-    # -*- Your Archetypes field definitions here ... -*-
+    atapi.BooleanField('tag_root',
+        default = 0,
+        storage = atapi.AnnotationStorage(),
+        widget = atapi.BooleanWidget(label = _(u'label_blog_tag_root', default=u"Tag Root"),
+                                     description = _(u'help_blog_tag_root', default=u""),
+        )
+    ),
 
 ))
 
@@ -39,5 +50,25 @@ class Blog(folder.ATFolder):
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
+    tag_root = atapi.ATFieldProperty('tag_root')
+
+    security = ClassSecurityInfo()
+
+    security.declareProtected(View, 'getTag_root')
+    def getTag_root(self):
+        if ITagRoot.providedBy(self):
+            return True
+        else:
+            return False
+
+    security.declareProtected(ModifyPortalContent, 'setTag_root')
+    def setTag_root(self, value, **kwargs):
+        field = self.getField('tag_root')
+        field.set(self, value, **kwargs)
+        
+        if value:
+            alsoProvides(self, ITagRoot)
+        else:
+            noLongerProvides(self, ITagRoot)
 
 atapi.registerType(Blog, PROJECTNAME)
