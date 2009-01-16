@@ -115,12 +115,5 @@ class izugBlogListNavigation(ViewletBase):
             
         self.next = next_url and dict(title=_(u'Neuere Eintraege'),url=next_url) or False
 
-
-
-        
-        
-
-
-
 class CommentsViewlet(CommentsViewlet):
     render = ViewPageTemplateFile('izug_comments.pt')

@@ -18,7 +18,7 @@
   <portlet 
     addview="blog.archiv.portlet"
     title="Blog Archiv Portlet"
-    description="A portlet for izug blog, which shows the tagcloud.">
+    description="A portlet for izug blog, which shows the archive.">
       <for interface="izug.blog.interfaces.IBlogPortlets" />      
       <for interface="plone.app.portlets.interfaces.IColumn" />
       <for interface="plone.app.portlets.interfaces.IDashboard" />
