@@ -16,16 +16,8 @@
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
         <dd class="portletItem" tal:define="showrss python:level == 0;
-                                            member python:context.portal_membership.getAuthenticatedMember();
-                                            rss_url string:${here/portal_url}/++dashboard++plone.dashboard2+${member/id}/+/portlets.rss;
-                                            rss_param string:?form.url=${here/absolute_url}/rss_blog_view?getCategoryUids=${uid};
-                                            rss_param_referer string:&referer=${here/portal_url}"> 
+                                            member python:context.portal_membership.getAuthenticatedMember();"> 
             <span class="rss clearfix" tal:omit-tag="not:showrss">                    
-                    <a tal:condition="showrss"
-                       class="rssIcon" title="Zum Dashboard hinzuf&uuml;gen" href="#"
-                       tal:attributes="href string:${rss_url}${rss_param}${rss_param_referer}">
-                        <img alt="+" tal:attributes="src string:++resource++izug.blog.icons/icon_merkliste.gif"/>
-                    </a>
                     <a tal:attributes="href link_url"
                        tal:content="string: ${item/Title} (${node/count_refs})">Selected Item Title</a>
             </span>
