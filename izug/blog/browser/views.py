@@ -98,6 +98,11 @@ class BlogView(BrowserView):
             
         return self.template()
 
+    @property
+    def isBlog(self):
+        context = self.context
+        return bool(IBlogView.providedBy(self) or IBlogEntryView.providedBy(self))
+
             
 class createBlogEntryPath(BrowserView):
 
