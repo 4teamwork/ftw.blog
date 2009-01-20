@@ -2,6 +2,7 @@
 <object>
   <hidden manager="plone.belowcontenttitle" skinname="iZug Theme">
         <viewlet name="plone.belowcontenttitle.documentbyline" />
+        <viewlet name="izug.tagging.taglist" />
   </hidden>
   <hidden manager="plone.belowcontent" skinname="iZug Theme">
         <viewlet name="plone.comments" />
