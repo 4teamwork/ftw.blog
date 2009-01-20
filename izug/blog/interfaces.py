@@ -1,6 +1,7 @@
 from zope import schema
 from zope.interface import Interface
 
+from plone.portlets.interfaces import IPortletManager
 from zope.app.container.constraints import contains
 from zope.app.container.constraints import containers
 from izug.simplelayout.interfaces import ISimpleLayoutContainer
@@ -26,6 +27,10 @@ class ICategorizable(Interface):
 
 class ICategoryWidget(Interface):
     """
+    """
+
+class IBlogPortlets(IPortletManager):
+    """Portlet manager for the blog
     """
     
 class IBlogView(Interface):
