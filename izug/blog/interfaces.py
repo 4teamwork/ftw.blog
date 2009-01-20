@@ -4,7 +4,6 @@ from zope.interface import Interface
 from zope.app.container.constraints import contains
 from zope.app.container.constraints import containers
 from izug.simplelayout.interfaces import ISimpleLayoutContainer
-from plone.portlets.interfaces import IPortletManager
 from zope.viewlet.interfaces import IViewletManager
 
 from izug.blog import blogMessageFactory as _
@@ -37,10 +36,6 @@ class IBlogView(Interface):
 class IBlogEntryView(Interface):
     """
     Marker Interface for BlogView
-    """
-    
-class IBlogPortlets(IPortletManager):
-    """
     """
     
 class IBlogBelowContent(IViewletManager):

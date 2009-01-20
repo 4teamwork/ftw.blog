@@ -114,10 +114,10 @@
             <div class="tags" metal:define-macro="taglisting">
              <tal:rep repeat="tag item_tags">
                 <a tal:define="tag_url string: ./blog_view?tags=${tag}"
-                   tal:condition="tag" 
+                   tal:condition="tag"
                    tal:attributes="href tag_url"
-                   class="TagsItem" 
-                   href="#" 
+                   class="TagsItem"
+                   href="#"
                    tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
              </tal:rep>
             </div>

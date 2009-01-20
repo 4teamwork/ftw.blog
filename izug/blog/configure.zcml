@@ -6,7 +6,7 @@
 
     <five:registerPackage package="." initialize=".initialize" />
     
-    <!-- first, we have register our utility -->
+    <!-- First, we register our utility -->
     <utility
      provides=".interfaces.IBlogUtils"
      factory=".utility.BlogUtils"
