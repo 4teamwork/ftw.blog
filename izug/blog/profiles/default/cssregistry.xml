@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_css" meta_type="Stylesheets Registry" autogroup="False">
  <stylesheet title="" cacheable="True" compression="safe" cookable="True"
-    enabled="True" expression="python:portal.restrictedTraverse('@@blog_view').isBlog" id="++resource++izug.blog.css/blog.css" media="screen"
+    enabled="True" expression="python: object.Type() in ['Blog','Blog Entry']" id="++resource++izug.blog.css/blog.css" media="screen"
     rel="stylesheet" rendering="import"/>
 </object>
 

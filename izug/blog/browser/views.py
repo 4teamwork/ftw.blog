@@ -1,6 +1,6 @@
 from Products.Five.browser import BrowserView
 from zope.interface import implements
-from izug.blog.interfaces import IBlogView, IBlogEntryView, IBlog, IBlogUtils
+from izug.blog.interfaces import IBlogView, IBlogEntryView, IBlog, IBlogEntry, IBlogUtils
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
 from zope.component import getMultiAdapter, getUtility
@@ -98,10 +98,6 @@ class BlogView(BrowserView):
             
         return self.template()
 
-    @property
-    def isBlog(self):
-        context = self.context
-        return bool(IBlogView.providedBy(self) or IBlogEntryView.providedBy(self))
 
             
 class createBlogEntryPath(BrowserView):
