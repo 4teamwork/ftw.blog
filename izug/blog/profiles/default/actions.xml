@@ -54,5 +54,12 @@
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
   </object>
+  <object name="manage_categories" meta_type="CMF Action" i18n:domain="izug">
+   <property name="title" i18n:translate="">Manage categories</property>
+   <property name="description" i18n:translate=""></property>
+   <property name="url_expr">./categories</property>
+   <property name="icon_expr"></property>
+   <property name="available_expr"></property>
+  </object>
  </object>
 </object>

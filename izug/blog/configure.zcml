@@ -32,4 +32,9 @@
              zope.app.container.interfaces.IObjectAddedEvent"
         handler=".eventhandlers.objectAddedHandler" />
 
+    <subscriber
+        for=".interfaces.IBlog
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".eventhandlers.objectInitializedHandler" />
+
 </configure>
