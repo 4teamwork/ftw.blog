@@ -15,7 +15,7 @@
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
         name="default"
-        title="iZug Blog"
+        title="izug.blog"
         directory="profiles/default"
         description="iZug Blog: Quills configuration."
         provides="Products.GenericSetup.interfaces.EXTENSION"
