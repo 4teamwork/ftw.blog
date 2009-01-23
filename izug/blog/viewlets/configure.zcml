@@ -11,6 +11,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.izugBlogActionsBar"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
 
 
@@ -20,6 +21,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.izugBlogActionsBar"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
 
     <browser:viewlet
@@ -28,6 +30,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.izugBlogNavigation"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
 
     <browser:viewlet
@@ -36,6 +39,7 @@
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.izugBlogListNavigation"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
     <browser:viewlet
         view="..interfaces.IBlogView"
@@ -43,6 +47,7 @@
         manager="..interfaces.IBlogBelowContent"
         class=".viewlets.izugBlogListNavigation"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
 
     <!-- overwrite comments -->
@@ -52,6 +57,7 @@
         manager="..interfaces.IBlogBelowContent"
         class=".viewlets.CommentsViewlet"
         permission="zope2.View"
+        layer="izug.theme.browser.interfaces.IThemeSpecific"
         />
         
 	<browser:viewletManager
