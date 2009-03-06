@@ -41,7 +41,7 @@
                     <a tal:attributes="href string:${here/absolute_url}/edit" 
                        title="Beitrag bearbeiten" 
                        class="edit">
-                        <img tal:attributes="src string:++resource++izug.theme.images/icon_edit.gif"/>
+                        <img tal:attributes="src string:${here/portal_url}/++resource++izug.theme.images/icon_edit.gif"/>
                     </a>
                     <a tal:condition="python:member.has_permission('Delete objects',here)"
                        tal:attributes="href string:${here/absolute_url}/delete_confirmation" 
