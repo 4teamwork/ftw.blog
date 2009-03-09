@@ -70,7 +70,7 @@
       for="*"
       name="blog-settings"
       class=".views.BlogSettings"
-      permission="cmf.ManagePortal"
+      permission="cmf.ModifyPortalContent"
       template="blog_settings.pt"
       />  
 
