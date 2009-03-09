@@ -36,6 +36,9 @@
    <property name="url_expr">string:./@@blog-settings</property>
    <property name="icon_expr"></property>
    <property name="available_expr"></property>
+   <property name="permissions">
+    <element value="Modify portal content"/>
+   </property>
   </object>
  </object>
  <object name="blog_settings_actions" meta_type="CMF Action Category">

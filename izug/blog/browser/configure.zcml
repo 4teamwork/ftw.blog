@@ -48,7 +48,6 @@
       class=".views.BlogView"
       permission="zope.Public"
       template="blog_view.pt"
-      allowed_attributes="isBlog"
       />  
       
    <browser:page
