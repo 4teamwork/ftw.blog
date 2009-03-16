@@ -27,7 +27,7 @@
         class="plone.app.portlets.browser.manage.ManageContextualPortlets"
         name="manage-blog-portlets"
         template="manage_blog_portlets.pt"
-        permission="plone.app.portlets.ManagePortlets"
+        permission="cmf.ModifyPortalContent"
     />
     
     <browser:page
