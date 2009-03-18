@@ -75,7 +75,7 @@
                        <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                       brain       python:len(cat_brains) and cat_brains[0] or False;
                                       brain_title brain/Title | nothing;
-                                      brain_url   brain/getURL | nohting"
+                                      brain_url   brain/getURL | nothing"
                           tal:condition="brain" 
                           tal:attributes="href string:./blog_view?getCategoryUids=${cat_uid}"
                           class="categories" 
