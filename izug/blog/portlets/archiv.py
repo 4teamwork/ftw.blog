@@ -16,7 +16,7 @@ from DateTime import DateTime
 MONTHS_GER = {
 			'01':u'Januar',
 			'02':u'Februar',
-			'03':unicode('M\xc3\xa4arz','utf-8'),
+			'03':unicode('M\xc3\xa4rz','utf-8'),
 			'04':u'April',
 			'05':u'Mai',
 			'06':u'Juni',
