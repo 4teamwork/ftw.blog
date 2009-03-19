@@ -47,7 +47,7 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
         rc = getToolByName(self.context,'portal_catalog')
         oldnode = super(CategoryWidgetStrategy, self).decoratorFactory(node)
         oldnode['uid'] = node['item'].UID
-        oldnode['count_refs'] = len(rc({'getCategoryUids': oldnode['uid']}))
+        oldnode['count_refs'] = len(rc({'getCategoryUids':oldnode['uid'],'portal_type':'Blog Entry'}))
         return oldnode 
 
 class SiteMapStructure(BrowserView):
