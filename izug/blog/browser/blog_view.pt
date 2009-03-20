@@ -15,8 +15,8 @@
                                   getKssClasses nocall:kssClassesView/getKssClassesInlineEditable;
                                   templateId template/getId">
 
-      <div tal:replace="structure provider:plone.belowcontenttitle" />
-      
+     <div tal:replace="structure provider:plone.belowcontenttitle" />
+
       <div id="blogColumns" class="clearfix">
       <div class="leftColumn">
         <metal:listingmacro define-macro="listing">
