@@ -72,7 +72,7 @@ class Renderer(base.Renderer):
         infos = []
         for v in values:
             infos.append(dict(title = self.zLocalizedTime(v),
-                              url = self.context.absolute_url()+'/view?InfosForArchiv=' + v.strftime('%m/01/%Y')
+                              url = blogroot.absolute_url()+'/view?InfosForArchiv=' + v.strftime('%m/01/%Y')
                               )
                         )
             
