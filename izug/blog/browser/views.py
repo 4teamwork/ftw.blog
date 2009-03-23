@@ -119,7 +119,7 @@ class BlogSettings(BrowserView):
         context_state = getMultiAdapter((context, self.request),
                                         name=u'plone_context_state')
 
-        return context_state.actions().get('blog_settings_actions', [])
+        return context_state.actions().get('object_blog_settings_actions', [])
 
     def managePortletUrl(self):
         level = self.getBlog(self.context)

@@ -17,7 +17,7 @@ class izugBlogActionsBar(ViewletBase):
         context_state = getMultiAdapter((context, self.request),
                                         name=u'plone_context_state')
 
-        self.object_actions = context_state.actions().get('blog_actions', [])
+        self.object_actions = context_state.actions().get('object_blog_actions', [])
 
         plone_utils = getToolByName(context, 'plone_utils')
 
