@@ -8,4 +8,8 @@
         <viewlet name="plone.comments" />
   </hidden>
 
+  <order manager="plone.abovecontenttitle" skinname="iZug Theme">
+        <viewlet name="izug.blog.actionsbar" insert-after="*" />
+  </order>
+
 </object>

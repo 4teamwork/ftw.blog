@@ -1,5 +1,5 @@
 <div class="actionsBar clearfis" i18n:domain="izug">
-    <h1 tal:content="view/BlogTitle" />
+    <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
     <div class="actionsBarContent clearfix">
         <form method="get" action="./blog_view" class="searchForm clearfix">
             <input type="text" name="searchable_text" class="text" tal:attributes="value request/searchable_text | nothing" />

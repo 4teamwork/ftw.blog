@@ -2,3 +2,11 @@
     padding-left:1em;
 }
 
+#actionsBar, .actionsBar {
+    background-color:#EFEFEF;
+}
+
+.blogView .actionsBarContent {
+    border-bottom:1px solid #6F9CBC;
+    padding:0 1em 1.5em;
+}

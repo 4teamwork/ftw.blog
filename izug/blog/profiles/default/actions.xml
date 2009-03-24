@@ -37,6 +37,7 @@
 			<property name="permissions">
 				<element value="Modify portal content"/>
 			</property>
+            <property name="visible">False</property>
 		</object>
 	</object>
 	<object name="object_blog_settings_actions" meta_type="CMF Action Category">
@@ -63,4 +64,16 @@
 			<property name="available_expr"/>
 		</object>
 	</object>
+    <object name="object_buttons" meta_type="CMF Action Category">
+		<object name="blog_settings" meta_type="CMF Action" i18n:domain="izug">
+			<property name="title" i18n:translate="">Blog Settings</property>
+			<property name="description" i18n:translate=""/>
+			<property name="url_expr">string:./@@blog-settings</property>
+			<property name="icon_expr"/>
+			<property name="available_expr"/>
+			<property name="permissions">
+				<element value="Modify portal content"/>
+			</property>
+		</object>
+    </object>
 </object>

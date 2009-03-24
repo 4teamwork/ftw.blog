@@ -11,7 +11,7 @@
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
     
-    <h1 i18n:translate="">Blog Settings</h1>
+    <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
     
     
     <tal:docactions tal:condition="view/objectActions">
