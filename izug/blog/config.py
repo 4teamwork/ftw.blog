@@ -10,4 +10,11 @@ ADD_PERMISSIONS = {
     'Blog': 'izug.blog: Add Blog',
 }
 
+INDEXES = (("getCategoryUids", "KeywordIndex"),
+           ("getTeaserText", "FieldIndex"),
+           ("InfosForArchiv", "FieldIndex"),
+          )
+          
+METADATA = ('getCategoryUids', 'getTeaserText', 'InfosForArchiv')
+
 product_globals = globals()

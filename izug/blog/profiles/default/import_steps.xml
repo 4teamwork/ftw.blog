@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="izug.blog.catalog"
+               version="20080715-01"
+               handler="izug.blog.setuphandlers.add_indexes"
+               title="iZug Blog: index import ">
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>
