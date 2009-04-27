@@ -20,7 +20,7 @@ from DateTime import DateTime
 from izug.contentpage.content.contentpage import ContentPage, ContentPageSchema
 from izug.block.content.block import Block, BlockSchema
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-
+from izug.arbeitsraum.content.utilities import finalizeIzugSchema
 
 schema = atapi.Schema((
     atapi.ReferenceField(
@@ -67,7 +67,13 @@ ms = atapi.ManagedSchema(BlogEntrySchema.fields())
 ms.moveSchemata('default',-1)
 
 schemata.finalizeATCTSchema(ms, folderish=True, moveDiscussion=False)
+finalizeIzugSchema(ms, folderish=True, moveDiscussion=False)
 
+ms.changeSchemataForField('effectiveDate','settings')
+ms.changeSchemataForField('expirationDate','settings')
+ms['effectiveDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
+ms['expirationDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
+    
 #inherid from izug.contentpage
 
 class BlogEntry(Block,ContentPage):

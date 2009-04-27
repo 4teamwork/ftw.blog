@@ -15,6 +15,7 @@ from izug.blog.interfaces import IBlog
 from izug.blog.config import PROJECTNAME
 
 from izug.tagging.interfaces.tagging import ITagRoot
+from izug.arbeitsraum.content.utilities import finalizeIzugSchema
 
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
@@ -35,6 +36,9 @@ BlogSchema['title'].storage = atapi.AnnotationStorage()
 BlogSchema['description'].storage = atapi.AnnotationStorage()
 
 schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
+finalizeIzugSchema(BlogSchema, folderish=True, moveDiscussion=False)
+BlogSchema['effectiveDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
+BlogSchema['expirationDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
 
 # hide schematas ..
 for field in BlogSchema.keys():
