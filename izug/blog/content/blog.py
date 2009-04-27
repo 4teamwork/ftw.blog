@@ -5,7 +5,7 @@ from zope.interface import implements, directlyProvides
 from zope.interface import alsoProvides, noLongerProvides
 
 from AccessControl import ClassSecurityInfo
-from Products.CMFCore.permissions import ModifyPortalContent, View
+from Products.CMFCore.permissions import ModifyPortalContent, View, ManagePortal
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
@@ -20,7 +20,7 @@ from izug.arbeitsraum.content.utilities import finalizeIzugSchema
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     atapi.BooleanField('tag_root',
-        default = 0,
+        default = 1,
         storage = atapi.AnnotationStorage(),
         widget = atapi.BooleanWidget(label = _(u'label_blog_tag_root', default=u"Tag Root"),
                                      description = _(u'help_blog_tag_root', default=u""),
@@ -39,6 +39,8 @@ schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
 finalizeIzugSchema(BlogSchema, folderish=True, moveDiscussion=False)
 BlogSchema['effectiveDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
 BlogSchema['expirationDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
+
+BlogSchema['tag_root'].write_permission = ManagePortal
 
 # hide schematas ..
 for field in BlogSchema.keys():

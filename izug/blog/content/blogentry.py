@@ -25,7 +25,7 @@ from izug.arbeitsraum.content.utilities import finalizeIzugSchema
 schema = atapi.Schema((
     atapi.ReferenceField(
         name='categories',
-        required=False,
+        required=True,
         widget=ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,
