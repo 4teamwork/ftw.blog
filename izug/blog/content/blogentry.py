@@ -25,7 +25,7 @@ from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import Reference
 schema = atapi.Schema((
     atapi.ReferenceField(
         name='categories',
-        required=True,
+        required=False,
         widget=ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,
