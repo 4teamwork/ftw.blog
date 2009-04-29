@@ -18,7 +18,7 @@
     <browser:viewlet
         view="..interfaces.IBlogEntryView"
         name="izug.blog.actionsbar"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         class=".viewlets.izugBlogActionsBar"
         permission="zope2.View"
         layer="izug.theme.browser.interfaces.IThemeSpecific"
