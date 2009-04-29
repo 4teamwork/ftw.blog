@@ -62,9 +62,6 @@
                                tal:attributes="href item_url;
                                                title item_title_or_id"
                                tal:content="item_title_or_id" />
-                            <a tal:attributes="href string:${item_url}/edit" title="Beitrag bearbeiten" class="edit">
-                            <img tal:attributes="src string:${here/portal_url}/++resource++izug.theme.images/icon_edit.gif"/>
-                            </a>
                         </h2>
 
                         <span class="documentByLine">

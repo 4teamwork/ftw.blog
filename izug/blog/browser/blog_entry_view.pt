@@ -37,19 +37,6 @@
         <div class="leftColumn">
             <h2 class="clearfix">
                 <span tal:content="here/Title" />
-                <tal:if condition="python:member.has_permission('Modify portal content',here)">
-                    <a tal:attributes="href string:${here/absolute_url}/edit" 
-                       title="Beitrag bearbeiten" 
-                       class="edit">
-                        <img tal:attributes="src string:${here/portal_url}/++resource++izug.theme.images/icon_edit.gif"/>
-                    </a>
-                    <a tal:condition="python:member.has_permission('Delete objects',here)"
-                       tal:attributes="href string:${here/absolute_url}/delete_confirmation" 
-                       title="Beitrag loeschen" 
-                       class="edit">
-                        <img tal:attributes="src string:${portal_url}/delete_icon.gif"/>
-                    </a>
-                </tal:if>
             </h2>
            <span class="documentByLine"
                  tal:define="item_creator here/Creator;
