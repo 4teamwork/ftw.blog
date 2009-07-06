@@ -1,12 +1,14 @@
+import os
 from setuptools import setup, find_packages
 
-version = '0.1'
+version = '0.1-dev'
+maintainer = 'Mathias Leimgruber'
 
 setup(name='izug.blog',
       version=version,
-      description="iZug Quills configuration package.",
-      long_description="""\
-""",
+      description="iZug Quills configuration package. (Maintainer: %s)" % maintainer,
+      long_description=open("README.txt").read() + "\n" +
+	                       open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
@@ -16,10 +18,10 @@ setup(name='izug.blog',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='izug quills blog',
-      author='4teamwork.ch',
-      author_email='info@4teamwork.ch',
-      url='https://svn.4teamwork.ch/repos/zug/izug.blog',
-      license='GPL',
+      author='%s, 4teamwork.ch' % maintainer,
+      author_email='mailto:info@4teamwork.ch',
+      url='http://psc.4teamwork.ch/4teamwork/kunden/izug/izug.blog/',
+      license='GPL2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['izug'],
       include_package_data=True,

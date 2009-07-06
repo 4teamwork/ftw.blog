@@ -1,9 +1,7 @@
 Changelog for izug.blog
+=======================
 
-    (name of developer listed in brackets)
-
-izug.blog - 0.1 Unreleased
-
-    - Initial package structure.
-      [zopeskel]
+0.1
+---
+    Initial Development
 
