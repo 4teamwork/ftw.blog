@@ -3,7 +3,7 @@ Changelog for izug.blog
 
 0.2
 ---
-
+    Issue #388: Keine Kategorien mehr hinzufuegbar ueber normales Menue
 
 0.1
 ---
