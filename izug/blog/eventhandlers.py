@@ -26,7 +26,8 @@ def objectAddedHandler(object, event):
         if category:
             category.setTitle('Kategorien')
             category.reindexObject()
-    
+
+    category = getattr(object, 'categories', False) 
     if not safe_hasattr(category, 'allgemein', False):
         _createObjectByType('Blog Category', category, 'allgemein')
         allgemein = getattr(category, 'allgemein', False)
