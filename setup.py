@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '0.2'
+version = open('izug/blog/version.txt').read().strip()
 maintainer = 'Mathias Leimgruber'
 
 setup(name='izug.blog',
