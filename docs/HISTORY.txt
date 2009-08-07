@@ -4,7 +4,8 @@ Changelog for izug.blog
 0.3
 ---
 * maintlog Issue #587: Remove doc-actions in discussion-reply-form
-  
+  fix datetime format in comments listing
+  replace comment image
 
 0.2
 ---
