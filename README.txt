@@ -4,4 +4,4 @@ izug.blog Package Readme
 Overview
 --------
 
-iZug Quills configuration package.
+iZug Blog implementation - known as "Fokus"

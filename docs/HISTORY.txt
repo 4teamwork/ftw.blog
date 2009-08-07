@@ -1,11 +1,16 @@
 Changelog for izug.blog
 =======================
 
+0.3
+---
+* maintlog Issue #587: Remove doc-actions in discussion-reply-form
+  
+
 0.2
 ---
-    Issue #388: Keine Kategorien mehr hinzufuegbar ueber normales Menue
+* Issue #388: Keine Kategorien mehr hinzufuegbar ueber normales Menue
 
 0.1
 ---
-    Initial Development
+* Initial Development
 

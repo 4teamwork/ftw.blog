@@ -1,3 +1,7 @@
+body.template-discussion_reply_form .documentActions {
+    display:none;
+}
+
 .classificationItem {
     padding-left:1em;
 }
