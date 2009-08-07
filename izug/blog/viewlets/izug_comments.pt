@@ -25,7 +25,7 @@
                     <span tal:replace="reply/pretty_title_or_id">Comment title</span>,
                     <span tal:content="fullname"
                           tal:condition="not:anonymous_creator">Poster Name</span>,
-                    <span tal:content="python:view.format_time(reply.ModificationDate())">8/23/2001 12:40:44 PM</span>
+                    <span tal:content="python:here.toLocalizedTime(reply.ModificationDate(),long_format=True)">8/23/2001 12:40:44 PM</span>
                     
                 </h3>
                 <div class="commentBody">
