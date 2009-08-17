@@ -1,6 +1,10 @@
 Changelog
 =========
 
+
+0.4
+---
+
 0.3
 ---
 * maintlog Issue #587: Remove doc-actions in discussion-reply-form
