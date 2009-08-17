@@ -1,11 +1,12 @@
-Changelog for izug.blog
-=======================
+Changelog
+=========
 
 0.3
 ---
 * maintlog Issue #587: Remove doc-actions in discussion-reply-form
     * fix datetime format in comments listing
     * replace comment image
+* [29.07.2009] Issue #545 Fokus - Fokus iZug migrieren [pha]
 
 0.2
 ---
