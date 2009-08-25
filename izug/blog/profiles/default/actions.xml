@@ -48,6 +48,7 @@
 			<property name="url_expr">nocall:here/@@blog-settings/managePortletUrl</property>
 			<property name="icon_expr"/>
 			<property name="available_expr"/>
+            <property name="visible">False</property>
 		</object>
 		<object name="edit_blog" meta_type="CMF Action" i18n:domain="izug">
 			<property name="title" i18n:translate="">Edit Blog</property>
@@ -55,6 +56,7 @@
 			<property name="url_expr">nocall:here/@@blog-settings/editBlog</property>
 			<property name="icon_expr"/>
 			<property name="available_expr"/>
+            <property name="visible">False</property>
 		</object>
 		<object name="manage_categories" meta_type="CMF Action" i18n:domain="izug">
 			<property name="title" i18n:translate="">Manage categories</property>
