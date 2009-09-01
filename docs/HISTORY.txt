@@ -5,7 +5,8 @@ Changelog
 0.4
 ---
 
-* maintlog Issue #586: fix actions
+* [25.08.2009] Issue #586 Fokus - Menu Fokus Einstellungen einschränken [mle]
+
 
 0.3
 ---
