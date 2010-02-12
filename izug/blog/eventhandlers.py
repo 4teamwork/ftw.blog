@@ -15,30 +15,30 @@ except ImportError:
     pass
     
     
-def objectAddedHandler(object, event):
+def objectAddedHandler(obj, event):
     """Handle IObjectAddedEvent
     """
 
     #adding a categories root object    
-    if not safe_hasattr(object, 'categories', False):
-        _createObjectByType('Blog Category', object, 'categories')
-        category = getattr(object, 'categories', False)
+    if not safe_hasattr(obj.aq_explicit, 'categories', False):
+        _createObjectByType('Blog Category', obj, 'categories')
+        category = getattr(obj.aq_explicit, 'categories', False)
         if category:
             category.setTitle('Kategorien')
             category.reindexObject()
 
-    category = getattr(object, 'categories', False) 
-    if not safe_hasattr(category, 'allgemein', False):
+    category = getattr(obj.aq_explicit, 'categories', False) 
+    if not safe_hasattr(category.aq_explicit, 'allgemein', False):
         _createObjectByType('Blog Category', category, 'allgemein')
-        allgemein = getattr(category, 'allgemein', False)
+        allgemein = getattr(category.aq_explicit, 'allgemein', False)
         if allgemein:
             allgemein.setTitle('Allgemein')
             allgemein.reindexObject()
 
-def objectInitializedHandler(object, event):
+def objectInitializedHandler(obj, event):
     #adding some portlets (archive/tags/categories)
-    blog_manager = getUtility(IPortletManager, name=u'blog.portlets', context=object)
-    portlets = getMultiAdapter((object, blog_manager,), IPortletAssignmentMapping, context=object)
+    blog_manager = getUtility(IPortletManager, name=u'blog.portlets', context=obj)
+    portlets = getMultiAdapter((obj, blog_manager,), IPortletAssignmentMapping, context=obj)
     
     category = 'blog-categories-portlet'
     if category not in portlets.keys():
