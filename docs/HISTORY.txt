@@ -4,8 +4,13 @@ Changelog
 
 0.5
 ---
-* [12.02.2010] Issue #760 Arbeitsraum - neuer Fokus ohne Startkategorie Allgemein [mle]
-* [12.02.2010] Tests hinzugefügt. 
+
+* Issue #760 Arbeitsraum - neuer Fokus ohne Startkategorie Allgemein
+  [12.02.2010, mle]
+
+* Tests hinzugefügt.
+  [12.02.2010, mle]
+  
 
 0.4
 ---
