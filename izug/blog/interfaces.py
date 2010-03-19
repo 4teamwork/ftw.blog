@@ -9,6 +9,9 @@ from zope.viewlet.interfaces import IViewletManager
 
 from izug.blog import blogMessageFactory as _
 
+class IBlogLayer(Interface):
+    """ blog specific request layer interface
+    """
 
 class IBlogEntry(ISimpleLayoutContainer):
     """iZug Blog Entry"""

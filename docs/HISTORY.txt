@@ -5,6 +5,9 @@ Changelog
 0.6
 ---
 
+* Added own layer interface for eliminating dependency to izug.theme
+  [19.03.2010, jbaumann]
+  
 
 0.5
 ---

@@ -30,6 +30,7 @@ setup(name='izug.blog',
       install_requires=[
           'setuptools',
           'collective.testcaselayer'
+          'plone.browserlayer',
           # -*- Extra requirements: -*-
       ],
       entry_points="""

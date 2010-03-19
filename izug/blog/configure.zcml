@@ -4,6 +4,9 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     i18n_domain="izug.blog">
 
+  <!-- dependency includs -->
+  <include package="plone.browserlayer" />
+
   <five:registerPackage package="." initialize=".initialize" />
 
   <!-- First, we register our utility -->
