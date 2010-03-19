@@ -5,6 +5,12 @@ Changelog
 0.7
 ---
 
+* Fixed setup.py: missing comma in requirements resultet in unexisting package name
+  [19.03.2010, jbaumann]
+
+* Removed setup.cfg: not required anymore
+  [19.03.2010, jbaumann]
+
 
 0.6
 ---

@@ -29,7 +29,7 @@ setup(name='izug.blog',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.testcaselayer'
+          'collective.testcaselayer',
           'plone.browserlayer',
           # -*- Extra requirements: -*-
       ],
