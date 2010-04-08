@@ -1,0 +1,19 @@
+<div class="portletWrapper" i18n:domain="izug.tagging"
+           tal:define="tags view/tag_cloud">
+<dl class="portlet portletTagcloud clearfix">
+
+    <dt class="portletHeader">
+        <span i18n:translate="label_tagcloud">
+           Tag Cloud
+        </span>
+    </dt>
+
+    <dd tal:repeat="tag tags" class="portletItem">
+      <a tal:attributes="style string:font-size: ${tag/font_size}em;
+                         href string:${view/tag_root_url}/view?tag=${tag/title}"
+         tal:content="tag/title" />
+    </dd>
+
+</dl>
+
+</div>

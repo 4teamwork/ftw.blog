@@ -5,6 +5,7 @@
     i18n_domain="izug.blog">
 
     <include package="plone.app.portlets" />
+    <include package="izug.tagging" />
 
     <plone:portlet
         name="blog.categories.portlet"
@@ -21,6 +22,13 @@
         renderer=".archiv.Renderer"
         addview=".archiv.AddForm"
         />        
+
+    <!-- override renderer for the tags portlet -->
+    <plone:portletRenderer
+       portlet="izug.tagging.portlets.tags.ITagsPortlet"
+       template="blog_tags_portlet.pt"
+       layer="izug.blog.interfaces.IBlogLayer"
+       />
 
     <browser:page
         for="plone.portlets.interfaces.ILocalPortletAssignable"

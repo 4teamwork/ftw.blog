@@ -4,7 +4,9 @@ Changelog
 
 0.8
 ---
-
+* #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet 
+  wurde überschrieben). 
+  [19.03.2010, mle]
 
 0.7
 ---
