@@ -10,7 +10,7 @@
 
     <dd tal:repeat="tag tags" class="portletItem">
       <a tal:attributes="style string:font-size: ${tag/font_size}em;
-                         href string:${view/tag_root_url}/view?tag=${tag/title}"
+                         href string:${view/tag_root_url}/view?tags=${tag/title}"
          tal:content="tag/title" />
     </dd>
 

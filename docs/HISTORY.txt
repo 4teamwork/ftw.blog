@@ -4,6 +4,12 @@ Changelog
 
 0.8
 ---
+
+* #780 Fokus - Sortierung bei Anzeige der Beiträge
+  https://extranet.4teamwork.ch/support/zug/maintlog/780
+  changed tag to tags
+  [26.04.2010, mle]
+
 * #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet 
   wurde überschrieben). 
   [19.03.2010, mle]
