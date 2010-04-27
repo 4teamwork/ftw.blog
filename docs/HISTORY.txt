@@ -10,8 +10,8 @@ Changelog
   changed tag to tags
   [26.04.2010, mle]
 
-* #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet 
-  wurde überschrieben). 
+* #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet
+  wurde überschrieben).
   [19.03.2010, mle]
 
 0.7
