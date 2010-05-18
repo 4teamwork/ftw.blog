@@ -31,4 +31,11 @@
       <for interface="izug.blog.interfaces.IBlogPortlets" />
   </portlet>
 
+  <portlet
+    addview="blog.tags.portlet"
+    title="Blog Tags Portlet (do not use)"
+    description="A portlet for izug blog, which shows the tagcloud.">
+      <for interface="izug.blog.interfaces.IBlogPortlets" />
+  </portlet>
+
 </portlets>

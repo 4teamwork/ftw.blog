@@ -5,6 +5,10 @@ Changelog
 0.8
 ---
 
+* fix weird error with an not removable old portlet (blog.tags.portlet)
+  [18.05.2010, mle]
+
+
 * #780 Fokus - Sortierung bei Anzeige der Beiträge
   https://extranet.4teamwork.ch/support/zug/maintlog/780
   changed tag to tags
