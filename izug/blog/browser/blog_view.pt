@@ -7,17 +7,14 @@
       i18n:domain="izug">
 
 <body>
-    
+
 
     <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main"
                       tal:define="templateId template/getId">
 
-     <div tal:replace="structure provider:plone.abovecontenttitle" />
-     <!-- dummy title -->
-     <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-      <div id="blogColumns" class="clearfix">
+    <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
+     <div id="blogColumns" class="clearfix">
       <div class="leftColumn">
         <metal:listingmacro define-macro="listing">
         <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;

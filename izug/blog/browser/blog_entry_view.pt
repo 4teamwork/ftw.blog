@@ -30,11 +30,9 @@
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-     <div tal:replace="structure provider:plone.abovecontenttitle" />
-     <!-- dummy title -->
-     <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-      <div id="blogColumns blogItem" class="clearfix">
+    
+    <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
+     <div id="blogColumns blogItem" class="clearfix">
         <div class="leftColumn">
            <span class="documentByLine"
                  tal:define="item_creator here/Creator;

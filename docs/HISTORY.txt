@@ -5,6 +5,10 @@ Changelog
 0.8
 ---
 
+* Issue #60 Fokus: die Menüleiste (Edit) kommen 2x
+  https://extranet.4teamwork.ch/projects/integration-zug.ch-izug/tracker-integration-zug.ch-izug/60/
+  [31.05.2010, phgross]
+
 * fix weird error with an not removable old portlet (blog.tags.portlet)
   [18.05.2010, mle]
 
