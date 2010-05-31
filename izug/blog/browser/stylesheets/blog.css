@@ -24,10 +24,10 @@ body.template-discussion_reply_form .documentActions {
 }
 
 /* another exception for actionbar and edit menus */
-.blogView .actionBar {
+.blogView .actionsBar {
     margin-left: -1em;
 }
 .blogView h1,
 .blogView #dropdown-contentmenu {
-    margin-left: 0;
+    margin-left: 0 !important;
 }
