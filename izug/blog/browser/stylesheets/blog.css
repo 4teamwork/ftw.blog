@@ -22,3 +22,12 @@ body.template-discussion_reply_form .documentActions {
     border-bottom:1px solid #6F9CBC;
     padding:0 1em 1.5em;
 }
+
+/* another exception for actionbar and edit menus */
+.blogView .actionBar {
+    margin-left: -1em;
+}
+.blogView h1,
+.blogView #dropdown-contentmenu {
+    margin-left: 0;
+}
