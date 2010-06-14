@@ -4,6 +4,9 @@ Changelog
 
 0.8
 ---
+* enabling editableBorder again, otherwise editing is not possible
+  https://extranet.4teamwork.ch/support/zug/maintlog/1050
+  [14.06.2010, fsp]
 
 * Issue #60 Fokus: die Menüleiste (Edit) kommen 2x
   https://extranet.4teamwork.ch/projects/integration-zug.ch-izug/tracker-integration-zug.ch-izug/60/
@@ -21,6 +24,7 @@ Changelog
 * #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet
   wurde überschrieben).
   [19.03.2010, mle]
+
 
 0.7
 ---
