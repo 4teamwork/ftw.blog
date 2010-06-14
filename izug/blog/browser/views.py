@@ -15,7 +15,7 @@ class BlogEntryView(BrowserView):
     
     def __call__(self):
         context = aq_inner(self.context).aq_explicit
-        context.REQUEST.set('disable_border',1)
+        #context.REQUEST.set('disable_border',1)
         self.image_layout = self.context.getImageLayout()
         return self.template()
         
@@ -60,7 +60,7 @@ class BlogView(BrowserView):
         context = aq_inner(self.context).aq_explicit
         req = context.REQUEST
         #hide the green contentmenu-bar
-        req.set('disable_border',1)
+        #req.set('disable_border',1)
         querystring = context.REQUEST.get('QUERY_STRING','')
         querystring = querystring and '?' + querystring or querystring        
         
