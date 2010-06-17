@@ -48,11 +48,11 @@
     <!-- this fixes a weird error , we cannot unregister this portlet-->
     <plone:portlet
         name="blog.tags.portlet"
-        interface="izug.tagging.portlets.tags.ITagsPortlet"
-        assignment="izug.tagging.portlets.tags.Assignment"
-        renderer="izug.tagging.portlets.tags.Renderer"
-        addview="izug.tagging.portlets.tags.AddForm"
-        editview="izug.tagging.portlets.tags.EditForm"
+        interface=".tags.ITagsPortlet"
+        assignment=".tags.Assignment"
+        renderer=".tags.Renderer"
+        addview=".tags.AddForm"
+        editview=".tags.EditForm"
     />
 
 </configure>
