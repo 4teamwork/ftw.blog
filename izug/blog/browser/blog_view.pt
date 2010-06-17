@@ -6,6 +6,11 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="izug">
 
+<head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
+</head>
+
 <body>
     <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main"
