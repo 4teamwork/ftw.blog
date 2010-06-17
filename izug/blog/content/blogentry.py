@@ -1,10 +1,9 @@
 """Definition of the Blog Item content type
 """
 
-from zope.interface import implements, directlyProvides
+from zope.interface import implements
 
 from Products.Archetypes import atapi
-from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 
 
@@ -12,15 +11,13 @@ from izug.blog import blogMessageFactory as _
 from izug.blog.interfaces import IBlogEntry
 from izug.blog.config import PROJECTNAME
 from Acquisition import aq_inner
-from Products.AddRemoveWidget import AddRemoveWidget
-from Products.CMFCore.utils import getToolByName
 from DateTime import DateTime
 
 
 from izug.contentpage.content.contentpage import ContentPage, ContentPageSchema
 from izug.block.content.block import Block, BlockSchema
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
-from izug.arbeitsraum.content.utilities import finalizeIzugSchema
+from izug.webcontent.content.zugschemas import finalizeZugSchema
 
 schema = atapi.Schema((
     atapi.ReferenceField(
@@ -67,7 +64,7 @@ ms = atapi.ManagedSchema(BlogEntrySchema.fields())
 ms.moveSchemata('default',-1)
 
 schemata.finalizeATCTSchema(ms, folderish=True, moveDiscussion=False)
-finalizeIzugSchema(ms, folderish=True, moveDiscussion=False)
+finalizeZugSchema(ms, folderish=True, moveDiscussion=False)
 
 ms.changeSchemataForField('effectiveDate','settings')
 ms.changeSchemataForField('expirationDate','settings')

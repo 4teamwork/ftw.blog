@@ -1,7 +1,7 @@
 """Definition of the Blog content type
 """
 
-from zope.interface import implements, directlyProvides
+from zope.interface import implements
 from zope.interface import alsoProvides, noLongerProvides
 
 from AccessControl import ClassSecurityInfo
@@ -15,7 +15,7 @@ from izug.blog.interfaces import IBlog
 from izug.blog.config import PROJECTNAME
 
 from izug.tagging.interfaces.tagging import ITagRoot
-from izug.arbeitsraum.content.utilities import finalizeIzugSchema
+from izug.webcontent.content.zugschemas import finalizeZugSchema
 
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
@@ -36,7 +36,7 @@ BlogSchema['title'].storage = atapi.AnnotationStorage()
 BlogSchema['description'].storage = atapi.AnnotationStorage()
 
 schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
-finalizeIzugSchema(BlogSchema, folderish=True, moveDiscussion=False)
+finalizeZugSchema(BlogSchema, folderish=True, moveDiscussion=False)
 BlogSchema['effectiveDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
 BlogSchema['expirationDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
 
