@@ -8,7 +8,7 @@
         <viewlet name="plone.comments" />
   </hidden>
 
-  <order manager="plone.abovecontenttitle" skinname="iZug Theme">
+  <order manager="plone.belowcontenttitle" skinname="iZug Theme">
         <viewlet name="izug.blog.actionsbar" insert-after="*" />
   </order>
   
@@ -20,7 +20,7 @@
         <viewlet name="plone.comments" />
   </hidden>
 
-  <order manager="plone.abovecontenttitle" skinname="ZugSkin">
+  <order manager="plone.belowcontenttitle" skinname="ZugSkin">
         <viewlet name="izug.blog.actionsbar" insert-after="*" />
   </order>  
 

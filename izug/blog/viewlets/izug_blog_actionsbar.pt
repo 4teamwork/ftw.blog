@@ -1,12 +1,12 @@
-<div class="actionsBar clearfis" i18n:domain="izug" tal:define="object_title here/Title;">
-    <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
+<div class="actionsBar clearfis" i18n:domain="izug">
+
     <div class="actionsBarContent clearfix">
-        <form method="get" action="./blog_view" class="searchForm clearfix">
+         <form method="get" action="./blog_view" class="searchForm clearfix">
             <input type="text" name="searchable_text" class="text" tal:attributes="value request/searchable_text | nothing" />
             <input type="submit" name="search_blog" i18n:attributes="value blog_search_button"
                    value="Search the Blog" class="submit" />
         </form>
-        <tal:docactions tal:condition="view/object_actions">
+        <!-- <tal:docactions tal:condition="view/object_actions">
         <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
 
         <ul class="blogActions clearfix" tal:define="normalizeString nocall: context/@@plone/normalizeString">
@@ -17,16 +17,16 @@
                    tal:define="hasImg python: daction.has_key('icon') and daction['icon']"
                    tal:attributes="href daction/url;
                                    title daction/description">
-				<img tal:condition="hasImg" src="" alt=""
-					 tal:attributes="src python: hasImg and daction['icon'] or '';
-					 				 alt daction/title" />
-				<span tal:condition="not:hasImg" tal:replace="daction/title" />
-				<div tal:replace="python:daction['icon']">gh</div>
+                <img tal:condition="hasImg" src="" alt=""
+                     tal:attributes="src python: hasImg and daction['icon'] or '';
+                                     alt daction/title" />
+                <span tal:condition="not:hasImg" tal:replace="daction/title" />
+                <div tal:replace="python:daction['icon']">gh</div>
 
                     </a>
             </li>
         </tal:actions>
         </ul>
-        </tal:docactions>
+        </tal:docactions> -->
     </div>
 </div>

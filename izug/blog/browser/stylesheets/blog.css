@@ -19,13 +19,15 @@ body.template-discussion_reply_form .documentActions {
 }
 
 .blogView .actionsBarContent {
-    border-bottom:1px solid #6F9CBC;
-    padding:0 1em 1.5em;
+    border-bottom:1px solid #006FBA;
+    border-right:1px solid #006FBA;
+    border-left:1px solid #006FBA;
+    padding:1em 1em 1.5em;
 }
 
 /* another exception for actionbar and edit menus */
 .blogView .actionsBar {
-    margin-left: -1em;
+    margin-top: -1em;
 }
 .blogView h1,
 .blogView #dropdown-contentmenu {

@@ -8,7 +8,7 @@
     <browser:viewlet
         view="..interfaces.IBlogView"
         name="izug.blog.actionsbar"
-        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.izugBlogActionsBar"
         permission="zope2.View"
         layer="..interfaces.IBlogLayer"
