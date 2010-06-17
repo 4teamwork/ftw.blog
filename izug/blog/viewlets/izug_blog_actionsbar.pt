@@ -1,4 +1,4 @@
-<div class="actionsBar clearfis" i18n:domain="izug">
+<div class="actionsBar clearfis" i18n:domain="izug" tal:define="object_title here/Title;">
     <metal:block metal:use-macro="here/@@custom_header/macros/header | here/base/macros/header" />
     <div class="actionsBarContent clearfix">
         <form method="get" action="./blog_view" class="searchForm clearfix">
