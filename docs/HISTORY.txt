@@ -4,6 +4,11 @@ Changelog
 zug.ch-integration
 ------------------
 
+* Issue #1050 Fokus - Fehlende Bearbeitungsleiste im IE8
+  https://extranet.4teamwork.ch/support/zug/maintlog/1050
+  Fehlende Icons auf Fokus wieder einblenden
+  [16.06.2010, fsprenger]
+
 * fix viewlet.xml and evenhandlers
   [18.05.2010, mle]
 
