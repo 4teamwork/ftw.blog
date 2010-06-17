@@ -7,8 +7,6 @@
       i18n:domain="izug">
 
 <body>
-    <metal:block fill-slot="top_slot"
-                 tal:define="dummy python:request.set('layoutClass', 'three-column')" />
     <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main"
                       tal:define="templateId template/getId">

@@ -6,7 +6,6 @@ body.template-discussion_reply_form .documentActions {
     position: relative;
 }
 .blogView .rightColumn {
-    position: absolute;
     top: 0;
     right: -20em;
 }
