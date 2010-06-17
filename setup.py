@@ -5,6 +5,10 @@ version = open('izug/blog/version.txt').read().strip()
 
 maintainer = 'Mathias Leimgruber'
 
+tests_require = [
+    'collective.testcaselayer',
+    ]
+
 setup(name='izug.blog',
       version=version,
       description="iZug Quills configuration package. (Maintainer: %s)" % maintainer,
@@ -29,10 +33,13 @@ setup(name='izug.blog',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'collective.testcaselayer',
           'plone.browserlayer',
           # -*- Extra requirements: -*-
       ],
+      extras_require={
+        'tests_require': tests_require,
+        },
+      tests_require=tests_require,
       entry_points="""
       # -*- Entry points: -*-
       """,
