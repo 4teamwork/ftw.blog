@@ -1,6 +1,14 @@
 Changelog
 =========
 
+zug.ch-integration
+------------------
+
+* remove Orgunit and ContentPage from profile 
+  [18.05.2010, mle]
+  
+* remove izug.arbeitsraum dependecy
+  [18.05.2010, mle]
 
 0.8
 ---
