@@ -4,6 +4,12 @@ Changelog
 zug.ch-integration
 ------------------
 
+* fix viewlet.xml and evenhandlers
+  [18.05.2010, mle]
+
+* fix blog actions viewlet
+  [18.05.2010, mle]
+
 * remove Orgunit and ContentPage from profile 
   [18.05.2010, mle]
   
