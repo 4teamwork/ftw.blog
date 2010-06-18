@@ -1,8 +1,9 @@
 Changelog
 =========
 
-zug.ch-integration
-------------------
+
+1.0
+---
 
 * Issue #1050 Fokus - Fehlende Bearbeitungsleiste im IE8
   https://extranet.4teamwork.ch/support/zug/maintlog/1050
@@ -20,6 +21,7 @@ zug.ch-integration
   
 * remove izug.arbeitsraum dependecy
   [18.05.2010, mle]
+
 
 0.8
 ---
