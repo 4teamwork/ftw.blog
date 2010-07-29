@@ -13,6 +13,14 @@
     <metal:main-macro define-macro="main"
                       tal:define="templateId template/getId">
 
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+
+    <h1 class="documentFirstHeading">
+    <tal:title replace="context/Title" />
+    </h1>
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
+
      <div id="blogColumns" class="clearfix">
       <div class="leftColumn">
         <metal:listingmacro define-macro="listing">

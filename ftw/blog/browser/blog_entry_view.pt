@@ -16,6 +16,14 @@
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
     
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+
+    <h1 class="documentFirstHeading">
+      <tal:title replace="context/Title" />
+    </h1>
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
+    
      <div id="blogColumns blogItem" class="clearfix">
         <div class="leftColumn">
            <span class="documentByLine"
