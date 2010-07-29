@@ -1,7 +1,8 @@
 """Definition of the Blog Entry content type
 """
 from zope.interface import implements
-
+from Acquisition import aq_inner
+from DateTime import DateTime
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
@@ -94,5 +95,30 @@ class BlogEntry(folder.ATFolder):
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
+
+    #returns the category uid and the parent category uid
+    def getCategoryUids(self):
+        cats = aq_inner(self).getCategories()
+        uids = [c.UID() for c in cats]
+        parent_uids = []
+        for pc in cats:
+            parent = aq_inner(pc).aq_parent
+            puid = parent.UID()
+            grand_parent = aq_inner(parent).aq_parent
+            if puid not in parent_uids and grand_parent.Type()=='Blog Category':
+                parent_uids.append(puid)
+                DateTime(self.CreationDate()).strftime('%m/%Y')
+        return parent_uids + uids
+    
+    #returns teaser text for blog listing
+    def getTeaserText(self):
+        
+        block_text = self.getText()
+    
+        teaser_text = len(block_text) > 200 and block_text[:200] + '...' or block_text
+        return teaser_text 
+    
+    def InfosForArchiv(self):
+        return DateTime(self.CreationDate()).strftime('%m/01/%Y')
 
 atapi.registerType(BlogEntry, PROJECTNAME)
