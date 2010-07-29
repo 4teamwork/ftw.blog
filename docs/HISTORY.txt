@@ -4,6 +4,8 @@ Changelog
 
 1.0c2
 -----
+* renamed from izug.blog to ftw.blog
+* removed all dependencies to izug packages (izug.tagging, izug.webcontent ect.)
 
 
 1.0

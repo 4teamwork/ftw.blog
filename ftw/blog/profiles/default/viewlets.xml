@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<object>
+  <hidden manager="plone.belowcontenttitle" skinname="iZug Theme">
+        <viewlet name="plone.belowcontenttitle.documentbyline" />
+  </hidden>
+  <hidden manager="plone.belowcontent" skinname="iZug Theme">
+        <viewlet name="plone.comments" />
+  </hidden>
+
+  <order manager="plone.belowcontenttitle" skinname="iZug Theme">
+        <viewlet name="ftw.blog.actionsbar" insert-after="*" />
+  </order>
+  
+  <hidden manager="plone.belowcontenttitle" skinname="ZugSkin">
+        <viewlet name="plone.belowcontenttitle.documentbyline" />
+  </hidden>
+  <hidden manager="plone.belowcontent" skinname="ZugSkin">
+        <viewlet name="plone.comments" />
+  </hidden>
+
+  <order manager="plone.belowcontenttitle" skinname="ZugSkin">
+        <viewlet name="ftw.blog.actionsbar" insert-after="*" />
+  </order>  
+
+</object>

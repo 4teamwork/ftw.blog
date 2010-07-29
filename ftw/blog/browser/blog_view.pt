@@ -1,0 +1,132 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ftw.blog">
+
+<body>
+
+
+    <div metal:fill-slot="main" class="blogView">
+    <metal:main-macro define-macro="main"
+                      tal:define="templateId template/getId">
+
+     <div id="blogColumns" class="clearfix">
+      <div class="leftColumn">
+        <metal:listingmacro define-macro="listing">
+        <tal:foldercontents define="contentFilter contentFilter|request/contentFilter|nothing;
+                            normalizeString nocall:context/@@plone/normalizeString;
+                            mtool context/portal_membership;
+                            limit_display limit_display|request/limit_display|nothing;
+                            more_url more_url|request/more_url|string:folder_contents;
+                            is_a_topic python:here.Type()=='Collection';
+                            folderContents folderContents|nothing; folderContents python:folderContents or is_a_topic and here.queryCatalog(contentFilter,batch=True) or here.getFolderContents(contentFilter, batch=True, b_size=limit_display or 100);
+							toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                            use_view_action site_properties/typesUseViewActionInListings|python:();
+                            over_limit python: limit_display and len(folderContents) > limit_display;
+                            folderContents python: (over_limit and folderContents[:limit_display]) or folderContents;
+                            batch folderContents;">
+        <tal:listing condition="folderContents">
+
+            <div class="blogListing">
+                <tal:entry tal:repeat="item folderContents">
+                <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                                       item_id item/getId|item/id;
+                                       item_title_or_id item/pretty_title_or_id;
+                                       item_description item/Description;
+                                       item_type item/portal_type;
+                                       item_type_title item/Type;
+                                       item_modified item/ModificationDate;
+                                       item_created item/CreationDate;
+                                       item_icon python:plone_view.getIcon(item);
+                                       item_type_class python:'contenttype-' + normalizeString(item_type);
+                                       item_wf_state item/review_state|python: wtool.getInfoFor(item, 'review_state', '');
+                                       item_wf_state_class python:'state-' + normalizeString(item_wf_state);
+                                       item_creator item/Creator;
+                                       item_start item/start/ISO|item/StartDate|nothing;
+                                       item_end item/end/ISO|item/EndDate|nothing;
+                                       item_categories item/getCategoryUids | nothing;
+                                       item_teaser_text item/getTeaserText | nothing;
+                                       item_tags item/tags |nothing;
+                                   ">
+
+                    <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
+
+                        <h2 class="clearfix">
+                            <a href="#"
+                               tal:attributes="href item_url;
+                                               title item_title_or_id"
+                               tal:content="item_title_or_id" />
+                        </h2>
+
+                        <span class="documentByLine">
+                            <span i18n:translate="label_blog_byline">
+
+                                <tal:name tal:condition="item_creator"
+                                    tal:define="author python:mtool.getMemberInfo(item_creator)">
+                                  <span>
+                                      <span tal:content="python:author and author['fullname'] or item_creator"
+                                            tal:omit-tag="not:author"
+                                            i18n:name="author">
+                                        Bob Dobalina
+                                      </span>
+                                  </span>
+                                 </tal:name>
+                                    at 
+                                 <span class="dateCreated"
+                                       tal:content="python:toLocalizedTime(item_created, long_format=1)"
+                                       i18n:name="created">from date</span> in 
+                            </span>
+                                 <tal:rep repeat="cat_uid item_categories">
+                                    <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                                                   brain       python:len(cat_brains) and cat_brains[0] or False;
+                                                   brain_title brain/Title | nothing;
+                                                   brain_url   brain/getURL | nothing"
+                                       tal:condition="brain" 
+                                       tal:attributes="href string:?getCategoryUids=${cat_uid}"
+                                       class="categories" 
+                                       href="#" 
+                                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " /> 
+                                    
+                                 </tal:rep>
+
+                        </span>
+                        <div class="teaserText" 
+                              tal:content="structure item_teaser_text">
+                        </div>
+                        
+                        <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
+                            TagListing
+                        </div>
+
+                    </div>
+
+                </tal:block>
+                </tal:entry>
+            </div>
+
+            
+        </tal:listing>
+        <metal:empty metal:define-slot="no_items_in_listing">
+            <p class="discreet"
+               tal:condition="not: folderContents" i18n:domain="plone"
+               i18n:translate="description_no_results_found">
+                There are currently no items in this folder.
+            </p>
+        </metal:empty>
+
+        </tal:foldercontents>
+        </metal:listingmacro>
+
+        <tal:block replace="structure provider:blog.belowcontent" />
+      </div>
+       <div class="rightColumn">
+          <tal:block replace="structure provider:blog.portlets" />
+       </div>
+    </metal:main-macro>
+    </div>
+
+</body>
+</html>

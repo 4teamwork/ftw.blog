@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <!-- -*- extra stuff goes here -*- -->
+    <permission name="ftw.blog: Add BlogEntry" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="ftw.blog: Add BlogCategory" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+    <permission name="ftw.blog: Add Blog" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
+  </permissions>
+</rolemap>

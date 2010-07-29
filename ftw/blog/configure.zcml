@@ -1,0 +1,43 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.blog">
+
+  <!-- dependency includs -->
+  <include package="plone.browserlayer" />
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- First, we register our utility -->
+  <utility
+      provides=".interfaces.IBlogUtils"
+      factory=".utility.BlogUtils"
+      name="ftw.blog.utils" />
+
+  <!-- Register the installation GenericSetup extension profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="ftw.blog"
+      directory="profiles/default"
+      description="iZug Blog: Quills configuration."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- Include the sub-packages that use their own configure.zcml files. -->
+  <include package=".browser" />
+  <include package=".content" />
+  <include package=".portlets" />
+  <include package=".viewlets" />
+
+  <subscriber
+      for=".interfaces.IBlog
+           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      handler=".eventhandlers.objectAddedHandler" />
+
+  <subscriber
+      for=".interfaces.IBlog
+           Products.Archetypes.interfaces.IObjectInitializedEvent"
+      handler=".eventhandlers.objectInitializedHandler" />
+
+</configure>

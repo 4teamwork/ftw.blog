@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="ftw.blog"
+    meta_type="Filesystem Directory View"
+    directory="ftw.blog:skins/ftw.blog_templates"/>
+  
+  <skin-path name="*">
+  <layer name="ftw.blog"
+     insert-after="custom"/> 
+ </skin-path>
+</object>
+

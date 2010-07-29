@@ -1,0 +1,18 @@
+<div class="portletWrapper" i18n:domain="ftw.blog">
+<dl class="portlet portletBlogCategory clearfix">
+
+    <dt class="portletHeader">
+        <span i18n:translate="">
+           Archiv
+        </span>
+    </dt>
+
+    <dd tal:repeat="a view/archivlist" class="portletItem">
+        <a tal:attributes="href a/url;
+                           title a/title" 
+           tal:content="a/title" i18n:translate=""/>
+    </dd>
+
+</dl>
+
+</div>

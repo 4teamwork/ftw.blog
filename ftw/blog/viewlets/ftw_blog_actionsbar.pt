@@ -1,0 +1,10 @@
+<div class="actionsBar clearfis" i18n:domain="ftw.blog">
+
+    <div class="actionsBarContent clearfix">
+         <form method="get" action="./blog_view" class="searchForm clearfix">
+            <input type="text" name="searchable_text" class="text" tal:attributes="value request/searchable_text | nothing" />
+            <input type="submit" name="search_blog" i18n:attributes="value blog_search_button"
+                   value="Search the Blog" class="submit" />
+        </form>
+    </div>
+</div>

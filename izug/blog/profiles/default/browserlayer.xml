@@ -1,4 +1,0 @@
-<layers>
-    <layer name="izug.blog"
-           interface="izug.blog.interfaces.IBlogLayer" />
-</layers>
