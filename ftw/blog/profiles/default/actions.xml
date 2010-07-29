@@ -20,25 +20,6 @@
 			<property name="icon_expr"/>
 			<property name="available_expr"/>
 		</object>
-		<object name="new_block_entry" meta_type="CMF Action" i18n:domain="ftw.blog">
-			<property name="title" i18n:translate="">New Block Entry</property>
-			<property name="description" i18n:translate=""/>
-			<property name="url_expr">string:./createObject?type_name=Block</property>
-			<property name="icon_expr"/>
-			<property name="available_expr">python:object.portal_type in here.portal_properties.ftw_simplelayout_properties.types_use_simplelayout</property>
-			<property name="visible">False</property>
-		</object>
-		<object name="blog_settings" meta_type="CMF Action" i18n:domain="ftw.blog">
-			<property name="title" i18n:translate="">Blog Settings</property>
-			<property name="description" i18n:translate=""/>
-			<property name="url_expr">string:./@@blog-settings</property>
-			<property name="icon_expr"/>
-			<property name="available_expr"/>
-			<property name="permissions">
-				<element value="Modify portal content"/>
-			</property>
-            <property name="visible">False</property>
-		</object>
 	</object>
 	<object name="object_blog_settings_actions" meta_type="CMF Action Category">
 		<property name="title"/>

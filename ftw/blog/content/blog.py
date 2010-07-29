@@ -15,14 +15,6 @@ from ftw.blog.config import PROJECTNAME
 
 BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-    atapi.BooleanField('tag_root',
-        default = 1,
-        storage = atapi.AnnotationStorage(),
-        widget = atapi.BooleanWidget(label = _(u'label_blog_tag_root', default=u"Tag Root"),
-                                     description = _(u'help_blog_tag_root', default=u""),
-        )
-    ),
-
 ))
 
 # Set storage on fields copied from ATFolderSchema, making sure
@@ -36,8 +28,6 @@ schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
 # # finalizeZugSchema(BlogSchema, folderish=True, moveDiscussion=False)
 BlogSchema['effectiveDate'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 BlogSchema['expirationDate'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-
-BlogSchema['tag_root'].write_permission = ManagePortal
 
 # hide schematas ..
 for field in BlogSchema.keys():
@@ -54,7 +44,6 @@ class Blog(folder.ATFolder):
 
     title = atapi.ATFieldProperty('title')
     description = atapi.ATFieldProperty('description')
-    tag_root = atapi.ATFieldProperty('tag_root')
 
     security = ClassSecurityInfo()
 

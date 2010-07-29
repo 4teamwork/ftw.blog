@@ -105,7 +105,7 @@ class FtwBlogListNavigation(ViewletBase):
             querystring_prev = '?b_start=%s' % b_diff_prev
             prev_url = aq_inner(self.context).absolute_url() + querystring_prev + extend_querystring
         
-        self.prev = prev_url and dict(title=_(u'Aeltere Eintraege'),url=prev_url) or False
+        self.prev = prev_url and dict(title=_(u'Old entries'),url=prev_url) or False
 
         if b_diff_next < 0:
             next_url = False
@@ -113,7 +113,7 @@ class FtwBlogListNavigation(ViewletBase):
             querystring_next = '?b_start=%s' % b_diff_next
             next_url = aq_inner(self.context).absolute_url() + querystring_next + extend_querystring
             
-        self.next = next_url and dict(title=_(u'Neuere Eintraege'),url=next_url) or False
+        self.next = next_url and dict(title=_(u'New entries'),url=next_url) or False
 
 class CommentsViewlet(CommentsViewlet):
     render = ViewPageTemplateFile('ftw_comments.pt')
