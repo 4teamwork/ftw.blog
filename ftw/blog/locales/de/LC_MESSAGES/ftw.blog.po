@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2010-07-29 11:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftw/blog/portlets/archiv.pt:5
+msgid "Archiv"
+msgstr "Archiv"
+
+#: ./ftw/blog/profiles/default/types/Blog.xml
+msgid "Blog"
+msgstr "Blog"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "Blog Settings"
+msgstr "Blog Einstellungen"
+
+#: ./ftw/blog/profiles/default/types/BlogCategory.xml
+msgid "BlogCategory"
+msgstr "Blog Kategorie"
+
+#: ./ftw/blog/profiles/default/types/BlogEntry.xml
+msgid "BlogEntry"
+msgstr "Blog Eintrag"
+
+#: ./ftw/blog/content/blogentry.py:37
+#: ./ftw/blog/portlets/categories.pt:5
+msgid "Categories"
+msgstr "Kategorien"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "Edit Blog"
+msgstr "Blog bearbeiten"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "Manage Blog Portlets"
+msgstr "Blog Portlets bearbeiten"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "Manage categories"
+msgstr "Kategorien verwalten"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "New Blog Entry"
+msgstr "Neuer Blog Eintrag"
+
+#: ./ftw/blog/viewlets/viewlets.py:116
+msgid "New entries"
+msgstr "Neuere Einträge"
+
+#: ./ftw/blog/viewlets/viewlets.py:108
+msgid "Old entries"
+msgstr "Alte Einträge"
+
+#: ./ftw/blog/profiles/default/actions.xml
+msgid "Toggle Editmode"
+msgstr "Bearbeitungsmodus umschalten"
+
+#. Default: "Search the Blog"
+#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:6
+msgid "blog_search_button"
+msgstr "den Blog durchsuchen"
+
+#: ./ftw/blog/profiles/default/types/Blog.xml
+msgid "ftw Blog"
+msgstr "Blog"
+
+#: ./ftw/blog/profiles/default/types/BlogCategory.xml
+msgid "ftw BlogCategory"
+msgstr "Blog Kategorie"
+
+#: ./ftw/blog/profiles/default/types/BlogEntry.xml
+msgid "ftw BlogEntry"
+msgstr "Blog Eintrag"
+
+#. Default: "${author} am ${created} in"
+#: ./ftw/blog/browser/blog_entry_view.pt:35
+#: ./ftw/blog/browser/blog_view.pt:78
+msgid "label_blog_byline"
+msgstr "${author} am ${created} in"
+
+#: ./ftw/blog/browser/views.py:28
+msgid "opens in new window"
+msgstr "in neuem Fenster öffnen"
+
+#. Default: "Blog Actions"
+#: ./ftw/blog/browser/blog_settings.pt:15
+msgid "simplelayout_actions"
+msgstr "Blog Aktionen"
+
+
