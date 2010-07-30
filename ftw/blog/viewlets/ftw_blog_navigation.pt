@@ -2,7 +2,6 @@
      tal:define="next view/next;
                  prev view/prev">
   <div class="blogNavigation clearfix">
-      <span>MAUAHAH </span>
     <ul>
       <li class="backward">
         <a tal:condition="prev"
