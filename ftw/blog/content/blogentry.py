@@ -23,10 +23,10 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
         default_output_type='text/html',
         widget=atapi.RichWidget(
             label='Body Text',
-            label_msgid='izug_label_text',
+            label_msgid='ftw_label_text',
             description='',
-            description_msgid='izug_help_text',
-            i18n_domain='izug',
+            description_msgid='ftw_help_text',
+            i18n_domain='ftw.tagging',
             rows=25,
         ),
     ),
