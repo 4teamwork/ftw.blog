@@ -14,14 +14,7 @@
       <for interface="plone.app.portlets.interfaces.IColumn" />
       <for interface="plone.app.portlets.interfaces.IDashboard" />
   </portlet>
- 
-   <portlet 
-    addview="izug.tagging.portlet.tagcloud"
-    title="Tag Cloud Portlet"
-    description="This portlet displays a Tag Cloud for Tags within the current Tag Root.">
-        <for interface="ftw.blog.interfaces.IBlogPortlets" />
-  </portlet>
- 
+
   <portlet
     addview="blog.archiv.portlet"
     title="Blog Archiv Portlet"
