@@ -4,16 +4,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.blog">
 
-    <five:implements
-        class=".blogentry.BlogEntry"
-        interface="ftw.blog.interfaces.ICategorizable"
-        />
-
-    <five:implements
-        class=".blogentry.BlogEntry"
-        interface="ftw.blog.interfaces.IArchivable"
-        />
-
     <class class=".blogentry.BlogEntry">
         <require
             permission="zope2.View"
@@ -46,5 +36,18 @@
             set_schema="..interfaces.IBlog"
             />
     </class>
+
+
+    <include package="ftw.tagging" />
+    <!-- make BlogEntry taggable -->
+    <five:implements
+      class=".blogentry.BlogEntry"
+      interface="ftw.tagging.interfaces.tagging.ITaggable"
+    />
+    <!-- mark the Blog as tag root -->
+    <five:implements
+      class=".blog.Blog"
+      interface="ftw.tagging.interfaces.tagging.ITagRoot"
+    />
 
 </configure>

@@ -4,6 +4,7 @@ from zope.component import getMultiAdapter, getUtility
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 from ftw.blog.portlets import categories, archiv
+from ftw.tagging.portlets import tags
 
 
 def objectAddedHandler(obj, event):
@@ -29,8 +30,12 @@ def objectAddedHandler(obj, event):
 
 def objectInitializedHandler(obj, event):
     #adding some portlets (archive/tags/categories)
-    blog_manager = getUtility(IPortletManager, name=u'blog.portlets', context=obj)
-    portlets = getMultiAdapter((obj, blog_manager, ), IPortletAssignmentMapping, context=obj)
+    blog_manager = getUtility(IPortletManager,
+                              name=u'blog.portlets',
+                              context=obj)
+    portlets = getMultiAdapter((obj, blog_manager, ),
+                               IPortletAssignmentMapping,
+                               context=obj)
 
     category = 'blog-categories-portlet'
     if category not in portlets.keys():
@@ -38,3 +43,6 @@ def objectInitializedHandler(obj, event):
     a = 'blog-archive-portlet'
     if a not in portlets.keys():
         portlets[a] = archiv.Assignment()
+    tagcloud = 'ftw.tagging.portlet.tagcloud'
+    if tagcloud not in portlets.keys():
+        portlets[tagcloud] = tags.Assignment()

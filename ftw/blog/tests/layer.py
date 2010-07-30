@@ -20,16 +20,14 @@ for base_path in (STORAGE_PATH, BACKUP_PATH):
 
 class IntegrationTestLayer(collective.testcaselayer.ptc.BasePTCLayer):
 
-    def afterSetUp(self):          
+    def afterSetUp(self):
         import iw.fss
         self.addProfile('iw.fss:default')
         self.loadZCML('meta.zcml', package=iw.fss)
 
-        
+
         ZopeTestCase.installPackage('ftw.blog')
         self.addProfile('ftw.blog:default')
         #self.addProduct('ftw.blog')
-        
-        
 
 Layer = IntegrationTestLayer([collective.testcaselayer.ptc.ptc_layer])

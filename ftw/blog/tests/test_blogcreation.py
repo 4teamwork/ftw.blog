@@ -3,26 +3,26 @@ import unittest
 import os
 
 # Tests
-from Products.PloneTestCase.ptc import PloneTestCase 
+from Products.PloneTestCase.ptc import PloneTestCase
 
 # Layer
 from layer import Layer
 
-class TestBlog(PloneTestCase): 
-    
+class TestBlog(PloneTestCase):
+
     layer = Layer
-    
+
     def afterSetUp(self):
-        #make blog generally available 
+        #make blog generally available
         self.loginAsPortalOwner()
         blog_type = self.portal.portal_types.Blog
         blog_type.manage_changeProperties(global_allow=True)
-        
+
         # add some content.
 
-        # dummy object to test the aquisition 
+        # dummy object to test the aquisition
         testdummy = self.portal.invokeFactory('Folder', 'allgemein')
-        
+
         #our blogs
         testblog1id = self.portal.invokeFactory('Blog', 'test-blog1')
         self.testblog1 = getattr(self.portal, 'test-blog1', None)
@@ -38,7 +38,7 @@ class TestBlog(PloneTestCase):
         self.assertEquals(hasattr(self.testblog1.aq_explicit, 'categories'), True)
         categories = self.testblog1.aq_explicit.categories
         self.assertEquals(hasattr(categories.aq_explicit, 'allgemein'), True)
-        
+
 
     def test_categories2(self):
         self.assertEquals(hasattr(self.testblog2.aq_explicit, 'categories'), True)

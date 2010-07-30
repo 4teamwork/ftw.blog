@@ -8,7 +8,6 @@ from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from ftw.blog.interfaces import IBlogCategory
 from ftw.blog.config import PROJECTNAME
-# from izug.webcontent.content.zugschemas import finalizeZugSchema
 
 BlogCategorySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
@@ -22,10 +21,14 @@ BlogCategorySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 BlogCategorySchema['title'].storage = atapi.AnnotationStorage()
 BlogCategorySchema['description'].storage = atapi.AnnotationStorage()
 
-schemata.finalizeATCTSchema(BlogCategorySchema, folderish=True, moveDiscussion=False)
-#finalizeZugSchema(BlogCategorySchema, folderish=True, moveDiscussion=False)
-BlogCategorySchema['effectiveDate'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
-BlogCategorySchema['expirationDate'].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
+schemata.finalizeATCTSchema(BlogCategorySchema,
+                            folderish=True,
+                            moveDiscussion=False)
+
+BlogCategorySchema['effectiveDate'].widget.visible = {'view': 'invisible',
+                                                      'edit': 'invisible'}
+BlogCategorySchema['expirationDate'].widget.visible = {'view': 'invisible',
+                                                       'edit': 'invisible'}
 
 
 class BlogCategory(folder.ATFolder):

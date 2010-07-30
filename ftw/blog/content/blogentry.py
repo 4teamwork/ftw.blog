@@ -74,17 +74,6 @@ BlogEntrySchema.changeSchemataForField('location', 'default')
 BlogEntrySchema['language'].widget.visible = -1
 BlogEntrySchema.changeSchemataForField('language', 'default')
 
-# #move schemata  
-# ms = atapi.ManagedSchema(BlogEntrySchema.fields())
-# ms.moveSchemata('default',-1)
-# 
-# schemata.finalizeATCTSchema(ms, folderish=True, moveDiscussion=False)
-# 
-# ms.changeSchemataForField('effectiveDate','settings')
-# ms.changeSchemataForField('expirationDate','settings')
-# ms['effectiveDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
-# ms['expirationDate'].widget.visible = {'view' : 'invisible', 'edit' : 'invisible'}
-
 
 class BlogEntry(folder.ATFolder):
     """Ftw Blog Entry"""
@@ -105,19 +94,22 @@ class BlogEntry(folder.ATFolder):
             parent = aq_inner(pc).aq_parent
             puid = parent.UID()
             grand_parent = aq_inner(parent).aq_parent
-            if puid not in parent_uids and grand_parent.Type()=='Blog Category':
+            if puid not in parent_uids \
+                and grand_parent.Type() =='Blog Category':
                 parent_uids.append(puid)
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
-    
+
     #returns teaser text for blog listing
     def getTeaserText(self):
-        
+
         block_text = self.getText()
-    
-        teaser_text = len(block_text) > 200 and block_text[:200] + '...' or block_text
-        return teaser_text 
-    
+
+        teaser_text = len(block_text) > 200 and \
+                      block_text[:200] + \
+                      '...' or block_text
+        return teaser_text
+
     def InfosForArchiv(self):
         return DateTime(self.CreationDate()).strftime('%m/01/%Y')
 

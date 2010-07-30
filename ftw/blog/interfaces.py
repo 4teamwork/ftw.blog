@@ -20,14 +20,6 @@ class IBlog(Interface):
     """Ftw Blog"""
 
 
-class IArchivable(Interface):
-    """Archiveable"""
-
-
-class ICategorizable(Interface):
-    """Categorizeable"""
-
-
 class ICategoryWidget(Interface):
     """
     """

@@ -34,6 +34,7 @@ setup(name='ftw.blog',
       install_requires=[
           'setuptools',
           'plone.browserlayer',
+          'ftw.tagging',
           # -*- Extra requirements: -*-
       ],
       extras_require={
