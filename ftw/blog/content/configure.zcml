@@ -9,10 +9,6 @@
             permission="zope2.View"
             interface="..interfaces.IBlogEntry"
             />
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IBlogEntry"
-            />
     </class>
 
     <class class=".blogcategory.BlogCategory">
@@ -20,20 +16,12 @@
             permission="zope2.View"
             interface="..interfaces.IBlogCategory"
             />
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IBlogCategory"
-            />
     </class>
 
     <class class=".blog.Blog">
         <require
             permission="zope2.View"
             interface="..interfaces.IBlog"
-            />
-        <require
-            permission="cmf.ModifyPortalContent"
-            set_schema="..interfaces.IBlog"
             />
     </class>
 
