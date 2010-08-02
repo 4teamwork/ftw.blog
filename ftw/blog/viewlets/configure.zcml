@@ -3,8 +3,6 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:browser="http://namespaces.zope.org/browser">
 
-
-
     <browser:viewlet
         view="..interfaces.IBlogView"
         name="ftw.blog.actionsbar"
@@ -14,38 +12,11 @@
         layer="..interfaces.IBlogLayer"
         />
 
-
     <browser:viewlet
         view="..interfaces.IBlogEntryView"
         name="ftw.blog.actionsbar"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.FtwBlogActionsBar"
-        permission="zope2.View"
-        layer="..interfaces.IBlogLayer"
-        />
-
-    <browser:viewlet
-        view="..interfaces.IBlogEntryView"
-        name="ftw.blog.navigation"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.FtwBlogNavigation"
-        permission="zope2.View"
-        layer="..interfaces.IBlogLayer"
-        />
-
-    <browser:viewlet
-        view="..interfaces.IBlogView"
-        name="ftw.bloglist.navigation"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.FtwBlogListNavigation"
-        permission="zope2.View"
-        layer="..interfaces.IBlogLayer"
-        />
-    <browser:viewlet
-        view="..interfaces.IBlogView"
-        name="ftw.bloglist.navigation"
-        manager="..interfaces.IBlogBelowContent"
-        class=".viewlets.FtwBlogListNavigation"
         permission="zope2.View"
         layer="..interfaces.IBlogLayer"
         />

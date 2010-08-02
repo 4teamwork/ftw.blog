@@ -2,6 +2,7 @@ from Products.Five.browser import BrowserView
 from zope.interface import implements
 from ftw.blog.interfaces import IBlogView, IBlogEntryView, IBlogUtils
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.content.batching import Batch
 from Acquisition import aq_inner
 from zope.component import getMultiAdapter, getUtility
 
@@ -24,6 +25,8 @@ class BlogView(BrowserView):
     """
     template=ViewPageTemplateFile("blog_view.pt")
 
+    batching=ViewPageTemplateFile("batching.pt")
+
     def __call__(self):
         blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
         context = aq_inner(self.context).aq_explicit
@@ -37,15 +40,20 @@ class BlogView(BrowserView):
             """
 
         elif context.Type() == 'Blog':
-            #set some default blog query options
-            req.set('sort_on', 'created')
-            req.set('sort_order', 'reverse')
-            req.set('portal_type', 'BlogEntry')
-            limit_display = req.get('limit_display', 5)
-            req.set('limit_display', limit_display)
-            b_start = req.get('b_start', 0)
-            req.set('b_start', b_start)
+            pagesize = int(req.get('pagesize', 5))
+            req.set('pagesize', pagesize)
+            pagenumber = int(req.get('pagenumber', 1))
+            req.set('pagenumber', pagenumber)
 
+            self.entries = self.context.getFolderContents({
+                'sort_on': 'created',
+                'sort_order': 'reverse',
+                'portal_type': 'BlogEntry'})
+
+            self.batch = Batch(self.entries,
+                               pagesize=pagesize,
+                               pagenumber=pagenumber,
+                               navlistsize=1)
 
         else:
 
