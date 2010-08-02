@@ -32,3 +32,17 @@ body.template-discussion_reply_form .documentActions {
 .blogView #dropdown-contentmenu {
     margin-left: 0 !important;
 }
+
+.blogView .leftColumn{
+    width:70%;
+    float:left;
+}
+
+.blogView .rightColumn{
+    float:right;
+    width:20%;
+}
+
+.blogColumns{
+    clear:right;
+}
