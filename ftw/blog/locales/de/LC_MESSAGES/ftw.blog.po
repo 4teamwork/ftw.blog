@@ -30,7 +30,7 @@ msgstr "Blog Kategorie"
 
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "BlogEntry"
-msgstr "Blog Eintrag"
+msgstr "Blogeintrag"
 
 #: ./ftw/blog/content/blogentry.py:37
 #: ./ftw/blog/portlets/categories.pt:5
@@ -51,7 +51,7 @@ msgstr "Kategorien verwalten"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "New Blog Entry"
-msgstr "Neuer Blog Eintrag"
+msgstr "Neuer Blogeintrag"
 
 #: ./ftw/blog/viewlets/viewlets.py:116
 msgid "New entries"
@@ -80,7 +80,7 @@ msgstr "Blog Kategorie"
 
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "ftw BlogEntry"
-msgstr "Blog Eintrag"
+msgstr "Blogeintrag"
 
 #. Default: "${author} am ${created} in"
 #: ./ftw/blog/browser/blog_entry_view.pt:35

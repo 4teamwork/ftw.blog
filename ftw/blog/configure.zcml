@@ -2,11 +2,14 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="ftw.blog">
 
   <!-- dependency includs -->
   <include package="plone.browserlayer" />
   <include package="ftw.tagging" />
+
+  <i18n:registerTranslations directory="locales" />
 
   <five:registerPackage package="." initialize=".initialize" />
 
@@ -21,7 +24,7 @@
       name="default"
       title="ftw.blog"
       directory="profiles/default"
-      description="iZug Blog: Quills configuration."
+      description="ftw Blog: Quills configuration."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
