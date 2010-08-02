@@ -3,12 +3,6 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="ftw.blog">
 
-
-    <!-- Resource directory -->
-    <browser:resourceDirectory
-        name="ftw.blog.icons"
-        directory="icons"
-        /> 
     <browser:resourceDirectory
         name="ftw.blog.css"
         directory="stylesheets"

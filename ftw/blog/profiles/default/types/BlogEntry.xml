@@ -6,7 +6,7 @@
   <property name="description"
     i18n:translate="">ftw BlogEntry</property>
   <property name="content_meta_type">BlogEntry</property>
-  <property name="content_icon">++resource++ftw.blog.icons/blogitem_icon.gif</property>
+  <property name="content_icon">document_icon.gif</property>
   <property name="product">ftw.blog</property>
   <property name="factory">addBlogEntry</property>
   <property name="immediate_view">atct_edit</property>
