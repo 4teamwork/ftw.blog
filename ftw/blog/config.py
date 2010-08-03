@@ -10,11 +10,10 @@ ADD_PERMISSIONS = {
     'Blog': 'ftw.blog: Add Blog',
 }
 
+# TODO: is that index possible or only the metadata
 INDEXES = (("getCategoryUids", "KeywordIndex"),
-           ("getTeaserText", "FieldIndex"),
-           ("InfosForArchiv", "FieldIndex"),
           )
 
-METADATA = ('getCategoryUids', 'getTeaserText', 'InfosForArchiv')
+METADATA = ('getCategoryUids',)
 
 product_globals = globals()

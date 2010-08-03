@@ -100,17 +100,4 @@ class BlogEntry(folder.ATFolder):
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
 
-    #returns teaser text for blog listing
-    def getTeaserText(self):
-
-        block_text = self.getText()
-
-        teaser_text = len(block_text) > 200 and \
-                      block_text[:200] + \
-                      '...' or block_text
-        return teaser_text
-
-    def InfosForArchiv(self):
-        return DateTime(self.CreationDate()).strftime('%m/01/%Y')
-
 atapi.registerType(BlogEntry, PROJECTNAME)

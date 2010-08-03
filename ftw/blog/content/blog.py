@@ -35,7 +35,7 @@ for field in BlogSchema.keys():
 
 
 class Blog(folder.ATFolder):
-    """ftw Blog"""
+    """The Ftw Blog Type"""
     implements(IBlog)
 
     portal_type = "Blog"

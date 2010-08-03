@@ -39,7 +39,6 @@
                                        item_created item/CreationDate;
                                        item_creator item/Creator;
                                        item_categories item/getCategoryUids | nothing;
-                                       item_teaser_text item/getTeaserText | nothing;
                                        item_tags item/tags |nothing;">
 
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
@@ -84,7 +83,7 @@
 
                         </span>
                         <div class="teaserText" 
-                              tal:content="structure item_teaser_text">
+                              tal:content="structure item/Description">
                         </div>
                         
                         <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">

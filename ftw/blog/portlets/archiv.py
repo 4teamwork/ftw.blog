@@ -74,8 +74,8 @@ class Renderer(base.Renderer):
             infos.append(dict(
                 title = self.zLocalizedTime(v),
                 url = blogroot.absolute_url()+ \
-                    '/view?InfosForArchiv=' + \
-                    v.strftime('%m/01/%Y')))
+                    '/view?archiv=' + \
+                    v.strftime('%Y/%m/01')))
 
         self.archivlist = infos
 
