@@ -26,12 +26,17 @@
     
      <div id="blogItem" class="clearfix">
         <div class="leftColumn">
+            <div tal:content="here/Description" />
+            <div tal:replace="structure here/getText" />
+            
            <span class="documentByLine"
                  tal:define="mtool context/portal_membership;
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                              item_creator here/Creator;
                              item_created here/CreationDate;
                              item_categories here/getCategoryUids;">
+                
+                
                <!-- <span i18n:translate="label_blog_byline">
                     <tal:name tal:condition="item_creator"
                        tal:define="author python:mtool.getMemberInfo(item_creator)">
@@ -63,7 +68,7 @@
                     
            </span>
 
-<!--         <tal:def define="item_tags here/tags">
+        <tal:def define="item_tags here/tags">
             <div class="tags" metal:define-macro="taglisting">
              <tal:rep repeat="tag item_tags">
                 <a tal:define="tag_url string: ./blog_view?tags=${tag}"
@@ -74,14 +79,13 @@
                    tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
              </tal:rep>
             </div>
-        </tal:def> -->
+        </tal:def>
      <!-- <tal:block replace="structure provider:blog.belowcontent" /> -->
      </div>
      <div class="rightColumn">
          <tal:block replace="structure provider:blog.portlets" />
      </div>
-     
-     
+     <div class="visualClear"><!-- --></div>
   </metal:main-macro>
 </div>
 
