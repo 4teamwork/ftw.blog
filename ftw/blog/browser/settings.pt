@@ -10,6 +10,13 @@
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+
+    <h1 class="documentFirstHeading">
+      <tal:title replace="context/Title" />
+    </h1>
+    <div tal:replace="structure provider:plone.belowcontenttitle" />
 
     <tal:docactions tal:condition="view/objectActions">
     <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>

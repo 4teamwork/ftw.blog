@@ -11,9 +11,9 @@
    <browser:page
       for="*"
       name="blog_entry_view"
-      class=".views.BlogEntryView"
+      class=".entry.BlogEntryView"
       permission="zope.Public"
-      template="blog_entry_view.pt"
+      template="entry.pt"
       />  
 
   <browser:page
@@ -39,32 +39,25 @@
    <browser:page
       for="*"
       name="blog_view"
-      class=".views.BlogView"
+      class=".blog.BlogView"
       permission="zope.Public"
-      template="blog_view.pt"
+      template="blog.pt"
       />  
       
    <browser:page
       for="*"
       name="rss_blog_view"
-      class=".views.BlogView"
+      class=".rss.RSSView"
       permission="zope.Public"
-      template="rss_blog_view.pt"
-      />  
-
-   <browser:page
-      for="*"
-      name="create_blog_entry_path"
-      class=".views.createBlogEntryPath"
-      permission="zope2.View"
+      template="rss.pt"
       />  
 
    <browser:page
       for="*"
       name="blog-settings"
-      class=".views.BlogSettings"
+      class=".settings.BlogSettings"
       permission="cmf.ModifyPortalContent"
-      template="blog_settings.pt"
+      template="settings.pt"
       />  
 
 </configure>

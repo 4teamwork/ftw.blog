@@ -6,7 +6,7 @@
   <property name="description"
     i18n:translate="">ftw BlogCategory</property>
   <property name="content_meta_type">BlogCategory</property>
-  <property name="content_icon">document_icon.gif</property>
+  <property name="content_icon">topic_icon.gif</property>
   <property name="product">ftw.blog</property>
   <property name="factory">addBlogCategory</property>
   <property name="immediate_view">atct_edit</property>

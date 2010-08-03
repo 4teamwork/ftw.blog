@@ -16,6 +16,8 @@ from plone.app.layout.navigation.navtree import buildFolderTree
 
 
 class SitemapView(BrowserView):
+    """ Return a list of all Categories, with the number of blog entries. """
+
     implements(ISitemapView)
 
     def createSiteMap(self):
@@ -32,18 +34,14 @@ class SitemapView(BrowserView):
         if data is None:
             return None
 
-        #properties = getToolByName(context, 'portal_properties')
-        #navtree_properties = getattr(properties, 'navtree_properties')
-        #bottomLevel = navtree_properties.getProperty('bottomLevel', 0)
-        # XXX: The recursion should probably be done in python code
+        # TODO: The recursion should probably be done in python code
         return context.category_widget_edit_view(
             children=data.get('children', []),
             level=0, bottomLevel=0, uids=uids, fieldName=fieldName)
 
 
 class CategoryWidgetStrategy(SitemapNavtreeStrategy):
-    """
-    use default sitemap strategy
+    """Use default sitemap strategy
     """
 
     def decoratorFactory(self, node):
@@ -56,12 +54,13 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
 
 
 class SiteMapStructure(BrowserView):
+    """ Return a FolderTree from the Categories Folder. """
+
     implements(ICategoryWidget)
 
     def CategoryMap(self):
         context = aq_inner(self.context)
 
-        #build the simple query
         query = {}
         query['portal_type'] = ['BlogCategory']
 

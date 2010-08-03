@@ -1,26 +1,5 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n" name="portal_actions" meta_type="Plone Actions Tool">
-	<object name="object_blog_actions" meta_type="CMF Action Category">
-		<property name="title"/>
-		<object name="togglesledit" meta_type="CMF Action" i18n:domain="ftw.blog">
-			<property name="title" i18n:translate="">Toggle Editmode</property>
-			<property name="description" i18n:translate=""/>
-			<property name="url_expr">string:javascript:sl.toggleEditMode()</property>
-			<property name="icon_expr">string:edit.gif</property>
-			<property name="available_expr">python: object.portal_type in here.portal_properties.ftw_simplelayout_properties.types_use_simplelayout</property>
-			<property name="permissions">
-				<element value="Add portal content"/>
-			</property>
-			<property name="visible">False</property>
-		</object>
-		<object name="new_entry" meta_type="CMF Action" i18n:domain="ftw.blog">
-			<property name="title" i18n:translate="">New Blog Entry</property>
-			<property name="description" i18n:translate=""/>
-			<property name="url_expr">nocall:here/@@create_blog_entry_path/URL</property>
-			<property name="icon_expr"/>
-			<property name="available_expr"/>
-		</object>
-	</object>
 	<object name="object_blog_settings_actions" meta_type="CMF Action Category">
 		<property name="title"/>
 		<object name="manage_blog_portlets" meta_type="CMF Action" i18n:domain="ftw.blog">
@@ -29,7 +8,7 @@
 			<property name="url_expr">nocall:here/@@blog-settings/managePortletUrl</property>
 			<property name="icon_expr"/>
 			<property name="available_expr"/>
-            <property name="visible">False</property>
+            <property name="visible">True</property>
 		</object>
 		<object name="edit_blog" meta_type="CMF Action" i18n:domain="ftw.blog">
 			<property name="title" i18n:translate="">Edit Blog</property>
@@ -37,7 +16,7 @@
 			<property name="url_expr">nocall:here/@@blog-settings/editBlog</property>
 			<property name="icon_expr"/>
 			<property name="available_expr"/>
-            <property name="visible">False</property>
+            <property name="visible">True</property>
 		</object>
 		<object name="manage_categories" meta_type="CMF Action" i18n:domain="ftw.blog">
 			<property name="title" i18n:translate="">Manage categories</property>

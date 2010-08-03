@@ -10,7 +10,8 @@
 
 <tal:block 
     define="
-        objectList python:here.queryCatalog()">
+        objectList view/entries">
+        <span tal:content="python: view" />
     <metal:block use-macro="context/rss_template/macros/master">
         <metal:block fill-slot="syndication">
             <syn:updatePeriod tal:content="python:syn.getUpdatePeriod(context) or default">hourly</syn:updatePeriod>

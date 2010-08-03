@@ -27,10 +27,8 @@
         <tal:foldercontents define="
                             normalizeString nocall:context/@@plone/normalizeString;
                             mtool context/portal_membership;
-                            is_a_topic python:here.Type()=='Collection';
-                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                            use_view_action site_properties/typesUseViewActionInListings|python:();">
-        <tal:listing condition="view/entries">
+                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <tal:listing condition="view/batch">
             <div class="batching" tal:content="structure view/batching" />
             <div class="blogListing">
                 <tal:entry tal:repeat="item view/batch">
