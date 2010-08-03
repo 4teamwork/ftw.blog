@@ -14,6 +14,8 @@ class BlogView(BrowserView):
 
     batching=ViewPageTemplateFile("batching.pt")
 
+    filters = []
+
     def __call__(self):
         """ Get all the Blogentries and return the listingview template.
         
@@ -21,11 +23,13 @@ class BlogView(BrowserView):
         the results would be filtered.
         
         """
-
+        
         context = aq_inner(self.context).aq_explicit
         req = context.REQUEST
         query = {}
+        self.filters = []
         querystring = context.REQUEST.get('QUERY_STRING', '')
+        
         if querystring:
             if 'archiv' in querystring:
                 datestr = querystring[querystring.find('archiv=')+ 7:]
@@ -33,10 +37,13 @@ class BlogView(BrowserView):
                 end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
                 end = end - 1
                 query['created'] = {'query':(start, end), 'range': 'min:max'}
-            
+                self.filters.append(start.strftime('%B %Y'))
+
             if 'getCategoryUids' in querystring:
                 uid = querystring.split('=')[1]
                 query['getCategoryUids'] = uid
+                category = self.context.portal_catalog(UID=uid)[0]
+                self.filters.append(category.Title)
 
         if context.portal_type != 'Blog':
             return self.context.REQUEST.RESPONSE.redirect(

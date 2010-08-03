@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-07-29 11:31+0000\n"
+"POT-Creation-Date: 2010-08-03 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "BlogEntry"
 msgstr ""
 
-#: ./ftw/blog/content/blogentry.py:37
+#: ./ftw/blog/content/blogentry.py:38
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
 msgstr ""
@@ -54,24 +54,8 @@ msgstr ""
 msgid "Manage categories"
 msgstr ""
 
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "New Blog Entry"
-msgstr ""
-
-#: ./ftw/blog/viewlets/viewlets.py:116
-msgid "New entries"
-msgstr ""
-
-#: ./ftw/blog/viewlets/viewlets.py:108
-msgid "Old entries"
-msgstr ""
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Toggle Editmode"
-msgstr ""
-
 #. Default: "Search the Blog"
-#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:6
+#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
 msgid "blog_search_button"
 msgstr ""
 
@@ -87,18 +71,19 @@ msgstr ""
 msgid "ftw BlogEntry"
 msgstr ""
 
-#. Default: "${author} am ${created} in"
-#: ./ftw/blog/browser/blog_entry_view.pt:35
-#: ./ftw/blog/browser/blog_view.pt:78
+#. Default: "<span> ${author} </span> at ${created} in"
+#: ./ftw/blog/browser/blog.pt:68
+#: ./ftw/blog/browser/entry.pt:43
 msgid "label_blog_byline"
 msgstr ""
 
-#: ./ftw/blog/browser/views.py:28
-msgid "opens in new window"
+#. Default: "It would be filtered on the follow criterias"
+#: ./ftw/blog/browser/blog.pt:44
+msgid "label_filters"
 msgstr ""
 
 #. Default: "Blog Actions"
-#: ./ftw/blog/browser/blog_settings.pt:15
+#: ./ftw/blog/browser/settings.pt:22
 msgid "simplelayout_actions"
 msgstr ""
 

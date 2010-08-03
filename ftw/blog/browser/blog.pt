@@ -39,8 +39,9 @@
                                        item_created item/CreationDate;
                                        item_creator item/Creator;
                                        item_categories item/getCategoryUids | nothing;
-                                       item_tags item/tags |nothing;">
-
+                                       item_tags item/tags |nothing;
+                                       categories view/filters">
+                    <p><span tal:condition="view/filters" i18n:translate="label_filters">It would be filtered on the follow criterias </span> <span tal:repeat="cat categories" tal:content="cat"/></p>
                     <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
 
                         <h2 class="clearfix">

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-07-29 11:31+0000\n"
+"POT-Creation-Date: 2010-08-03 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Blog Kategorie"
 msgid "BlogEntry"
 msgstr "Blogeintrag"
 
-#: ./ftw/blog/content/blogentry.py:37
+#: ./ftw/blog/content/blogentry.py:38
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
 msgstr "Kategorien"
@@ -49,26 +49,10 @@ msgstr "Blog Portlets bearbeiten"
 msgid "Manage categories"
 msgstr "Kategorien verwalten"
 
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "New Blog Entry"
-msgstr "Neuer Blogeintrag"
-
-#: ./ftw/blog/viewlets/viewlets.py:116
-msgid "New entries"
-msgstr "Neuere Einträge"
-
-#: ./ftw/blog/viewlets/viewlets.py:108
-msgid "Old entries"
-msgstr "Alte Einträge"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Toggle Editmode"
-msgstr "Bearbeitungsmodus umschalten"
-
 #. Default: "Search the Blog"
-#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:6
+#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
 msgid "blog_search_button"
-msgstr "den Blog durchsuchen"
+msgstr "Blog durchsuchen"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "ftw Blog"
@@ -82,18 +66,20 @@ msgstr "Blog Kategorie"
 msgid "ftw BlogEntry"
 msgstr "Blogeintrag"
 
-#. Default: "${author} am ${created} in"
-#: ./ftw/blog/browser/blog_entry_view.pt:35
-#: ./ftw/blog/browser/blog_view.pt:78
+#. Default: "<span> ${author} </span> at ${created} in"
+#: ./ftw/blog/browser/blog.pt:68
+#: ./ftw/blog/browser/entry.pt:43
+#, fuzzy
 msgid "label_blog_byline"
 msgstr "${author} am ${created} in"
 
-#: ./ftw/blog/browser/views.py:28
-msgid "opens in new window"
-msgstr "in neuem Fenster öffnen"
+#. Default: "It would be filtered on the follow criterias"
+#: ./ftw/blog/browser/blog.pt:44
+msgid "label_filters"
+msgstr "Es wird nach folgenden Kriterien gefiltert:"
 
 #. Default: "Blog Actions"
-#: ./ftw/blog/browser/blog_settings.pt:15
+#: ./ftw/blog/browser/settings.pt:22
 msgid "simplelayout_actions"
 msgstr "Blog Aktionen"
 
