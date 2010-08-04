@@ -44,10 +44,17 @@ class BlogView(BrowserView):
                 query['getCategoryUids'] = uid
                 category = self.context.portal_catalog(UID=uid)[0]
                 self.filters.append(category.Title)
+            if 'searchable_text' in querystring:
+                searchable_text = querystring.split('=')[1]
+                searchable_text = searchable_text[:searchable_text.find('&')]
+                query['SearchableText'] = searchable_text
+                self.filters.append(searchable_text)
 
         if context.portal_type != 'Blog':
+            if querystring:
+                querystring = '?%s' % querystring
             return self.context.REQUEST.RESPONSE.redirect(
-                aq_parent(aq_inner(self.context)).absolute_url())
+                aq_parent(aq_inner(self.context)).absolute_url()+ querystring)
 
         query['sort_on'] = 'created'
         query['sort_order'] = 'reverse'
