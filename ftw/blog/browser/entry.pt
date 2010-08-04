@@ -26,58 +26,66 @@
     
      <div id="blogItem" class="clearfix">
         <div class="leftColumn">
-            <div tal:content="here/Description" />
-            <div tal:replace="structure here/getText" />
-            
-           <span class="documentByLine"
-                 tal:define="mtool context/portal_membership;
-                             toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                             item_creator here/Creator;
-                             item_created here/CreationDate;
-                             item_categories here/getCategoryUids;">
-                
-                
-               <!-- <span i18n:translate="label_blog_byline">
-                    <tal:name tal:condition="item_creator"
-                       tal:define="author python:mtool.getMemberInfo(item_creator)">
-                         <span tal:content="python:author and author['fullname'] or item_creator"
-                               tal:omit-tag="not:author"
-                               i18n:name="author">
-                           Bob Dobalina
-                         </span>
-                    </tal:name>
-                       am 
-                    <span class="dateCreated"
-                          tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
-                          tal:content="python:toLocalizedTime(item_created, long_format=1)"
-                          i18n:name="created">from date</span> in 
-                    
-               </span> -->
-                    <!-- <tal:rep repeat="cat_uid item_categories">
-                       <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
-                                      brain       python:len(cat_brains) and cat_brains[0] or False;
-                                      brain_title brain/Title | nothing;
-                                      brain_url   brain/getURL | nothing"
-                          tal:condition="brain" 
-                          tal:attributes="href string:./blog_view?getCategoryUids=${cat_uid}"
-                          class="categories" 
-                          href="#" 
-                          tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
-                       
-                    </tal:rep> -->
-                    
-           </span>
+            <span class="documentByLine"
+                  tal:define="mtool context/portal_membership;
+                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                              item_creator here/Creator;
+                              item_created here/CreationDate;">
 
-        <tal:def define="item_tags here/tags">
-            <div class="tags" metal:define-macro="taglisting">
-             <tal:rep repeat="tag item_tags">
-                <a tal:define="tag_url string: ./blog_view?tags=${tag}"
-                   tal:condition="tag"
-                   tal:attributes="href tag_url"
-                   class="TagsItem"
-                   href="#"
-                   tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
-             </tal:rep>
+
+                <span i18n:translate="label_blog_byline">
+                      <tal:name tal:condition="item_creator"
+                         tal:define="author python:mtool.getMemberInfo(item_creator)">
+                           <span tal:content="python:author and author['fullname'] or item_creator"
+                                 tal:omit-tag="not:author"
+                                 i18n:name="author">
+                             Bob Dobalina
+                           </span>
+                      </tal:name>
+                      am 
+                      <span class="dateCreated"
+                            tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
+                            tal:content="python:toLocalizedTime(item_created, long_format=1)"
+                            i18n:name="created">from date
+                      </span>
+                </span> 
+            </span>
+                 
+            <div>
+                <label i18n:translate="Description">Description</label>
+                <span tal:content="here/Description" />
+            </div>
+            <div>
+                <label i18n:translate="Text">Text</label>
+                <div tal:replace="structure here/getText" />
+            </div>
+
+
+           <div id="categories" >
+               <label i18n:translate="Categories"/>
+               <tal:rep repeat="cat_uid here/getCategoryUids">
+               <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                              brain       python:len(cat_brains) and cat_brains[0] or False;
+                              brain_title brain/Title | nothing;
+                              brain_url   brain/getURL | nothing"
+                      tal:condition="brain" 
+                      tal:attributes="href python: '%s/blog_view?getCategoryUids=%s' % (here.aq_parent.absolute_url(), cat_uid)"
+                      class="categories" 
+                      href="#" 
+                      tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+                </tal:rep>
+           </div>
+           <tal:def define="item_tags here/tags">
+                <div class="tags" metal:define-macro="taglisting">
+                    <label i18n:translate="Tags">Tags</label>
+                    <tal:rep repeat="tag item_tags">
+                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (here.aq_parent.absolute_url(), tag)"
+                       tal:condition="tag"
+                       tal:attributes="href tag_url"
+                       class="TagsItem"
+                       href="#"
+                       tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
+                 </tal:rep>
             </div>
         </tal:def>
      <!-- <tal:block replace="structure provider:blog.belowcontent" /> -->

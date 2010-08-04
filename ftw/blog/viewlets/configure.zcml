@@ -30,12 +30,21 @@
         permission="zope2.View"
         layer="..interfaces.IBlogLayer"
         />
-        
-	<browser:viewletManager
-	    name="blog.belowcontent"
-	    provides="..interfaces.IBlogBelowContent"
-	    permission="zope2.View"
-	    class="plone.app.viewletmanager.manager.OrderedViewletManager"
-	    />
+
+    <browser:viewletManager
+        name="blog.belowcontent"
+        provides="..interfaces.IBlogBelowContent"
+        permission="zope2.View"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        />
+
+    <browser:viewlet
+        name="ftw.tagging.taglist"
+        for="..interfaces.IBlogEntry"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.HiddenTagList"
+        permission="zope.Public"
+        layer="ftw.tagging.browser.interfaces.IFtwTaggingLayer"
+        />
 
 </configure>
