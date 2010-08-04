@@ -30,12 +30,8 @@ def objectAddedHandler(obj, event):
 
 def objectInitializedHandler(obj, event):
     #adding some portlets (archive/tags/categories)
-    blog_manager = getUtility(IPortletManager,
-                              name=u'blog.portlets',
-                              context=obj)
-    portlets = getMultiAdapter((obj, blog_manager, ),
-                               IPortletAssignmentMapping,
-                               context=obj)
+    blog_manager = getUtility(IPortletManager,name=u'blog.portlets',context=obj)
+    portlets = getMultiAdapter((obj, blog_manager, ),IPortletAssignmentMapping, context=obj)
 
     category = 'blog-categories-portlet'
     if category not in portlets.keys():

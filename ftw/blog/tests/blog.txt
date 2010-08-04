@@ -1,0 +1,31 @@
+Make some imports
+    >>> from Products.CMFPlone.utils import getToolByName
+    >>> from zope.component import getMultiAdapter, getUtility
+    >>> from plone.portlets.interfaces import IPortletManager
+    >>> from plone.portlets.interfaces import IPortletAssignmentMapping
+
+Add a Blog content item
+
+    >>> self.setRoles(['Contributor'])
+    >>> self.folder.invokeFactory('Blog', 'b1')
+    'b1'
+    >>> b1 = self.folder.get('b1')
+    >>> b1.processForm()
+    >>> b1
+    <Blog at ...>
+
+Now it should automaticly create the categories folder
+    >>> cat_folder = b1.get('categories')
+    >>> cat_folder
+    <BlogCategory at ...>
+    
+with a category 'allgemein'
+    >>> cat_folder.get('allgemein')
+    <BlogCategory at ...>
+
+and also some portlets must be set autmaticly on the blog
+    >>> portlet_manager = getUtility(IPortletManager,name=u'blog.portlets',context=b1)
+    >>> portlets = getMultiAdapter((b1, portlet_manager, ),IPortletAssignmentMapping, context=b1)
+    >>> portlets.keys()
+    ['blog-categories-portlet', 'blog-archive-portlet', 'ftw.tagging.portlet.tagcloud']
+
