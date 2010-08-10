@@ -50,19 +50,14 @@
                       </span>
                 </span> 
             </span>
+            <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
                  
-            <div>
-                <label i18n:translate="Description">Description</label>
+            <div class="description">
                 <span tal:content="here/Description" />
             </div>
-            <div>
-                <label i18n:translate="Text">Text</label>
-                <div tal:replace="structure here/getText" />
-            </div>
-
+            <div tal:replace="structure here/getText" />
 
            <div id="categories" >
-               <label i18n:translate="Categories"/>
                <tal:rep repeat="cat_uid here/getCategoryUids">
                <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                               brain       python:len(cat_brains) and cat_brains[0] or False;
