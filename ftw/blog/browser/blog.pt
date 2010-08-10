@@ -100,11 +100,16 @@
             
         </tal:listing>
         <metal:empty metal:define-slot="no_items_in_listing">
-            <p class="discreet"
-               tal:condition="not: view/entries" i18n:domain="plone"
-               i18n:translate="description_no_results_found">
-                There are currently no items in this folder.
-            </p>
+            <tal:cond tal:condition="not: view/entries">
+                <p tal:condition="view/filters" class="discreet" i18n:domain="plone"
+                   i18n:translate="description_no_results_found">
+                   No results were found.
+                </p>
+                <p tal:condition="not: view/filters" class="discreet"
+                   i18n:translate="description_no_entries">
+                   There are currently no entries in this blog.
+                </p>
+            </tal:cond>
         </metal:empty>
 
         </tal:foldercontents>
