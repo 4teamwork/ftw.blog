@@ -18,7 +18,6 @@
         <viewlet name="plone.comments" />
   </hidden>
 
-
   <order manager="plone.belowcontenttitle" skinname="ZugSkin">
         <viewlet name="ftw.blog.actionsbar" insert-after="*" />
   </order>  

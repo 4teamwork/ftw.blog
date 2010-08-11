@@ -1,6 +1,5 @@
 from zope.interface import Interface
 from plone.portlets.interfaces import IPortletManager
-from zope.viewlet.interfaces import IViewletManager
 
 
 class IBlogLayer(Interface):
@@ -39,11 +38,6 @@ class IBlogView(Interface):
 class IBlogEntryView(Interface):
     """
     Marker Interface for BlogView
-    """
-
-
-class IBlogBelowContent(IViewletManager):
-    """
     """
 
 

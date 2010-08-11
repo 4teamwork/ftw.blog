@@ -23,7 +23,6 @@ class BlogView(BrowserView):
         the results would be filtered.
         
         """
-        
         context = aq_inner(self.context).aq_explicit
         req = context.REQUEST
         query = {}

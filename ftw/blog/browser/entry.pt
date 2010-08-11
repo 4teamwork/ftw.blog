@@ -9,21 +9,33 @@
 <head>
     <metal:block fill-slot="top_slot"
                  tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
+
+     <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
+        <script type="text/javascript">
+            /* load the blogactionsbar with javascript, 
+            because the comment overlay work not, 
+            with a <form> tag in the content area */
+
+            jq(function(){
+                jq('#ftw-edit-bar').after(jq('<div>').load('./ftw.blog.search'));
+            });
+         </script>
+     </div>
+
 </head>
 
 <body>
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-    
+
     <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-
     <h1 class="documentFirstHeading">
-      <tal:title replace="context/Title" />
+    <tal:title replace="context/Title" />
     </h1>
     <div tal:replace="structure provider:plone.belowcontenttitle" />
-    
+
      <div id="blogItem" class="clearfix">
         <div class="leftColumn">
             <span class="documentByLine"
@@ -83,7 +95,6 @@
                  </tal:rep>
             </div>
         </tal:def>
-     <!-- <tal:block replace="structure provider:blog.belowcontent" /> -->
      </div>
      <div class="rightColumn">
          <tal:block replace="structure provider:blog.portlets" />
