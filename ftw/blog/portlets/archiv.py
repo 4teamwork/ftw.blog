@@ -5,6 +5,7 @@ from plone.app.portlets.portlets import base
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
+from DateTime import DateTime
 
 MONTHS_GER = {
             '01': u'Januar',
@@ -87,11 +88,19 @@ class Renderer(base.Renderer):
 
         infos = []
         for v in values:
+            # calc the number of items for the month
+            start = DateTime(v.strftime('%Y/%m/01'))
+            end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
+            end = end - 1
+            number = len(self.context.portal_catalog(portal_type='BlogEntry', path=root_path, created= {'query':(start, end), 'range': 'min:max'}))
+
             infos.append(dict(
                 title = self.zLocalizedTime(v),
+                number=number,
                 url = blogroot.absolute_url()+ \
                     '/view?archiv=' + \
                     v.strftime('%Y/%m/01')))
+                
 
         self.archivlist = infos
 
