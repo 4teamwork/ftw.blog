@@ -82,11 +82,11 @@
                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
                 </tal:rep>
            </div>
-           <tal:def define="item_tags here/tags">
+           <tal:def define="item_tags here/tags; tagroot_url python: here.aq_parent.absolute_url();">
                 <div class="tags" metal:define-macro="taglisting">
                     <label i18n:translate="Tags">Tags</label>
                     <tal:rep repeat="tag item_tags">
-                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (here.aq_parent.absolute_url(), tag)"
+                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
                        tal:condition="tag"
                        tal:attributes="href tag_url"
                        class="TagsItem"

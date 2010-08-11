@@ -61,7 +61,7 @@
                                            item_categories item/getCategoryUids | nothing;
                                            item_tags item/tags |nothing;">
 
-                        <div class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
+                        <div tal:define="tagroot_url here/absolute_url" class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
 
                             <h2 class="clearfix">
                                 <a href="#"
@@ -105,7 +105,6 @@
                             <div class="teaserText" 
                                   tal:content="structure item/Description">
                             </div>
-                    
                             <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
                                 TagListing
                             </div>
