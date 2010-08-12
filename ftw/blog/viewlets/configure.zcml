@@ -3,7 +3,7 @@
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:browser="http://namespaces.zope.org/browser">
 
-    <!-- <browser:viewlet
+    <browser:viewlet
         view="..interfaces.IBlogView"
         name="ftw.blog.actionsbar"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
@@ -19,16 +19,6 @@
         class=".viewlets.FtwBlogActionsBar"
         permission="zope2.View"
         layer="..interfaces.IBlogLayer"
-        /> -->
-    
-    <!-- Use a Browserpage instead of the viewlet, becauase we insert the serachbox with js 
-        For mor information have a look to entry.pt or blog.pt -->
-
-    <browser:page
-        for="*"
-        name="ftw.blog.search"
-        permission="zope2.View"
-        template="ftw_blog_actionsbar.pt"
         />
 
     <browser:viewlet
