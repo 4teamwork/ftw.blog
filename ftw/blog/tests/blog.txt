@@ -41,13 +41,10 @@ add a image in blogentry
     >>> BlogEntry1.invokeFactory('Image', 'testimg')
     'testimg'
     >>> testimg = BlogEntry1.get('testimg')
-    >>> testimg.processForm()
     >>> testimg
     <ATImage at ...>
 
 add a image to content item
-    >>> b1.invokeFactory('Image', 'new_img')
-    'new_img'
-    >>> new_img = b1.get('new_img')
-    >>> new_img.processForm()
-    >>> new_img
+    >>> allowed_types = [ a.content_meta_type for a in b1.allowedContentTypes()] 
+    >>> 'Image' not in allowed_types
+    True
