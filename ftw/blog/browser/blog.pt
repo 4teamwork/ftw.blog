@@ -9,19 +9,6 @@
 <head>
   <metal:block fill-slot="top_slot"
                tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
-
-   <div metal:fill-slot="javascript_head_slot" tal:omit-tag="">
-      <script type="text/javascript">
-          /* load the blogactionsbar with javascript, 
-          because the comment overlay work not, 
-          with a <form> tag in the content area */
-
-          jq(function(){
-              jq('#ftw-edit-bar').after(jq('<div>').load('./ftw.blog.search'));
-          });
-       </script>
-   </div>
-
 </head>
 
 <body>
