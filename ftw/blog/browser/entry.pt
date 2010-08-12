@@ -70,6 +70,7 @@
             <div tal:replace="structure here/getText" />
 
            <div id="categories" >
+               <label i18n:translate="Categories">Categories</label>
                <tal:rep repeat="cat_uid here/getCategoryUids">
                <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                               brain       python:len(cat_brains) and cat_brains[0] or False;

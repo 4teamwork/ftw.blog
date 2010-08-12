@@ -58,6 +58,16 @@
       class=".settings.BlogSettings"
       permission="cmf.ModifyPortalContent"
       template="settings.pt"
-      />  
+      />
+
+  <!-- Overwrite the standard Tag Overview,
+       With the standard Blog overview -->
+  <browser:page
+      name="objects_by_tag_view"
+      for="..interfaces.IBlog"
+      class=".blog.BlogView"
+      permission="zope2.View"
+      layer="..interfaces.IBlogLayer"
+      />
 
 </configure>

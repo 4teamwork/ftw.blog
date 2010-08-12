@@ -6,6 +6,7 @@ from plone.app.content.batching import Batch
 from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
 
+
 class BlogView(BrowserView):
     implements(IBlogView)
     """ Shows a Listing of all Blog entries, with the corresponding portlets."""
@@ -18,37 +19,39 @@ class BlogView(BrowserView):
 
     def __call__(self):
         """ Get all the Blogentries and return the listingview template.
-        
-        If there was a CategoryUid or a date in the querystring,
-        the results would be filtered.
-        
+
+        It check if the request has some filtering parameters:
+            -archiv
+            -searchable_text
+            -getCategoryUids
+            -tag
         """
+
         context = aq_inner(self.context).aq_explicit
         req = context.REQUEST
         query = {}
         self.filters = []
+        request = context.REQUEST
         querystring = context.REQUEST.get('QUERY_STRING', '')
-        
-        if querystring:
-            if 'archiv' in querystring:
-                datestr = querystring[querystring.find('archiv=')+ 7:]
-                start = DateTime(datestr)
-                end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
-                end = end - 1
-                query['created'] = {'query':(start, end), 'range': 'min:max'}
-                self.filters.append(start.strftime('%B %Y'))
 
-            if 'getCategoryUids' in querystring:
-                uid = querystring.split('=')[1]
-                query['getCategoryUids'] = uid
-                category = self.context.portal_catalog(UID=uid)[0]
-                self.filters.append(category.Title)
-            if 'searchable_text' in querystring:
-                searchable_text = querystring.split('=')[1]
-                searchable_text = searchable_text[:searchable_text.find('&')]
-                query['SearchableText'] = searchable_text
-                self.filters.append(searchable_text)
-
+        if request.get('archiv'):
+            datestr = request.get('archiv')
+            start = DateTime(datestr)
+            end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
+            end = end - 1
+            query['created'] = {'query': (start, end), 'range': 'min:max'}
+            self.filters.append(start.strftime('%B %Y'))
+        if request.get('getCategoryUids'):
+            uid = request.get('getCategoryUids')
+            query['getCategoryUids'] = uid
+            category = self.context.portal_catalog(UID=uid)[0]
+            self.filters.append(category.Title)
+        if request.get('searchable_text'):
+            query['SearchableText'] = request.get('searchable_text')
+            self.filters.append(query['SearchableText'])
+        if request.get('tag'):
+            query['tags'] = request.get('tag').decode('utf-8')
+            self.filters.append(query['tags'])
         if context.portal_type != 'Blog':
             if querystring:
                 querystring = '?%s' % querystring
