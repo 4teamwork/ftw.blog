@@ -7,9 +7,9 @@ Make some imports
 Add a Blog content item
 
     >>> self.setRoles(['Contributor'])
-    >>> self.folder.invokeFactory('Blog', 'b1')
+    >>> self.portal.invokeFactory('Blog', 'b1')
     'b1'
-    >>> b1 = self.folder.get('b1')
+    >>> b1 = self.portal.get('b1')
     >>> b1.processForm()
     >>> b1
     <Blog at ...>
@@ -29,3 +29,25 @@ and also some portlets must be set autmaticly on the blog
     >>> portlets.keys()
     ['blog-categories-portlet', 'blog-archive-portlet', 'ftw.tagging.portlet.tagcloud']
 
+add a blogentry
+    >>> b1.invokeFactory('BlogEntry', 'BlogEntry1')
+    'BlogEntry1'
+    >>> BlogEntry1 = b1.get('BlogEntry1')
+    >>> BlogEntry1.processForm()
+    >>> BlogEntry1
+    <BlogEntry at ...>
+
+add a image in blogentry
+    >>> BlogEntry1.invokeFactory('Image', 'testimg')
+    'testimg'
+    >>> testimg = BlogEntry1.get('testimg')
+    >>> testimg.processForm()
+    >>> testimg
+    <ATImage at ...>
+
+add a image to content item
+    >>> b1.invokeFactory('Image', 'new_img')
+    'new_img'
+    >>> new_img = b1.get('new_img')
+    >>> new_img.processForm()
+    >>> new_img
