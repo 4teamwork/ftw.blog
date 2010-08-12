@@ -9,24 +9,24 @@
 <head>
     <metal:block fill-slot="top_slot"
                  tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
+
 </head>
 
 <body>
 
 <div metal:fill-slot="main" class="blogView">
     <metal:main-macro define-macro="main">
-    
+
     <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-
     <h1 class="documentFirstHeading">
-      <tal:title replace="context/Title" />
+    <tal:title replace="context/Title" />
     </h1>
     <div tal:replace="structure provider:plone.belowcontenttitle" />
-    
+
      <div id="blogItem" class="clearfix">
         <div class="leftColumn">
-            <span class="documentByLine"
+            <span class="documentByLine discreet"
                   tal:define="mtool context/portal_membership;
                               toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                               item_creator here/Creator;
@@ -50,19 +50,17 @@
                       </span>
                 </span> 
             </span>
+            <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
                  
-            <div>
-                <label i18n:translate="Description">Description</label>
+            <div class="documentDescription">
                 <span tal:content="here/Description" />
             </div>
-            <div>
-                <label i18n:translate="Text">Text</label>
+            <div class="plain">
                 <div tal:replace="structure here/getText" />
             </div>
 
-
            <div id="categories" >
-               <label i18n:translate="Categories"/>
+               <label i18n:translate="Categories">Categories</label>
                <tal:rep repeat="cat_uid here/getCategoryUids">
                <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                               brain       python:len(cat_brains) and cat_brains[0] or False;
@@ -75,11 +73,11 @@
                       tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
                 </tal:rep>
            </div>
-           <tal:def define="item_tags here/tags">
+           <tal:def define="item_tags here/tags; tagroot_url python: here.aq_parent.absolute_url();">
                 <div class="tags" metal:define-macro="taglisting">
                     <label i18n:translate="Tags">Tags</label>
                     <tal:rep repeat="tag item_tags">
-                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (here.aq_parent.absolute_url(), tag)"
+                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
                        tal:condition="tag"
                        tal:attributes="href tag_url"
                        class="TagsItem"
@@ -88,7 +86,6 @@
                  </tal:rep>
             </div>
         </tal:def>
-     <!-- <tal:block replace="structure provider:blog.belowcontent" /> -->
      </div>
      <div class="rightColumn">
          <tal:block replace="structure provider:blog.portlets" />
