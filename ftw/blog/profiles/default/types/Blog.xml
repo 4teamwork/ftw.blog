@@ -14,7 +14,6 @@
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
     <element value="BlogEntry" />
-    <element value="Image" />
   </property>
   <property name="allow_discussion">False</property>
   <property name="default_view">blog_view</property>
@@ -34,7 +33,7 @@
     url_expr="string:${object_url}/edit" visible="True">
     <permission value="Modify portal content" />
   </action>
-  <action title="Manage Categories" action_id="manage_blog_categories" category="object" condition_expr=""
+  <action title="Manage Categories" i18n:translate="" action_id="manage_blog_categories" category="object" condition_expr=""
     url_expr="string:${object_url}/categories" visible="True">
     <permission value="Modify portal content" />
   </action>
