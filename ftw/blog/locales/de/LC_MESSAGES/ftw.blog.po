@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-08-03 14:14+0000\n"
+"POT-Creation-Date: 2010-08-12 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,7 @@ msgstr "Blog Kategorie"
 msgid "BlogEntry"
 msgstr "Blogeintrag"
 
+#: ./ftw/blog/browser/entry.pt:63
 #: ./ftw/blog/content/blogentry.py:38
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
@@ -49,10 +50,19 @@ msgstr "Blog Portlets bearbeiten"
 msgid "Manage categories"
 msgstr "Kategorien verwalten"
 
+#: ./ftw/blog/browser/entry.pt:78
+msgid "Tags"
+msgstr "Tags"
+
 #. Default: "Search the Blog"
 #: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
 msgid "blog_search_button"
 msgstr "Blog durchsuchen"
+
+#. Default: "There are currently no entries in this blog."
+#: ./ftw/blog/browser/blog.pt:113
+msgid "description_no_entries"
+msgstr "Es existieren momentan keine Einträge in diesem Blog"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "ftw Blog"
@@ -67,16 +77,21 @@ msgid "ftw BlogEntry"
 msgstr "Blogeintrag"
 
 #. Default: "<span> ${author} </span> at ${created} in"
-#: ./ftw/blog/browser/blog.pt:68
-#: ./ftw/blog/browser/entry.pt:43
+#: ./ftw/blog/browser/blog.pt:74
+#: ./ftw/blog/browser/entry.pt:46
 #, fuzzy
 msgid "label_blog_byline"
 msgstr "${author} am ${created} in"
 
 #. Default: "It would be filtered on the follow criterias"
-#: ./ftw/blog/browser/blog.pt:44
+#: ./ftw/blog/browser/blog.pt:30
 msgid "label_filters"
 msgstr "Es wird nach folgenden Kriterien gefiltert:"
+
+#. Default: "Show all"
+#: ./ftw/blog/browser/entry.pt:53
+msgid "label_show_all"
+msgstr "Alle anzeigen"
 
 #. Default: "Blog Actions"
 #: ./ftw/blog/browser/settings.pt:22
