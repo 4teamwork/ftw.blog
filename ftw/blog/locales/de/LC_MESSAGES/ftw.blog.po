@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-08-12 14:25+0000\n"
+"POT-Creation-Date: 2010-08-13 08:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,7 @@ msgid "Manage Blog Portlets"
 msgstr "Blog Portlets bearbeiten"
 
 #: ./ftw/blog/profiles/default/actions.xml
+#: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "Manage categories"
 msgstr "Kategorien verwalten"
 
