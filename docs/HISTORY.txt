@@ -4,6 +4,10 @@ Changelog
 
 1.0c2
 -----
+
+* Removed AnnotationStorage from some fields
+  [08.09.2010, jbaumann]
+
 * renamed from izug.blog to ftw.blog
 * removed all dependencies to izug packages (izug.tagging, izug.webcontent ect.)
 

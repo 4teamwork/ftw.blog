@@ -54,9 +54,6 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 # Set storage on fields copied from ATFolderSchema, making sure
 # they work well with the python bridge properties.
 
-BlogEntrySchema['title'].storage = atapi.AnnotationStorage()
-BlogEntrySchema['description'].storage = atapi.AnnotationStorage()
-
 schemata.finalizeATCTSchema(BlogEntrySchema,
                             folderish=True,
                             moveDiscussion=False)
@@ -82,8 +79,7 @@ class BlogEntry(folder.ATFolder):
     portal_type = "BlogEntry"
     schema = BlogEntrySchema
 
-    title = atapi.ATFieldProperty('title')
-    description = atapi.ATFieldProperty('description')
+    text = atapi.ATFieldProperty('text')
 
     #returns the category uid and the parent category uid
     def getCategoryUids(self):
