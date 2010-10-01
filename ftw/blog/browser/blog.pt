@@ -89,7 +89,7 @@
                                      </tal:rep>
 
                             </span>
-                            <div class="teaserText" 
+                            <div class="documentDescription" 
                                   tal:content="structure item/Description">
                             </div>
                             <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
