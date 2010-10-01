@@ -46,3 +46,11 @@ body.template-discussion_reply_form .documentActions {
 .blogColumns{
     clear:right;
 }
+
+.portletBlogCategory .portletItem,
+.portletTagcloud .portletItem {
+    font-size: 1em;
+}
+.portletTagcloud .portletItem a {
+    color: #76797c;
+}
