@@ -1,5 +1,6 @@
 recursive-include izug *
 recursive-include docs *
-include setup.py
-include README.txt
-global-exclude *pyc
+recursive-include ftw *
+include *.txt
+global-exclude *.pyc
+global-exclude *.mo
