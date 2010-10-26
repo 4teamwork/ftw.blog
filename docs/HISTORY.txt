@@ -39,7 +39,7 @@ Changelog
   https://extranet.4teamwork.ch/support/zug/maintlog/1050
   [14.06.2010, fsp]
 
-* Issue #60 Fokus: die Menüleiste (Edit) kommen 2x
+* Issue #60 Fokus: die Menueleiste (Edit) kommen 2x
   https://extranet.4teamwork.ch/projects/integration-zug.ch-izug/tracker-integration-zug.ch-izug/60/
   [31.05.2010, phgross]
 
@@ -51,13 +51,13 @@ Changelog
   [18.05.2010, mle]
 
 
-* #780 Fokus - Sortierung bei Anzeige der Beiträge
+* #780 Fokus - Sortierung bei Anzeige der Beitraege
   https://extranet.4teamwork.ch/support/zug/maintlog/780
   changed tag to tags
   [26.04.2010, mle]
 
-* #780 Fokus - Sortierung bei Anzeige der Beiträge (Tags Portlet
-  wurde überschrieben).
+* #780 Fokus - Sortierung bei Anzeige der Beitraege (Tags Portlet
+  wurde ueberschrieben).
   [19.03.2010, mle]
 
 
@@ -84,14 +84,14 @@ Changelog
 * Issue #760 Arbeitsraum - neuer Fokus ohne Startkategorie Allgemein
   [12.02.2010, mle]
 
-* Tests hinzugefügt.
+* Tests hinzugefuegt.
   [12.02.2010, mle]
   
 
 0.4
 ---
 
-* [25.08.2009] Issue #586 Fokus - Menu Fokus Einstellungen einschränken [mle]
+* [25.08.2009] Issue #586 Fokus - Menu Fokus Einstellungen einschraenken [mle]
 
 
 0.3
@@ -99,7 +99,7 @@ Changelog
 * maintlog Issue #587: Remove doc-actions in discussion-reply-form
     * fix datetime format in comments listing
     * replace comment image
-* [29.07.2009] Issue #545 Fokus - Fokus iZug migrieren [pha]
+* [29.07.2009] Issue #545 Fokus - Fokus iZug migrieren [pha]
 
 0.2
 ---
