@@ -12,7 +12,7 @@
       for="*"
       name="blog_entry_view"
       class=".entry.BlogEntryView"
-      permission="zope.Public"
+      permission="zope2.View"
       template="entry.pt"
       />  
 
@@ -20,14 +20,14 @@
       for="*"
       name="category_widget_view"
       class=".widgets.category_widget.SitemapView"
-      permission="zope.Public"
+      permission="zope2.View"
       />
 
   <browser:page
       for="*"
       name="category_widget_builder_view"
       class=".widgets.category_widget.SiteMapStructure"
-      permission="zope.Public"
+      permission="zope2.View"
       allowed_attributes="siteMap"
       />
       
@@ -40,7 +40,7 @@
       for="*"
       name="blog_view"
       class=".blog.BlogView"
-      permission="zope.Public"
+      permission="zope2.View"
       template="blog.pt"
       />  
       
@@ -48,7 +48,7 @@
       for="*"
       name="rss_blog_view"
       class=".rss.RSSView"
-      permission="zope.Public"
+      permission="zope2.View"
       template="rss.pt"
       />  
 

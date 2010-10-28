@@ -34,7 +34,7 @@
         for="*"
         class=".categories.CategoryPortletSitemapView"
         name="category_portlet_view"
-        permission="zope.Public"
+        permission="zope2.View"
     />
 
 
