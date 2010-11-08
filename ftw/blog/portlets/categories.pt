@@ -7,13 +7,16 @@
         </span>
     </dt>
 
-    <dd class="portletItem" tal:define="dummy python:context.REQUEST.set('blogroot',view.blogroot)">
-            <tal:block define="sitemap context/@@category_portlet_view">
-                <tal:sitemap replace="structure sitemap/createSiteMap" />
-            </tal:block>
-        
+    <dd class="portletItem">
+    <div>
+        <div tal:define="dummy python:context.REQUEST.set('blogroot',view.blogroot)"
+            tal:omit-tag="">
+                <tal:block define="sitemap context/@@category_portlet_view">
+                    <tal:sitemap replace="structure sitemap/createSiteMap">Structure</tal:sitemap>
+                </tal:block>
+        </div>
+    </div>
     </dd>
-
 </dl>
 
 </div>

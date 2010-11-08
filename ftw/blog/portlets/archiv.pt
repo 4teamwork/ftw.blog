@@ -7,10 +7,14 @@
         </span>
     </dt>
 
-    <dd tal:repeat="a view/archivlist" class="portletItem">
-        <a tal:attributes="href a/url;
-                           title a/title" 
-           tal:content="python: '%s (%s)' % (a['title'], a['number'])" i18n:translate=""/>
+    <dd class="portletItem">
+        <ul>
+            <li tal:repeat="a view/archivlist">
+                <a tal:attributes="href a/url;
+                                   title a/title" 
+                   tal:content="python: '%s (%s)' % (a['title'], a['number'])" i18n:translate=""/>
+             </li>
+         </ul>
     </dd>
 
 </dl>

@@ -15,7 +15,7 @@
                     link_url   string:${blogroot}/view?getCategoryUids=${uid};"
         tal:condition="python: bottomLevel &lt;= 0 or level &lt; bottomLevel-1">
 
-        <dd class="portletItem" tal:define="showrss python:level == 0;
+        <dd tal:define="showrss python:level == 0;
                                             member python:context.portal_membership.getAuthenticatedMember();"> 
             <span class="rss clearfix" tal:omit-tag="not:showrss">                    
                     <a tal:attributes="href link_url"
@@ -26,7 +26,7 @@
 
         <dl tal:define="level python:level+1;"
             tal:condition="nocall:children">
-            <metal:recurse use-macro="here/category_portlet_recurs_view/macros/nav_main"/>
+            <metal:recurse use-macro="here/category_portlet_recurs_view/macros/nav_main"></metal:recurse>
         </dl>
     </tal:def>
     </tal:navitem>
