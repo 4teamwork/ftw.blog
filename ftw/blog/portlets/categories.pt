@@ -8,14 +8,11 @@
     </dt>
 
     <dd class="portletItem">
-    <div>
-        <div tal:define="dummy python:context.REQUEST.set('blogroot',view.blogroot)"
-            tal:omit-tag="">
+        <ul tal:define="dummy python:context.REQUEST.set('blogroot',view.blogroot)">
                 <tal:block define="sitemap context/@@category_portlet_view">
                     <tal:sitemap replace="structure sitemap/createSiteMap">Structure</tal:sitemap>
                 </tal:block>
-        </div>
-    </div>
+        </ul>
     </dd>
 </dl>
 
