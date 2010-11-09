@@ -61,7 +61,16 @@ class BlogView(BrowserView):
         query['sort_on'] = 'created'
         query['sort_order'] = 'reverse'
         query['portal_type'] = 'BlogEntry'
-        self.entries = self.context.getFolderContents(contentFilter=query)
+        # show all entries from all languages
+        # XXX make this configurable
+        translations = self.context.getTranslations().values()
+        if not translations:
+            self.entries = self.context.getFolderContents(contentFilter=query)
+        else:
+            paths = ['/'.join(tr[0].getPhysicalPath()) for tr in translations]
+            query['path'] = paths
+            query['Language'] = 'all'
+            self.entries = self.context.portal_catalog(query)
 
         pagesize = int(req.get('pagesize', 5))
         req.set('pagesize', pagesize)
