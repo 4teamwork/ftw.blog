@@ -8,7 +8,7 @@ from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
 from ftw.blog.interfaces import IBlogEntry
-from ftw.blog.config import PROJECTNAME
+from ftw.blog.config import PROJECTNAME, TINYMCE_ALLOWED_BUTTONS
 from ftw.blog import _
 
 BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
@@ -28,6 +28,8 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description_msgid='ftw_help_text',
             i18n_domain='ftw.tagging',
             rows=25,
+            allow_buttons=TINYMCE_ALLOWED_BUTTONS,
+            rooted=True,
         ),
     ),
 

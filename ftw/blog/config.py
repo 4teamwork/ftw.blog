@@ -16,4 +16,18 @@ INDEXES = (("getCategoryUids", "KeywordIndex"),
 
 METADATA = ('getCategoryUids',)
 
+TINYMCE_ALLOWED_BUTTONS = (
+    'bg-basicmarkup',
+    'bold-button',
+    'italic-button',
+    'list-ol-addbutton',
+    'list-ul-addbutton',
+    'definitionlist',
+    'linklibdrawer-button',
+    'removelink-button',
+    'tabledrawer-button'
+    
+
+)
+
 product_globals = globals()
