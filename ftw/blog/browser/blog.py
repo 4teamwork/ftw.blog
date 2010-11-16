@@ -63,8 +63,7 @@ class BlogView(BrowserView):
         query['portal_type'] = 'BlogEntry'
         # show all entries from all languages
         # XXX make this configurable
-        translations = self.context.getTranslations().values()
-        if not translations:
+        if not hasattr(self.context, 'getTranslations'):
             self.entries = self.context.getFolderContents(contentFilter=query)
         else:
             paths = ['/'.join(tr[0].getPhysicalPath()) for tr in translations]
