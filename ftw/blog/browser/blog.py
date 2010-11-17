@@ -66,6 +66,7 @@ class BlogView(BrowserView):
         if not hasattr(self.context, 'getTranslations'):
             self.entries = self.context.getFolderContents(contentFilter=query)
         else:
+            translations = self.context.getTranslations().values()
             paths = ['/'.join(tr[0].getPhysicalPath()) for tr in translations]
             query['path'] = paths
             query['Language'] = 'all'
