@@ -10,11 +10,8 @@ ADD_PERMISSIONS = {
     'Blog': 'ftw.blog: Add Blog',
 }
 
-# TODO: is that index possible or only the metadata
 INDEXES = (("getCategoryUids", "KeywordIndex"),
           )
-
-METADATA = ('getCategoryUids',)
 
 TINYMCE_ALLOWED_BUTTONS = (
     'bg-basicmarkup',

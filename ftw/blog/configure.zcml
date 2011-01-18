@@ -24,7 +24,7 @@
       name="default"
       title="ftw.blog"
       directory="profiles/default"
-      description="ftw Blog: Quills configuration."
+      description="ftw.blog: configuration."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
