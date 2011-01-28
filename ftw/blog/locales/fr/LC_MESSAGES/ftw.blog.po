@@ -14,88 +14,87 @@ msgstr ""
 
 #: ./ftw/blog/portlets/archiv.pt:5
 msgid "Archiv"
-msgstr "Archiv"
+msgstr "Archives"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "Blog"
-msgstr "Blog"
+msgstr "Blogue"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Blog Settings"
-msgstr "Blog Einstellungen"
+msgstr "Paramètres de blogue"
 
 #: ./ftw/blog/profiles/default/types/BlogCategory.xml
 msgid "BlogCategory"
-msgstr "Blog Kategorie"
+msgstr "Catégorie de blogue"
 
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "BlogEntry"
-msgstr "Blogeintrag"
+msgstr "Entrée blogue"
 
 #: ./ftw/blog/browser/entry.pt:63
 #: ./ftw/blog/content/blogentry.py:40
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
-msgstr "Kategorien"
+msgstr "Catégories"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Edit Blog"
-msgstr "Blog bearbeiten"
+msgstr "Adapter blogue"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Manage Blog Portlets"
-msgstr "Blog Portlets bearbeiten"
+msgstr "Adapter blogue portlets"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Manage categories"
-msgstr "Kategorien verwalten"
+msgstr "Adapter categories"
 
 #: ./ftw/blog/browser/entry.pt:78
 msgid "Tags"
-msgstr "Tags"
+msgstr "Étiquette"
 
 #. Default: "Search the Blog"
 #: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
 msgid "blog_search_button"
-msgstr "Blog durchsuchen"
+msgstr "Parcourir blogue"
 
 #. Default: "There are currently no entries in this blog."
 #: ./ftw/blog/browser/blog.pt:113
 msgid "description_no_entries"
-msgstr "Es existieren momentan keine Einträge in diesem Blog"
+msgstr "Il n'existe pas des entrees dans ce blogue'"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "ftw Blog"
-msgstr "Blog"
+msgstr "Blogue"
 
 #: ./ftw/blog/profiles/default/types/BlogCategory.xml
 msgid "ftw BlogCategory"
-msgstr "Blog Kategorie"
+msgstr "Catégorie de blogue"
 
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "ftw BlogEntry"
-msgstr "Blogeintrag"
+msgstr "Enrée blogue"
 
 #. Default: "<span> ${author} </span> at ${created} in"
 #: ./ftw/blog/browser/blog.pt:74
 #: ./ftw/blog/browser/entry.pt:46
-#, fuzzy
 msgid "label_blog_byline"
-msgstr "${author} am ${created} in"
+msgstr "${author} le ${created} dans"
 
 #. Default: "It would be filtered on the follow criterias"
 #: ./ftw/blog/browser/blog.pt:30
 msgid "label_filters"
-msgstr "Es wird nach folgenden Kriterien gefiltert:"
+msgstr "Il est filtré par les critères suivants"
 
 #. Default: "Show all"
 #: ./ftw/blog/browser/entry.pt:53
 msgid "label_show_all"
-msgstr "Alle anzeigen"
+msgstr ""
 
 #. Default: "Blog Actions"
 #: ./ftw/blog/browser/settings.pt:22
 msgid "simplelayout_actions"
-msgstr "Blog Aktionen"
+msgstr "Afficher tous"
 
 

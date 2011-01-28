@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-08-13 08:59+0000\n"
+"POT-Creation-Date: 2011-01-28 16:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,7 @@ msgid "BlogEntry"
 msgstr ""
 
 #: ./ftw/blog/browser/entry.pt:63
-#: ./ftw/blog/content/blogentry.py:38
+#: ./ftw/blog/content/blogentry.py:40
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
 msgstr ""
@@ -52,7 +52,6 @@ msgid "Manage Blog Portlets"
 msgstr ""
 
 #: ./ftw/blog/profiles/default/actions.xml
-#: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "Manage categories"
 msgstr ""
 
