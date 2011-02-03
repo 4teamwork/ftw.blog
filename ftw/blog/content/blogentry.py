@@ -27,7 +27,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description='',
             description_msgid='ftw_help_text',
             i18n_domain='ftw.tagging',
-            rows=25,
+            rows=15,
             allow_buttons=TINYMCE_ALLOWED_BUTTONS,
             rooted=True,
         ),
