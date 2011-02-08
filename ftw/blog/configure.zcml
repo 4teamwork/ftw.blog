@@ -44,4 +44,10 @@
            Products.Archetypes.interfaces.IObjectInitializedEvent"
       handler=".eventhandlers.objectInitializedHandler" />
 
+  <!-- register event for Description --> 
+  <subscriber
+      for="ftw.blog.interfaces.IBlogEntry
+          Products.Archetypes.interfaces.IObjectEditedEvent"
+      handler=".eventhandlers.set_description" />
+
 </configure>

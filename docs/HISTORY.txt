@@ -4,7 +4,9 @@ Changelog
 
 1.0c3
 -----
-
+* Be more like wordpress (don't show description, show first 200 chars in
+  overview)
+  [08.02.2011, mathias.leimgruber]
 
 1.0c2
 -----

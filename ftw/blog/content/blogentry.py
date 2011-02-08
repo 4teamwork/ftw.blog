@@ -72,6 +72,7 @@ BlogEntrySchema['location'].widget.visible = -1
 BlogEntrySchema.changeSchemataForField('location', 'default')
 BlogEntrySchema['language'].widget.visible = -1
 BlogEntrySchema.changeSchemataForField('language', 'default')
+BlogEntrySchema['description'].widget.visible = -1
 
 
 class BlogEntry(folder.ATFolder):
