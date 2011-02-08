@@ -54,3 +54,11 @@ body.template-discussion_reply_form .documentActions {
 .portletTagcloud .portletItem a {
     color: #76797c;
 }
+
+.blogView .blogImages a {
+    border: 1px solid lightgrey;
+    display: block;
+    float: left;
+    margin: 0.5em;
+    padding: 1em;
+}

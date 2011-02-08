@@ -52,13 +52,20 @@
             </span>
             <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
                  
-            <div class="documentDescription">
-                <span tal:content="here/Description" />
-            </div>
             <div class="plain">
                 <div tal:replace="structure here/getText" />
             </div>
 
+            <div class="visualClear">&nbsp;</div>
+            
+            <div class="blogImages">
+                <a tal:repeat="image python:here.getFolderContents({'portal_type':'Image'}, full_objects=True)"
+                   tal:attributes="href python:image.absolute_url() + '/image'" rel="gb_image[]">
+                     <img tal:replace="structure python:image.tag(scale='mini', height='150px', width='auto')" />
+                </a>
+            </div>
+            <div class="visualClear">&nbsp;</div>
+            
            <div id="categories" >
                <label i18n:translate="Categories">Categories</label>
                <tal:rep repeat="cat_uid here/getCategoryUids">
