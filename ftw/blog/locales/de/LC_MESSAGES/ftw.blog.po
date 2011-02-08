@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-28 16:04+0000\n"
+"POT-Creation-Date: 2011-02-08 10:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Blog Kategorie"
 msgid "BlogEntry"
 msgstr "Blogeintrag"
 
-#: ./ftw/blog/browser/entry.pt:63
+#: ./ftw/blog/browser/entry.pt:70
 #: ./ftw/blog/content/blogentry.py:40
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
@@ -50,7 +50,7 @@ msgstr "Blog Portlets bearbeiten"
 msgid "Manage categories"
 msgstr "Kategorien verwalten"
 
-#: ./ftw/blog/browser/entry.pt:78
+#: ./ftw/blog/browser/entry.pt:85
 msgid "Tags"
 msgstr "Tags"
 
@@ -79,7 +79,6 @@ msgstr "Blogeintrag"
 #. Default: "<span> ${author} </span> at ${created} in"
 #: ./ftw/blog/browser/blog.pt:74
 #: ./ftw/blog/browser/entry.pt:46
-#, fuzzy
 msgid "label_blog_byline"
 msgstr "${author} am ${created} in"
 
