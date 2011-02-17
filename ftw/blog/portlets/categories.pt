@@ -1,5 +1,5 @@
 <div class="portletWrapper" i18n:domain="ftw.blog">
-<dl class="portlet portletBlogCategory clearfix">
+<dl class="portlet portletBlogCategory">
 
     <dt class="portletHeader">
         <span i18n:translate="">
