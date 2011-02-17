@@ -5,6 +5,8 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.content.batching import Batch
 from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
+from Products.CMFPlone.utils import base_hasattr
+from Products.CMFCore.utils import getToolByName
 
 
 class BlogView(BrowserView):
@@ -27,55 +29,61 @@ class BlogView(BrowserView):
             -tag
         """
 
-        context = aq_inner(self.context).aq_explicit
-        req = context.REQUEST
+        context = aq_inner(self.context)
         query = {}
         self.filters = []
-        request = context.REQUEST
-        querystring = context.REQUEST.get('QUERY_STRING', '')
+        catalog = getToolByName(context, 'portal_catalog')
+        querystring = self.request.get('QUERY_STRING', '')
 
-        if request.get('archiv'):
-            datestr = request.get('archiv')
+        if self.request.form.get('archiv'):
+            datestr = self.request.form.get('archiv')
             start = DateTime(datestr)
             end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
             end = end - 1
             query['created'] = {'query': (start, end), 'range': 'min:max'}
             self.filters.append(start.strftime('%B %Y'))
-        if request.get('getCategoryUids'):
-            uid = request.get('getCategoryUids')
+        if self.request.form.get('getCategoryUids'):
+            uid = self.request.form.get('getCategoryUids')
+            category = catalog(UID=uid)[0]
+            category_title = category.Title
+            if category:
+                category_obj = category.getObject()
+                if base_hasattr(category_obj, 'getTranslations'):
+                    uid = [c.UID() for c in category_obj.getTranslations(review_state=False).values()]
+                    category_title = category_obj.getTranslation().Title()
             query['getCategoryUids'] = uid
-            category = self.context.portal_catalog(UID=uid)[0]
-            self.filters.append(category.Title)
-        if request.get('searchable_text'):
-            query['SearchableText'] = request.get('searchable_text')
+            category = catalog(UID=uid)[0]
+            self.filters.append(category_title)
+        if self.request.form.get('searchable_text'):
+            query['SearchableText'] = self.request.get('searchable_text')
             self.filters.append(query['SearchableText'])
-        if request.get('tag'):
-            query['tags'] = request.get('tag').decode('utf-8')
+        if self.request.form.get('tag'):
+            query['tags'] = self.request.form.get('tag').decode('utf-8')
             self.filters.append(query['tags'])
         if context.portal_type != 'Blog':
             if querystring:
                 querystring = '?%s' % querystring
-            return self.context.REQUEST.RESPONSE.redirect(
-                aq_parent(aq_inner(self.context)).absolute_url()+ querystring)
+            return self.request.response.redirect(
+                aq_parent(context).absolute_url()+ querystring)
 
         query['sort_on'] = 'created'
         query['sort_order'] = 'reverse'
         query['portal_type'] = 'BlogEntry'
         # show all entries from all languages
         # XXX make this configurable
-        if not hasattr(self.context, 'getTranslations'):
-            self.entries = self.context.getFolderContents(contentFilter=query)
+        if not base_hasattr(context, 'getTranslations'):
+            self.entries = context.getFolderContents(contentFilter=query)
         else:
-            translations = self.context.getTranslations().values()
+            translations = context.getTranslations().values()
             paths = ['/'.join(tr[0].getPhysicalPath()) for tr in translations]
             query['path'] = paths
             query['Language'] = 'all'
-            self.entries = self.context.portal_catalog(query)
+            self.entries = catalog(query)
 
-        pagesize = int(req.get('pagesize', 5))
-        req.set('pagesize', pagesize)
-        pagenumber = int(req.get('pagenumber', 1))
-        req.set('pagenumber', pagenumber)
+        pagesize = int(self.request.form.get('pagesize', 5))
+        #req.set('pagesize', pagesize)
+        pagenumber = int(self.request.form.get('pagenumber', 1))
+        #req.set('pagenumber', pagenumber)
 
         self.batch = Batch(self.entries,
             pagesize=pagesize, pagenumber=pagenumber, navlistsize=1)
