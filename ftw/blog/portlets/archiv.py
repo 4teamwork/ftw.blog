@@ -7,21 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
 from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
-
-MONTHS_GER = {
-            '01': u'Januar',
-            '02': u'Februar',
-            '03': unicode('M\xc3\xa4rz', 'utf-8'),
-            '04': u'April',
-            '05': u'Mai',
-            '06': u'Juni',
-            '07': u'Juli',
-            '08': u'August',
-            '09': u'September',
-            '10': u'Oktober',
-            '11': u'November',
-            '12': u'Dezember',
-}
+from zope.i18n import translate 
 
 
 class IArchivePortlet(IPortletDataProvider):
@@ -42,9 +28,6 @@ class Renderer(base.Renderer):
         self.context = context
         self.data = data
         self.request = request
-        self._translation_service = getToolByName(
-                                        context,
-                                        'translation_service')
 
     @property
     def available(self):
@@ -66,8 +49,10 @@ class Renderer(base.Renderer):
     def zLocalizedTime(self, time, long_format=False):
         """Convert time to localized time
         """
-        return u"%s %s" % (MONTHS_GER[time.strftime("%m")],
-                           time.strftime('%Y'))
+        month_msgid = 'month_%s' % time.strftime("%b").lower()
+        month = translate(month_msgid, domain='plonelocales', context=self.request)
+        
+        return u"%s %s" % (month, time.strftime('%Y'))
 
     def update(self):
         catalog = getToolByName(self.context, 'portal_catalog')
