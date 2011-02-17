@@ -1,22 +1,22 @@
 """Definition of the Blog Category content type
 """
-
 from zope.interface import implements
-
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+
+from Products.ATContentTypes.config import HAS_LINGUA_PLONE
+if HAS_LINGUA_PLONE:
+    from Products.LinguaPlone.public import registerType
+else:
+    from Products.Archetypes.atapi import registerType
+
 from ftw.blog.interfaces import IBlogCategory
 from ftw.blog.config import PROJECTNAME
 
 BlogCategorySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-    # -*- Your Archetypes field definitions here ... -*-
-
 ))
-
-# Set storage on fields copied from ATFolderSchema, making sure
-# they work well with the python bridge properties.
 
 schemata.finalizeATCTSchema(BlogCategorySchema,
                             folderish=True,
@@ -29,10 +29,10 @@ BlogCategorySchema['expirationDate'].widget.visible = {'view': 'invisible',
 
 
 class BlogCategory(folder.ATFolder):
-    """iZug Blog Category"""
+    """Blog Category"""
     implements(IBlogCategory)
 
     portal_type = "BlogCategory"
     schema = BlogCategorySchema
 
-atapi.registerType(BlogCategory, PROJECTNAME)
+registerType(BlogCategory, PROJECTNAME)
