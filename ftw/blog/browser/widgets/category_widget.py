@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five import BrowserView
 
 from Products.CMFPlone.browser.interfaces import ISitemapView
+from Products.CMFPlone.utils import base_hasattr
 
 from ftw.blog.interfaces import ICategoryWidget, IBlogUtils
 
@@ -45,11 +46,28 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
     """
 
     def decoratorFactory(self, node):
-        rc = getToolByName(self.context, 'portal_catalog')
+        ct = getToolByName(self.context, 'portal_catalog')
         oldnode = super(CategoryWidgetStrategy, self).decoratorFactory(node)
         oldnode['uid'] = node['item'].UID
-        oldnode['count_refs'] = len(rc({'getCategoryUids': oldnode['uid'],
-                                        'portal_type': 'BlogEntry'}))
+        
+        # Determine the number of blog entries for each category.
+        # Also take translations of categories into account.
+        # TODO: This will perform badly with a large number of categories
+        # We could optimize this by always storing a reference to the
+        # canonical category instead of the corresponding translation.
+        obj = node['item'].getObject()
+        count = 0
+        if base_hasattr(obj, 'getTranslations'):
+            for translation in obj.getTranslations(review_state=False).values():
+                count += len(ct(getCategoryUids=translation.UID(),
+                                portal_type='BlogEntry',
+                                Language='all',))
+        else:
+            count = len(ct(getCategoryUids=obj.UID(),
+                           portal_type='BlogEntry',
+                           Language='all',))
+
+        oldnode['count_refs'] = count
         return oldnode
 
 
@@ -78,6 +96,7 @@ class SiteMapStructure(BrowserView):
 
         strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + \
         '/categories'
+
         return buildFolderTree(context,
                                obj=context,
                                query=query,

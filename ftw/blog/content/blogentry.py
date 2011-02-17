@@ -52,10 +52,9 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
                         "sort_on": "sortable_title"},
             macro='category_reference_widget',
         ),
-        allowed_types=('ClassificationItem', ),
         multiValued=1,
         schemata='default',
-        relationship='blog_categories'
+        relationship='blog_categories',
     ),
 
 ))
@@ -105,5 +104,6 @@ class BlogEntry(folder.ATFolder):
                 parent_uids.append(puid)
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
+
 
 registerType(BlogEntry, PROJECTNAME)

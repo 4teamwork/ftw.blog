@@ -10,8 +10,9 @@ ADD_PERMISSIONS = {
     'Blog': 'ftw.blog: Add Blog',
 }
 
-INDEXES = (("getCategoryUids", "KeywordIndex"),
-          )
+INDEXES = (
+    ("getCategoryUids", "KeywordIndex"),
+)
 
 TINYMCE_ALLOWED_BUTTONS = (
     'bg-basicmarkup',
