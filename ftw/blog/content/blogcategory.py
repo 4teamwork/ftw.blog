@@ -1,7 +1,6 @@
 """Definition of the Blog Category content type
 """
 from zope.interface import implements
-from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 
@@ -14,18 +13,11 @@ else:
 from ftw.blog.interfaces import IBlogCategory
 from ftw.blog.config import PROJECTNAME
 
-BlogCategorySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-))
-
+BlogCategorySchema = folder.ATFolderSchema.copy()
 schemata.finalizeATCTSchema(BlogCategorySchema,
                             folderish=True,
                             moveDiscussion=False)
-
-BlogCategorySchema['effectiveDate'].widget.visible = {'view': 'invisible',
-                                                      'edit': 'invisible'}
-BlogCategorySchema['expirationDate'].widget.visible = {'view': 'invisible',
-                                                       'edit': 'invisible'}
 
 
 class BlogCategory(folder.ATFolder):

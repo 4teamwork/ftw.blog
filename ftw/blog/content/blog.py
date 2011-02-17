@@ -2,7 +2,6 @@
 """
 from zope.interface import implements
 from AccessControl import ClassSecurityInfo
-from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
 
@@ -15,21 +14,9 @@ else:
 from ftw.blog.interfaces import IBlog
 from ftw.blog.config import PROJECTNAME
 
-BlogSchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
-))
-
+BlogSchema = folder.ATFolderSchema.copy()
 schemata.finalizeATCTSchema(BlogSchema, folderish=True, moveDiscussion=False)
-
-BlogSchema['effectiveDate'].widget.visible = {'view': 'invisible',
-                                              'edit': 'invisible'}
-BlogSchema['expirationDate'].widget.visible = {'view': 'invisible',
-                                               'edit': 'invisible'}
-
-# hide schematas ..
-for field in BlogSchema.keys():
-    if BlogSchema[field].schemata in ['categorization']:
-        BlogSchema[field].widget.visible['edit'] = 'invisible'
 
 
 class Blog(folder.ATFolder):
