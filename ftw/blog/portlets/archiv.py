@@ -6,6 +6,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
 from DateTime import DateTime
+from Products.CMFPlone.utils import base_hasattr
 
 MONTHS_GER = {
             '01': u'Januar',
@@ -70,12 +71,20 @@ class Renderer(base.Renderer):
 
     def update(self):
         catalog = getToolByName(self.context, 'portal_catalog')
+        query = {}
         blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
         blogroot = blogutils.getBlogRoot(self.context)
-        root_path ='/'.join(blogroot.getPhysicalPath())
+        if base_hasattr(blogroot, 'getTranslations'):
+            blogroots = blogroot.getTranslations(review_state=False).values()
+            root_path = ['/'.join(br.getPhysicalPath()) for br in blogroots]
+            query['Language'] = 'all'
+        else:
+            root_path ='/'.join(blogroot.getPhysicalPath())
 
-        allEntries = catalog({'path': root_path,
-                              'portal_type': 'BlogEntry'})
+        query['path'] = root_path
+        query['portal_type'] = 'BlogEntry'
+
+        allEntries = catalog(**query)
 
         values = {}
         for entry in allEntries:
@@ -92,7 +101,8 @@ class Renderer(base.Renderer):
             start = DateTime(v.strftime('%Y/%m/01'))
             end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
             end = end - 1
-            number = len(self.context.portal_catalog(portal_type='BlogEntry', path=root_path, created= {'query':(start, end), 'range': 'min:max'}))
+            query['created'] = {'query':(start, end), 'range': 'min:max'}
+            number = len(catalog(**query))
 
             infos.append(dict(
                 title = self.zLocalizedTime(v),
@@ -100,7 +110,6 @@ class Renderer(base.Renderer):
                 url = blogroot.absolute_url()+ \
                     '/view?archiv=' + \
                     v.strftime('%Y/%m/01')))
-                
 
         self.archivlist = infos
 
