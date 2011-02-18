@@ -8,6 +8,7 @@ from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
 from Products.CMFCore.utils import getToolByName
 from zope.i18n import translate
+from urllib import quote_plus
 
 
 class BlogView(BrowserView):
@@ -34,7 +35,6 @@ class BlogView(BrowserView):
         query = {}
         self.filters = []
         catalog = getToolByName(context, 'portal_catalog')
-        querystring = self.request.get('QUERY_STRING', '')
 
         if self.request.form.get('archiv'):
             datestr = self.request.form.get('archiv')
@@ -68,6 +68,7 @@ class BlogView(BrowserView):
             query['tags'] = self.request.form.get('tag').decode('utf-8')
             self.filters.append(query['tags'])
         if context.portal_type != 'Blog':
+            querystring = self.query_string()
             if querystring:
                 querystring = '?%s' % querystring
             return self.request.response.redirect(
@@ -96,3 +97,17 @@ class BlogView(BrowserView):
             pagesize=pagesize, pagenumber=pagenumber, navlistsize=1)
 
         return self.template()
+
+
+    def query_string(self, **args):
+        """Updates the query string of the current request with the given
+           keyword arguments and returns it as a quoted string.
+        """
+        query = self.request.form.copy()
+        # Remove empty query parameters
+        for k, v in query.items():
+            if v == '':
+                del query[k]
+        query.update(args)
+        return '&'.join(["%s=%s" % (quote_plus(str(k)), quote_plus(str(v)))
+            for k, v in query.items()])
