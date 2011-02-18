@@ -62,18 +62,16 @@
 
                                     <tal:name tal:condition="item_creator"
                                         tal:define="author python:mtool.getMemberInfo(item_creator)">
-                                      <span>
                                           <span tal:content="python:author and author['fullname'] or item_creator"
                                                 tal:omit-tag="not:author"
                                                 i18n:name="author">
                                             Bob Dobalina
                                           </span>
-                                      </span>
                                      </tal:name>
                                         at 
                                      <span class="dateCreated"
                                            tal:content="python:toLocalizedTime(item_created, long_format=1)"
-                                           i18n:name="created">from date</span> in 
+                                           i18n:name="created">from date</span>
                                 </span>
                                      <tal:rep repeat="cat_uid item_categories">
                                         <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});

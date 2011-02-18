@@ -42,7 +42,7 @@
                              Bob Dobalina
                            </span>
                       </tal:name>
-                      am 
+                      at 
                       <span class="dateCreated"
                             tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
                             tal:content="python:toLocalizedTime(item_created, long_format=1)"

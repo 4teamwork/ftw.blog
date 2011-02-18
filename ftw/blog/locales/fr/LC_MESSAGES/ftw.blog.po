@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-28 16:04+0000\n"
+"POT-Creation-Date: 2011-02-18 08:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,8 +32,8 @@ msgstr "Catégorie de blogue"
 msgid "BlogEntry"
 msgstr "Entrée blogue"
 
-#: ./ftw/blog/browser/entry.pt:63
-#: ./ftw/blog/content/blogentry.py:40
+#: ./ftw/blog/browser/entry.pt:70
+#: ./ftw/blog/content/blogentry.py:47
 #: ./ftw/blog/portlets/categories.pt:5
 msgid "Categories"
 msgstr "Catégories"
@@ -50,9 +50,19 @@ msgstr "Adapter blogue portlets"
 msgid "Manage categories"
 msgstr "Adapter categories"
 
-#: ./ftw/blog/browser/entry.pt:78
+#: ./ftw/blog/browser/entry.pt:85
 msgid "Tags"
 msgstr "Étiquette"
+
+#. Default: "Next ${number} items"
+#: ./ftw/blog/browser/batching.pt:26
+msgid "batch_next_x_items"
+msgstr "Prochain ${number} éléments"
+
+#. Default: "Previous ${number} items"
+#: ./ftw/blog/browser/batching.pt:14
+msgid "batch_previous_x_items"
+msgstr "Dernière ${number} éléments"
 
 #. Default: "Search the Blog"
 #: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
@@ -60,7 +70,7 @@ msgid "blog_search_button"
 msgstr "Parcourir blogue"
 
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:113
+#: ./ftw/blog/browser/blog.pt:111
 msgid "description_no_entries"
 msgstr "Il n'existe pas des entrees dans ce blogue'"
 
@@ -76,11 +86,11 @@ msgstr "Catégorie de blogue"
 msgid "ftw BlogEntry"
 msgstr "Enrée blogue"
 
-#. Default: "<span> ${author} </span> at ${created} in"
-#: ./ftw/blog/browser/blog.pt:74
+#. Default: "${author} at ${created}"
+#: ./ftw/blog/browser/blog.pt:72
 #: ./ftw/blog/browser/entry.pt:46
 msgid "label_blog_byline"
-msgstr "${author} le ${created} dans"
+msgstr "Par ${author} le ${created}"
 
 #. Default: "It would be filtered on the follow criterias"
 #: ./ftw/blog/browser/blog.pt:30
