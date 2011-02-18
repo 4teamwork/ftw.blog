@@ -7,7 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
 from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
-from zope.i18n import translate 
+from zope.i18n import translate
 
 
 class IArchivePortlet(IPortletDataProvider):

@@ -7,6 +7,7 @@ from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
 from Products.CMFCore.utils import getToolByName
+from zope.i18n import translate
 
 
 class BlogView(BrowserView):
@@ -37,11 +38,17 @@ class BlogView(BrowserView):
 
         if self.request.form.get('archiv'):
             datestr = self.request.form.get('archiv')
-            start = DateTime(datestr)
-            end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
+            try:
+                start = DateTime(datestr)
+            except DateTime.SyntaxError:
+                start = DateTime(DateTime().strftime("%Y/%m/01"))
+            end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
+                start.month() % 12 + 1, 1))
             end = end - 1
-            query['created'] = {'query': (start, end), 'range': 'min:max'}
-            self.filters.append(start.strftime('%B %Y'))
+            query['created'] = {'query': (start.earliestTime(), end.latestTime()), 'range': 'minmax'}
+            month_msgid = 'month_%s' % start.strftime("%b").lower()
+            month = translate(month_msgid, domain='plonelocales', context=self.request)
+            self.filters.append("%s %s" % (month, start.strftime('%Y')))
         if self.request.form.get('getCategoryUids'):
             uid = self.request.form.get('getCategoryUids')
             category = catalog(UID=uid)[0]
