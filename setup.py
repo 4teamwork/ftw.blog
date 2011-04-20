@@ -23,7 +23,7 @@ setup(name='ftw.blog',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='ftw blog',
-      author='%s, 4teamwork.ch' % maintainer,
+      author='%s, 4teamwork.ch GmbH' % maintainer,
       author_email='mailto:info@4teamwork.ch',
       maintainer=maintainer,
       url='http://psc.4teamwork.ch/4teamwork/kunden/ftw/ftw.blog/',
@@ -38,7 +38,7 @@ setup(name='ftw.blog',
           'ftw.tagging',
           # -*- Extra requirements: -*-
       ],
-      
+
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       entry_points="""
