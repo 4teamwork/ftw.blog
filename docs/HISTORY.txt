@@ -4,7 +4,11 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed: method getTranslation return None instead of self if there are no
+  translations. We need to handle this. 
+  ftw/blog/browser/blog.py
+  [20.04.2011, elio.schmutz]
+
 
 
 1.1 (2011-02-25)

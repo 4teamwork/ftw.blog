@@ -57,7 +57,10 @@ class BlogView(BrowserView):
                 category_obj = category.getObject()
                 if base_hasattr(category_obj, 'getTranslations'):
                     uid = [c.UID() for c in category_obj.getTranslations(review_state=False).values()]
-                    category_title = category_obj.getTranslation().Title()
+                    translated = category_obj.getTranslation()
+                    # If there are no translations, getTranslation returns 'None'
+                    if translated:
+                        category_title = translated.Title()
             query['getCategoryUids'] = uid
             category = catalog(UID=uid)[0]
             self.filters.append(category_title)
