@@ -33,6 +33,7 @@ setup(name='ftw.blog',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        'Products.LinguaPlone',
           'setuptools',
           'plone.browserlayer',
           'ftw.tagging',
