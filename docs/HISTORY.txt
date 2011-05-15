@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.2 (unreleased)
+1.1.2 (2011-05-15)
 ------------------
 
 - Fixed and optimized calculation of archive statisics per month in archive
