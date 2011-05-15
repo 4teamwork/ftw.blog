@@ -8,6 +8,7 @@ from ftw.blog.interfaces import IBlogUtils
 from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
 from zope.i18n import translate
+from plone.memoize.view import memoize
 
 
 class IArchivePortlet(IPortletDataProvider):
@@ -33,18 +34,10 @@ class Renderer(base.Renderer):
     def available(self):
         """Only show the portlet, when the blog isn't empty
         """
-        catalog = getToolByName(self.context, 'portal_catalog')
-        blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
-        blogroot = blogutils.getBlogRoot(self.context)
-        root_path ='/'.join(blogroot.getPhysicalPath())
-
-        all_entries = catalog({'path': root_path,
-                              'portal_type': 'BlogEntry'})
-        if len(all_entries) > 0:
+        if self.archive_summary():
             return True
         else:
             return False
-
 
     def zLocalizedTime(self, time, long_format=False):
         """Convert time to localized time
@@ -54,7 +47,9 @@ class Renderer(base.Renderer):
         
         return u"%s %s" % (month, time.strftime('%Y'))
 
-    def update(self):
+    @memoize
+    def archive_summary(self):
+        """Returns an ordered list of summary infos per month."""
         catalog = getToolByName(self.context, 'portal_catalog')
         query = {}
         blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
@@ -69,34 +64,25 @@ class Renderer(base.Renderer):
         query['path'] = root_path
         query['portal_type'] = 'BlogEntry'
 
-        allEntries = catalog(**query)
+        archive_counts = {}
+        blog_entries = catalog(**query)
+        for entry in blog_entries:
+            year_month = entry.created.strftime('%Y/%m')
+            if year_month in archive_counts:
+                archive_counts[year_month] += 1
+            else:
+                archive_counts[year_month] = 1
 
-        values = {}
-        for entry in allEntries:
-            value = entry.created
-            key = value.strftime('%B %Y')
-            if not key in values:
-                values[key] = value
-        values = values.values()
-        values.sort(reverse=1)
-
-        infos = []
-        for v in values:
-            # calc the number of items for the month
-            start = DateTime(v.strftime('%Y/%m/01'))
-            end = DateTime('%s/%s/%s' % (start.year(), start.month()+ 1, start.day()))
-            end = end - 1
-            query['created'] = {'query':(start, end), 'range': 'min:max'}
-            number = len(catalog(**query))
-
-            infos.append(dict(
-                title = self.zLocalizedTime(v),
-                number=number,
-                url = blogroot.absolute_url()+ \
-                    '/view?archiv=' + \
-                    v.strftime('%Y/%m/01')))
-
-        self.archivlist = infos
+        archive_summary = []
+        ac_keys = archive_counts.keys()
+        ac_keys.sort(reverse=True)
+        for year_month in ac_keys:
+            archive_summary.append(dict(
+                title=self.zLocalizedTime(DateTime('%s/01' % year_month)),
+                number=archive_counts[year_month],
+                url='%s?archiv=%s/01' % (blogroot.absolute_url(), year_month),
+            ))
+        return archive_summary
 
     render = ViewPageTemplateFile('archiv.pt')
 

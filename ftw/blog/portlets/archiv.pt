@@ -9,10 +9,10 @@
 
     <dd class="portletItem">
         <ul>
-            <li tal:repeat="a view/archivlist">
-                <a tal:attributes="href a/url;
-                                   title a/title" 
-                   tal:content="python: '%s (%s)' % (a['title'], a['number'])" i18n:translate=""/>
+            <li tal:repeat="item view/archive_summary">
+                <a tal:attributes="href item/url;
+                                   title item/title" 
+                   tal:content="python: '%s (%s)' % (item['title'], item['number'])" i18n:translate=""/>
              </li>
          </ul>
     </dd>

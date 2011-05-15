@@ -2,8 +2,17 @@ Changelog
 =========
 
 
-1.1.2
------
+1.1.2 (unreleased)
+------------------
+
+- Fixed and optimized calculation of archive statisics per month in archive
+  portlet.
+  [Thomas Buchberger]
+
+- Also display the archive portlet in a blog translation which doesn't have
+  any blog items but other translations do.
+  [Thomas Buchberger]
+
 
 1.1.1 (unreleased)
 ------------------
