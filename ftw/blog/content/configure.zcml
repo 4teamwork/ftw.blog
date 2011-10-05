@@ -28,14 +28,12 @@
 
     <include package="ftw.tagging" />
     <!-- make BlogEntry taggable -->
-    <five:implements
-      class=".blogentry.BlogEntry"
-      interface="ftw.tagging.interfaces.tagging.ITaggable"
-    />
+    <class class=".blogentry.BlogEntry">
+        <implements interface="ftw.tagging.interfaces.tagging.ITaggable" />
+    </class>
     <!-- mark the Blog as tag root -->
-    <five:implements
-      class=".blog.Blog"
-      interface="ftw.tagging.interfaces.tagging.ITagRoot"
-    />
+    <class class=".blog.Blog">
+        <implements interface="ftw.tagging.interfaces.tagging.ITagRoot" />
+    </class>
 
 </configure>
