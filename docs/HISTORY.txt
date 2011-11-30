@@ -29,7 +29,6 @@ Changelog
   [20.04.2011, elio.schmutz]
 
 
-
 1.1 (2011-02-25)
 ----------------
 
@@ -39,124 +38,121 @@ Changelog
 - Some refactoring and code cleanup.
   [buchi]
 
+
 1.0c4
 -----
-* Fire set_description event also on init. 
+- Fire set_description event also on init. 
   [15.02.2011, mathias.leimgruber]
+
 
 1.0c3
 -----
-* Be more like wordpress (don't show description, show first 200 chars in
+- Be more like wordpress (don't show description, show first 200 chars in
   overview)
   [08.02.2011, mathias.leimgruber]
   
-* Added image listing on blogentries. 
+- Added image listing on blogentries. 
   [08.02.2011, mathias.leimgruber]
+
 
 1.0c2
 -----
 
-* Removed AnnotationStorage from some fields
+- Removed AnnotationStorage from some fields
   [08.09.2010, jbaumann]
 
-* renamed from izug.blog to ftw.blog
-* removed all dependencies to izug packages (izug.tagging, izug.webcontent ect.)
+- renamed from izug.blog to ftw.blog
+- removed all dependencies to izug packages (izug.tagging, izug.webcontent ect.)
 
 
 1.0
 ---
 
-* Issue #1050 Fokus - Fehlende Bearbeitungsleiste im IE8
-  https://extranet.4teamwork.ch/support/zug/maintlog/1050
-  Fehlende Icons auf Fokus wieder einblenden
-  [16.06.2010, fsprenger]
+- Fix CSS Problem for IE8
+  [fsprenger]
 
-* fix viewlet.xml and evenhandlers
-  [18.05.2010, mle]
+- fix viewlet.xml and evenhandlers
+  [mathias.leimgruber]
 
-* fix blog actions viewlet
-  [18.05.2010, mle]
+- fix blog actions viewlet
+  [mathias.leimgruber]
 
-* remove Orgunit and ContentPage from profile 
-  [18.05.2010, mle]
+- remove Orgunit and ContentPage from profile 
+  [mathias.leimgruber]
   
-* remove izug.arbeitsraum dependecy
-  [18.05.2010, mle]
+- remove unnecessary dependencies
+  [mathias.leimgruber]
 
 
 0.8
 ---
-* enabling editableBorder again, otherwise editing is not possible
-  https://extranet.4teamwork.ch/support/zug/maintlog/1050
-  [14.06.2010, fsp]
 
-* Issue #60 Fokus: die Menueleiste (Edit) kommen 2x
-  https://extranet.4teamwork.ch/projects/integration-zug.ch-izug/tracker-integration-zug.ch-izug/60/
-  [31.05.2010, phgross]
-
-* fix weird error with an not removable old portlet (blog.tags.portlet)
-  [18.05.2010, mle]
+- enabling editableBorder again, otherwise editing is not possible
+  [fsp]
 
 
-* fix weird error with an not removable old portlet (blog.tags.portlet)
-  [18.05.2010, mle]
+- fix weird error with an not removable old portlet (blog.tags.portlet)
+  [mathias.leimgruber]
 
 
-* #780 Fokus - Sortierung bei Anzeige der Beitraege
-  https://extranet.4teamwork.ch/support/zug/maintlog/780
-  changed tag to tags
-  [26.04.2010, mle]
+- fix weird error with an not removable old portlet (blog.tags.portlet)
+  [mathias.leimgruber]
 
-* #780 Fokus - Sortierung bei Anzeige der Beitraege (Tags Portlet
-  wurde ueberschrieben).
-  [19.03.2010, mle]
+
+- changed tag to tags
+  [mathias.leimgruber]
 
 
 0.7
 ---
 
-* Fixed setup.py: missing comma in requirements resultet in unexisting package name
-  [19.03.2010, jbaumann]
+- Fixed setup.py: missing comma in requirements resultet in unexisting package name
+  [jbaumann]
 
-* Removed setup.cfg: not required anymore
-  [19.03.2010, jbaumann]
+- Removed setup.cfg: not required anymore
+  [jbaumann]
 
 
 0.6
 ---
 
-* Added own layer interface for eliminating dependency to izug.theme
-  [19.03.2010, jbaumann]
-  
+- Added own layer interface for eliminating dependency to izug.theme
+  [jbaumann]
+
 
 0.5
 ---
 
-* Issue #760 Arbeitsraum - neuer Fokus ohne Startkategorie Allgemein
-  [12.02.2010, mle]
+- Set default category ('allgemein')
+  [mathias.leimgruber]
 
-* Tests hinzugefuegt.
-  [12.02.2010, mle]
-  
+- Added tests.
+  [mathias.leimgruber]
+
 
 0.4
 ---
 
-* [25.08.2009] Issue #586 Fokus - Menu Fokus Einstellungen einschraenken [mle]
+- Fixed menu "settings"
+  [mathias.leimgruber]
 
 
 0.3
 ---
-* maintlog Issue #587: Remove doc-actions in discussion-reply-form
-    * fix datetime format in comments listing
-    * replace comment image
-* [29.07.2009] Issue #545 Fokus - Fokus iZug migrieren [pha]
+
+- maintlog Issue #587: Remove doc-actions in discussion-reply-form
+  - fix datetime format in comments listing
+  - replace comment image
+
 
 0.2
 ---
-* Issue #388: Keine Kategorien mehr hinzufuegbar ueber normales Menue
+
+- Fix problem with categories
+  [mathias.leimgruber]
+
 
 0.1
 ---
-* Initial Development
 
+- Initial Development

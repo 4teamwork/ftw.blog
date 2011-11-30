@@ -1,3 +1,0 @@
-# created by: svn propset svn:ignore -F ./IGNORE.TXT .
-
-ftw.blog.egg-info
