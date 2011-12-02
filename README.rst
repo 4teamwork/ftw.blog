@@ -12,7 +12,7 @@ No Workflow provided.
 Install
 ======
 
-- Add ``ftw.blog`` to yout buidlout configuration
+- Add ``ftw.blog`` to your buildout configuration
 
 :: 
   [instance]
