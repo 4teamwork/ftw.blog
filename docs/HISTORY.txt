@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.3 (unreleased)
+1.1.3 (2011-12-05)
 ------------------
 
 - Restrict references to categories in blog entries to portal_type
