@@ -5,7 +5,10 @@ Changelog
 1.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Restrict references to categories in blog entries to portal_type
+  'BlogCategory'. This fixes a huge performance issue with the add and edit
+  views of blog entries.
+  [Thomas Buchberger]
 
 
 1.1.2 (2011-05-15)

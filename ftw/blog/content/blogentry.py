@@ -48,13 +48,14 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
             allow_browse=False,
             show_results_without_query=True,
             restrict_browsing_to_startup_directory=True,
-            base_query={"portal_type": "Blog Catgory",
+            base_query={"portal_type": "BlogCategory",
                         "sort_on": "sortable_title"},
             macro='category_reference_widget',
         ),
         multiValued=1,
         schemata='default',
         relationship='blog_categories',
+        allowed_types=['BlogCategory',],
     ),
 
 ))
