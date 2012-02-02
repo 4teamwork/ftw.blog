@@ -5,7 +5,8 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add Categories translation
+  [ttschanz]
 
 
 1.1.3 (2011-12-05)
