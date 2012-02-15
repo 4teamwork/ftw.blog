@@ -3,7 +3,6 @@ from Products.CMFPlone.utils import safe_hasattr
 from zope.component import getMultiAdapter, getUtility
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
-from ftw.blog.portlets import categories, archiv
 from ftw.tagging.portlets import tags
 from Products.CMFCore.utils import getToolByName
 
@@ -27,28 +26,6 @@ def objectAddedHandler(obj, event):
         if allgemein:
             allgemein.setTitle('Allgemein')
             allgemein.reindexObject()
-
-
-def objectInitializedHandler(obj, event):
-    #adding some portlets (archive/tags/categories)
-    blog_manager = getUtility(
-        IPortletManager,
-        name=u'blog.portlets',
-        context=obj)
-    portlets = getMultiAdapter(
-        (obj, blog_manager, ),
-        IPortletAssignmentMapping,
-        context=obj)
-
-    category = 'blog-categories-portlet'
-    if category not in portlets.keys():
-        portlets[category] = categories.Assignment()
-    a = 'blog-archive-portlet'
-    if a not in portlets.keys():
-        portlets[a] = archiv.Assignment()
-    tagcloud = 'ftw.tagging.portlet.tagcloud'
-    if tagcloud not in portlets.keys():
-        portlets[tagcloud] = tags.Assignment()
 
 
 def set_description(obj, event):

@@ -1,5 +1,4 @@
 from zope.interface import Interface
-from plone.portlets.interfaces import IPortletManager
 
 
 class IBlogLayer(Interface):
@@ -21,11 +20,6 @@ class IBlog(Interface):
 
 class ICategoryWidget(Interface):
     """
-    """
-
-
-class IBlogPortlets(IPortletManager):
-    """Portlet manager for the blog
     """
 
 

@@ -23,14 +23,6 @@
         />
 
     <browser:page
-        for="plone.portlets.interfaces.ILocalPortletAssignable"
-        class="plone.app.portlets.browser.manage.ManageContextualPortlets"
-        name="manage-blog-portlets"
-        template="manage_blog_portlets.pt"
-        permission="cmf.ModifyPortalContent"
-    />
-    
-    <browser:page
         for="*"
         class=".categories.CategoryPortletSitemapView"
         name="category_portlet_view"

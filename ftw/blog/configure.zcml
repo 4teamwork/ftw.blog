@@ -39,11 +39,6 @@
            Products.Archetypes.interfaces.IObjectInitializedEvent"
       handler=".eventhandlers.objectAddedHandler" />
 
-  <subscriber
-      for=".interfaces.IBlog
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
-      handler=".eventhandlers.objectInitializedHandler" />
-
   <!-- register events for Description --> 
   <subscriber
       for="ftw.blog.interfaces.IBlogEntry
@@ -55,5 +50,6 @@
            Products.Archetypes.interfaces.IObjectInitializedEvent"
       handler=".eventhandlers.set_description" />
 
+  <include file="upgrades.zcml" />
 
 </configure>

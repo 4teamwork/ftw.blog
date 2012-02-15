@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ftw.blog">
+
+    <gs:registerProfile
+        name="to_v2"
+        title="Upgrade profile for ftw.blog"
+        description="This profile upgrades ftw.blog to version 2."
+        directory="profiles/to_v2"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <gs:upgradeStep
+        title="Upgrade profile for ftw.blog"
+        description="Imports to_v2 profile."
+        source="1"
+        destination="2"
+        handler="ftw.blog.upgrades.upgrade_to_v2"
+        profile="ftw.blog:default"
+        />
+
+</configure>

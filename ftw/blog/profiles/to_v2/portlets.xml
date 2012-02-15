@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
 <portlets>
 
-  <portlet
+  <portletmanager
+    name="blog.portlets"
+    remove="True"
+    />
+
+  <portlet 
     addview="blog.categories.portlet"
     title="Blog Categories Portlet"
     description="A portlet for ftw blog, which shows the category structure.">

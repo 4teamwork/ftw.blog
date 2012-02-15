@@ -94,9 +94,6 @@
             </div>
         </tal:def>
      </div>
-     <div class="rightColumn">
-         <tal:block replace="structure provider:blog.portlets" />
-     </div>
      <div class="visualClear"><!-- --></div>
   </metal:main-macro>
 </div>
