@@ -3,22 +3,25 @@ Overview
 
 A Blog implementation for Plone. 
 Features:
+
 - Tags
 - Categories
 - Archiv
 
 No Workflow provided. 
 
+
 Install
 ======
 
 - Add ``ftw.blog`` to your buildout configuration
 
-:: 
-  [instance]
-  eggs = 
-    ftw.blog
-    
+::
+
+    [instance]
+    eggs = 
+        ftw.blog
+
 - Run buildout
 
 - Install ``ftw.blog`` in portal_setup
