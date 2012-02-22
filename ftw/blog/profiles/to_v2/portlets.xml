@@ -6,6 +6,10 @@
     remove="True"
     />
 
+  <portlet addview="blog.categories.portlet" remove="True" />
+  <portlet addview="blog.archiv.portlet" remove="True" />
+  <portlet addview="blog.tags.portlet" remove="True" />
+
   <portlet 
     addview="blog.categories.portlet"
     title="Blog Categories Portlet"
