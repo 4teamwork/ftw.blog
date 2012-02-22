@@ -24,10 +24,14 @@ with a category 'allgemein'
     <BlogCategory at ...>
 
 and also some portlets must be set autmaticly on the blog
-    >>> portlet_manager = getUtility(IPortletManager,name=u'blog.portlets',context=b1)
-    >>> portlets = getMultiAdapter((b1, portlet_manager, ),IPortletAssignmentMapping, context=b1)
-    >>> portlets.keys()
-    ['blog-categories-portlet', 'blog-archive-portlet', 'ftw.tagging.portlet.tagcloud']
+    >>> portlet_manager = getUtility(IPortletManager,name='plone.rightcolumn',context=b1)
+    >>> portlet_manager['content_type']['Blog'].keys()
+    [u'blog-categories', u'tagcloud', u'blog-archive']
+    >>> portlet_manager['content_type']['BlogEntry'].keys()
+    [u'blog-categories', u'tagcloud', u'blog-archive']
+    >>> portlet_manager['content_type']['BlogCategory'].keys()
+    [u'blog-categories', u'tagcloud', u'blog-archive']
+
 
 add a blogentry
     >>> b1.invokeFactory('BlogEntry', 'BlogEntry1')
