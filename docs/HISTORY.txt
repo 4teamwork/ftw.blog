@@ -4,6 +4,10 @@ Changelog
 
 1.1.4 (unreleased)
 ------------------
+
+- Use plone default class for button in blog actionbar.
+  [Julian Infanger]
+
 - Removed blog.portlets portlet manager. Blog specific portlets are now
   assigned by portal_type in plone.rightcolumn.
   Provide upgrade step to remove existing portlet assignments on context.
