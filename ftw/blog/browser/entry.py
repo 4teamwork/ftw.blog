@@ -1,9 +1,9 @@
 from Products.Five.browser import BrowserView
-from zope.interface import implements
-from ftw.blog.interfaces import IBlogEntryView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.tagging.utils import getInterfaceRoot
+from ftw.blog.interfaces import IBlogEntryView
 from ftw.tagging.interfaces.tagging import ITagRoot
+from ftw.tagging.utils import getInterfaceRoot
+from zope.interface import implements
 
 
 class BlogEntryView(BrowserView):

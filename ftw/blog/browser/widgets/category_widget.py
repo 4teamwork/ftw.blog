@@ -1,19 +1,14 @@
 from Acquisition import aq_inner
-from zope.component import getMultiAdapter, getUtility
-from zope.interface import implements
-
 from Products.CMFCore.utils import getToolByName
-from Products.Five import BrowserView
-
 from Products.CMFPlone.browser.interfaces import ISitemapView
-from Products.CMFPlone.utils import base_hasattr
-
-from ftw.blog.interfaces import ICategoryWidget, IBlogUtils
-
-
 from Products.CMFPlone.browser.navtree import SitemapNavtreeStrategy
+from Products.CMFPlone.utils import base_hasattr
+from Products.Five import BrowserView
+from ftw.blog.interfaces import ICategoryWidget, IBlogUtils
 from plone.app.layout.navigation.interfaces import INavtreeStrategy
 from plone.app.layout.navigation.navtree import buildFolderTree
+from zope.component import getMultiAdapter, getUtility
+from zope.interface import implements
 
 
 class SitemapView(BrowserView):
@@ -49,7 +44,7 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
         ct = getToolByName(self.context, 'portal_catalog')
         oldnode = super(CategoryWidgetStrategy, self).decoratorFactory(node)
         oldnode['uid'] = node['item'].UID
-        
+
         # Determine the number of blog entries for each category.
         # Also take translations of categories into account.
         # TODO: This will perform badly with a large number of categories
@@ -95,7 +90,7 @@ class SiteMapStructure(BrowserView):
             return None
 
         strategy.rootPath = '/'.join(bloglevel.getPhysicalPath()) + \
-        '/categories'
+            '/categories'
 
         return buildFolderTree(context,
                                obj=context,

@@ -1,20 +1,14 @@
 """Main product initializer
 """
 
-from zope.i18nmessageid import MessageFactory
-from ftw.blog import config
-
 from Products.Archetypes import atapi
 from Products.CMFCore import utils
+from Products.CMFCore.DirectoryView import registerDirectory
+from ftw.blog import config
+from zope.i18nmessageid import MessageFactory
 
-# Define a message factory for when this product is internationalised.
-# This will be imported with the special name "_" in most modules. Strings
-# like _(u"message") will then be extracted by i18n tools for translation.
 
 _ = MessageFactory('ftw.blog')
-
-
-from Products.CMFCore.DirectoryView import registerDirectory
 registerDirectory('skins', config.product_globals)
 
 
@@ -34,10 +28,6 @@ def initialize(context):
     # during ZCML processing, but we do it here again to be explicit. Of
     # course, even if we import the module several times, it is only run
     # once.
-
-#    import content.blog
-#    import content.blogcategory
-#    import content.blogentry
 
     content_types, constructors, ftis = atapi.process_types(
         atapi.listTypes(config.PROJECTNAME),

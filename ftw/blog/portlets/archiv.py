@@ -1,14 +1,14 @@
-from zope.component import getUtility
-from zope.interface import implements
-from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.portlets.portlets import base
+from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
-from DateTime import DateTime
-from Products.CMFPlone.utils import base_hasattr
-from zope.i18n import translate
+from plone.app.portlets.portlets import base
 from plone.memoize.view import memoize
+from plone.portlets.interfaces import IPortletDataProvider
+from zope.component import getUtility
+from zope.i18n import translate
+from zope.interface import implements
 
 
 class IArchivePortlet(IPortletDataProvider):
@@ -22,6 +22,7 @@ class Assignment(base.Assignment):
     @property
     def title(self):
         return "Blog Archive Portlet"
+
 
 class Renderer(base.Renderer):
 
@@ -44,7 +45,7 @@ class Renderer(base.Renderer):
         """
         month_msgid = 'month_%s' % time.strftime("%b").lower()
         month = translate(month_msgid, domain='plonelocales', context=self.request)
-        
+
         return u"%s %s" % (month, time.strftime('%Y'))
 
     @memoize

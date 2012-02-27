@@ -8,66 +8,66 @@
         directory="stylesheets"
         />
 
-   <browser:page
-      for="*"
-      name="blog_entry_view"
-      class=".entry.BlogEntryView"
-      permission="zope2.View"
-      template="entry.pt"
-      />  
+    <browser:page
+        for="*"
+        name="blog_entry_view"
+        class=".entry.BlogEntryView"
+        permission="zope2.View"
+        template="entry.pt"
+        />
 
-  <browser:page
-      for="*"
-      name="category_widget_view"
-      class=".widgets.category_widget.SitemapView"
-      permission="zope2.View"
-      />
+    <browser:page
+        for="*"
+        name="category_widget_view"
+        class=".widgets.category_widget.SitemapView"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      for="*"
-      name="category_widget_builder_view"
-      class=".widgets.category_widget.SiteMapStructure"
-      permission="zope2.View"
-      allowed_attributes="siteMap"
-      />
-      
-   <adapter for="*
-                ..interfaces.ICategoryWidget"
-            factory=".widgets.category_widget.CategoryWidgetStrategy"
-            provides="plone.app.layout.navigation.interfaces.INavtreeStrategy" />
+    <browser:page
+        for="*"
+        name="category_widget_builder_view"
+        class=".widgets.category_widget.SiteMapStructure"
+        permission="zope2.View"
+        allowed_attributes="siteMap"
+        />
 
-   <browser:page
-      for="*"
-      name="blog_view"
-      class=".blog.BlogView"
-      permission="zope2.View"
-      template="blog.pt"
-      />  
-      
-   <browser:page
-      for="*"
-      name="rss_blog_view"
-      class=".rss.RSSView"
-      permission="zope2.View"
-      template="rss.pt"
-      />  
+    <adapter for="*
+                  ..interfaces.ICategoryWidget"
+             factory=".widgets.category_widget.CategoryWidgetStrategy"
+             provides="plone.app.layout.navigation.interfaces.INavtreeStrategy" />
 
-   <browser:page
-      for="*"
-      name="blog-settings"
-      class=".settings.BlogSettings"
-      permission="cmf.ModifyPortalContent"
-      template="settings.pt"
-      />
+    <browser:page
+        for="*"
+        name="blog_view"
+        class=".blog.BlogView"
+        permission="zope2.View"
+        template="blog.pt"
+        />
 
-  <!-- Overwrite the standard Tag Overview,
-       With the standard Blog overview -->
-  <browser:page
-      name="objects_by_tag_view"
-      for="..interfaces.IBlog"
-      class=".blog.BlogView"
-      permission="zope2.View"
-      layer="..interfaces.IBlogLayer"
-      />
+    <browser:page
+        for="*"
+        name="rss_blog_view"
+        class=".rss.RSSView"
+        permission="zope2.View"
+        template="rss.pt"
+        />
+
+    <browser:page
+        for="*"
+        name="blog-settings"
+        class=".settings.BlogSettings"
+        permission="cmf.ModifyPortalContent"
+        template="settings.pt"
+        />
+
+    <!-- Overwrite the standard Tag Overview,
+         With the standard Blog overview -->
+    <browser:page
+        name="objects_by_tag_view"
+        for="..interfaces.IBlog"
+        class=".blog.BlogView"
+        permission="zope2.View"
+        layer="..interfaces.IBlogLayer"
+        />
 
 </configure>

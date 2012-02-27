@@ -1,10 +1,6 @@
+from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.utils import safe_hasattr
-from zope.component import getMultiAdapter, getUtility
-from plone.portlets.interfaces import IPortletAssignmentMapping
-from plone.portlets.interfaces import IPortletManager
-from ftw.tagging.portlets import tags
-from Products.CMFCore.utils import getToolByName
 
 
 def objectAddedHandler(obj, event):

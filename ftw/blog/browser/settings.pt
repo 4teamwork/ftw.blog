@@ -6,39 +6,39 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ftw.blog">
 
-<body>
+    <body>
 
-<div metal:fill-slot="main" class="blogView">
-    <metal:main-macro define-macro="main">
-    <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <div metal:fill-slot="main" class="blogView">
+            <metal:main-macro define-macro="main">
+                <div tal:replace="structure provider:plone.abovecontenttitle" />
 
 
-    <h1 class="documentFirstHeading">
-      <tal:title replace="context/Title" />
-    </h1>
-    <div tal:replace="structure provider:plone.belowcontenttitle" />
+                <h1 class="documentFirstHeading">
+                    <tal:title replace="context/Title" />
+                </h1>
+                <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-    <tal:docactions tal:condition="view/objectActions">
-    <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
+                <tal:docactions tal:condition="view/objectActions">
+                    <span class="hiddenStructure" i18n:translate="simplelayout_actions">Blog Actions</span>
 
-    <ul class="blogActions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
+                    <ul class="blogActions" tal:define="normalizeString nocall: context/@@plone/normalizeString">
 
-    <tal:actions repeat="daction view/objectActions">
-        <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
-            <a href=""
-               tal:attributes="href daction/url;
-                               title daction/description"
-               tal:content="daction/title">
-                
-                </a>
-        </li>
-    </tal:actions>
+                        <tal:actions repeat="daction view/objectActions">
+                            <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+                                <a href=""
+                                   tal:attributes="href daction/url;
+                                                   title daction/description"
+                                   tal:content="daction/title">
 
-    </ul>
+                                </a>
+                            </li>
+                        </tal:actions>
 
-    </tal:docactions>    
-    
-    </metal:main-macro>
-</div>
-</body>
+                    </ul>
+
+                </tal:docactions>
+
+            </metal:main-macro>
+        </div>
+    </body>
 </html>

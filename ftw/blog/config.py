@@ -8,11 +8,11 @@ ADD_PERMISSIONS = {
     'BlogEntry': 'ftw.blog: Add BlogEntry',
     'BlogCategory': 'ftw.blog: Add BlogCategory',
     'Blog': 'ftw.blog: Add Blog',
-}
+    }
 
 INDEXES = (
     ("getCategoryUids", "KeywordIndex"),
-)
+    )
 
 TINYMCE_ALLOWED_BUTTONS = (
     'bg-basicmarkup',
@@ -23,9 +23,7 @@ TINYMCE_ALLOWED_BUTTONS = (
     'definitionlist',
     'linklibdrawer-button',
     'removelink-button',
-    'tabledrawer-button'
-    
-
-)
+    'tabledrawer-button',
+    )
 
 product_globals = globals()

@@ -1,14 +1,14 @@
-from Products.Five.browser import BrowserView
-from zope.interface import implements
-from ftw.blog.interfaces import IBlogView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.app.content.batching import Batch
 from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
-from Products.CMFPlone.utils import base_hasattr
 from Products.CMFCore.utils import getToolByName
-from zope.i18n import translate
+from Products.CMFPlone.utils import base_hasattr
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ftw.blog.interfaces import IBlogView
+from plone.app.content.batching import Batch
 from urllib import quote_plus
+from zope.i18n import translate
+from zope.interface import implements
 
 
 class BlogView(BrowserView):
@@ -25,10 +25,10 @@ class BlogView(BrowserView):
         """ Get all the Blogentries and return the listingview template.
 
         It check if the request has some filtering parameters:
-            -archiv
-            -searchable_text
-            -getCategoryUids
-            -tag
+        -archiv
+        -searchable_text
+        -getCategoryUids
+        -tag
         """
 
         context = aq_inner(self.context)
@@ -43,7 +43,7 @@ class BlogView(BrowserView):
             except DateTime.SyntaxError:
                 start = DateTime(DateTime().strftime("%Y/%m/01"))
             end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
-                start.month() % 12 + 1, 1))
+                                         start.month() % 12 + 1, 1))
             end = end - 1
             query['created'] = {'query': (start.earliestTime(), end.latestTime()), 'range': 'minmax'}
             month_msgid = 'month_%s' % start.strftime("%b").lower()
@@ -97,14 +97,14 @@ class BlogView(BrowserView):
         #req.set('pagenumber', pagenumber)
 
         self.batch = Batch(self.entries,
-            pagesize=pagesize, pagenumber=pagenumber, navlistsize=1)
+                           pagesize=pagesize, pagenumber=pagenumber, navlistsize=1)
 
         return self.template()
 
 
     def query_string(self, **args):
         """Updates the query string of the current request with the given
-           keyword arguments and returns it as a quoted string.
+        keyword arguments and returns it as a quoted string.
         """
         query = self.request.form.copy()
         # Remove empty query parameters
@@ -113,4 +113,4 @@ class BlogView(BrowserView):
                 del query[k]
         query.update(args)
         return '&'.join(["%s=%s" % (quote_plus(str(k)), quote_plus(str(v)))
-            for k, v in query.items()])
+                         for k, v in query.items()])

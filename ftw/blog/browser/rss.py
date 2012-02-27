@@ -1,9 +1,9 @@
-from Products.Five.browser import BrowserView
-from zope.interface import implements
-from ftw.blog.interfaces import IBlogView, IBlogUtils
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Acquisition import aq_inner
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from ftw.blog.interfaces import IBlogView, IBlogUtils
 from zope.component import getUtility
+from zope.interface import implements
 
 
 class RSSView(BrowserView):
@@ -33,8 +33,8 @@ class RSSView(BrowserView):
                 return self.context.REQUEST.RESPONSE.redirect(url)
 
         self.entries = self.context.getFolderContents({
-            'sort_on': 'created',
-            'sort_order': 'reverse',
-            'portal_type': 'BlogEntry'})
+                'sort_on': 'created',
+                'sort_order': 'reverse',
+                'portal_type': 'BlogEntry'})
 
         return self.template(self)

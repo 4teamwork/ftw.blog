@@ -5,51 +5,51 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="ftw.blog">
 
-  <!-- dependency includs -->
-  <include package="plone.browserlayer" />
-  <include package="ftw.tagging" />
+    <!-- dependency includs -->
+    <include package="plone.browserlayer" />
+    <include package="ftw.tagging" />
 
-  <i18n:registerTranslations directory="locales" />
+    <i18n:registerTranslations directory="locales" />
 
-  <five:registerPackage package="." initialize=".initialize" />
+    <five:registerPackage package="." initialize=".initialize" />
 
-  <!-- First, we register our utility -->
-  <utility
-      provides=".interfaces.IBlogUtils"
-      factory=".utility.BlogUtils"
-      name="ftw.blog.utils" />
+    <!-- First, we register our utility -->
+    <utility
+        provides=".interfaces.IBlogUtils"
+        factory=".utility.BlogUtils"
+        name="ftw.blog.utils" />
 
-  <!-- Register the installation GenericSetup extension profile -->
-  <genericsetup:registerProfile
-      name="default"
-      title="ftw.blog"
-      directory="profiles/default"
-      description="ftw.blog: configuration."
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+        name="default"
+        title="ftw.blog"
+        directory="profiles/default"
+        description="ftw.blog: configuration."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
-  <!-- Include the sub-packages that use their own configure.zcml files. -->
-  <include package=".browser" />
-  <include package=".content" />
-  <include package=".portlets" />
-  <include package=".viewlets" />
+    <!-- Include the sub-packages that use their own configure.zcml files. -->
+    <include package=".browser" />
+    <include package=".content" />
+    <include package=".portlets" />
+    <include package=".viewlets" />
 
-  <subscriber
-      for=".interfaces.IBlog
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
-      handler=".eventhandlers.objectAddedHandler" />
+    <subscriber
+        for=".interfaces.IBlog
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".eventhandlers.objectAddedHandler" />
 
-  <!-- register events for Description --> 
-  <subscriber
-      for="ftw.blog.interfaces.IBlogEntry
-          Products.Archetypes.interfaces.IObjectEditedEvent"
-      handler=".eventhandlers.set_description" />
+    <!-- register events for Description -->
+    <subscriber
+        for="ftw.blog.interfaces.IBlogEntry
+             Products.Archetypes.interfaces.IObjectEditedEvent"
+        handler=".eventhandlers.set_description" />
 
-  <subscriber
-      for="ftw.blog.interfaces.IBlogEntry
-           Products.Archetypes.interfaces.IObjectInitializedEvent"
-      handler=".eventhandlers.set_description" />
+    <subscriber
+        for="ftw.blog.interfaces.IBlogEntry
+             Products.Archetypes.interfaces.IObjectInitializedEvent"
+        handler=".eventhandlers.set_description" />
 
-  <include file="upgrades.zcml" />
+    <include file="upgrades.zcml" />
 
 </configure>

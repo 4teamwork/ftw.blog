@@ -1,8 +1,9 @@
-from plone.app.upgrade.utils import loadMigrationProfile
 from Products.CMFCore.utils import getToolByName
+from plone.app.upgrade.utils import loadMigrationProfile
 from zope.annotation.interfaces import IAnnotations
-
 import logging
+
+
 logger = logging.getLogger('ftw.blog')
 
 

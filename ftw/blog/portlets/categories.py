@@ -1,13 +1,12 @@
-from zope.interface import implements
 from Acquisition import aq_inner
-from plone.portlets.interfaces import IPortletDataProvider
-from plone.app.portlets.portlets import base
-from Products.Five import BrowserView
-
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import getMultiAdapter, getUtility
 from Products.CMFPlone.browser.interfaces import ISitemapView
+from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogUtils
+from plone.app.portlets.portlets import base
+from plone.portlets.interfaces import IPortletDataProvider
+from zope.component import getMultiAdapter, getUtility
+from zope.interface import implements
 
 
 class ICategoriesPortlet(IPortletDataProvider):
@@ -58,5 +57,5 @@ class CategoryPortletSitemapView(BrowserView):
         #bottomLevel = navtree_properties.getProperty('bottomLevel', 0)
         # XXX: The recursion should probably be done in python code
         return context.category_portlet_recurs_view(
-                    children=data.get('children', []),
-                    level=0, bottomLevel=0)
+            children=data.get('children', []),
+            level=0, bottomLevel=0)

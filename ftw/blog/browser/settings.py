@@ -1,6 +1,6 @@
+from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from ftw.blog.interfaces import IBlogUtils
-from Acquisition import aq_inner
 from zope.component import getMultiAdapter, getUtility
 
 
