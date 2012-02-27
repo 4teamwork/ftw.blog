@@ -1,6 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.utils import safe_hasattr
+from ftw.blog import _
 
 
 def objectAddedHandler(obj, event):
@@ -12,7 +13,7 @@ def objectAddedHandler(obj, event):
         _createObjectByType('BlogCategory', obj, 'categories')
         category = getattr(obj.aq_explicit, 'categories', False)
         if category:
-            category.setTitle('Kategorien')
+            category.setTitle(obj.translate(_('Categories')))
             category.reindexObject()
 
 
