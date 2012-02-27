@@ -13,14 +13,7 @@ body.template-discussion_reply_form .documentActions {
   padding-left:1em;
 }
 
-#actionsBar, .actionsBar {
-  background-color:#EFEFEF;
-}
-
 .blogView .actionsBarContent {
-  border-bottom:1px solid #006FBA;
-  border-right:1px solid #006FBA;
-  border-left:1px solid #006FBA;
   padding:1em 1em 1.5em;
 }
 
