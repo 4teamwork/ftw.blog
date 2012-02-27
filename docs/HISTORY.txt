@@ -5,6 +5,9 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
+- Add english translations.
+  [jone]
+
 - Remove styling of search box for improving compatibility with plone default layout.
   [jone]
 

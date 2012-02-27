@@ -2,13 +2,8 @@
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n" name="portal_actions" meta_type="Plone Actions Tool">
 	<object name="object_blog_settings_actions" meta_type="CMF Action Category">
 		<property name="title"/>
-		<object name="manage_blog_portlets" meta_type="CMF Action" i18n:domain="ftw.blog">
-			<property name="title" i18n:translate="">Manage Blog Portlets</property>
-			<property name="description" i18n:translate=""/>
-			<property name="url_expr">nocall:here/@@blog-settings/managePortletUrl</property>
-			<property name="icon_expr"/>
-			<property name="available_expr"/>
-            <property name="visible">True</property>
+		<object name="manage_blog_portlets" meta_type="CMF Action" i18n:domain="ftw.blog"
+            remove="True">
 		</object>
 		<object name="edit_blog" meta_type="CMF Action" i18n:domain="ftw.blog">
 			<property name="title" i18n:translate="">Edit Blog</property>

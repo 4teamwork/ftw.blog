@@ -1,6 +1,3 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -12,40 +9,38 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: ftw.blog\n"
+"Domain: DOMAIN\n"
 
 #: ./ftw/blog/portlets/archiv.pt:12
 msgid "Archiv"
-msgstr ""
+msgstr "Archive"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Blog Settings"
-msgstr ""
+msgstr "Blog settings"
 
 #: ./ftw/blog/profiles/default/types/BlogCategory.xml
 msgid "BlogCategory"
-msgstr ""
+msgstr "Blog Category"
 
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "BlogEntry"
-msgstr ""
+msgstr "Blog Entry"
 
 #: ./ftw/blog/browser/entry.pt:70
 #: ./ftw/blog/content/blogentry.py:47
 #: ./ftw/blog/eventhandlers.py:16
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Edit Blog"
-msgstr ""
+msgstr "Edit blog"
 
 #: ./ftw/blog/profiles/default/actions.xml
 msgid "Manage categories"
@@ -53,46 +48,45 @@ msgstr ""
 
 #: ./ftw/blog/browser/entry.pt:85
 msgid "Tags"
-msgstr ""
+msgstr "Tags"
 
 #. Default: "Next ${number} items"
 #: ./ftw/blog/browser/batching.pt:34
 msgid "batch_next_x_items"
-msgstr ""
+msgstr "Next ${number} items"
 
 #. Default: "Previous ${number} items"
 #: ./ftw/blog/browser/batching.pt:22
 msgid "batch_previous_x_items"
-msgstr ""
+msgstr "Previous ${number} items"
 
 #. Default: "Search the Blog"
 #: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:14
 msgid "blog_search_button"
-msgstr ""
+msgstr "Search blog"
 
 #. Default: "There are currently no entries in this blog."
 #: ./ftw/blog/browser/blog.pt:111
 msgid "description_no_entries"
-msgstr ""
+msgstr "There are no entries in this blog."
 
 #. Default: "${author} at ${created}"
 #: ./ftw/blog/browser/blog.pt:72
 #: ./ftw/blog/browser/entry.pt:46
 msgid "label_blog_byline"
-msgstr ""
+msgstr "${author} at ${created}"
 
 #. Default: "It would be filtered on the follow criterias"
 #: ./ftw/blog/browser/blog.pt:30
 msgid "label_filters"
-msgstr ""
+msgstr "Filtered by: "
 
 #. Default: "Show all"
 #: ./ftw/blog/browser/entry.pt:53
 msgid "label_show_all"
-msgstr ""
+msgstr "Show all"
 
 #. Default: "Blog Actions"
 #: ./ftw/blog/browser/settings.pt:22
 msgid "simplelayout_actions"
-msgstr ""
-
+msgstr "Blog actions"
