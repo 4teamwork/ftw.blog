@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-27 16:22+0000\n"
+"POT-Creation-Date: 2012-02-27 16:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,10 +20,6 @@ msgstr "Archive"
 msgid "Blog"
 msgstr "Blog"
 
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Blog Settings"
-msgstr "Blog settings"
-
 #: ./ftw/blog/profiles/default/types/BlogCategory.xml
 msgid "BlogCategory"
 msgstr "Blog Category"
@@ -37,14 +33,6 @@ msgstr "Blog Entry"
 #: ./ftw/blog/eventhandlers.py:16
 msgid "Categories"
 msgstr "Categories"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Edit Blog"
-msgstr "Edit blog"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Manage categories"
-msgstr ""
 
 #: ./ftw/blog/browser/entry.pt:85
 msgid "Tags"
@@ -86,7 +74,4 @@ msgstr "Filtered by: "
 msgid "label_show_all"
 msgstr "Show all"
 
-#. Default: "Blog Actions"
-#: ./ftw/blog/browser/settings.pt:22
-msgid "simplelayout_actions"
-msgstr "Blog actions"
+

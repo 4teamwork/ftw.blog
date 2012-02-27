@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-02-18 08:17+0000\n"
+"POT-Creation-Date: 2012-02-27 16:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,17 +12,13 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./ftw/blog/portlets/archiv.pt:5
+#: ./ftw/blog/portlets/archiv.pt:12
 msgid "Archiv"
 msgstr "Archives"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
 msgid "Blog"
 msgstr "Blogue"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Blog Settings"
-msgstr "Paramètres de blogue"
 
 #: ./ftw/blog/profiles/default/types/BlogCategory.xml
 msgid "BlogCategory"
@@ -34,38 +30,26 @@ msgstr "Entrée blogue"
 
 #: ./ftw/blog/browser/entry.pt:70
 #: ./ftw/blog/content/blogentry.py:47
-#: ./ftw/blog/portlets/categories.pt:5
+#: ./ftw/blog/eventhandlers.py:16
 msgid "Categories"
 msgstr "Catégories"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Edit Blog"
-msgstr "Adapter blogue"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Manage Blog Portlets"
-msgstr "Adapter blogue portlets"
-
-#: ./ftw/blog/profiles/default/actions.xml
-msgid "Manage categories"
-msgstr "Adapter categories"
 
 #: ./ftw/blog/browser/entry.pt:85
 msgid "Tags"
 msgstr "Étiquette"
 
 #. Default: "Next ${number} items"
-#: ./ftw/blog/browser/batching.pt:26
+#: ./ftw/blog/browser/batching.pt:34
 msgid "batch_next_x_items"
 msgstr "Prochain ${number} éléments"
 
 #. Default: "Previous ${number} items"
-#: ./ftw/blog/browser/batching.pt:14
+#: ./ftw/blog/browser/batching.pt:22
 msgid "batch_previous_x_items"
 msgstr "Dernière ${number} éléments"
 
 #. Default: "Search the Blog"
-#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:5
+#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:14
 msgid "blog_search_button"
 msgstr "Parcourir blogue"
 
@@ -73,18 +57,6 @@ msgstr "Parcourir blogue"
 #: ./ftw/blog/browser/blog.pt:111
 msgid "description_no_entries"
 msgstr "Il n'existe pas des entrees dans ce blogue'"
-
-#: ./ftw/blog/profiles/default/types/Blog.xml
-msgid "ftw Blog"
-msgstr "Blogue"
-
-#: ./ftw/blog/profiles/default/types/BlogCategory.xml
-msgid "ftw BlogCategory"
-msgstr "Catégorie de blogue"
-
-#: ./ftw/blog/profiles/default/types/BlogEntry.xml
-msgid "ftw BlogEntry"
-msgstr "Enrée blogue"
 
 #. Default: "${author} at ${created}"
 #: ./ftw/blog/browser/blog.pt:72
@@ -101,10 +73,5 @@ msgstr "Il est filtré par les critères suivants"
 #: ./ftw/blog/browser/entry.pt:53
 msgid "label_show_all"
 msgstr ""
-
-#. Default: "Blog Actions"
-#: ./ftw/blog/browser/settings.pt:22
-msgid "simplelayout_actions"
-msgstr "Afficher tous"
 
 
