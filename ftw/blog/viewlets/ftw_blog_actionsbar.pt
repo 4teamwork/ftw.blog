@@ -1,9 +1,20 @@
-<div class="actionsBar clearfis" i18n:domain="ftw.blog">
-    <div class="actionsBarContent clearfix">
-         <form method="get" action="./blog_view" class="searchForm clearfix">
-            <input type="text" name="searchable_text" class="text" tal:attributes="value request/searchable_text | nothing" />
-            <input type="submit" name="search_blog" i18n:attributes="value blog_search_button"
-                   value="Search the Blog" class="submit context" />
-        </form>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    tal:omit-tag="python: True"
+    i18n:domain="ftw.blog">
+
+
+    <div class="actionsBar clearfis">
+        <div class="actionsBarContent clearfix">
+            <form method="get" action="./blog_view" class="searchForm clearfix">
+                <input type="text" name="searchable_text" class="text"
+                       tal:attributes="value request/searchable_text | nothing" />
+                <input type="submit" name="search_blog" i18n:attributes="value blog_search_button"
+                       value="Search the Blog" class="submit context" />
+            </form>
+        </div>
     </div>
-</div>
+
+</html>
