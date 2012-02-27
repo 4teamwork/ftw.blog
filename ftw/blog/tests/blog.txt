@@ -18,10 +18,6 @@ Now it should automaticly create the categories folder
     >>> cat_folder = b1.get('categories')
     >>> cat_folder
     <BlogCategory at ...>
-    
-with a category 'allgemein'
-    >>> cat_folder.get('allgemein')
-    <BlogCategory at ...>
 
 and also some portlets must be set autmaticly on the blog
     >>> portlet_manager = getUtility(IPortletManager,name='plone.rightcolumn',context=b1)
@@ -49,6 +45,6 @@ add a image in blogentry
     <ATImage at ...>
 
 add a image to content item
-    >>> allowed_types = [ a.content_meta_type for a in b1.allowedContentTypes()] 
+    >>> allowed_types = [ a.content_meta_type for a in b1.allowedContentTypes()]
     >>> 'Image' not in allowed_types
     True
