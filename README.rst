@@ -1,18 +1,23 @@
 Overview
 ========
 
-A Blog implementation for Plone. 
-Features:
+``ftw.blog`` provides a blog implementation for Plone featuring tags and
+categories.
 
-- Tags
-- Categories
-- Archiv
+A user can add a new blog entry and tag it using tags and categories.
+Available categories are defined by the creator of the blog, whilst
+tags can be added freely by the author of a blog entry.
 
-No Workflow provided. 
+Blog entries are listed in chronological order, in a tag cloud, by 
+categories, and in a monthly archive. Entries can be searched by using the
+search function of the blog.
+
+Optionally, blog entries can be commented by users using Plone's commenting
+functionality.
 
 
 Install
-======
+=======
 
 - Add ``ftw.blog`` to your buildout configuration
 
