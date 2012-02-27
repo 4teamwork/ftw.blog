@@ -1,0 +1,11 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope">
+
+    <include package="Products.Five" file="meta.zcml" />
+    <include package="Products.Five.viewlet" file="meta.zcml" />
+    <include package="Products.CMFPlone" file="meta.zcml" />
+
+    <include package="AccessControl" file="permissions.zcml" />
+    <include package="Products.CMFCore" file="permissions.zcml" />
+
+</configure>
