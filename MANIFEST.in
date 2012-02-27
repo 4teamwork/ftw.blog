@@ -1,4 +1,3 @@
-recursive-include izug *
 recursive-include docs *
 recursive-include ftw *
 include *.txt
