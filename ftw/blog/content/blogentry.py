@@ -6,7 +6,7 @@ from DateTime import DateTime
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
-from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+from Products.ATReferenceBrowserWidget import ATReferenceBrowserWidget
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -43,7 +43,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.ReferenceField(
         name='categories',
         required=False,
-        widget=ReferenceBrowserWidget(
+        widget=ATReferenceBrowserWidget.ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,
             show_results_without_query=True,
@@ -55,7 +55,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
         multiValued=1,
         schemata='default',
         relationship='blog_categories',
-        allowed_types=['BlogCategory',],
+        allowed_types=['BlogCategory'],
     ),
 
 ))
@@ -101,7 +101,7 @@ class BlogEntry(folder.ATFolder):
             puid = parent.UID()
             grand_parent = aq_inner(parent).aq_parent
             if puid not in parent_uids \
-                and grand_parent.Type() =='Blog Category':
+                and grand_parent.Type() == 'Blog Category':
                 parent_uids.append(puid)
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
