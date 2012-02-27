@@ -26,3 +26,11 @@ def upgrade_to_v2(context):
 
     logger.info("%s %s annotations removed" % (str(count), ppcas))
     loadMigrationProfile(context, 'profile-ftw.blog:to_v2')
+
+    # remove blog_settings actions
+    portal_actions = getToolByName(context, 'portal_actions')
+
+    category = portal_actions.get('object_buttons', None)
+    action_id = 'blog_settings'
+    if category and action_id in category:
+        del category[action_id]

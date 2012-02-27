@@ -5,6 +5,9 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
+- Remove "Blog settings" view.
+  [jone]
+
 - Add english translations.
   [jone]
 

@@ -52,14 +52,6 @@
         template="rss.pt"
         />
 
-    <browser:page
-        for="*"
-        name="blog-settings"
-        class=".settings.BlogSettings"
-        permission="cmf.ModifyPortalContent"
-        template="settings.pt"
-        />
-
     <!-- Overwrite the standard Tag Overview,
          With the standard Blog overview -->
     <browser:page
