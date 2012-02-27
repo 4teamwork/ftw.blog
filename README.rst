@@ -21,7 +21,7 @@ Install
 
 - Add ``ftw.blog`` to your buildout configuration
 
-::
+ ::
 
     [instance]
     eggs = 
