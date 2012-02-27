@@ -15,14 +15,6 @@ def objectAddedHandler(obj, event):
             category.setTitle('Kategorien')
             category.reindexObject()
 
-    category = getattr(obj.aq_explicit, 'categories', False)
-    if not safe_hasattr(category.aq_explicit, 'allgemein', False):
-        _createObjectByType('BlogCategory', category, 'allgemein')
-        allgemein = getattr(category.aq_explicit, 'allgemein', False)
-        if allgemein:
-            allgemein.setTitle('Allgemein')
-            allgemein.reindexObject()
-
 
 def set_description(obj, event):
     """Get the first 200 Chars from text and set them as descrption

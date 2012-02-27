@@ -42,7 +42,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
     atapi.ReferenceField(
         name='categories',
-        required=True,
+        required=False,
         widget=ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,

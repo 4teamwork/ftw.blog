@@ -5,6 +5,9 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
+- Do not create default category on blog creation.
+  [jone]
+
 - Categories portlet: hide when there are no categories.
   [jone]
 
