@@ -8,6 +8,7 @@ maintainer = 'Mathias Leimgruber'
 tests_require = [
     'collective.testcaselayer',
     'ftw.testing',
+    'plone.testing',
     ]
 
 setup(name='ftw.blog',
