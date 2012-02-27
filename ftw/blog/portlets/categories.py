@@ -24,12 +24,28 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
 
-    def update(self):
+    def __init__(self, *args, **kwargs):
+        super(Renderer, self).__init__(*args, **kwargs)
         blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
-        blogroot = blogutils.getBlogRoot(self.context)
+        self.root = blogutils.getBlogRoot(self.context)
 
-        if blogroot:
-            self.blogroot = blogroot.absolute_url()
+    @property
+    def available(self):
+        if not self.root:
+            return False
+
+        categories = getattr(self.root, 'categories', None)
+        if not categories or not getattr(categories, 'objectIds', None):
+            return False
+
+        if not categories.objectIds():
+            return False
+
+        return True
+
+    def update(self):
+        if self.root:
+            self.blogroot = self.root.absolute_url()
         else:
             self.blogroot = ''
 

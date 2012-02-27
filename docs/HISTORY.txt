@@ -5,6 +5,9 @@ Changelog
 1.1.4 (unreleased)
 ------------------
 
+- Categories portlet: hide when there are no categories.
+  [jone]
+
 - Use plone default class for button in blog actionbar.
   [Julian Infanger]
 
@@ -42,7 +45,7 @@ Changelog
 ------------------
 
 - Fixed: method getTranslation return None instead of self if there are no
-  translations. We need to handle this. 
+  translations. We need to handle this.
   ftw/blog/browser/blog.py
   [20.04.2011, elio.schmutz]
 
@@ -59,7 +62,7 @@ Changelog
 
 1.0c4
 -----
-- Fire set_description event also on init. 
+- Fire set_description event also on init.
   [15.02.2011, mathias.leimgruber]
 
 
@@ -68,8 +71,8 @@ Changelog
 - Be more like wordpress (don't show description, show first 200 chars in
   overview)
   [08.02.2011, mathias.leimgruber]
-  
-- Added image listing on blogentries. 
+
+- Added image listing on blogentries.
   [08.02.2011, mathias.leimgruber]
 
 
@@ -95,9 +98,9 @@ Changelog
 - fix blog actions viewlet
   [mathias.leimgruber]
 
-- remove Orgunit and ContentPage from profile 
+- remove Orgunit and ContentPage from profile
   [mathias.leimgruber]
-  
+
 - remove unnecessary dependencies
   [mathias.leimgruber]
 
