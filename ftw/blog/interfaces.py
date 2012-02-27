@@ -39,3 +39,8 @@ class IBlogUtils(Interface):
     """
     provides Blog utilities
     """
+
+    def getBlogRoot(context):
+        """Returns the blog root of the current context. If the context is
+        not within a blog, `None` is returned.
+        """
