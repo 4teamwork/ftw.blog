@@ -38,6 +38,7 @@ setup(name='ftw.blog',
           'setuptools',
           'plone.browserlayer',
           'ftw.tagging',
+          'Plone',
           # -*- Extra requirements: -*-
       ],
 
