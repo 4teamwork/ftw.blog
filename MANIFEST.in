@@ -1,6 +1,5 @@
 recursive-include docs *
 recursive-include ftw *
 include *.txt
+include *.rst
 global-exclude *.pyc
-global-exclude *.mo
-global-exclude ._*

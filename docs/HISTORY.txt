@@ -5,7 +5,8 @@ Changelog
 1.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed MANIFEST.in: Include README.rst, no longer exclude .mo files.
+  [Thomas Buchberger]
 
 
 1.1.4 (2012-02-27)
