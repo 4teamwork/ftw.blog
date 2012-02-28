@@ -66,9 +66,9 @@
                         </div>
                         <div class="visualClear">&nbsp;</div>
 
-                        <div id="categories" >
+                        <div id="categories" tal:define="cat_uids here/getCategoryUids" tal:condition="cat_uids">
                             <label i18n:translate="Categories">Categories</label>
-                            <tal:rep repeat="cat_uid here/getCategoryUids">
+                            <tal:rep repeat="cat_uid cat_uids">
                                 <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                                brain       python:len(cat_brains) and cat_brains[0] or False;
                                                brain_title brain/Title | nothing;

@@ -5,7 +5,12 @@ Changelog
 1.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Show categories on blogentry view only if there is at least
+  one categiry defined.
+  [mathias.leimgruber]
+
+- Clean up css.
+  [mathias.leimgruber]
 
 
 1.1.5 (2012-02-28)

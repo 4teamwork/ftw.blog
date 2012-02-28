@@ -5,10 +5,7 @@ body.template-discussion_reply_form .documentActions {
 .blogView {
 /*position: relative;*/
 }
-.blogView .rightColumn {
-  top: 0;
-  right: -20em;
-}
+
 .classificationItem {
   padding-left:1em;
 }
@@ -26,20 +23,6 @@ body.template-discussion_reply_form .documentActions {
   margin-left: 0 !important;
 }
 
-.blogView .leftColumn{
-  width:70%;
-  float:left;
-}
-
-.blogView .rightColumn{
-  float:right;
-  width:20%;
-}
-
-.blogColumns{
-  clear:right;
-}
-
 .portletBlogCategory .portletItem,
 .portletTagcloud .portletItem {
   font-size: 1em;
@@ -54,4 +37,9 @@ body.template-discussion_reply_form .documentActions {
   float: left;
   margin: 0.5em;
   padding: 1em;
+}
+
+.blogView a.show_all {
+    display: block;
+    padding: 0.5em 0;
 }
