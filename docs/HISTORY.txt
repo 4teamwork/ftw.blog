@@ -5,6 +5,9 @@ Changelog
 1.1.6 (unreleased)
 ------------------
 
+- Show plone.belowcontentbody in blog and entry views.
+  [Julian Infanger]
+
 - Show categories on blogentry view only if there is at least
   one categiry defined.
   [mathias.leimgruber]

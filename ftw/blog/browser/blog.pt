@@ -119,6 +119,7 @@
                         </metal:listingmacro>
                     </div>
                     <div class="visualClear"><!-- --></div>
+                    <div tal:replace="structure provider:plone.belowcontentbody" />
                 </metal:main-macro>
             </div>
 
