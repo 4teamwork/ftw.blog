@@ -73,6 +73,12 @@
                                                                   tal:content="python:toLocalizedTime(item_created, long_format=1)"
                                                                   i18n:name="created">from date</span>
                                                         </span>
+                                                    </span>
+                                                    <div class="documentDescription"
+                                                         tal:content="structure item/Description">
+                                                    </div>
+                                                    <div tal:condition="item_categories">
+                                                        <b i18n:translate="">Categories</b>
                                                         <tal:rep repeat="cat_uid item_categories">
                                                             <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                                                            brain       python:len(cat_brains) and cat_brains[0] or False;
@@ -85,10 +91,6 @@
                                                                tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
 
                                                         </tal:rep>
-
-                                                    </span>
-                                                    <div class="documentDescription"
-                                                         tal:content="structure item/Description">
                                                     </div>
                                                     <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
                                                         TagListing

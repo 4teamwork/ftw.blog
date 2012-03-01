@@ -5,6 +5,9 @@ Changelog
 1.1.6 (unreleased)
 ------------------
 
+- Show categories the same way as tags in blog view.
+  [Julian Infanger]
+
 - Show plone.belowcontentbody in blog and entry views.
   [Julian Infanger]
 
