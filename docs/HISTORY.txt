@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.6 (unreleased)
+1.1.6 (2012-03-05)
 ------------------
 
 - Show categories the same way as tags in blog view.
