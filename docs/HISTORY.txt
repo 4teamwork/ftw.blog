@@ -12,7 +12,7 @@ Changelog
   [Julian Infanger]
 
 - Show categories on blogentry view only if there is at least
-  one categiry defined.
+  one category defined.
   [mathias.leimgruber]
 
 - Clean up css.
