@@ -81,7 +81,7 @@
                             </tal:rep>
                         </div>
                         <tal:def define="item_tags here/tags; tagroot_url python: here.aq_parent.absolute_url();">
-                            <div class="tags" metal:define-macro="taglisting">
+                            <div class="tags" metal:define-macro="taglisting" tal:condition="item_tags">
                                 <label i18n:translate="Tags">Tags</label>
                                 <tal:rep repeat="tag item_tags">
                                     <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
