@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.7 (unreleased)
+1.1.7 (2012-03-12)
 ------------------
 
 - Do not display tags-listing if there is no tag to list.
