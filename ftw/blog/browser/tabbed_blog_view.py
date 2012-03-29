@@ -5,7 +5,7 @@ from ftw.blog import _
 
 
 class BlogsView(TabbedView):
-    """Tabbed workspaces overview"""
+    """Tabbed blog overview"""
 
     def get_tabs(self):
         return [{'id':'blogs', 'class':''},
