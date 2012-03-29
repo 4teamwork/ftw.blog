@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-27 16:51+0000\n"
+"POT-Creation-Date: 2012-03-29 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,9 +28,9 @@ msgstr "Blog Kategorie"
 msgid "BlogEntry"
 msgstr "Blogeintrag"
 
+#: ./ftw/blog/browser/blog.pt:81
 #: ./ftw/blog/browser/entry.pt:70
 #: ./ftw/blog/content/blogentry.py:47
-#: ./ftw/blog/eventhandlers.py:16
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -53,8 +53,23 @@ msgstr "Die vorherigen ${number} Einträge"
 msgid "blog_search_button"
 msgstr "Blog durchsuchen"
 
+#. Default: "created"
+#: ./ftw/blog/browser/tabbed_blog_view.py:53
+msgid "column_created"
+msgstr "Datum"
+
+#. Default: "Creator"
+#: ./ftw/blog/browser/tabbed_blog_view.py:38
+msgid "column_creator"
+msgstr "Ersteller"
+
+#. Default: "Title"
+#: ./ftw/blog/browser/tabbed_blog_view.py:34
+msgid "column_title"
+msgstr "Titel"
+
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:111
+#: ./ftw/blog/browser/blog.pt:113
 msgid "description_no_entries"
 msgstr "Es existieren momentan keine Einträge in diesem Blog"
 

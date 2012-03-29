@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '1.1.8.dev0'
+version = '1.2.dev0'
 
 maintainer = 'Mathias Leimgruber'
 
@@ -10,6 +10,11 @@ tests_require = [
     'ftw.testing',
     'plone.testing',
     ]
+
+extras_require = {
+    'tests': tests_require,
+    'tabbeview': [
+        'ftw.tabbedview']}
 
 setup(name='ftw.blog',
       version=version,
@@ -48,7 +53,7 @@ setup(name='ftw.blog',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
+      extras_require=extras_require,
 
       entry_points="""
       # -*- Entry points: -*-
