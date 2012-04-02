@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2 (unreleased)
+1.2 (2012-04-02)
 ----------------
 
 - Added ftw.tabbedview based overview.
