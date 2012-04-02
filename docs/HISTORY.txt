@@ -5,7 +5,8 @@ Changelog
 1.2.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use width 100% instead of auto (IE fix) in image listing.
+  [mathias.leimgruber]
 
 
 1.2 (2012-04-02)
