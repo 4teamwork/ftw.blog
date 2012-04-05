@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.1 (unreleased)
+1.2.1 (2012-04-05)
 ------------------
 
 - Use width 100% instead of auto (IE fix) in image listing.
