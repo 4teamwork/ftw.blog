@@ -122,8 +122,9 @@
                     </div>
                     <div class="visualClear"><!-- --></div>
                     <div tal:replace="structure provider:plone.belowcontentbody" />
-                </metal:main-macro>
-            </div>
+                </div>
+            </metal:main-macro>
+        </div>
 
-        </body>
-    </html>
+    </body>
+</html>
