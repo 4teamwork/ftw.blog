@@ -10,7 +10,8 @@ class BlogEntryView(BrowserView):
     """ The Blog entry detail View. """
 
     implements(IBlogEntryView)
-    template=ViewPageTemplateFile("entry.pt")
+
+    template = ViewPageTemplateFile("entry.pt")
 
     def __call__(self):
         self.tag_root = getInterfaceRoot(self.context, ITagRoot)

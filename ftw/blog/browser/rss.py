@@ -13,7 +13,7 @@ class RSSView(BrowserView):
 
     """
 
-    template=ViewPageTemplateFile("rss.pt")
+    template = ViewPageTemplateFile("rss.pt")
 
     def __call__(self):
         """ Get all the Blogentries

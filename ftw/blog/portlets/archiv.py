@@ -44,7 +44,8 @@ class Renderer(base.Renderer):
         """Convert time to localized time
         """
         month_msgid = 'month_%s' % time.strftime("%b").lower()
-        month = translate(month_msgid, domain='plonelocales', context=self.request)
+        month = translate(month_msgid, domain='plonelocales',
+                          context=self.request)
 
         return u"%s %s" % (month, time.strftime('%Y'))
 
@@ -60,7 +61,7 @@ class Renderer(base.Renderer):
             root_path = ['/'.join(br.getPhysicalPath()) for br in blogroots]
             query['Language'] = 'all'
         else:
-            root_path ='/'.join(blogroot.getPhysicalPath())
+            root_path = '/'.join(blogroot.getPhysicalPath())
 
         query['path'] = root_path
         query['portal_type'] = 'BlogEntry'

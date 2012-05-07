@@ -13,12 +13,11 @@ from zope.interface import implements
 
 class BlogView(BrowserView):
     implements(IBlogView)
-    """ Shows a Listing of all Blog entries, with the corresponding portlets."""
+    """Shows a Listing of all Blog entries, with the corresponding portlets.
+    """
 
-    template=ViewPageTemplateFile("blog.pt")
-
-    batching=ViewPageTemplateFile("batching.pt")
-
+    template = ViewPageTemplateFile("blog.pt")
+    batching = ViewPageTemplateFile("batching.pt")
     filters = []
 
     def __call__(self):
@@ -30,6 +29,8 @@ class BlogView(BrowserView):
         -getCategoryUids
         -tag
         """
+
+        # TODO: Refactor me. This method is too long!
 
         context = aq_inner(self.context)
         query = {}
@@ -45,9 +46,12 @@ class BlogView(BrowserView):
             end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
                                          start.month() % 12 + 1, 1))
             end = end - 1
-            query['created'] = {'query': (start.earliestTime(), end.latestTime()), 'range': 'minmax'}
+            query['created'] = {'query': (start.earliestTime(),
+                                          end.latestTime()),
+                                'range': 'minmax'}
             month_msgid = 'month_%s' % start.strftime("%b").lower()
-            month = translate(month_msgid, domain='plonelocales', context=self.request)
+            month = translate(month_msgid, domain='plonelocales',
+                              context=self.request)
             self.filters.append("%s %s" % (month, start.strftime('%Y')))
         if self.request.form.get('getCategoryUids'):
             uid = self.request.form.get('getCategoryUids')
@@ -56,9 +60,10 @@ class BlogView(BrowserView):
             if category:
                 category_obj = category.getObject()
                 if base_hasattr(category_obj, 'getTranslations'):
-                    uid = [c.UID() for c in category_obj.getTranslations(review_state=False).values()]
+                    uid = [c.UID() for c in category_obj.getTranslations(
+                            review_state=False).values()]
                     translated = category_obj.getTranslation()
-                    # If there are no translations, getTranslation returns 'None'
+                    # If there are no translations getTranslation returns None
                     if translated:
                         category_title = translated.Title()
             query['getCategoryUids'] = uid
@@ -75,7 +80,7 @@ class BlogView(BrowserView):
             if querystring:
                 querystring = '?%s' % querystring
             return self.request.response.redirect(
-                aq_parent(context).absolute_url()+ querystring)
+                aq_parent(context).absolute_url() + querystring)
 
         query['sort_on'] = 'created'
         query['sort_order'] = 'reverse'
@@ -97,10 +102,10 @@ class BlogView(BrowserView):
         #req.set('pagenumber', pagenumber)
 
         self.batch = Batch(self.entries,
-                           pagesize=pagesize, pagenumber=pagenumber, navlistsize=1)
+                           pagesize=pagesize, pagenumber=pagenumber,
+                           navlistsize=1)
 
         return self.template()
-
 
     def query_string(self, **args):
         """Updates the query string of the current request with the given

@@ -12,8 +12,6 @@ class BlogsView(TabbedView):
                 {'id':'blogentries', 'class':''}, ]
 
 
-
-
 class Tab(CatalogListingView):
     """Search for the hole plone site"""
 
@@ -21,6 +19,7 @@ class Tab(CatalogListingView):
         super(Tab, self).update_config()
         self.filter_path = '/'.join(
             self.context.portal_url.getPortalObject().getPhysicalPath())
+
 
 class BlogsTab(Tab):
 

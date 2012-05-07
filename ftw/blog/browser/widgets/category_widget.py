@@ -53,7 +53,8 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
         obj = node['item'].getObject()
         count = 0
         if base_hasattr(obj, 'getTranslations'):
-            for translation in obj.getTranslations(review_state=False).values():
+            for translation in obj.getTranslations(
+                review_state=False).values():
                 count += len(ct(getCategoryUids=translation.UID(),
                                 portal_type='BlogEntry',
                                 Language='all',))
