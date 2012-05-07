@@ -13,6 +13,10 @@ class BlogEntryView(BrowserView):
 
     template = ViewPageTemplateFile("entry.pt")
 
+    def __init__(self, *args, **kwargs):
+        super(BlogEntryView, self).__init__(*args, **kwargs)
+        self.tag_root = None
+
     def __call__(self):
         self.tag_root = getInterfaceRoot(self.context, ITagRoot)
         return self.template()

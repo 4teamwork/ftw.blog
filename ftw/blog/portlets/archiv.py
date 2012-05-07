@@ -12,7 +12,7 @@ from zope.interface import implements
 
 
 class IArchivePortlet(IPortletDataProvider):
-    """
+    """Archive portlet interface.
     """
 
 

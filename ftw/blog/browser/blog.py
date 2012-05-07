@@ -12,13 +12,19 @@ from zope.interface import implements
 
 
 class BlogView(BrowserView):
-    implements(IBlogView)
     """Shows a Listing of all Blog entries, with the corresponding portlets.
     """
+
+    implements(IBlogView)
 
     template = ViewPageTemplateFile("blog.pt")
     batching = ViewPageTemplateFile("batching.pt")
     filters = []
+
+    def __init__(self, *args, **kwargs):
+        super(BlogView, self).__init__(*args, **kwargs)
+        self.batch = None
+        self.entries = None
 
     def __call__(self):
         """ Get all the Blogentries and return the listingview template.

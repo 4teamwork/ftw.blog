@@ -10,7 +10,7 @@ from zope.interface import implements
 
 
 class ICategoriesPortlet(IPortletDataProvider):
-    """
+    """Categories portlet interface.
     """
 
 
@@ -28,6 +28,7 @@ class Renderer(base.Renderer):
         super(Renderer, self).__init__(*args, **kwargs)
         blogutils = getUtility(IBlogUtils, name='ftw.blog.utils')
         self.root = blogutils.getBlogRoot(self.context)
+        self.blogroot = ''
 
     @property
     def available(self):

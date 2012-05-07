@@ -15,6 +15,10 @@ class BlogsView(TabbedView):
 class Tab(CatalogListingView):
     """Search for the hole plone site"""
 
+    def __init__(self, *args, **kwargs):
+        super(Tab, self).__init__(*args, **kwargs)
+        self.filter_path = None
+
     def update_config(self):
         super(Tab, self).update_config()
         self.filter_path = '/'.join(

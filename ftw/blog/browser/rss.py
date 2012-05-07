@@ -7,13 +7,17 @@ from zope.interface import implements
 
 
 class RSSView(BrowserView):
-    implements(IBlogView)
     """ Shows a Listing of all Blog entries or
     a RSS listing.
 
     """
 
+    implements(IBlogView)
     template = ViewPageTemplateFile("rss.pt")
+
+    def __init__(self, *args, **kwargs):
+        super(RSSView, self).__init__(*args, **kwargs)
+        self.entries = None
 
     def __call__(self):
         """ Get all the Blogentries
