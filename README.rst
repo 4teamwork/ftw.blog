@@ -45,4 +45,4 @@ Copyright
 
 This package is copyright by `4teamwork <http://www.4teamwork.ch/>`_.
 
-``ftw.pdfgenerator`` is licensed under GNU General Public License, version 2.
+``ftw.blog`` is licensed under GNU General Public License, version 2.
