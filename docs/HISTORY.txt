@@ -5,7 +5,11 @@ Changelog
 1.2.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Use ftw.colorbox to show images in larger scales.
+  [tschanzt]
+
+- Fix Readme and use new test buildout config.
+  [jone]
 
 
 1.2.1 (2012-04-05)
