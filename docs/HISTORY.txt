@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.2 (unreleased)
+1.2.2 (2012-05-14)
 ------------------
 
 - Use ftw.colorbox to show images in larger scales.
