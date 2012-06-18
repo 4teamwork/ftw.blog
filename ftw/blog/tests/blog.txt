@@ -1,15 +1,18 @@
 Make some imports
+
     >>> from Products.CMFPlone.utils import getToolByName
     >>> from zope.component import getMultiAdapter, getUtility
     >>> from plone.portlets.interfaces import IPortletManager
     >>> from plone.portlets.interfaces import IPortletAssignmentMapping
 
+
+    >>> portal = layer['portal']
+
 Add a Blog content item
 
-    >>> self.setRoles(['Contributor'])
-    >>> self.portal.invokeFactory('Blog', 'b1')
+    >>> portal.invokeFactory('Blog', 'b1')
     'b1'
-    >>> b1 = self.portal.get('b1')
+    >>> b1 = portal.get('b1')
     >>> b1.processForm()
     >>> b1
     <Blog at ...>

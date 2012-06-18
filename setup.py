@@ -6,9 +6,8 @@ version = '1.2.3.dev0'
 maintainer = 'Mathias Leimgruber'
 
 tests_require = [
-    'collective.testcaselayer',
     'ftw.testing',
-    'plone.testing',
+    'plone.app.testing',
     ]
 
 extras_require = {
