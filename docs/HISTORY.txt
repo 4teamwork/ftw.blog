@@ -5,7 +5,8 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Import ReferenceBrowserWidget from archetypes.referencebrowserwidget.
+  [jone]
 
 
 1.2.2 (2012-05-14)

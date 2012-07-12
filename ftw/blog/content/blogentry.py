@@ -6,7 +6,7 @@ from DateTime import DateTime
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
-from Products.ATReferenceBrowserWidget import ATReferenceBrowserWidget
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -43,7 +43,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.ReferenceField(
         name='categories',
         required=False,
-        widget=ATReferenceBrowserWidget.ReferenceBrowserWidget(
+        widget=ReferenceBrowserWidget(
             label=_('Categories'),
             allow_browse=False,
             show_results_without_query=True,
