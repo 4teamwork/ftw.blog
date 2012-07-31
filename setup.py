@@ -49,6 +49,7 @@ setup(name='ftw.blog',
         'plone.browserlayer',
         'ftw.tagging',
         'Plone',
+        'ftw.upgrade',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,

@@ -5,6 +5,9 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
+- Remove base_view from allowed BlogEntry views.
+  [jone]
+
 - Import ReferenceBrowserWidget from archetypes.referencebrowserwidget.
   [jone]
 

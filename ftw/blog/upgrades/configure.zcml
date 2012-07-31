@@ -22,4 +22,23 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 2 -> 1201 -->
+    <genericsetup:upgradeStep
+        title="Remove base_view from allowed BlogEntry views."
+        description=""
+        source="1001"
+        destination="1201"
+        handler="ftw.blog.upgrades.to1201.UpgradeBlogEntryFTI"
+        profile="ftw.blog:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1201"
+        title="ftw.blog.upgrade.1201: Remove base_view from allowed BlogEntry views."
+        description=""
+        directory="profiles/1201"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
 </configure>
