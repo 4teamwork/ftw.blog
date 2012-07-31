@@ -33,6 +33,7 @@
     <include package=".content" />
     <include package=".portlets" />
     <include package=".viewlets" />
+    <include package=".upgrades" />
 
     <subscriber
         for=".interfaces.IBlog
@@ -49,7 +50,5 @@
         for="ftw.blog.interfaces.IBlogEntry
              Products.Archetypes.interfaces.IObjectInitializedEvent"
         handler=".eventhandlers.set_description" />
-
-    <include file="upgrades.zcml" />
 
 </configure>

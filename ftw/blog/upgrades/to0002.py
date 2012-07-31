@@ -25,7 +25,7 @@ def upgrade_to_v2(context):
                     del annotations[ppcas]['blog.portlets']
 
     logger.info("%s %s annotations removed" % (str(count), ppcas))
-    loadMigrationProfile(context, 'profile-ftw.blog:to_v2')
+    loadMigrationProfile(context, 'profile-ftw.blog.upgrades:to_v2')
 
     # remove blog_settings actions
     portal_actions = getToolByName(context, 'portal_actions')
