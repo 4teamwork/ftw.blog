@@ -5,6 +5,10 @@ Changelog
 1.2.3 (unreleased)
 ------------------
 
+- Disable setting default page for Blog, BlogCategory and BlogEntry.
+  Those types are not normal folders and setting the default page is therefore not common.
+  [jone]
+
 - Remove base_view from allowed BlogEntry views.
   [jone]
 

@@ -1,12 +1,14 @@
 """Definition of the Blog Entry content type
 """
-from zope.interface import implements
+
+from AccessControl import ClassSecurityInfo
 from Acquisition import aq_inner
 from DateTime import DateTime
-from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from Products.Archetypes import atapi
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -85,6 +87,7 @@ BlogEntrySchema['description'].widget.visible = -1
 class BlogEntry(folder.ATFolder):
     """Ftw Blog Entry"""
     implements(IBlogEntry)
+    security = ClassSecurityInfo()
 
     portal_type = "BlogEntry"
     schema = BlogEntrySchema
@@ -105,6 +108,10 @@ class BlogEntry(folder.ATFolder):
                 parent_uids.append(puid)
                 DateTime(self.CreationDate()).strftime('%m/%Y')
         return parent_uids + uids
+
+    security.declarePublic('canSetDefaultPage')
+    def canSetDefaultPage(self):
+        return False
 
 
 registerType(BlogEntry, PROJECTNAME)
