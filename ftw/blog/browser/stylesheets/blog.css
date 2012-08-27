@@ -43,3 +43,11 @@ body.template-discussion_reply_form .documentActions {
     display: block;
     padding: 0.5em 0;
 }
+
+.blogItem h2.clearfix a {
+  color: #00538C;
+ }
+
+.blogItem .documentDescription {
+  font-weight: normal;
+}
