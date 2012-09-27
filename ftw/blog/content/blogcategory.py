@@ -31,6 +31,7 @@ class BlogCategory(folder.ATFolder):
     schema = BlogCategorySchema
 
     security.declarePublic('canSetDefaultPage')
+
     def canSetDefaultPage(self):
         return False
 

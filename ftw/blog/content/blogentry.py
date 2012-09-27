@@ -110,6 +110,7 @@ class BlogEntry(folder.ATFolder):
         return parent_uids + uids
 
     security.declarePublic('canSetDefaultPage')
+
     def canSetDefaultPage(self):
         return False
 

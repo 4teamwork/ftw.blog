@@ -29,6 +29,7 @@ class Blog(folder.ATFolder):
     security = ClassSecurityInfo()
 
     security.declarePublic('canSetDefaultPage')
+
     def canSetDefaultPage(self):
         return False
 
