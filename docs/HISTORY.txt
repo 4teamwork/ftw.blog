@@ -5,7 +5,11 @@ Changelog
 1.2.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Removed customized popupforms.js as we don't want to override Plone's
+  current version. Our version contained a fix for comment form overlays,
+  which is obsolete now, because p.a.discussion comments are no longer
+  added with form overlays.
+  [buchi]
 
 
 1.2.3 (2012-08-20)
