@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.2.4 (unreleased)
+1.2.4 (2012-10-10)
 ------------------
 
 - Removed customized popupforms.js as we don't want to override Plone's
