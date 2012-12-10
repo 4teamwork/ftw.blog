@@ -50,7 +50,6 @@
                 </span>
               </span>
             </span>
-            <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
 
             <div class="plain">
               <div tal:replace="structure here/getText" />
@@ -94,6 +93,9 @@
               </div>
             </tal:def>
           </div>
+
+          <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
+
           <div class="visualClear"><!-- --></div>
           <div tal:replace="structure provider:plone.belowcontentbody" />
         </div>
