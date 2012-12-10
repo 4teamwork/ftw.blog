@@ -18,10 +18,6 @@ body.template-discussion_reply_form .documentActions {
 .blogView .actionsBar {
   margin-top: -1.1em;
 }
-.blogView h1,
-.blogView #dropdown-contentmenu {
-  margin-left: 0 !important;
-}
 
 .portletBlogCategory .portletItem,
 .portletTagcloud .portletItem {
@@ -39,7 +35,11 @@ body.template-discussion_reply_form .documentActions {
   padding: 1em;
 }
 
-.blogView .show_all,
-.blogView #categories {
+.blogItem {
+  padding-bottom: 1.5em;
+}
+
+.categorization,
+.showAll {
   padding-top: 1em;
 }
