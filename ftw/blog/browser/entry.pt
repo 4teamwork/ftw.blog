@@ -67,7 +67,7 @@
             <div class="visualClear">&nbsp;</div>
 
             <div id="categories" tal:define="cat_uids here/getCategoryUids" tal:condition="cat_uids">
-              <label i18n:translate="Categories">Categories</label>
+              <span i18n:translate="Categories">Categories</span>:
               <tal:rep repeat="cat_uid cat_uids">
                 <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
                                brain       python:len(cat_brains) and cat_brains[0] or False;
@@ -82,7 +82,7 @@
             </div>
             <tal:def define="item_tags here/tags; tagroot_url python: here.aq_parent.absolute_url();">
               <div class="tags" metal:define-macro="taglisting" tal:condition="item_tags">
-                <label i18n:translate="Tags">Tags</label>
+                <span i18n:translate="Tags">Tags</span>:
                 <tal:rep repeat="tag item_tags">
                   <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
                      tal:condition="tag"
