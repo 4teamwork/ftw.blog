@@ -6,125 +6,125 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="ftw.blog">
 
-    <head>
-        <metal:block fill-slot="top_slot"
-                     tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
-    </head>
+  <head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
+  </head>
 
-    <body>
-        <div metal:fill-slot="main" class="blogView">
-            <metal:main-macro define-macro="main"
-                              tal:define="templateId template/getId">
+  <body>
+    <div metal:fill-slot="main" class="blogView">
+      <metal:main-macro define-macro="main"
+                        tal:define="templateId template/getId">
 
 
-                <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
 
-                <h1 class="documentFirstHeading">
-                    <tal:title replace="context/Title" />
-                </h1>
-                <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <h1 class="documentFirstHeading">
+          <tal:title replace="context/Title" />
+        </h1>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-                <div id="blogColumns" class="clearfix">
-                    <div class="leftColumn">
-                        <p>
-                            <span tal:condition="view/filters" i18n:translate="label_filters">It would be filtered on the follow criterias </span>
-                            <span tal:repeat="cat view/filters" tal:content="cat"/>
-                        </p>
-                        <metal:listingmacro define-macro="listing">
-                            <tal:foldercontents define="
-                                                        normalizeString nocall:context/@@plone/normalizeString;
-                                                        mtool context/portal_membership;
-                                                        toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-                                <tal:listing condition="view/batch">
-                                    <div class="batching" tal:content="structure view/batching" />
-                                    <div class="blogListing">
-                                        <tal:entry tal:repeat="item view/batch">
-                                            <tal:block tal:define="item_url item/getURL|item/absolute_url;
-                                                                   item_title_or_id item/pretty_title_or_id;
-                                                                   item_type item/portal_type;
-                                                                   item_type_title item/Type;
-                                                                   item_created item/CreationDate;
-                                                                   item_creator item/Creator;
-                                                                   item_categories item/getCategoryUids | nothing;
-                                                                   item_tags item/tags |nothing;">
+        <div id="blogColumns" class="clearfix">
+          <div class="leftColumn">
+            <p>
+              <span tal:condition="view/filters" i18n:translate="label_filters">It would be filtered on the follow criterias </span>
+              <span tal:repeat="cat view/filters" tal:content="cat"/>
+            </p>
+            <metal:listingmacro define-macro="listing">
+              <tal:foldercontents define="
+                                          normalizeString nocall:context/@@plone/normalizeString;
+                                          mtool context/portal_membership;
+                                          toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+                <tal:listing condition="view/batch">
+                  <div class="batching" tal:content="structure view/batching" />
+                  <div class="blogListing">
+                    <tal:entry tal:repeat="item view/batch">
+                      <tal:block tal:define="item_url item/getURL|item/absolute_url;
+                                             item_title_or_id item/pretty_title_or_id;
+                                             item_type item/portal_type;
+                                             item_type_title item/Type;
+                                             item_created item/CreationDate;
+                                             item_creator item/Creator;
+                                             item_categories item/getCategoryUids | nothing;
+                                             item_tags item/tags |nothing;">
 
-                                                <div tal:define="tagroot_url here/absolute_url" class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
+                        <div tal:define="tagroot_url here/absolute_url" class="blogItem" metal:define-macro="listitem" tal:condition="python:item_type=='BlogEntry'">
 
-                                                    <h2 class="clearfix">
-                                                        <a href="#"
-                                                           tal:attributes="href item_url;
-                                                                           title item_title_or_id"
-                                                           tal:content="item_title_or_id" />
-                                                    </h2>
+                          <h2 class="clearfix">
+                            <a href="#"
+                               tal:attributes="href item_url;
+                                               title item_title_or_id"
+                               tal:content="item_title_or_id" />
+                          </h2>
 
-                                                    <span class="documentByLine">
-                                                        <span i18n:translate="label_blog_byline">
+                          <span class="documentByLine">
+                            <span i18n:translate="label_blog_byline">
 
-                                                            <tal:name tal:condition="item_creator"
-                                                                      tal:define="author python:mtool.getMemberInfo(item_creator)">
-                                                                <span tal:content="python:author and author['fullname'] or item_creator"
-                                                                      tal:omit-tag="not:author"
-                                                                      i18n:name="author">
-                                                                    Bob Dobalina
-                                                                </span>
-                                                            </tal:name>
-                                                            at
-                                                            <span class="dateCreated"
-                                                                  tal:content="python:toLocalizedTime(item_created, long_format=1)"
-                                                                  i18n:name="created">from date</span>
-                                                        </span>
-                                                    </span>
-                                                    <div class="documentDescription"
-                                                         tal:content="structure item/Description">
-                                                    </div>
-                                                    <div tal:condition="item_categories">
-                                                        <b i18n:translate="">Categories</b>
-                                                        <tal:rep repeat="cat_uid item_categories">
-                                                            <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
-                                                                           brain       python:len(cat_brains) and cat_brains[0] or False;
-                                                                           brain_title brain/Title | nothing;
-                                                                           brain_url   brain/getURL | nothing"
-                                                               tal:condition="brain"
-                                                               tal:attributes="href string:?getCategoryUids=${cat_uid}"
-                                                               class="categories"
-                                                               href="#"
-                                                               tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+                              <tal:name tal:condition="item_creator"
+                                        tal:define="author python:mtool.getMemberInfo(item_creator)">
+                                <span tal:content="python:author and author['fullname'] or item_creator"
+                                      tal:omit-tag="not:author"
+                                      i18n:name="author">
+                                  Bob Dobalina
+                                </span>
+                              </tal:name>
+                              at
+                              <span class="dateCreated"
+                                    tal:content="python:toLocalizedTime(item_created, long_format=1)"
+                                    i18n:name="created">from date</span>
+                            </span>
+                          </span>
+                          <div class="documentDescription"
+                               tal:content="structure item/Description">
+                          </div>
+                          <div tal:condition="item_categories">
+                            <b i18n:translate="">Categories</b>
+                            <tal:rep repeat="cat_uid item_categories">
+                              <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                                             brain       python:len(cat_brains) and cat_brains[0] or False;
+                                             brain_title brain/Title | nothing;
+                                             brain_url   brain/getURL | nothing"
+                                 tal:condition="brain"
+                                 tal:attributes="href string:?getCategoryUids=${cat_uid}"
+                                 class="categories"
+                                 href="#"
+                                 tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
 
-                                                        </tal:rep>
-                                                    </div>
-                                                    <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
-                                                        TagListing
-                                                    </div>
+                            </tal:rep>
+                          </div>
+                          <div metal:use-macro="here/@@blog_entry_view/macros/taglisting">
+                            TagListing
+                          </div>
 
-                                                </div>
+                        </div>
 
-                                            </tal:block>
-                                        </tal:entry>
-                                    </div>
+                      </tal:block>
+                    </tal:entry>
+                  </div>
 
-                                </tal:listing>
+                </tal:listing>
 
-                                <metal:empty metal:define-slot="no_items_in_listing">
-                                    <tal:cond tal:condition="not: view/entries">
-                                        <p tal:condition="view/filters" class="discreet" i18n:domain="plone"
-                                           i18n:translate="description_no_results_found">
-                                            No results were found.
-                                        </p>
-                                        <p tal:condition="not: view/filters" class="discreet"
-                                           i18n:translate="description_no_entries">
-                                            There are currently no entries in this blog.
-                                        </p>
-                                    </tal:cond>
-                                </metal:empty>
+                <metal:empty metal:define-slot="no_items_in_listing">
+                  <tal:cond tal:condition="not: view/entries">
+                    <p tal:condition="view/filters" class="discreet" i18n:domain="plone"
+                       i18n:translate="description_no_results_found">
+                      No results were found.
+                    </p>
+                    <p tal:condition="not: view/filters" class="discreet"
+                       i18n:translate="description_no_entries">
+                      There are currently no entries in this blog.
+                    </p>
+                  </tal:cond>
+                </metal:empty>
 
-                            </tal:foldercontents>
-                        </metal:listingmacro>
-                    </div>
-                    <div class="visualClear"><!-- --></div>
-                    <div tal:replace="structure provider:plone.belowcontentbody" />
-                </div>
-            </metal:main-macro>
+              </tal:foldercontents>
+            </metal:listingmacro>
+          </div>
+          <div class="visualClear"><!-- --></div>
+          <div tal:replace="structure provider:plone.belowcontentbody" />
         </div>
+      </metal:main-macro>
+    </div>
 
-    </body>
+  </body>
 </html>
