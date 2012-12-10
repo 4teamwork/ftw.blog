@@ -39,7 +39,7 @@ body.template-discussion_reply_form .documentActions {
   padding: 1em;
 }
 
-.blogView a.show_all {
-    display: block;
-    padding: 0.5em 0;
+.blogView .show_all,
+.blogView #categories {
+  padding-top: 1em;
 }
