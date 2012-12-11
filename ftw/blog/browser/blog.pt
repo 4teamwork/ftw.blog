@@ -39,7 +39,7 @@
                   </h2>
 
 
-                  <div class="documentByLine" id="plone-document-byline"
+                  <div class="documentByLine blogByLine"
                        i18n:domain="plone">
 
                     <span class="documentAuthor"
