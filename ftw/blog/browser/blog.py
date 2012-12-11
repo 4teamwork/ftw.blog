@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogView
 from plone.app.content.batching import Batch
 from urllib import quote_plus
+from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
 
@@ -125,3 +126,12 @@ class BlogView(BrowserView):
         query.update(args)
         return '&'.join(["%s=%s" % (quote_plus(str(k)), quote_plus(str(v)))
                          for k, v in query.items()])
+
+    def creatorOf(self, item):
+        mtool = getToolByName(self.context, 'portal_membership')
+        member = mtool.getMemberById(item.Creator)
+        if member:
+            return {
+                'id': member.id,
+                'name': member.getProperty('fullname') or member.id}
+        return None

@@ -2,103 +2,60 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="de"
-      metal:use-macro="here/main_template/macros/master"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
       i18n:domain="ftw.blog">
 
-    <head>
-        <metal:block fill-slot="top_slot"
-                     tal:define="dummy python:request.set('layoutClass', 'two-column-left')" />
+  <body>
 
-    </head>
+    <metal:content-description fill-slot="content-description">
+      <metal:content-description define-macro="content-description">
+        <!-- no description -->
+      </metal:content-description>
+    </metal:content-description>
 
-    <body>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <div class="blogText" tal:content="structure context/getText"></div>
 
-        <div metal:fill-slot="main" class="blogView">
-            <metal:main-macro define-macro="main">
+        <div class="categorization"
+             tal:define="cat_uids context/getCategoryUids;
+                         item_tags context/tags;
+                         tagroot_url python: context.aq_parent.absolute_url()"
+             tal:condition="python: cat_uids or item_tags">
 
-                <div tal:replace="structure provider:plone.abovecontenttitle" />
+          <div class="categories" tal:condition="cat_uids">
+            <span i18n:translate="Categories">Categories</span>:
+            <tal:categories repeat="cat_uid cat_uids">
+              <a href="#"
+                 tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                             brain       python:len(cat_brains) and cat_brains[0] or False"
+                 tal:condition="brain"
+                 tal:attributes="href python:'%s/blog_view?getCategoryUids=%s' % (
+                                 context.aq_parent.absolute_url(), cat_uid)"
+                 tal:content="brain/Title|nothing" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+            </tal:categories>
+          </div>
 
-                <h1 class="documentFirstHeading">
-                    <tal:title replace="context/Title" />
-                </h1>
-                <div tal:replace="structure provider:plone.belowcontenttitle" />
-
-                <div id="blogItem" class="clearfix">
-                    <div class="leftColumn">
-                        <span class="documentByLine discreet"
-                              tal:define="mtool context/portal_membership;
-                                          toLocalizedTime nocall:context/@@plone/toLocalizedTime;
-                                          item_creator here/Creator;
-                                          item_created here/CreationDate;">
-
-
-                            <span i18n:translate="label_blog_byline">
-                                <tal:name tal:condition="item_creator"
-                                          tal:define="author python:mtool.getMemberInfo(item_creator)">
-                                    <span tal:content="python:author and author['fullname'] or item_creator"
-                                          tal:omit-tag="not:author"
-                                          i18n:name="author">
-                                        Bob Dobalina
-                                    </span>
-                                </tal:name>
-                                at
-                                <span class="dateCreated"
-                                      tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
-                                      tal:content="python:toLocalizedTime(item_created, long_format=1)"
-                                      i18n:name="created">from date
-                                </span>
-                            </span>
-                        </span>
-                        <a class="show_all" href="" tal:attributes="href python: context.aq_parent.absolute_url()" i18n:translate="label_show_all">Show all</a>
-
-                        <div class="plain">
-                            <div tal:replace="structure here/getText" />
-                        </div>
-
-                        <div class="visualClear">&nbsp;</div>
-
-                        <div class="blogImages">
-                            <a tal:repeat="image python:here.getFolderContents({'portal_type':'Image'}, full_objects=True)"
-                               tal:attributes="href python:image.absolute_url() + '/image'" class="colorboxLink" rel="entry">
-                                <img tal:replace="structure python:image.tag(scale='mini')" />
-                            </a>
-                        </div>
-                        <div class="visualClear">&nbsp;</div>
-
-                        <div id="categories" tal:define="cat_uids here/getCategoryUids" tal:condition="cat_uids">
-                            <label i18n:translate="Categories">Categories</label>
-                            <tal:rep repeat="cat_uid cat_uids">
-                                <a tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
-                                               brain       python:len(cat_brains) and cat_brains[0] or False;
-                                               brain_title brain/Title | nothing;
-                                               brain_url   brain/getURL | nothing"
-                                   tal:condition="brain"
-                                   tal:attributes="href python: '%s/blog_view?getCategoryUids=%s' % (here.aq_parent.absolute_url(), cat_uid)"
-                                   class="categories"
-                                   href="#"
-                                   tal:content="brain_title" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
-                            </tal:rep>
-                        </div>
-                        <tal:def define="item_tags here/tags; tagroot_url python: here.aq_parent.absolute_url();">
-                            <div class="tags" metal:define-macro="taglisting" tal:condition="item_tags">
-                                <label i18n:translate="Tags">Tags</label>
-                                <tal:rep repeat="tag item_tags">
-                                    <a tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
-                                       tal:condition="tag"
-                                       tal:attributes="href tag_url"
-                                       class="TagsItem"
-                                       href="#"
-                                       tal:content="tag" /><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
-                                </tal:rep>
-                            </div>
-                        </tal:def>
-                    </div>
-                    <div class="visualClear"><!-- --></div>
-                    <div tal:replace="structure provider:plone.belowcontentbody" />
-                </div>
-            </metal:main-macro>
+          <div class="tags" tal:condition="item_tags">
+            <span i18n:translate="Tags">Tags</span>:
+            <tal:tags repeat="tag item_tags">
+              <a href="#"
+                 tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (
+                             tagroot_url, tag)"
+                 tal:attributes="href tag_url"
+                 tal:content="tag">
+                Tag
+                </a><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
+            </tal:tags>
+          </div>
         </div>
 
-    </body>
+        <div class="showAll">
+          <a tal:attributes="href context/aq_parent/absolute_url"
+             i18n:translate="label_show_all">Show all</a>
+        </div>
+      </metal:content-core>
+    </metal:content-core>
+  </body>
 </html>
