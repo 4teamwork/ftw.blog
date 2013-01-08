@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-08 09:57+0000\n"
+"POT-Creation-Date: 2013-01-08 13:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,7 +85,7 @@ msgstr ""
 msgid "label_by"
 msgstr ""
 
-#. Default: "It would be filtered on the follow criterias"
+#. Default: "Filtered by these criterions"
 #: ./ftw/blog/browser/blog.pt:20
 msgid "label_filters"
 msgstr ""

@@ -17,7 +17,7 @@
                    condition="view/batch">
 
           <div class="blogFilter" tal:condition="view/filters">
-            <span i18n:translate="label_filters">It would be filtered on the follow criterias </span>
+            <span i18n:translate="label_filters">Filtered by these criterions</span>
             <span tal:repeat="cat view/filters" tal:content="cat"/>
           </div>
 
@@ -55,7 +55,7 @@
                         <span i18n:domain="ftw.blog" i18n:translate="label_by">by</span>
                         <a href="#"
                            tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
-                           tal:content="creator/name">Roland Barthes</a>,
+                           tal:content="creator/name"></a>,
                       </tal:def>
                     </span>
 
