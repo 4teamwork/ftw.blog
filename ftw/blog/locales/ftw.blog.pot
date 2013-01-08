@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-29 12:09+0000\n"
+"POT-Creation-Date: 2013-01-08 07:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,13 +33,14 @@ msgstr ""
 msgid "BlogEntry"
 msgstr ""
 
-#: ./ftw/blog/browser/blog.pt:81
-#: ./ftw/blog/browser/entry.pt:70
-#: ./ftw/blog/content/blogentry.py:47
+#: ./ftw/blog/browser/blog.pt:80
+#: ./ftw/blog/browser/entry.pt:28
+#: ./ftw/blog/content/blogentry.py:49
 msgid "Categories"
 msgstr ""
 
-#: ./ftw/blog/browser/entry.pt:85
+#: ./ftw/blog/browser/blog.pt:93
+#: ./ftw/blog/browser/entry.pt:41
 msgid "Tags"
 msgstr ""
 
@@ -59,38 +60,32 @@ msgid "blog_search_button"
 msgstr ""
 
 #. Default: "created"
-#: ./ftw/blog/browser/tabbed_blog_view.py:53
+#: ./ftw/blog/browser/tabbed_blog_view.py:56
 msgid "column_created"
 msgstr ""
 
 #. Default: "Creator"
-#: ./ftw/blog/browser/tabbed_blog_view.py:38
+#: ./ftw/blog/browser/tabbed_blog_view.py:41
 msgid "column_creator"
 msgstr ""
 
 #. Default: "Title"
-#: ./ftw/blog/browser/tabbed_blog_view.py:34
+#: ./ftw/blog/browser/tabbed_blog_view.py:37
 msgid "column_title"
 msgstr ""
 
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:113
+#: ./ftw/blog/browser/blog.pt:121
 msgid "description_no_entries"
 msgstr ""
 
-#. Default: "${author} at ${created}"
-#: ./ftw/blog/browser/blog.pt:72
-#: ./ftw/blog/browser/entry.pt:46
-msgid "label_blog_byline"
-msgstr ""
-
-#. Default: "It would be filtered on the follow criterias"
-#: ./ftw/blog/browser/blog.pt:30
-msgid "label_filters"
+#. Default: "by"
+#: ./ftw/blog/browser/blog.pt:49
+msgid "label_by"
 msgstr ""
 
 #. Default: "Show all"
-#: ./ftw/blog/browser/entry.pt:53
+#: ./ftw/blog/browser/entry.pt:55
 msgid "label_show_all"
 msgstr ""
 

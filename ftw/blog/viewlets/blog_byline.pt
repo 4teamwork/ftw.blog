@@ -1,0 +1,27 @@
+<div class="documentByLine blogByLine"
+     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
+     i18n:domain="plone">
+
+  <span class="documentAuthor"
+        tal:define="creator view/creator"
+        tal:condition="creator">
+    <tal:def define="creator_id creator/id">
+      <span i18n:domain="ftw.blog" i18n:translate="label_by">by</span>
+      <a href="#"
+         tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+         tal:content="creator/name">Roland Barthes</a>,
+    </tal:def>
+  </span>
+
+  <span class="documentState">
+    <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="view/review_state" i18n:translate=""/>,
+  </span>
+  <span class="documentModified">
+    <span i18n:translate="box_last_modified">
+      last modified
+    </span>
+    <span tal:replace="python:toLocalizedTime(context.modified() ,long_format=1)">
+      August 16, 2001 at 23:35:59
+    </span>
+  </span>
+</div>
