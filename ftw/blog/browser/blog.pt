@@ -15,6 +15,12 @@
                            mtool context/portal_membership;
                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
                    condition="view/batch">
+
+          <div class="blogFilter" tal:condition="view/filters">
+            <span i18n:translate="label_filters">Filtered by these criterions</span>
+            <span tal:repeat="cat view/filters" tal:content="cat"/>
+          </div>
+
           <div class="batching" tal:content="structure view/batching" />
           <div class="blogListing">
             <tal:entry tal:repeat="item view/batch">
@@ -45,20 +51,16 @@
                     <span class="documentAuthor"
                           tal:define="creator python:view.creatorOf(item)"
                           tal:condition="creator">
-                      <tal:i18n i18n:translate="label_by_author"
-                                tal:define="creator_id creator/id">
-                        by
+                      <tal:def define="creator_id creator/id">
+                        <span i18n:domain="ftw.blog" i18n:translate="label_by">by</span>
                         <a href="#"
                            tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
-                           tal:content="creator/name"
-                           i18n:name="author">Roland Barthes</a>
-                      </tal:i18n>
+                           tal:content="creator/name"></a>,
+                      </tal:def>
                     </span>
-                    —
-
 
                     <span class="documentState">
-                      <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="item/review_state" i18n:translate=""/>
+                      <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="item/review_state" i18n:translate=""/>,
                     </span>
                     <span class="documentModified">
                       <span i18n:translate="box_last_modified">

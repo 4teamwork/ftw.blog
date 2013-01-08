@@ -30,4 +30,12 @@
         layer="ftw.tagging.browser.interfaces.IFtwTaggingLayer"
         />
 
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+        for="..interfaces.IBlogEntry"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".byline.DocumentBylineViewlet"
+        permission="zope2.View"
+        />
+
 </configure>
