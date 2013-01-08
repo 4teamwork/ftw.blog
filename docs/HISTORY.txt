@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Restored info message if results are filtered on a criteria.
+  [Julian Infanger]
+
 - Use the same byline in blog entry used in overview.
   [Julian Infanger]
 

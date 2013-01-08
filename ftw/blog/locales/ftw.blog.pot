@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-08 07:38+0000\n"
+"POT-Creation-Date: 2013-01-08 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,13 +33,13 @@ msgstr ""
 msgid "BlogEntry"
 msgstr ""
 
-#: ./ftw/blog/browser/blog.pt:80
+#: ./ftw/blog/browser/blog.pt:86
 #: ./ftw/blog/browser/entry.pt:28
 #: ./ftw/blog/content/blogentry.py:49
 msgid "Categories"
 msgstr ""
 
-#: ./ftw/blog/browser/blog.pt:93
+#: ./ftw/blog/browser/blog.pt:99
 #: ./ftw/blog/browser/entry.pt:41
 msgid "Tags"
 msgstr ""
@@ -75,13 +75,19 @@ msgid "column_title"
 msgstr ""
 
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:121
+#: ./ftw/blog/browser/blog.pt:127
 msgid "description_no_entries"
 msgstr ""
 
 #. Default: "by"
-#: ./ftw/blog/browser/blog.pt:49
+#: ./ftw/blog/browser/blog.pt:55
+#: ./ftw/blog/viewlets/blog_byline.pt:9
 msgid "label_by"
+msgstr ""
+
+#. Default: "It would be filtered on the follow criterias"
+#: ./ftw/blog/browser/blog.pt:20
+msgid "label_filters"
 msgstr ""
 
 #. Default: "Show all"

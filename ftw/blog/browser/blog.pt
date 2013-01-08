@@ -15,6 +15,12 @@
                            mtool context/portal_membership;
                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
                    condition="view/batch">
+
+          <div class="blogFilter" tal:condition="view/filters">
+            <span i18n:translate="label_filters">It would be filtered on the follow criterias </span>
+            <span tal:repeat="cat view/filters" tal:content="cat"/>
+          </div>
+
           <div class="batching" tal:content="structure view/batching" />
           <div class="blogListing">
             <tal:entry tal:repeat="item view/batch">
