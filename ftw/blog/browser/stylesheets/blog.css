@@ -2,21 +2,8 @@ body.template-discussion_reply_form .documentActions {
   display:none;
 }
 
-.blogView {
-/*position: relative;*/
-}
-
 .classificationItem {
   padding-left:1em;
-}
-
-.blogView .actionsBarContent {
-  padding:1em 1em 1.5em;
-}
-
-/* another exception for actionbar and edit menus */
-.blogView .actionsBar {
-  margin-top: -1.1em;
 }
 
 .portletBlogCategory .portletItem,
@@ -27,7 +14,7 @@ body.template-discussion_reply_form .documentActions {
   color: #76797c;
 }
 
-.blogView .blogImages a {
+.blogImages a {
   border: 1px solid lightgrey;
   display: block;
   float: left;
