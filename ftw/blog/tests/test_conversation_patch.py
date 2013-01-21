@@ -5,6 +5,7 @@ from plone.app.discussion.interfaces import IDiscussionLayer
 from plone.registry.interfaces import IRegistry
 from zope.component import queryUtility
 from plone.app.discussion.interfaces import IDiscussionSettings
+from ftw.blog.interfaces import IBlogLayer
 
 
 class TestPatchedConversationView(unittest.TestCase):
@@ -14,10 +15,6 @@ class TestPatchedConversationView(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
 
-        # Provide IDiscussionLayer
-        alsoProvides(
-            self.portal.REQUEST, IDiscussionLayer)
-
         # Allow discussion
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IDiscussionSettings)
@@ -25,7 +22,23 @@ class TestPatchedConversationView(unittest.TestCase):
 
         self.blog = self.portal.get(self.portal.invokeFactory('Blog', 'blog'))
 
-    def test_enabled(self):
+    def test_enabled_original(self):
+
+        # Provide IDiscussionLayer
+        alsoProvides(
+            self.portal.REQUEST, IDiscussionLayer)
+
+        entry = self.blog.get(self.blog.invokeFactory('BlogEntry', 'entry'))
+        view = entry.restrictedTraverse('@@conversation_view')
+
+        self.assertFalse(view.enabled())
+
+    def test_enabled_blog(self):
+
+        # Provide IBlogLayer
+        alsoProvides(
+            self.portal.REQUEST, IBlogLayer)
+
         entry = self.blog.get(self.blog.invokeFactory('BlogEntry', 'entry'))
         view = entry.restrictedTraverse('@@conversation_view')
 

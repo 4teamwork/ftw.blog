@@ -7,7 +7,7 @@
     <browser:page
         name="conversation_view"
         for="Products.CMFCore.interfaces.IContentish"
-        layer="plone.app.discussion.interfaces.IDiscussionLayer"
+        layer="ftw.blog.interfaces.IBlogLayer"
         class=".browser.conversation.ConversationView"
         permission="zope2.View"
         />
