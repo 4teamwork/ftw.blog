@@ -29,8 +29,6 @@ class FtwBlogLayer(PloneSandboxLayer):
         import ftw.blog
         xmlconfig.file('configure.zcml', ftw.blog,
                        context=configurationContext)
-        xmlconfig.file('overrides.zcml', ftw.blog,
-                       context=configurationContext)
 
         z2.installProduct(app, 'ftw.blog')
 
