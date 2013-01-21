@@ -5,7 +5,8 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Implement a patched conversation view, which allows
+  commenting on folderish types (i.e BlogEntry)
 
 
 1.2.4 (2012-10-10)
