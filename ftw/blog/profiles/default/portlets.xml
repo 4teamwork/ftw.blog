@@ -17,13 +17,6 @@
       <for interface="plone.app.portlets.interfaces.IDashboard" />
    </portlet>
 
-  <portlet
-    addview="blog.tags.portlet"
-    title="Blog Tags Portlet (do not use)"
-    description="A portlet for ftw blog, which shows the tagcloud.">
-      <for interface="plone.app.portlets.interfaces.IColumn" />
-  </portlet>
-  
   <assignment
     name="blog-categories"
     category="content_type"
@@ -47,7 +40,6 @@
     manager="plone.rightcolumn"
     type="blog.categories.portlet"
     />
-    
 
   <assignment
     name="tagcloud"

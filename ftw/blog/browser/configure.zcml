@@ -85,4 +85,14 @@
             />
     </configure>
 
+    <!-- conversation_view for BlogEntries -->
+    <browser:page
+        name="conversation_view"
+        for="ftw.blog.interfaces.IBlogEntry"
+        layer="ftw.blog.interfaces.IBlogLayer"
+        class=".conversation.ConversationView"
+        permission="zope2.View"
+        />
+
+
 </configure>

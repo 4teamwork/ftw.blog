@@ -5,6 +5,13 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Implement a patched conversation view, which allows
+  commenting on folderish types (i.e BlogEntry)
+  [mathias.leimgruber]
+
+- Remove old blog.tags.portlet from portlets.xml
+  [mathias.leimgruber]
+
 - Restore accidently removed image listing.
   [mathias.leimgruber]
 
