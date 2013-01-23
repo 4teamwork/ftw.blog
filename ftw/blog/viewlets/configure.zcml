@@ -22,8 +22,25 @@
         />
 
     <browser:viewlet
+        view="..interfaces.ISlBlogEntryView"
+        name="ftw.blog.actionsbar"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.FtwBlogActionsBar"
+        permission="zope2.View"
+        layer="..interfaces.IBlogLayer"
+        />
+
+    <browser:viewlet
         name="ftw.tagging.taglist"
         for="..interfaces.IBlogEntry"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".viewlets.HiddenTagList"
+        permission="zope2.View"
+        layer="ftw.tagging.browser.interfaces.IFtwTaggingLayer" />
+
+    <browser:viewlet
+        name="ftw.tagging.taglist"
+        for="..interfaces.ISlBlogEntryView"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".viewlets.HiddenTagList"
         permission="zope2.View"
@@ -33,6 +50,14 @@
     <browser:viewlet
         name="plone.belowcontenttitle.documentbyline"
         for="..interfaces.IBlogEntry"
+        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+        class=".byline.DocumentBylineViewlet"
+        permission="zope2.View"
+        />
+
+    <browser:viewlet
+        name="plone.belowcontenttitle.documentbyline"
+        for="..interfaces.ISlBlogEntryView"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
         class=".byline.DocumentBylineViewlet"
         permission="zope2.View"

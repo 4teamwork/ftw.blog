@@ -2,6 +2,8 @@
 <object name="portal_types" meta_type="Plone Types Tool">
   <object name="BlogEntry"
     meta_type="Factory-based Type Information with dynamic views" />
+  <object name="SlBlogEntry"
+    meta_type="Factory-based Type Information with dynamic views" />
   <object name="BlogCategory"
     meta_type="Factory-based Type Information with dynamic views" />
   <object name="Blog"

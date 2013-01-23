@@ -50,6 +50,7 @@ setup(name='ftw.blog',
         'ftw.tagging',
         'Plone',
         'ftw.upgrade',
+        'ftw.contentpage',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,

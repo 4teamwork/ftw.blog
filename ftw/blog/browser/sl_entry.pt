@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ftw.blog">
+
+  <body>
+
+    <metal:content-description fill-slot="content-description">
+      <metal:content-description define-macro="content-description">
+        <!-- no description -->
+      </metal:content-description>
+    </metal:content-description>
+
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core">
+        <tal:block content="structure provider:simplelayout.base.listing" />
+
+
+        <div class="visualClear">&nbsp;</div>
+
+        <div class="categorization"
+             tal:define="cat_uids context/getCategoryUids;
+                         item_tags context/tags;
+                         tagroot_url python: context.aq_parent.absolute_url()"
+             tal:condition="python: cat_uids or item_tags">
+
+          <div class="categories" tal:condition="cat_uids">
+            <span i18n:translate="Categories">Categories</span>:
+            <tal:categories repeat="cat_uid cat_uids">
+              <a href="#"
+                 tal:define="cat_brains  python:context.portal_catalog({'UID':cat_uid});
+                             brain       python:len(cat_brains) and cat_brains[0] or False"
+                 tal:condition="brain"
+                 tal:attributes="href python:'%s/blog_view?getCategoryUids=%s' % (
+                                 context.aq_parent.absolute_url(), cat_uid)"
+                 tal:content="brain/Title|nothing" /><span tal:condition="not:repeat/cat_uid/end" tal:replace="string:, " />
+            </tal:categories>
+          </div>
+
+          <div class="tags" tal:condition="item_tags">
+            <span i18n:translate="Tags">Tags</span>:
+            <tal:tags repeat="tag item_tags">
+              <a href="#"
+                 tal:define="tag_url python: '%s/@@objects_by_tag_view?tag=%s' % (
+                             tagroot_url, tag)"
+                 tal:attributes="href tag_url"
+                 tal:content="tag">
+                Tag
+                </a><span tal:condition="not:repeat/tag/end" tal:replace="string:, " />
+            </tal:tags>
+          </div>
+        </div>
+
+        <div class="showAll">
+          <a tal:attributes="href context/aq_parent/absolute_url"
+             i18n:translate="label_show_all">Show all</a>
+        </div>
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>

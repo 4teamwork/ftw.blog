@@ -19,6 +19,14 @@
 
     <browser:page
         for="*"
+        name="simplelayout_blog_entry_view"
+        class=".sl_entry.SlBlogEntryView"
+        permission="zope2.View"
+        template="entry.pt"
+        />
+
+    <browser:page
+        for="*"
         name="category_widget_view"
         class=".widgets.category_widget.SitemapView"
         permission="zope2.View"
@@ -89,6 +97,14 @@
     <browser:page
         name="conversation_view"
         for="ftw.blog.interfaces.IBlogEntry"
+        layer="ftw.blog.interfaces.IBlogLayer"
+        class=".conversation.ConversationView"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        name="conversation_view"
+        for="ftw.blog.interfaces.ISlBlogEntry"
         layer="ftw.blog.interfaces.IBlogLayer"
         class=".conversation.ConversationView"
         permission="zope2.View"

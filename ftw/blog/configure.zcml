@@ -27,6 +27,13 @@
         description="ftw.blog: configuration."
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+    <genericsetup:registerProfile
+        name="simplelayout"
+        title="ftw.blog with simplelayout"
+        directory="profiles/simplelayout"
+        description="ftw.blog: configuration."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
     <!-- Include the sub-packages that use their own configure.zcml files. -->
     <include package=".browser" />

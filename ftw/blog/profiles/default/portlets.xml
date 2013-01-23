@@ -28,6 +28,14 @@
   <assignment
     name="blog-categories"
     category="content_type"
+    key="SlBlogEntry"
+    manager="plone.rightcolumn"
+    type="blog.categories.portlet"
+    />
+
+  <assignment
+    name="blog-categories"
+    category="content_type"
     key="BlogCategory"
     manager="plone.rightcolumn"
     type="blog.categories.portlet"
@@ -52,6 +60,14 @@
   <assignment
     name="tagcloud"
     category="content_type"
+    key="SlBlogEntry"
+    manager="plone.rightcolumn"
+    type="ftw.tagging.portlet.tagcloud"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
     key="BlogCategory"
     manager="plone.rightcolumn"
     type="ftw.tagging.portlet.tagcloud"
@@ -69,6 +85,14 @@
     name="blog-archive"
     category="content_type"
     key="BlogEntry"
+    manager="plone.rightcolumn"
+    type="blog.archiv.portlet"
+    />
+
+  <assignment
+    name="blog-archive"
+    category="content_type"
+    key="SlBlogEntry"
     manager="plone.rightcolumn"
     type="blog.archiv.portlet"
     />

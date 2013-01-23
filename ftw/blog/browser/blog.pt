@@ -35,7 +35,7 @@
 
                 <div tal:define="tagroot_url here/absolute_url"
                      class="blogItem"
-                     tal:condition="python:item_type=='BlogEntry'">
+                     tal:condition="python:item_type in ['BlogEntry', 'SlBlogEntry']">
 
                   <h2 class="clearfix">
                     <a href="#"

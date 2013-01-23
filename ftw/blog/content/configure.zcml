@@ -11,6 +11,13 @@
             />
     </class>
 
+    <class class=".slblogentry.SlBlogEntry">
+        <require
+            permission="zope2.View"
+            interface="..interfaces.ISlBlogEntry"
+            />
+    </class>
+
     <class class=".blogcategory.BlogCategory">
         <require
             permission="zope2.View"
@@ -29,6 +36,9 @@
     <include package="ftw.tagging" />
     <!-- make BlogEntry taggable -->
     <class class=".blogentry.BlogEntry">
+        <implements interface="ftw.tagging.interfaces.tagging.ITaggable" />
+    </class>
+    <class class=".slblogentry.SlBlogEntry">
         <implements interface="ftw.tagging.interfaces.tagging.ITaggable" />
     </class>
     <!-- mark the Blog as tag root -->

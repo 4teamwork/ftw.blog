@@ -15,6 +15,10 @@ class IBlogEntry(Interface):
     """Ftw BlogEntry"""
 
 
+class ISlBlogEntry(Interface):
+    """Ftw BlogEntry"""
+
+
 class IBlogCategory(Interface):
     """Ftw BlogCategory"""
 
@@ -35,6 +39,11 @@ class IBlogView(Interface):
 
 
 class IBlogEntryView(Interface):
+    """
+    Marker Interface for BlogView
+    """
+
+class ISlBlogEntryView(Interface):
     """
     Marker Interface for BlogView
     """

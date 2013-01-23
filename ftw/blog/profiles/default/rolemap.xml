@@ -6,6 +6,10 @@
       <role name="Manager" />
       <role name="Contributor" />
     </permission>
+    <permission name="ftw.blog: Add simplelayout BlogEntry" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+    </permission>
     <permission name="ftw.blog: Add BlogCategory" acquire="False">
       <role name="Manager" />
       <role name="Contributor" />

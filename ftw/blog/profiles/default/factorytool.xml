@@ -11,6 +11,7 @@
   <factorytypes>
     <!-- -*- extra stuff goes here -*- -->
     <type portal_type="BlogEntry" />
+    <type portal_type="SlBlogEntry" />
     <type portal_type="BlogCategory" />
     <type portal_type="Blog" />
   </factorytypes>

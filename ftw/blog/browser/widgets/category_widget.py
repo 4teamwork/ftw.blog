@@ -56,11 +56,11 @@ class CategoryWidgetStrategy(SitemapNavtreeStrategy):
             for translation in obj.getTranslations(
                 review_state=False).values():
                 count += len(ct(getCategoryUids=translation.UID(),
-                                portal_type='BlogEntry',
+                                portal_type=['BlogEntry', 'SlBlogEntry'],
                                 Language='all',))
         else:
             count = len(ct(getCategoryUids=obj.UID(),
-                           portal_type='BlogEntry',
+                           portal_type=['BlogEntry', 'SlBlogEntry'],
                            Language='all',))
 
         oldnode['count_refs'] = count

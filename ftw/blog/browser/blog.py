@@ -91,7 +91,7 @@ class BlogView(BrowserView):
 
         query['sort_on'] = 'created'
         query['sort_order'] = 'reverse'
-        query['portal_type'] = 'BlogEntry'
+        query['portal_type'] = ['BlogEntry', 'SlBlogEntry']
         # show all entries from all languages
         # XXX make this configurable
         if not base_hasattr(context, 'getTranslations'):

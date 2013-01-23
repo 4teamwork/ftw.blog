@@ -64,7 +64,7 @@ class Renderer(base.Renderer):
             root_path = '/'.join(blogroot.getPhysicalPath())
 
         query['path'] = root_path
-        query['portal_type'] = 'BlogEntry'
+        query['portal_type'] = ['BlogEntry', 'SlBlogEntry']
 
         archive_counts = {}
         blog_entries = catalog(**query)

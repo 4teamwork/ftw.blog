@@ -6,6 +6,7 @@ PROJECTNAME = 'ftw.blog'
 ADD_PERMISSIONS = {
     # -*- extra stuff goes here -*-
     'BlogEntry': 'ftw.blog: Add BlogEntry',
+    'SlBlogEntry': 'ftw.blog: Add simplelayout BlogEntry',
     'BlogCategory': 'ftw.blog: Add BlogCategory',
     'Blog': 'ftw.blog: Add Blog',
     }
