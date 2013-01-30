@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Protect unused fields, so they are only visible for manager.
+  [Julian Infanger]
+
 - Implement a patched conversation view, which allows
   commenting on folderish types (i.e BlogEntry)
   [mathias.leimgruber]

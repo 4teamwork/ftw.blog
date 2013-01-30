@@ -83,6 +83,13 @@ BlogEntrySchema['language'].widget.visible = -1
 BlogEntrySchema.changeSchemataForField('language', 'default')
 BlogEntrySchema['description'].widget.visible = -1
 
+#protect fields; they should only be editable for managers
+protected_fields = ['creators', 'contributors', 'rights', 'allowDiscussion',
+                    'excludeFromNav', 'nextPreviousEnabled']
+for f in protected_fields:
+    if f in BlogEntrySchema:
+        BlogEntrySchema[f].write_permission='Manage portal'
+
 
 class BlogEntry(folder.ATFolder):
     """Ftw Blog Entry"""
