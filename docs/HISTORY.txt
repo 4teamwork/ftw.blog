@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Remove search blog viewlet.
+  [Julian Infanger]
+
 - Protect unused fields, so they are only visible for manager.
   [Julian Infanger]
 
