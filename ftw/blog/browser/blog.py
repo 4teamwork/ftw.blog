@@ -5,11 +5,16 @@ from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogView
-from plone.app.content.batching import Batch
 from urllib import quote_plus
-from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
+
+try:
+    # plone >= 4.3
+    from plone.batching import Batch
+except ImportError:
+    # plone < 4.3
+    from plone.app.content.batching import Batch
 
 
 class BlogView(BrowserView):
