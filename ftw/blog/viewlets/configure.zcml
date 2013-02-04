@@ -4,24 +4,6 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
     <browser:viewlet
-        view="..interfaces.IBlogView"
-        name="ftw.blog.actionsbar"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.FtwBlogActionsBar"
-        permission="zope2.View"
-        layer="..interfaces.IBlogLayer"
-        />
-
-    <browser:viewlet
-        view="..interfaces.IBlogEntryView"
-        name="ftw.blog.actionsbar"
-        manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-        class=".viewlets.FtwBlogActionsBar"
-        permission="zope2.View"
-        layer="..interfaces.IBlogLayer"
-        />
-
-    <browser:viewlet
         name="ftw.tagging.taglist"
         for="..interfaces.IBlogEntry"
         manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
