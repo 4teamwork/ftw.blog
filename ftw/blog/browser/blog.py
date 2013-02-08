@@ -6,6 +6,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogView
 from urllib import quote_plus
+from plone.app.discussion.interfaces import IConversation
 from zope.i18n import translate
 from zope.interface import implements
 
@@ -140,3 +141,9 @@ class BlogView(BrowserView):
                 'id': member.id,
                 'name': member.getProperty('fullname') or member.id}
         return None
+
+    def amount_of_replies(self, brain):
+        """counts the amaount of replies"""
+        obj = brain.getObject()
+        conversation = IConversation(obj)
+        return len([thread for thread in conversation.getThreads()])
