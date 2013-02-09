@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Show the amount of comments in blog listing.
+  [Julian Infanger]
+
 - Remove search blog viewlet.
   [Julian Infanger]
 
