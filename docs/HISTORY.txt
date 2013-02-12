@@ -8,6 +8,12 @@ Changelog
 - Updated batching in blog view.
   [Julian Infanger]
 
+- Show the amount of comments in blog listing.
+  [Julian Infanger]
+
+- Remove search blog viewlet.
+  [Julian Infanger]
+
 - Protect unused fields, so they are only visible for manager.
   [Julian Infanger]
 

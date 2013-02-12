@@ -108,6 +108,10 @@
                       </tal:tags>
                     </div>
                   </div>
+                  <div class="comments" i18n:domain="plone" i18n:translate="comments_header">
+                    Comments (<span tal:content="python:view.amount_of_replies(item)"
+                                    i18n:name="comments"></span>)
+                  </div>
 
 
                 </div>

@@ -26,6 +26,11 @@ body.template-discussion_reply_form .documentActions {
   padding-bottom: 1.5em;
 }
 
+.blogItem .comments {
+  font-size: 11px;
+  margin-top: 0.5em;
+}
+
 .categorization,
 .showAll {
   padding-top: 1em;
