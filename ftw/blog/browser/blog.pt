@@ -9,21 +9,21 @@
   <body>
 
     <metal:content-core fill-slot="content-core">
-      <metal:content-core define-macro="content-core">
+      <metal:content-core define-macro="content-core"
+                          tal:define="batch view/batch">
 
         <tal:items define="normalizeString nocall:context/@@plone/normalizeString;
                            mtool context/portal_membership;
                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
-                   condition="view/batch">
+                   condition="batch">
 
           <div class="blogFilter" tal:condition="view/filters">
             <span i18n:translate="label_filters">Filtered by these criterions</span>
             <span tal:repeat="cat view/filters" tal:content="cat"/>
           </div>
 
-          <div class="batching" tal:content="structure view/batching" />
           <div class="blogListing">
-            <tal:entry tal:repeat="item view/batch">
+            <tal:entry tal:repeat="item batch">
               <tal:block tal:define="item_url item/getURL|item/absolute_url;
                                      item_title_or_id item/pretty_title_or_id;
                                      item_type item/portal_type;
@@ -121,6 +121,8 @@
           </div>
 
         </tal:items>
+
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
 
         <metal:empty metal:define-slot="no_items_in_listing">
           <tal:cond tal:condition="not: view/entries">

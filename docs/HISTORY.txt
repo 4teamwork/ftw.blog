@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Updated batching in blog view.
+  [Julian Infanger]
+
 - Show the amount of comments in blog listing.
   [Julian Infanger]
 

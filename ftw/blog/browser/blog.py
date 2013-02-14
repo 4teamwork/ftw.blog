@@ -10,12 +10,7 @@ from plone.app.discussion.interfaces import IConversation
 from zope.i18n import translate
 from zope.interface import implements
 
-try:
-    # plone >= 4.3
-    from plone.batching import Batch
-except ImportError:
-    # plone < 4.3
-    from plone.app.content.batching import Batch
+from Products.CMFPlone.PloneBatch import Batch
 
 
 class BlogView(BrowserView):
@@ -25,7 +20,6 @@ class BlogView(BrowserView):
     implements(IBlogView)
 
     template = ViewPageTemplateFile("blog.pt")
-    batching = ViewPageTemplateFile("batching.pt")
     filters = []
 
     def __init__(self, *args, **kwargs):
@@ -109,14 +103,8 @@ class BlogView(BrowserView):
             query['Language'] = 'all'
             self.entries = catalog(query)
 
-        pagesize = int(self.request.form.get('pagesize', 5))
-        #req.set('pagesize', pagesize)
-        pagenumber = int(self.request.form.get('pagenumber', 1))
-        #req.set('pagenumber', pagenumber)
-
-        self.batch = Batch(self.entries,
-                           pagesize=pagesize, pagenumber=pagenumber,
-                           navlistsize=1)
+        b_start = self.request.form.get('b_start',0)
+        self.batch = Batch(self.entries, 5, b_start)
 
         return self.template()
 
