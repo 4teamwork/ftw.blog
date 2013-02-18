@@ -10,7 +10,8 @@ def objectAddedHandler(obj, event):
 
     #adding a categories root object
     if not safe_hasattr(obj.aq_explicit, 'categories', False):
-        _createObjectByType('BlogCategory', obj, 'categories')
+        _createObjectByType('BlogCategory', obj, 'categories',
+                            excludeFromNav=True)
         category = getattr(obj.aq_explicit, 'categories', False)
         if category:
             category.setTitle(obj.translate(_('Categories')))
