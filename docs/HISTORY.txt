@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Blog entry: use text/x-html-safe output format and only allow text/html input.
+  [jone]
+
 - Updated batching in blog view.
   [Julian Infanger]
 
