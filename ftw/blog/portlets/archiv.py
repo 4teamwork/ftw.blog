@@ -50,7 +50,7 @@ class Renderer(base.Renderer):
         """Convert time to localized time
         """
 
-        month_msgid = 'month_%s' % _months_a(time.strftime("%m")).lower()
+        month_msgid = 'month_%s' % _months_a[time.strftime("%m")].lower()
         month = translate(month_msgid, domain='plonelocales', context=self.request)
         
         return u"%s %s" % (month, time.strftime('%Y'))
