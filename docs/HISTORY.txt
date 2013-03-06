@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.1 (unreleased)
-------------------
+1.1.1.1 (2013-03-06)
+--------------------
 
 - Fixed: method getTranslation return None instead of self if there are no
   translations. We need to handle this. 
