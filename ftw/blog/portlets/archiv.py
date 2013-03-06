@@ -8,7 +8,7 @@ from ftw.blog.interfaces import IBlogUtils
 from DateTime import DateTime
 from Products.CMFPlone.utils import base_hasattr
 from zope.i18n import translate
-
+from DateTime.DateTime import _months_a
 
 class IArchivePortlet(IPortletDataProvider):
     """
@@ -49,7 +49,8 @@ class Renderer(base.Renderer):
     def zLocalizedTime(self, time, long_format=False):
         """Convert time to localized time
         """
-        month_msgid = 'month_%s' % time.strftime("%b").lower()
+
+        month_msgid = 'month_%s' % _months_a(time.strftime("%m")).lower()
         month = translate(month_msgid, domain='plonelocales', context=self.request)
         
         return u"%s %s" % (month, time.strftime('%Y'))
