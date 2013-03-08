@@ -9,6 +9,7 @@ from plone.portlets.interfaces import IPortletDataProvider
 from zope.component import getUtility
 from zope.i18n import translate
 from zope.interface import implements
+from Products.CMFPlone.i18nl10n import monthname_msgid
 
 
 class IArchivePortlet(IPortletDataProvider):
@@ -43,7 +44,7 @@ class Renderer(base.Renderer):
     def zLocalizedTime(self, time, long_format=False):
         """Convert time to localized time
         """
-        month_msgid = 'month_%s' % time.strftime("%b").lower()
+        month_msgid = monthname_msgid(time.strftime("%m"))
         month = translate(month_msgid, domain='plonelocales',
                           context=self.request)
 
