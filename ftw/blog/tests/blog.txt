@@ -24,12 +24,12 @@ Now it should automaticly create the categories folder
 
 and also some portlets must be set autmaticly on the blog
     >>> portlet_manager = getUtility(IPortletManager,name='plone.rightcolumn',context=b1)
-    >>> portlet_manager['content_type']['Blog'].keys()
-    [u'blog-categories', u'tagcloud', u'blog-archive']
-    >>> portlet_manager['content_type']['BlogEntry'].keys()
-    [u'blog-categories', u'tagcloud', u'blog-archive']
-    >>> portlet_manager['content_type']['BlogCategory'].keys()
-    [u'blog-categories', u'tagcloud', u'blog-archive']
+    >>> map(str, portlet_manager['content_type']['Blog'].keys())
+    ['blog-categories', 'tagcloud', 'blog-archive']
+    >>> map(str, portlet_manager['content_type']['BlogEntry'].keys())
+    ['blog-categories', 'tagcloud', 'blog-archive']
+    >>> map(str, portlet_manager['content_type']['BlogCategory'].keys())
+    ['blog-categories', 'tagcloud', 'blog-archive']
 
 
 add a blogentry
