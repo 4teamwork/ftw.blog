@@ -3,6 +3,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="ftw.blog">
 
     <!-- dependency includs -->
@@ -34,6 +35,8 @@
     <include package=".portlets" />
     <include package=".viewlets" />
     <include package=".upgrades" />
+
+    <include zcml:condition="installed ftw.lawgiver" file="lawgiver.zcml" />
 
     <subscriber
         for=".interfaces.IBlog

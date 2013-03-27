@@ -5,6 +5,9 @@ Changelog
 1.2.5 (unreleased)
 ------------------
 
+- Lawgiver support: map permissions.
+  [jone]
+
 - Use Month msgid function from plone
   [tschanzt]
 
