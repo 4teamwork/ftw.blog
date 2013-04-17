@@ -53,7 +53,7 @@ class BlogView(BrowserView):
             end = DateTime('%s/%s/%s' % (start.year() + start.month() / 12,
                                          start.month() % 12 + 1, 1))
             end = end - 1
-            query['created'] = {'query': (start.earliestTime(),
+            query['effective'] = {'query': (start.earliestTime(),
                                           end.latestTime()),
                                 'range': 'minmax'}
             month_msgid = 'month_%s' % start.strftime("%b").lower()
@@ -89,7 +89,7 @@ class BlogView(BrowserView):
             return self.request.response.redirect(
                 aq_parent(context).absolute_url() + querystring)
 
-        query['sort_on'] = 'created'
+        query['sort_on'] = 'effective'
         query['sort_order'] = 'reverse'
         query['portal_type'] = ['BlogEntry', 'SlBlogEntry']
         # show all entries from all languages

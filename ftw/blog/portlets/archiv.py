@@ -69,7 +69,7 @@ class Renderer(base.Renderer):
         archive_counts = {}
         blog_entries = catalog(**query)
         for entry in blog_entries:
-            year_month = entry.created.strftime('%Y/%m')
+            year_month = entry.effective.strftime('%Y/%m')
             if year_month in archive_counts:
                 archive_counts[year_month] += 1
             else:
