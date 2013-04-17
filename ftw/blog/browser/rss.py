@@ -36,9 +36,13 @@ class RSSView(BrowserView):
             if not self.__name__ == 'rss_blog_view':
                 return self.context.REQUEST.RESPONSE.redirect(url)
 
-        self.entries = self.context.getFolderContents({
-                'sort_on': 'created',
-                'sort_order': 'reverse',
-                'portal_type': ['BlogEntry', 'SlBlogEntry']})
+        query = {
+            'sort_on': 'created',
+            'sort_order': 'reverse',
+            'portal_type': ['BlogEntry', 'SlBlogEntry']
+        }
+        if 'tag' in self.request.form:
+            query['tags'] = self.request.form['tag']
+        self.entries = self.context.getFolderContents(query)
 
         return self.template(self)
