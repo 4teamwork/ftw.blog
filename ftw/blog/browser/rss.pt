@@ -8,16 +8,8 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal">
 
-    <tal:block
-        define="
-                objectList view/entries">
-        <span tal:content="python: view" />
+    <tal:block define="objectList view/entries">
         <metal:block use-macro="context/rss_template/macros/master">
-            <metal:block fill-slot="syndication">
-                <syn:updatePeriod tal:content="python:syn.getUpdatePeriod(context) or default" />
-                <syn:updateFrequency tal:content="python:syn.getUpdateFrequency(context) or default" />
-                <syn:updateBase tal:content="python:syn.getHTML4UpdateBase(context) or default" />
-            </metal:block>
         </metal:block>
     </tal:block>
 </rdf:RDF>
