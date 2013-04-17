@@ -39,6 +39,6 @@ class RSSView(BrowserView):
         self.entries = self.context.getFolderContents({
                 'sort_on': 'created',
                 'sort_order': 'reverse',
-                'portal_type': 'BlogEntry'})
+                'portal_type': ['BlogEntry', 'SlBlogEntry']})
 
         return self.template(self)
