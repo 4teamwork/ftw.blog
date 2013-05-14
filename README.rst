@@ -13,8 +13,8 @@ categories, and in a monthly archive. Entries can be searched by using the
 search function of the blog.
 
 Optionally, blog entries can be commented by users using Plone's commenting
-functionality.
-
+functionality. To enable, you have to go to @@discussion-settings and enable the
+"global allowed" attribute.
 
 Install
 =======

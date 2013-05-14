@@ -7,6 +7,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from ftw.blog.interfaces import IBlogView
 from urllib import quote_plus
 from plone.app.discussion.interfaces import IConversation
+from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
 
@@ -135,3 +136,12 @@ class BlogView(BrowserView):
         obj = brain.getObject()
         conversation = IConversation(obj)
         return len([thread for thread in conversation.getThreads()])
+
+    def comments_enabled(self, brain):
+        """Disable the 'Comments ()' string if discussion is disabled on the
+        given BlogEntry.
+        """
+        conversation = getMultiAdapter((brain.getObject(), self.request),
+                               name='conversation_view')
+
+        return conversation.enabled()
