@@ -40,9 +40,14 @@ class TestBlogComments(TestCase):
         site_props._updateProperty('allowAnonymousViewAbout', value)
         transaction.commit()
 
-    def is_author_visible(self, obj):
+    def assert_author_visibility(self, obj, visibility, msg):
         self.browser.open(obj.absolute_url())
-        return '<span class="documentAuthor">' in self.browser.contents
+
+        condition = '<span class="documentAuthor">' in self.browser.contents
+        if visibility:
+            self.assertTrue(condition, msg)
+        else:
+            self.assertFalse(condition, msg)
 
     def count_comments_tags(self, obj):
         self.browser.open(obj.absolute_url())
@@ -52,26 +57,26 @@ class TestBlogComments(TestCase):
 class TestBlogCommentsAnonymous(TestBlogComments):
 
     def test_show_author_when_allowAnonymousViewAbout_on_blog(self):
-        self.assertTrue(self.is_author_visible(self.blog),
-                        '''Anonymous user should see author if
-                        allowAnonymousViewAbout is True.''')
+        msg = 'Anonymous user should see author if allowAnonymousViewAbout '
+        'is True.'
+        self.assert_author_visibility(self.blog, True, msg)
 
     def test_show_author_when_allowAnonymousViewAbout_on_blogentry(self):
-        self.assertTrue(self.is_author_visible(self.entry1),
-                        '''Anonymous user should see author if
-                        allowAnonymousViewAbout is True.''')
+        msg = 'Anonymous user should see author if allowAnonymousViewAbout '
+        'is True.'
+        self.assert_author_visibility(self.entry1, True, msg)
 
     def test_dont_show_author_when_not_allowAnonymousViewAbout_on_blog(self):
         self.set_allowAnonymousViewAbout_property(False)
-        self.assertFalse(self.is_author_visible(self.blog),
-                        '''Anonymous user should not see author if
-                        allowAnonymousViewAbout is False.''')
+        msg = 'Anonymous user should not see author if allowAnonymousViewAbout'
+        ' is False.'
+        self.assert_author_visibility(self.blog, False, msg)
 
     def test_dont_show_author_when_not_allowAnonymousViewAbout_on_blogentry(self):
         self.set_allowAnonymousViewAbout_property(False)
-        self.assertFalse(self.is_author_visible(self.entry1),
-                        '''Anonymous user should not see author if
-                        allowAnonymousViewAbout is False.''')
+        msg = 'Anonymous user should not see author if allowAnonymousViewAbout'
+        ' is False.'
+        self.assert_author_visibility(self.entry1, False, msg)
 
     def test_dont_show_comments_on_blog_overview_when_discussion_is_disabled(self):
         self.assertEquals(self.count_comments_tags(self.blog), 0,
@@ -100,23 +105,23 @@ class TestBlogCommentsLoggedIn(TestBlogComments):
             'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD,))
 
     def test_show_author_when_allowAnonymousViewAbout_on_blog(self):
-        self.assertTrue(self.is_author_visible(self.blog),
-                        '''Logged in user should see author if
-                        allowAnonymousViewAbout is True.''')
+        msg = 'Logged in user should see author if allowAnonymousViewAbout is'
+        ' True.'
+        self.assert_author_visibility(self.blog, True, msg)
 
     def test_show_author_when_allowAnonymousViewAbout_on_blogentry(self):
-        self.assertTrue(self.is_author_visible(self.entry1),
-                        '''Logged in user should see author if
-                        allowAnonymousViewAbout is True.''')
+        msg = 'Logged in user should see author if allowAnonymousViewAbout is'
+        ' True.'
+        self.assert_author_visibility(self.entry1, True, msg)
 
     def test_show_author_when_not_allowAnonymousViewAbout_on_blog(self):
         self.set_allowAnonymousViewAbout_property(False)
-        self.assertTrue(self.is_author_visible(self.blog),
-                        '''Logged in user should see author
-                        if allowAnonymousViewAbout is False.''')
+        msg = 'Logged in user should see author if allowAnonymousViewAbou '
+        'is False.'
+        self.assert_author_visibility(self.blog, True, msg)
 
     def test_show_author_when_not_allowAnonymousViewAbout_on_blogentry(self):
         self.set_allowAnonymousViewAbout_property(False)
-        self.assertTrue(self.is_author_visible(self.entry1),
-                        '''Logged in user should see author if
-                        allowAnonymousViewAbout is False.''')
+        msg = 'Logged in user should see author if allowAnonymousViewAbout '
+        'is False.'
+        self.assert_author_visibility(self.entry1, True, msg)
