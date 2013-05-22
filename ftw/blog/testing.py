@@ -1,10 +1,11 @@
 from ftw.testing.layer import ComponentRegistryLayer
+from plone.app.testing import applyProfile
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import applyProfile
 from plone.app.testing import setRoles, TEST_USER_ID, TEST_USER_NAME, login
 from plone.testing import z2
+from Products.CMFCore.utils import getToolByName
 from zope.configuration import xmlconfig
 
 
@@ -26,6 +27,15 @@ ZCML_LAYER = ZCMLLayer()
 class FtwBlogLayer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
+        import z3c.autoinclude
+        xmlconfig.file('meta.zcml', z3c.autoinclude,
+                       context=configurationContext)
+        xmlconfig.string(
+            '<configure xmlns="http://namespaces.zope.org/zope">'
+            '  <includePlugins package="plone" />'
+            '</configure>',
+            context=configurationContext)
+
         import ftw.blog
         xmlconfig.file('configure.zcml', ftw.blog,
                        context=configurationContext)
@@ -34,6 +44,10 @@ class FtwBlogLayer(PloneSandboxLayer):
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'ftw.blog:default')
+
+        wftool = getToolByName(portal, 'portal_workflow')
+        wftool.setChainForPortalTypes(['Blog', 'BlogEntry'],
+                                      'one_state_workflow')
 
         setRoles(portal, TEST_USER_ID, ['Contributor'])
         login(portal, TEST_USER_NAME)

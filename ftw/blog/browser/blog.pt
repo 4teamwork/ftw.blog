@@ -10,7 +10,11 @@
 
     <metal:content-core fill-slot="content-core">
       <metal:content-core define-macro="content-core"
-                          tal:define="batch view/batch">
+                          tal:define="batch view/batch;
+                                      site_properties context/portal_properties/site_properties;
+                                      isAnon context/@@plone_portal_state/anonymous;
+                                      show_about python:not isAnon or site_properties.allowAnonymousViewAbout;
+                          ">
 
         <tal:items define="normalizeString nocall:context/@@plone/normalizeString;
                            mtool context/portal_membership;
@@ -47,29 +51,34 @@
 
                   <div class="documentByLine blogByLine"
                        i18n:domain="plone">
+                       <div id="defaultByLineInfos"
+                           tal:condition="show_about">
+                            <span class="documentAuthor"
+                                  tal:define="creator python:view.creatorOf(item)"
+                                  tal:condition="creator">
+                              <tal:def define="creator_id creator/id">
+                                <span i18n:domain="ftw.blog" i18n:translate="label_by">by</span>
+                                <a href="#"
+                                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+                                   tal:content="creator/name"></a>,
+                              </tal:def>
+                            </span>
 
-                    <span class="documentAuthor"
-                          tal:define="creator python:view.creatorOf(item)"
-                          tal:condition="creator">
-                      <tal:def define="creator_id creator/id">
-                        <span i18n:domain="ftw.blog" i18n:translate="label_by">by</span>
-                        <a href="#"
-                           tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
-                           tal:content="creator/name"></a>,
-                      </tal:def>
-                    </span>
-
-                    <span class="documentState">
-                      <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="item/review_state" i18n:translate=""/>,
-                    </span>
-                    <span class="documentModified">
-                      <span i18n:translate="box_last_modified">
-                        last modified
-                      </span>
-                      <span tal:replace="python:toLocalizedTime(item.ModificationDate ,long_format=1)">
-                        August 16, 2001 at 23:35:59
-                      </span>
-                    </span>
+                            <span class="documentState">
+                              <span i18n:translate="" tal:omit-tag="">State</span>: <span tal:replace="item/review_state" i18n:translate=""/>,
+                            </span>
+                        </div>
+                        <div id="blogByLineInfos">
+                            <span class="documentCreated">
+                                <span i18n:translate="Creation Date">
+                                  created
+                                </span>
+                                <span tal:replace="python:toLocalizedTime(item.CreationDate ,long_format=1)">
+                                  August 16, 2001 at 23:35:59
+                                </span>
+                                
+                            </span>
+                        </div>
                   </div>
 
 
@@ -108,7 +117,11 @@
                       </tal:tags>
                     </div>
                   </div>
-                  <div class="comments" i18n:domain="plone" i18n:translate="comments_header">
+                  <div class="comments"
+                      i18n:domain="plone"
+                      i18n:translate="comments_header"
+                      tal:condition="python: view.comments_enabled(item)"
+                      >
                     Comments (<span tal:content="python:view.amount_of_replies(item)"
                                     i18n:name="comments"></span>)
                   </div>
