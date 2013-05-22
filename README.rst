@@ -12,9 +12,7 @@ Blog entries are listed in chronological order, in a tag cloud, by
 categories, and in a monthly archive. Entries can be searched by using the
 search function of the blog.
 
-Optionally, blog entries can be commented by users using Plone's commenting
-functionality. To enable, you have to go to @@discussion-settings and enable the
-"global allowed" attribute.
+Enable commenting by activating the ``global_allowed`` setting in the ``@@discussion-settings`` view.
 
 Install
 =======

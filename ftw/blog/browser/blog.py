@@ -1,17 +1,16 @@
 from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
+from ftw.blog.interfaces import IBlogView
+from plone.app.discussion.interfaces import IConversation
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.blog.interfaces import IBlogView
 from urllib import quote_plus
-from plone.app.discussion.interfaces import IConversation
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
-
-from Products.CMFPlone.PloneBatch import Batch
 
 
 class BlogView(BrowserView):
@@ -104,7 +103,7 @@ class BlogView(BrowserView):
             query['Language'] = 'all'
             self.entries = catalog(query)
 
-        b_start = self.request.form.get('b_start',0)
+        b_start = self.request.form.get('b_start', 0)
         self.batch = Batch(self.entries, 5, b_start)
 
         return self.template()
@@ -132,15 +131,11 @@ class BlogView(BrowserView):
         return None
 
     def amount_of_replies(self, brain):
-        """counts the amaount of replies"""
         obj = brain.getObject()
         conversation = IConversation(obj)
         return len([thread for thread in conversation.getThreads()])
 
     def comments_enabled(self, brain):
-        """Disable the 'Comments ()' string if discussion is disabled on the
-        given BlogEntry.
-        """
         conversation = getMultiAdapter((brain.getObject(), self.request),
                                name='conversation_view')
 

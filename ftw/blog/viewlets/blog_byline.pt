@@ -30,7 +30,6 @@
               <span tal:replace="python:toLocalizedTime(context.CreationDate() ,long_format=1)">
                 August 16, 2001 at 23:35:59
               </span>
-              
           </span>
       </div>
 </div>
