@@ -5,6 +5,9 @@ Changelog
 1.3.2 (unreleased)
 ------------------
 
+- Add ftw.colorbox.
+  [mathias.leimgruber]
+
 - Add boolean field to blog entry, let the user decide if he want to
   include the images directly into the blog entry or show the images as
   gallery.

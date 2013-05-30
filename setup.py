@@ -47,11 +47,12 @@ setup(name='ftw.blog',
       zip_safe=False,
 
       install_requires=[
-        'setuptools',
-        'plone.browserlayer',
+        'ftw.colorbox',
         'ftw.tagging',
-        'Plone',
         'ftw.upgrade',
+        'Plone',
+        'plone.browserlayer',
+        'setuptools',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,
