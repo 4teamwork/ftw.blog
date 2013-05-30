@@ -8,6 +8,7 @@ maintainer = 'Mathias Leimgruber'
 tests_require = [
     'ftw.testing',
     'plone.app.testing',
+    'pyquery'
     ]
 
 extras_require = {
