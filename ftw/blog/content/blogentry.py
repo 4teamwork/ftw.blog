@@ -65,7 +65,7 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
     atapi.BooleanField(
         name='showImages',
         required=False,
-        default=False,
+        default=True,
         schemata='default',
         widget=atapi.BooleanWidget(
             label=_('label_show_images', default=u'Show images as gallery'),
