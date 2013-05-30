@@ -62,6 +62,20 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
         allowed_types=['BlogCategory'],
     ),
 
+    atapi.BooleanField(
+        name='showImages',
+        required=False,
+        default=False,
+        schemata='default',
+        widget=atapi.BooleanWidget(
+            label=_('label_show_images', default=u'Show images as gallery'),
+            description=_('description_show_images',
+                           default=u'Decide you want to show all uploaded '
+                                    'images as gallery'),
+        ),
+    ),
+
+
 ))
 
 # Set storage on fields copied from ATFolderSchema, making sure
