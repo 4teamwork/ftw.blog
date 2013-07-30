@@ -3,11 +3,14 @@
 
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_inner
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from DateTime import DateTime
+from ftw.blog import _
+from ftw.blog.config import PROJECTNAME
+from ftw.blog.interfaces import IBlogEntry
+from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from zope.interface import implements
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
@@ -16,9 +19,6 @@ if HAS_LINGUA_PLONE:
 else:
     from Products.Archetypes.atapi import registerType
 
-from ftw.blog.interfaces import IBlogEntry
-from ftw.blog.config import PROJECTNAME, TINYMCE_ALLOWED_BUTTONS
-from ftw.blog import _
 
 BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
 
@@ -40,7 +40,6 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
             description_msgid='ftw_help_text',
             i18n_domain='ftw.tagging',
             rows=15,
-            allow_buttons=TINYMCE_ALLOWED_BUTTONS,
             rooted=True,
         ),
     ),
@@ -62,6 +61,20 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
         relationship='blog_categories',
         allowed_types=['BlogCategory'],
     ),
+
+    atapi.BooleanField(
+        name='showImages',
+        required=False,
+        default=True,
+        schemata='default',
+        widget=atapi.BooleanWidget(
+            label=_('label_show_images', default=u'Show images as gallery'),
+            description=_('description_show_images',
+                           default=u'Decide you want to show all uploaded '
+                                    'images as gallery'),
+        ),
+    ),
+
 
 ))
 

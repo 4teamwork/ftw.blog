@@ -8,6 +8,7 @@ maintainer = 'Mathias Leimgruber'
 tests_require = [
     'ftw.testing',
     'plone.app.testing',
+    'pyquery'
     ]
 
 extras_require = {
@@ -46,11 +47,12 @@ setup(name='ftw.blog',
       zip_safe=False,
 
       install_requires=[
-        'setuptools',
-        'plone.browserlayer',
+        'ftw.colorbox',
         'ftw.tagging',
-        'Plone',
         'ftw.upgrade',
+        'Plone',
+        'plone.browserlayer',
+        'setuptools',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,

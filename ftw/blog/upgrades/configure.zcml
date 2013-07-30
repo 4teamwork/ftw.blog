@@ -41,4 +41,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- 1201 -> 1400 -->
+    <genericsetup:upgradeStep
+        title="Install ftw.colorbox"
+        description=""
+        source="1201"
+        destination="1400"
+        handler="ftw.blog.upgrades.to1400.InstallColorBox"
+        profile="ftw.blog:default"
+        />
+
 </configure>

@@ -20,3 +20,6 @@ class BlogEntryView(BrowserView):
     def __call__(self):
         self.tag_root = getInterfaceRoot(self.context, ITagRoot)
         return self.template()
+
+    def show_images(self):
+        return self.context.getShowImages()

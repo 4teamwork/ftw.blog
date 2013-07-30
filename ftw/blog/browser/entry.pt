@@ -18,7 +18,7 @@
       <metal:content-core define-macro="content-core">
         <div class="blogText" tal:content="structure context/getText"></div>
 
-        <div class="blogImages">
+        <div class="blogImages" tal:condition="view/show_images">
           <a tal:repeat="image python:here.getFolderContents({'portal_type':'Image'}, full_objects=True)"
              tal:attributes="href python:image.absolute_url() + '/image'" class="colorboxLink" rel="entry">
             <img tal:replace="structure python:image.tag(scale='mini')" />
