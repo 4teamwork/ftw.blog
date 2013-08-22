@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-01-08 13:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./ftw/blog/portlets/archiv.pt:12
+msgid "Archiv"
+msgstr "Archivo"
+
+#: ./ftw/blog/profiles/default/types/Blog.xml
+msgid "Blog"
+msgstr "Blog"
+
+#: ./ftw/blog/profiles/default/types/BlogCategory.xml
+msgid "BlogCategory"
+msgstr "Categoría de blog"
+
+#: ./ftw/blog/profiles/default/types/BlogEntry.xml
+msgid "BlogEntry"
+msgstr "Entrada de blog"
+
+#: ./ftw/blog/browser/blog.pt:86
+#: ./ftw/blog/browser/entry.pt:28
+#: ./ftw/blog/content/blogentry.py:49
+msgid "Categories"
+msgstr "Categorías"
+
+#: ./ftw/blog/browser/blog.pt:99
+#: ./ftw/blog/browser/entry.pt:41
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. Default: "Next ${number} items"
+#: ./ftw/blog/browser/batching.pt:34
+msgid "batch_next_x_items"
+msgstr "Siguientes ${number} elementos"
+
+#. Default: "Previous ${number} items"
+#: ./ftw/blog/browser/batching.pt:22
+msgid "batch_previous_x_items"
+msgstr "Anteriores ${number} elementos"
+
+#. Default: "Search the Blog"
+#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:14
+msgid "blog_search_button"
+msgstr "Buscar en el blog"
+
+#. Default: "created"
+#: ./ftw/blog/browser/tabbed_blog_view.py:56
+msgid "column_created"
+msgstr "creado el"
+
+#. Default: "Creator"
+#: ./ftw/blog/browser/tabbed_blog_view.py:41
+msgid "column_creator"
+msgstr "Autor"
+
+#. Default: "Title"
+#: ./ftw/blog/browser/tabbed_blog_view.py:37
+msgid "column_title"
+msgstr "Título"
+
+#. Default: "There are currently no entries in this blog."
+#: ./ftw/blog/browser/blog.pt:127
+msgid "description_no_entries"
+msgstr "Actualmente no hay entradas en este blog"
+
+#. Default: "by"
+#: ./ftw/blog/browser/blog.pt:55
+#: ./ftw/blog/viewlets/blog_byline.pt:9
+msgid "label_by"
+msgstr "por"
+
+#. Default: "Filtered by these criterions"
+#: ./ftw/blog/browser/blog.pt:20
+msgid "label_filters"
+msgstr "Filtro aplicado:"
+
+#. Default: "Show all"
+#: ./ftw/blog/browser/entry.pt:55
+msgid "label_show_all"
+msgstr "Mostrar todo"
