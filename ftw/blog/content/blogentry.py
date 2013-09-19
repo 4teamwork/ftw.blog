@@ -104,7 +104,9 @@ protected_fields = ['creators', 'contributors', 'rights', 'allowDiscussion',
                     'excludeFromNav', 'nextPreviousEnabled']
 for fieldname in protected_fields:
     if fieldname in BlogEntrySchema:
-        BlogEntrySchema[fieldname].write_permission='Manage portal'
+        BlogEntrySchema[fieldname].write_permission = 'Manage portal'
+
+BlogEntrySchema.addField(schemata.relatedItemsField.copy())
 
 
 class BlogEntry(folder.ATFolder):
