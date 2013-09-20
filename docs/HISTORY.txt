@@ -2,8 +2,8 @@ Changelog
 =========
 
 
-1.3.2 (unreleased)
-------------------
+1.4 (2013-09-20)
+----------------
 
 - Add relatedItems field to BlogEntry.
   [mathias.leimgruber]
