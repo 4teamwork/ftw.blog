@@ -13,6 +13,6 @@ msgstr ""
 "Domain: DOMAIN\n"
 
 msgid "Categories"
-msgstr ""
+msgstr "Catégories"
 
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-02-27 16:51+0000\n"
+"POT-Creation-Date: 2013-01-08 13:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,13 +28,14 @@ msgstr "Catégorie de blogue"
 msgid "BlogEntry"
 msgstr "Entrée blogue"
 
-#: ./ftw/blog/browser/entry.pt:70
-#: ./ftw/blog/content/blogentry.py:47
-#: ./ftw/blog/eventhandlers.py:16
+#: ./ftw/blog/browser/blog.pt:86
+#: ./ftw/blog/browser/entry.pt:28
+#: ./ftw/blog/content/blogentry.py:49
 msgid "Categories"
 msgstr "Catégories"
 
-#: ./ftw/blog/browser/entry.pt:85
+#: ./ftw/blog/browser/blog.pt:99
+#: ./ftw/blog/browser/entry.pt:41
 msgid "Tags"
 msgstr "Étiquette"
 
@@ -53,25 +54,41 @@ msgstr "Dernière ${number} éléments"
 msgid "blog_search_button"
 msgstr "Parcourir blogue"
 
+#. Default: "created"
+#: ./ftw/blog/browser/tabbed_blog_view.py:56
+msgid "column_created"
+msgstr "Créé le"
+
+#. Default: "Creator"
+#: ./ftw/blog/browser/tabbed_blog_view.py:41
+msgid "column_creator"
+msgstr "Créateur"
+
+#. Default: "Title"
+#: ./ftw/blog/browser/tabbed_blog_view.py:37
+msgid "column_title"
+msgstr "Titre"
+
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:111
+#: ./ftw/blog/browser/blog.pt:127
 msgid "description_no_entries"
-msgstr "Il n'existe pas des entrees dans ce blogue'"
+msgstr "Il n'existe pas d'entrées dans ce blogue"
 
-#. Default: "${author} at ${created}"
-#: ./ftw/blog/browser/blog.pt:72
-#: ./ftw/blog/browser/entry.pt:46
-msgid "label_blog_byline"
-msgstr "Par ${author} le ${created}"
+#. Default: "by"
+#: ./ftw/blog/browser/blog.pt:55
+#: ./ftw/blog/viewlets/blog_byline.pt:9
+msgid "label_by"
+msgstr "Par"
 
-#. Default: "It would be filtered on the follow criterias"
-#: ./ftw/blog/browser/blog.pt:30
+#. Default: "Filtered by these criterions"
+#: ./ftw/blog/browser/blog.pt:20
+#, fuzzy
 msgid "label_filters"
 msgstr "Il est filtré par les critères suivants"
 
 #. Default: "Show all"
-#: ./ftw/blog/browser/entry.pt:53
+#: ./ftw/blog/browser/entry.pt:55
 msgid "label_show_all"
-msgstr ""
+msgstr "Afficher tout"
 
 
