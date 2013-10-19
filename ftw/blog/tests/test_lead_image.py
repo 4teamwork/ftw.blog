@@ -1,5 +1,6 @@
 from ftw.blog.interfaces import IBlogSettings
 from ftw.blog.testing import FTW_BLOG_INTEGRATION_TESTING
+from plone.app.discussion.interfaces import IDiscussionLayer
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.registry.interfaces import IRegistry
@@ -7,6 +8,7 @@ from pyquery import PyQuery
 from StringIO import StringIO
 from unittest2 import TestCase
 from zope.component import getUtility
+from zope.interface import alsoProvides
 
 
 class TestLeadImage(TestCase):
@@ -19,8 +21,13 @@ class TestLeadImage(TestCase):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
-        blog = self.portal.get(self.portal.invokeFactory('Blog', 'blog'))
-        self.entry = blog.get(blog.invokeFactory('BlogEntry', 'entry'))
+        self.blog = self.portal.get(self.portal.invokeFactory('Blog', 'blog'))
+        self.entry = self.blog.get(
+            self.blog.invokeFactory('BlogEntry', 'entry'))
+
+        # Provide IDiscussionLayer for blog view
+        alsoProvides(
+            self.portal.REQUEST, IDiscussionLayer)
 
     def enable_lead_image(self):
         registry = getUtility(IRegistry)
@@ -57,10 +64,15 @@ class TestLeadImage(TestCase):
             '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
             '\x01\x00\x00\x02\x02D\x01\x00;')
 
-        self.entry.setLeadimage(image)
-
         view = self.entry.restrictedTraverse('@@blog_entry_view')
         self.assertFalse(view.show_lead_image())
+
+        blogview = self.blog.restrictedTraverse('@@blog_view')
+        doc = PyQuery(blogview())
+        self.assertFalse(doc('.EntryLeadImage img'),
+                         'There should be no image')
+
+        self.entry.setLeadimage(image)
 
         self.enable_lead_image()
         self.assertTrue(view.show_lead_image())
@@ -68,3 +80,5 @@ class TestLeadImage(TestCase):
         doc = PyQuery(view())
         self.assertTrue(doc('.leadimage'))
 
+        doc = PyQuery(blogview())
+        self.assertTrue(doc('.EntryLeadImage img'), 'There should be an image')
