@@ -55,6 +55,7 @@ class TestLeadImage(TestCase):
         # Still false, because there is no image
         self.assertFalse(view.show_lead_image())
 
+        view.request['ACTUAL_URL'] = self.entry.absolute_url()
         doc = PyQuery(view())
         self.assertFalse(doc('.leadimage'))
 
@@ -65,9 +66,11 @@ class TestLeadImage(TestCase):
             '\x01\x00\x00\x02\x02D\x01\x00;')
 
         view = self.entry.restrictedTraverse('@@blog_entry_view')
+        view.request['ACTUAL_URL'] = self.entry.absolute_url()
         self.assertFalse(view.show_lead_image())
 
         blogview = self.blog.restrictedTraverse('@@blog_view')
+        blogview.request['ACTUAL_URL'] = self.blog.absolute_url()
         doc = PyQuery(blogview())
         self.assertFalse(doc('.EntryLeadImage img'),
                          'There should be no image')
