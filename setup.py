@@ -49,7 +49,7 @@ setup(name='ftw.blog',
       install_requires=[
         'ftw.colorbox',
         'ftw.tagging',
-        'ftw.upgrade',
+        'ftw.upgrade>=1.6.0',
         'Plone',
         'plone.browserlayer',
         'setuptools',
