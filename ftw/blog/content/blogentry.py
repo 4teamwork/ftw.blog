@@ -1,6 +1,3 @@
-"""Definition of the Blog Entry content type
-"""
-
 from AccessControl import ClassSecurityInfo
 from Acquisition import aq_inner
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
@@ -8,10 +5,15 @@ from DateTime import DateTime
 from ftw.blog import _
 from ftw.blog.config import PROJECTNAME
 from ftw.blog.interfaces import IBlogEntry
+from ftw.blog.interfaces import IBlogSettings
+from plone.app.blob.field import ImageField
+from plone.registry.interfaces import IRegistry
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import folder
 from Products.ATContentTypes.content import schemata
+from zope.component import getUtility
 from zope.interface import implements
+
 
 from Products.ATContentTypes.config import HAS_LINGUA_PLONE
 if HAS_LINGUA_PLONE:
@@ -75,6 +77,13 @@ BlogEntrySchema = folder.ATFolderSchema.copy() + atapi.Schema((
         ),
     ),
 
+    ImageField(
+        name='leadimage',
+        required=False,
+        schemata='image',
+        widget=atapi.ImageWidget(
+            label=_(u'label_lead_image',
+                    default=u'Lead image'))),
 
 ))
 
@@ -109,6 +118,13 @@ for fieldname in protected_fields:
 BlogEntrySchema.addField(schemata.relatedItemsField.copy())
 
 
+# Set condition for lead image field - it's configurable through the
+# p.a.registry
+
+BlogEntrySchema['leadimage'].widget.setCondition(
+    "python:object.showLeadImage()")
+
+
 class BlogEntry(folder.ATFolder):
     """Ftw Blog Entry"""
     implements(IBlogEntry)
@@ -138,6 +154,12 @@ class BlogEntry(folder.ATFolder):
 
     def canSetDefaultPage(self):
         return False
+
+    def showLeadImage(self):
+        registry = getUtility(IRegistry)
+        show = registry.forInterface(
+            IBlogSettings, check=False).blog_entry_has_lead_image
+        return show
 
 
 registerType(BlogEntry, PROJECTNAME)

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<registry>
+  <records interface="ftw.blog.interfaces.IBlogSettings">
+      <value key="blog_entry_has_lead_image">False</value>
+  </records>
+</registry>

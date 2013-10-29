@@ -23,3 +23,6 @@ class BlogEntryView(BrowserView):
 
     def show_images(self):
         return self.context.getShowImages()
+
+    def show_lead_image(self):
+        return self.context.getLeadimage() and self.context.showLeadImage()

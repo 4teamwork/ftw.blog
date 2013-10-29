@@ -14,6 +14,10 @@ search function of the blog.
 
 Enable commenting by activating the ``global_allowed`` setting in the ``@@discussion-settings`` view.
 
+You can enable a lead image for BlogEntries (Configuration registry).
+It's disabled by default. If enabled you are able to add an image to a BlogEntry.
+It will be shown on the BlogEntry itself and on the Blog overview
+
 Install
 =======
 

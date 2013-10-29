@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-1.4.1 (unreleased)
-------------------
+1.5 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Add lead image.
+  [mathias.leimgruber]
 
 
 1.4 (2013-09-20)

@@ -19,6 +19,13 @@
         <div class="blogText" tal:content="structure context/getText"></div>
 
         <div class="blogImages" tal:condition="view/show_images">
+          <a class="colorboxLink leadimage"
+             rel="entry" tal:condition="view/show_lead_image"
+             tal:attributes="href python:context.absolute_url() + '/leadimage'">
+          <img tal:define="scales context/@@images"
+               tal:replace="structure python: scales.tag('leadimage', scale='mini')"
+               />
+          </a>
           <a tal:repeat="image python:here.getFolderContents({'portal_type':'Image'}, full_objects=True)"
              tal:attributes="href python:image.absolute_url() + '/image'" class="colorboxLink" rel="entry">
             <img tal:replace="structure python:image.tag(scale='mini')" />

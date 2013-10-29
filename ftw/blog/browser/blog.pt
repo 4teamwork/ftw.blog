@@ -76,14 +76,20 @@
                                 <span tal:replace="python:toLocalizedTime(item.CreationDate ,long_format=1)">
                                   August 16, 2001 at 23:35:59
                                 </span>
-                                
+
                             </span>
                         </div>
                   </div>
 
 
+                  <div class="EntryLeadImage">
+                    <img tal:define="obj item/getObject;
+                                   scales  obj/@@images"
+                       tal:condition="python: obj.showLeadImage() and obj.getLeadimage()"
+                       tal:replace="structure python: scales.tag('leadimage', scale='mini')" />
 
-                  <div tal:content="structure item/Description">
+                    <div class="EntryDescription" tal:content="structure item/Description">
+                    </div>
                   </div>
 
                   <div class="categorization"

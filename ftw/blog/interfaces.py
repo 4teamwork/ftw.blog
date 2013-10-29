@@ -2,7 +2,8 @@
 # E0211: Method has no argument
 # E0213: Method should have "self" as first argument
 
-
+from ftw.blog import _
+from zope import schema
 from zope.interface import Interface
 
 
@@ -49,3 +50,11 @@ class IBlogUtils(Interface):
         """Returns the blog root of the current context. If the context is
         not within a blog, `None` is returned.
         """
+
+
+class IBlogSettings(Interface):
+    """Blog settings"""
+
+    blog_entry_has_lead_image = schema.Bool(
+        title=_(u"Show lead image in blog entries"),
+        default=False)

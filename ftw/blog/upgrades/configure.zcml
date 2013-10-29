@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:upgrade-step="http://namespaces.zope.org/ftw.upgrade"
     i18n_domain="ftw.blog">
 
     <!-- 1 -> 2 -->
@@ -49,6 +50,14 @@
         destination="1400"
         handler="ftw.blog.upgrades.to1400.InstallColorBox"
         profile="ftw.blog:default"
+        />
+
+    <upgrade-step:importProfile
+        title="Update configuration registry"
+        profile="ftw.blog:default"
+        source="1400"
+        destination="1500"
+        directory="profiles/1500"
         />
 
 </configure>
