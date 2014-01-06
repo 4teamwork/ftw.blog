@@ -11,7 +11,7 @@
 
   <portlet
     addview="blog.archiv.portlet"
-    title="Blog Archiv Portlet"
+    title="Blog Archive Portlet"
     description="A portlet for ftw blog, which shows the archive.">
       <for interface="plone.app.portlets.interfaces.IColumn" />
       <for interface="plone.app.portlets.interfaces.IDashboard" />
