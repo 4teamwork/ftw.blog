@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.5.1 (unreleased)
+1.5.1 (2014-01-07)
 ------------------
 
 - Add upgrade step, which fixes the wrong archive portlet title.
