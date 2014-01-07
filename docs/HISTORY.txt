@@ -5,6 +5,9 @@ Changelog
 1.5.1 (unreleased)
 ------------------
 
+- Add upgrade step, which fixes the wrong archive portlet title.
+  [mathias.leimgruber]
+
 - Fix typo in archive portlet label.
   [mathias.leimgruber]
 

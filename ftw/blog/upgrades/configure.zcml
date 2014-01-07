@@ -60,4 +60,12 @@
         directory="profiles/1500"
         />
 
+    <upgrade-step:importProfile
+        title="Reregister archive portlet (fix a typo in the title)"
+        profile="ftw.blog:default"
+        source="1500"
+        destination="1501"
+        directory="profiles/1501"
+        />
+
 </configure>
