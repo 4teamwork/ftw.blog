@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '1.5.2.dev0'
+version = '1.5.2'
 
 maintainer = 'Mathias Leimgruber'
 
