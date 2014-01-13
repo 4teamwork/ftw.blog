@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-03-29 12:09+0000\n"
+"POT-Creation-Date: 2014-01-13 15:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -10,10 +10,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
 
 #: ./ftw/blog/portlets/archiv.pt:12
-msgid "Archiv"
+msgid "Archive"
 msgstr "Archive"
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
@@ -28,65 +27,69 @@ msgstr "Blog Category"
 msgid "BlogEntry"
 msgstr "Blog Entry"
 
-#: ./ftw/blog/browser/blog.pt:81
-#: ./ftw/blog/browser/entry.pt:70
-#: ./ftw/blog/content/blogentry.py:47
+#: ./ftw/blog/browser/blog.pt:101
+#: ./ftw/blog/browser/entry.pt:43
+#: ./ftw/blog/content/blogentry.py:53
 msgid "Categories"
 msgstr "Categories"
 
-#: ./ftw/blog/browser/entry.pt:85
+#: ./ftw/blog/interfaces.py:59
+msgid "Show lead image in blog entries"
+msgstr "Show lead image in blog entries"
+
+#: ./ftw/blog/browser/blog.pt:114
+#: ./ftw/blog/browser/entry.pt:56
 msgid "Tags"
 msgstr "Tags"
 
-#. Default: "Next ${number} items"
-#: ./ftw/blog/browser/batching.pt:34
-msgid "batch_next_x_items"
-msgstr "Next ${number} items"
-
-#. Default: "Previous ${number} items"
-#: ./ftw/blog/browser/batching.pt:22
-msgid "batch_previous_x_items"
-msgstr "Previous ${number} items"
-
-#. Default: "Search the Blog"
-#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:14
-msgid "blog_search_button"
-msgstr "Search blog"
-
 #. Default: "created"
-#: ./ftw/blog/browser/tabbed_blog_view.py:53
+#: ./ftw/blog/browser/tabbed_blog_view.py:56
 msgid "column_created"
 msgstr "Created"
 
 #. Default: "Creator"
-#: ./ftw/blog/browser/tabbed_blog_view.py:38
+#: ./ftw/blog/browser/tabbed_blog_view.py:41
 msgid "column_creator"
 msgstr "Creator"
 
 #. Default: "Title"
-#: ./ftw/blog/browser/tabbed_blog_view.py:34
+#: ./ftw/blog/browser/tabbed_blog_view.py:37
 msgid "column_title"
 msgstr "Title"
 
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:113
+#: ./ftw/blog/browser/blog.pt:152
 msgid "description_no_entries"
 msgstr "There are no entries in this blog."
 
-#. Default: "${author} at ${created}"
-#: ./ftw/blog/browser/blog.pt:72
-#: ./ftw/blog/browser/entry.pt:46
-msgid "label_blog_byline"
-msgstr "${author} at ${created}"
+#. Default: "Decide you want to show all uploaded images as gallery"
+#: ./ftw/blog/content/blogentry.py:74
+msgid "description_show_images"
+msgstr "Decide you want to show all uploaded images as gallery"
 
-#. Default: "It would be filtered on the follow criterias"
-#: ./ftw/blog/browser/blog.pt:30
+#. Default: "by"
+#: ./ftw/blog/browser/blog.pt:60
+#: ./ftw/blog/viewlets/blog_byline.pt:14
+msgid "label_by"
+msgstr "by"
+
+#. Default: "Filtered by these criterions"
+#: ./ftw/blog/browser/blog.pt:25
 msgid "label_filters"
 msgstr "Filtered by: "
 
+#. Default: "Lead image"
+#: ./ftw/blog/content/blogentry.py:85
+msgid "label_lead_image"
+msgstr "Leadimage"
+
 #. Default: "Show all"
-#: ./ftw/blog/browser/entry.pt:53
+#: ./ftw/blog/browser/entry.pt:70
 msgid "label_show_all"
 msgstr "Show all"
 
+#. Default: "Show images as gallery"
+#: ./ftw/blog/content/blogentry.py:73
+msgid "label_show_images"
+msgstr "Gallery"
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-01-08 13:12+0000\n"
+"POT-Creation-Date: 2014-01-13 15:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Domain: ftw.blog\n"
 
 #: ./ftw/blog/portlets/archiv.pt:12
-msgid "Archiv"
+msgid "Archive"
 msgstr ""
 
 #: ./ftw/blog/profiles/default/types/Blog.xml
@@ -33,30 +33,19 @@ msgstr ""
 msgid "BlogEntry"
 msgstr ""
 
-#: ./ftw/blog/browser/blog.pt:86
-#: ./ftw/blog/browser/entry.pt:28
-#: ./ftw/blog/content/blogentry.py:49
+#: ./ftw/blog/browser/blog.pt:101
+#: ./ftw/blog/browser/entry.pt:43
+#: ./ftw/blog/content/blogentry.py:53
 msgid "Categories"
 msgstr ""
 
-#: ./ftw/blog/browser/blog.pt:99
-#: ./ftw/blog/browser/entry.pt:41
+#: ./ftw/blog/interfaces.py:59
+msgid "Show lead image in blog entries"
+msgstr ""
+
+#: ./ftw/blog/browser/blog.pt:114
+#: ./ftw/blog/browser/entry.pt:56
 msgid "Tags"
-msgstr ""
-
-#. Default: "Next ${number} items"
-#: ./ftw/blog/browser/batching.pt:34
-msgid "batch_next_x_items"
-msgstr ""
-
-#. Default: "Previous ${number} items"
-#: ./ftw/blog/browser/batching.pt:22
-msgid "batch_previous_x_items"
-msgstr ""
-
-#. Default: "Search the Blog"
-#: ./ftw/blog/viewlets/ftw_blog_actionsbar.pt:14
-msgid "blog_search_button"
 msgstr ""
 
 #. Default: "created"
@@ -75,23 +64,38 @@ msgid "column_title"
 msgstr ""
 
 #. Default: "There are currently no entries in this blog."
-#: ./ftw/blog/browser/blog.pt:127
+#: ./ftw/blog/browser/blog.pt:152
 msgid "description_no_entries"
 msgstr ""
 
+#. Default: "Decide you want to show all uploaded images as gallery"
+#: ./ftw/blog/content/blogentry.py:74
+msgid "description_show_images"
+msgstr ""
+
 #. Default: "by"
-#: ./ftw/blog/browser/blog.pt:55
-#: ./ftw/blog/viewlets/blog_byline.pt:9
+#: ./ftw/blog/browser/blog.pt:60
+#: ./ftw/blog/viewlets/blog_byline.pt:14
 msgid "label_by"
 msgstr ""
 
 #. Default: "Filtered by these criterions"
-#: ./ftw/blog/browser/blog.pt:20
+#: ./ftw/blog/browser/blog.pt:25
 msgid "label_filters"
 msgstr ""
 
+#. Default: "Lead image"
+#: ./ftw/blog/content/blogentry.py:85
+msgid "label_lead_image"
+msgstr ""
+
 #. Default: "Show all"
-#: ./ftw/blog/browser/entry.pt:55
+#: ./ftw/blog/browser/entry.pt:70
 msgid "label_show_all"
+msgstr ""
+
+#. Default: "Show images as gallery"
+#: ./ftw/blog/content/blogentry.py:73
+msgid "label_show_images"
 msgstr ""
 
