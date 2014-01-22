@@ -65,7 +65,7 @@ msgstr "Es existieren momentan keine Einträge in diesem Blog"
 #. Default: "Decide you want to show all uploaded images as gallery"
 #: ./ftw/blog/content/blogentry.py:74
 msgid "description_show_images"
-msgstr "Falls ausgwählt werden alle Bilder von diesem Blog-Eintrag alls Galerie dargestellt."
+msgstr "Falls ausgewählt, werden alle Bilder von diesem Blog-Eintrag als Galerie dargestellt."
 
 #. Default: "by"
 #: ./ftw/blog/browser/blog.pt:60
@@ -92,4 +92,3 @@ msgstr "Alle anzeigen"
 #: ./ftw/blog/content/blogentry.py:73
 msgid "label_show_images"
 msgstr "Galerie"
-
