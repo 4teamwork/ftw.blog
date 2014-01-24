@@ -9,6 +9,8 @@ tests_require = [
     'ftw.testing',
     'plone.app.testing',
     'pyquery'
+    'ftw.testbrowser',
+    'ftw.builder',
     ]
 
 extras_require = {
