@@ -1,0 +1,13 @@
+<dl class="portlet blogentryCollection"
+    i18n:domain="ftw.blog"
+    tal:define="plone_view context/@@plone;
+                toLocalizedTime nocall:plone_view/toLocalizedTime;">
+
+    <dt class="portletHeader">
+        <tal:title replace="view/data/portlet_title" />
+    </dt>
+
+    <dd class="portletItem">
+
+    </dd>
+</dl>

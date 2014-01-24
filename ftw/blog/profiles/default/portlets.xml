@@ -17,6 +17,13 @@
       <for interface="plone.app.portlets.interfaces.IDashboard" />
    </portlet>
 
+  <portlet
+    addview="blog.blogentry.collection.portlet"
+    title="BlogEntry collection portlet"
+    description="A portlet, which collects blog entries">
+      <for interface="plone.app.portlets.interfaces.IColumn" />
+   </portlet>
+
   <assignment
     name="blog-categories"
     category="content_type"
