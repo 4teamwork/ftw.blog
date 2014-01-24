@@ -4,5 +4,6 @@
     <dependencies>
         <dependency>profile-ftw.tagging:default</dependency>
         <dependency>profile-ftw.colorbox:default</dependency>
+        <dependency>profile-plone.formwidget.contenttree:default</dependency>
   </dependencies>
 </metadata>
