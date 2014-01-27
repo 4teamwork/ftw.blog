@@ -32,8 +32,9 @@ class IBlogEntryCollectionPortlet(IPortletDataProvider):
         description=_(u"Decide where to collect BlogEntries"),
         value_type=schema.Choice(
             source=PathSourceBinder(
-                navigation_tree_query={
-                    'portal_type': 'Blog'}),
+                is_folderish=True,
+                portal_type='Blog',
+                navigation_tree_query=None),
         ),
         required=False,
     )
@@ -67,16 +68,21 @@ class Renderer(base.Renderer):
     render = ViewPageTemplateFile('blogentry_collection_portlet.pt')
 
     def get_items(self):
+        catalog = getToolByName(self.context, 'portal_catalog')
+        url_tool = getToolByName(self.context, 'portal_url')
+        portal_path = url_tool.getPortalPath()
+
         query = {'portal_type': 'BlogEntry',
                  'sort_on': 'created',
                  'sort_order': 'descending'}
 
         if self.data.path:
-            query['path'] = self.data.path
+            query['path'] = []
+            for item in self.data.path:
+                query['path'].append('/'.join([portal_path, item]))
         else:
             query['path'] = getNavigationRoot(self.context)
 
-        catalog = getToolByName(self.context, 'portal_catalog')
         return catalog(query)
 
 

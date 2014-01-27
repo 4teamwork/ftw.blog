@@ -140,3 +140,22 @@ class TestBlogEntryCollectionPortlet(TestCase):
             len(browser.visit().css(
                 '.blogentryCollection .portletItemDescription')),
             'There should be no description displayed.')
+
+    @browsing
+    def test_portlet_renderer_include_path_query(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+        blog2 = create(Builder('blog').titled('Second blog'))
+        entry3 = create(Builder('blog entry')
+            .within(blog2)
+            .titled('Third entry'))
+
+        browser.login()
+        info = {'Title': 'Portlet title',
+                'Blogs': ['/'.join(blog2.getPhysicalPath())]}
+        self.add_portlet(browser, **info)
+
+        items = browser.visit().css(
+            '.blogentryCollection .portletItemTitle').text
+        self.assertEquals(1, len(items), 'Expect one entry.')
+
+        self.assertEquals(entry3.Title(), items[0])
