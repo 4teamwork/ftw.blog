@@ -79,7 +79,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
         browser.login()
         self.add_portlet(browser, **{'Title': 'Portlet title'})
 
-        browser.find_link_by_text('BlogEntries collection').click()
+        browser.find_link_by_text('BlogEntries collection portlet').click()
         self.assertEquals(plone.first_heading(),
                           'Edit BlogEntry collection portlet',
                           'Wrong title, perhaps we are not on the portlet '
@@ -129,7 +129,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
         entry1, entry2 = self.create_blog_entries()
         transaction.commit()
         browser.login()
-        info = {'Title': 'Portlet title', 'Show Description': True}
+        info = {'Title': 'Portlet title', 'Show description': True}
         self.add_portlet(browser, **info)
         descriptions = browser.visit().css(
         '.blogentryCollection .portletItemDescription').text
@@ -143,7 +143,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
     def test_portlet_renderer_do_not_show_description(self, browser):
         entry1, entry2 = self.create_blog_entries()
         browser.login()
-        info = {'Title': 'Portlet title', 'Show Description': False}
+        info = {'Title': 'Portlet title', 'Show description': False}
         self.add_portlet(browser, **info)
 
         self.assertFalse(
@@ -196,7 +196,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
         entry1, entry2 = self.create_blog_entries()
 
         browser.login()
-        info = {'Title': 'Portlet title', 'Show lead images': True}
+        info = {'Title': 'Portlet title', 'Show leadimages': True}
         self.add_portlet(browser, **info)
 
         self.assertEquals(
@@ -209,7 +209,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
         entry1, entry2 = self.create_blog_entries()
 
         browser.login()
-        info = {'Title': 'Portlet title', 'Show lead images': False}
+        info = {'Title': 'Portlet title', 'Show leadimages': False}
         self.add_portlet(browser, **info)
 
         self.assertEquals(

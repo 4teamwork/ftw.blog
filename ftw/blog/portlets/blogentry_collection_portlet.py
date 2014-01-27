@@ -25,11 +25,18 @@ class IBlogEntryCollectionPortlet(IPortletDataProvider):
 
     show_image = schema.Bool(
         title=_(u'label_show_image', default=u'Show lead images'),
+        description=_(
+            u'help_portlet_show_image',
+            default=u'You can enable the leadimage in the configuration '
+                    'registry'),
         default=True)
 
     path = schema.List(
-        title=_(u"Blogs"),
-        description=_(u"Decide where to collect BlogEntries"),
+        title=_(u'Blogs'),
+        description=_(
+            u'help_portlet_blogs',
+            default=u'Chose from which blog you want to list the blog '
+                     'entries'),
         value_type=schema.Choice(
             source=PathSourceBinder(
                 is_folderish=True,

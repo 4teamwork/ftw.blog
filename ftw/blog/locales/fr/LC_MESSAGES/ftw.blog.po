@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-27 08:57+0000\n"
+"POT-Creation-Date: 2014-01-27 15:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,10 @@ msgstr "Catégorie de blogue"
 #: ./ftw/blog/profiles/default/types/BlogEntry.xml
 msgid "BlogEntry"
 msgstr "Entrée blogue"
+
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:35
+msgid "Blogs"
+msgstr ""
 
 #: ./ftw/blog/browser/blog.pt:101
 #: ./ftw/blog/browser/entry.pt:43
@@ -67,11 +71,36 @@ msgstr "Il n'existe pas d'entrées dans ce blogue"
 msgid "description_show_images"
 msgstr "Si cette option est sélectionnée, toutes les images de ce blog seront présentés comme une galerie."
 
+#. Default: "Chose from which blog you want to list the blog entries"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:36
+msgid "help_portlet_blogs"
+msgstr ""
+
+#. Default: "You can enable the leadimage in the configuration registry"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:28
+msgid "help_portlet_show_image"
+msgstr ""
+
+#. Default: "Add BlogEntry collection portlet"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:116
+msgid "label_add_blogentry_collection_portlet"
+msgstr ""
+
 #. Default: "by"
 #: ./ftw/blog/browser/blog.pt:60
 #: ./ftw/blog/viewlets/blog_byline.pt:14
 msgid "label_by"
 msgstr "Par"
+
+#. Default: "Cancel"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:148
+msgid "label_cancel"
+msgstr ""
+
+#. Default: "Edit BlogEntry collection portlet"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:174
+msgid "label_edit_blogentry_collection_portlet"
+msgstr ""
 
 #. Default: "Filtered by these criterions"
 #: ./ftw/blog/browser/blog.pt:25
@@ -83,12 +112,48 @@ msgstr "Il est filtré par les critères suivants"
 msgid "label_lead_image"
 msgstr "Image principale"
 
+#. Default: "BlogEntries collection"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:71
+msgid "label_portlet_title"
+msgstr ""
+
+#. Default: "Quantity"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:50
+msgid "label_quantity"
+msgstr ""
+
+#. Default: "Read more"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.pt:34
+msgid "label_readmore"
+msgstr ""
+
+#. Default: "Save"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:137
+msgid "label_save"
+msgstr ""
+
 #. Default: "Show all"
 #: ./ftw/blog/browser/entry.pt:70
 msgid "label_show_all"
 msgstr "Montrer tout"
 
+#. Default: "Show Description"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:54
+msgid "label_show_desc"
+msgstr ""
+
+#. Default: "Show lead images"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:27
+msgid "label_show_image"
+msgstr ""
+
 #. Default: "Show images as gallery"
 #: ./ftw/blog/content/blogentry.py:73
 msgid "label_show_images"
 msgstr "Galerie"
+
+#. Default: "Title"
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:23
+msgid "label_title"
+msgstr ""
+
