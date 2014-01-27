@@ -5,7 +5,7 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
-- Update German and French translations.
+- Update German, French and English translations.
   [jone]
 
 
