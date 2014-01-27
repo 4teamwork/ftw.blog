@@ -24,19 +24,19 @@ class TestBlogEntryCollectionPortlet(TestCase):
 
         self.blog = create(Builder('blog').titled('Blog'))
 
-    def add_portlet(self, browser, title=''):
+    def add_portlet(self, browser, **kwargs):
         browser.visit(view='@@manage-portlets')
         browser.forms['form-3'].fill({
             ':action': '/++contextportlets++plone.rightcolumn/+/blog.blogentry'
                        '.collection.portlet'}).submit()
 
-        browser.fill({'Title': title})
+        browser.fill(kwargs)
         browser.find('Save').click()
 
     def create_blog_entries(self):
         entry1 = create(Builder('blog entry')
                         .titled('Blog entry 1')
-                        .having(test='Just a small text.')
+                        .having(text='Just a small text.')
                         .within(self.blog))
         entry2 = create(Builder('blog entry')
                         .titled('Blog entry 2')
@@ -48,14 +48,14 @@ class TestBlogEntryCollectionPortlet(TestCase):
     @browsing
     def test_portlet_title_is_required(self, browser):
         browser.login()
-        self.add_portlet(browser)
+        self.add_portlet(browser, **{'Title': ''})
 
         statusmessages.assert_message('There were some errors.')
 
     @browsing
     def test_default_portlet_creation(self, browser):
         browser.login()
-        self.add_portlet(browser, 'Portlet title')
+        self.add_portlet(browser, **{'Title': 'Portlet title'})
 
         self.assertTrue(browser.css('body.template-manage-portlets'),
                         'We should be redirected to the manage-portlets view.')
@@ -67,7 +67,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
     @browsing
     def test_portlet_edit_view(self, browser):
         browser.login()
-        self.add_portlet(browser, 'Portlet title')
+        self.add_portlet(browser, **{'Title': 'Portlet title'})
 
         browser.find_link_by_text('BlogEntries collection').click()
         self.assertEquals(plone.first_heading(),
@@ -90,11 +90,10 @@ class TestBlogEntryCollectionPortlet(TestCase):
         entry1, entry2 = self.create_blog_entries()
 
         browser.login()
-        self.add_portlet(browser, 'Portlet title')
+        self.add_portlet(browser, **{'Title': 'Portlet title'})
 
-        browser.visit()
-
-        titles = browser.css('.blogentryCollection .portletItemTitle').text
+        titles = browser.visit().css(
+            '.blogentryCollection .portletItemTitle').text
 
         self.assertIn(entry1.Title(), titles, 'Blog title not found')
         self.assertIn(entry2.Title(), titles, 'Blog title not found')
@@ -103,14 +102,41 @@ class TestBlogEntryCollectionPortlet(TestCase):
     def test_portlet_renderer_result_order(self, browser):
         entry1, entry2 = self.create_blog_entries()
         entry1.setCreationDate(DateTime('2012-12-12'))
-        entry2.setCreationDate(DateTime())
+        entry1.reindexObject()
         transaction.commit()
 
         browser.login()
-        self.add_portlet(browser, 'Portlet title')
+        self.add_portlet(browser, **{'Title': 'Portlet title'})
         ordered_titles = browser.visit().css(
             '.blogentryCollection .portletItemTitle').text
 
         self.assertEquals([entry2.Title(), entry1.Title()],
                           ordered_titles,
                           'Wrong order.')
+
+    @browsing
+    def test_portlet_renderer_crop_description(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+        transaction.commit()
+        browser.login()
+        info = {'Title': 'Portlet title', 'Show Description': True}
+        self.add_portlet(browser, **info)
+        descriptions = browser.visit().css(
+        '.blogentryCollection .portletItemDescription').text
+
+        self.assertEquals(2, len(descriptions), 'Expect two items')
+
+        self.assertTrue(len(descriptions[1]) <= 200 + 3,  # max 200 plus 3 dots
+                        'Description not cropped')
+
+    @browsing
+    def test_portlet_renderer_do_not_show_description(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+        browser.login()
+        info = {'Title': 'Portlet title', 'Show Description': False}
+        self.add_portlet(browser, **info)
+
+        self.assertFalse(
+            len(browser.visit().css(
+                '.blogentryCollection .portletItemDescription')),
+            'There should be no description displayed.')
