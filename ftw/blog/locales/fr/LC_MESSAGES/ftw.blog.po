@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-13 15:24+0000\n"
+"POT-Creation-Date: 2014-01-27 08:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr "Étiquette"
 #. Default: "created"
 #: ./ftw/blog/browser/tabbed_blog_view.py:56
 msgid "column_created"
-msgstr "Date"
+msgstr "Créé le"
 
 #. Default: "Creator"
 #: ./ftw/blog/browser/tabbed_blog_view.py:41
@@ -60,7 +60,7 @@ msgstr "Titre"
 #. Default: "There are currently no entries in this blog."
 #: ./ftw/blog/browser/blog.pt:152
 msgid "description_no_entries"
-msgstr "Il n'existe pas des entrees dans ce blogue'"
+msgstr "Il n'existe pas d'entrées dans ce blogue"
 
 #. Default: "Decide you want to show all uploaded images as gallery"
 #: ./ftw/blog/content/blogentry.py:74
@@ -71,7 +71,7 @@ msgstr "Si cette option est sélectionnée, toutes les images de ce blog seront 
 #: ./ftw/blog/browser/blog.pt:60
 #: ./ftw/blog/viewlets/blog_byline.pt:14
 msgid "label_by"
-msgstr "par"
+msgstr "Par"
 
 #. Default: "Filtered by these criterions"
 #: ./ftw/blog/browser/blog.pt:25
