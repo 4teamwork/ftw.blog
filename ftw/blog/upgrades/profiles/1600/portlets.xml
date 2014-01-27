@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<portlets>
+
+  <portlet
+    addview="blog.blogentry.collection.portlet"
+    title="BlogEntry collection portlet"
+    description="A portlet, which collects blog entries">
+      <for interface="plone.app.portlets.interfaces.IColumn" />
+   </portlet>
+
+</portlets>
