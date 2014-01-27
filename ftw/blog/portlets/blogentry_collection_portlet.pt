@@ -7,7 +7,32 @@
         <tal:title replace="view/data/portlet_title" />
     </dt>
 
-    <dd class="portletItem">
+    <tal:loop tal:repeat="brain view/get_items">
+        <dd class="portletItem"
+            tal:define="oddrow repeat/brain/odd;
+                        lastrow repeat/brain/_last"
+            tal:attributes="class python:'%s%s' % (
+                            lastrow and 'lastItem ' or '',
+                            oddrow and 'portletItem even' or 'portletItem odd')">
+            <div class="portletItemBody">
+                    <div class="portletItemDate"
+                          tal:content="python:toLocalizedTime(brain.created)" />
 
-    </dd>
+                <div class="portletItemTitle" tal:content="brain/Title" />
+
+                <div class="portletItemDescription"
+                     tal:condition="python: brain.Description and view.data.show_desc">
+                    <div tal:content="brain/Description" />
+                </div>
+            </div>
+
+            <a class="portletItemMore"
+               tal:attributes="href brain/getURL;"
+               i18n:translate="label_readmore">
+                Read more
+            </a>
+        </dd>
+    </tal:loop>
+
+
 </dl>

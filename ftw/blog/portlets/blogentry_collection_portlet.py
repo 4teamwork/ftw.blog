@@ -1,11 +1,13 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from ftw.blog import _
+from plone.app.layout.navigation.root import getNavigationRoot
 from plone.app.portlets.interfaces import IPortletPermissionChecker
 from plone.app.portlets.portlets import base
 from plone.formwidget.contenttree import MultiContentTreeFieldWidget
 from plone.formwidget.contenttree import PathSourceBinder
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from z3c.form import button
 from z3c.form import field
@@ -52,6 +54,7 @@ class Assignment(base.Assignment):
                  quantity=5, show_desc=True):
         self.portlet_title = portlet_title
         self.show_image = show_image
+        self.path = path
         self.quantity = quantity
         self.show_desc = show_desc
 
@@ -63,7 +66,18 @@ class Assignment(base.Assignment):
 class Renderer(base.Renderer):
     render = ViewPageTemplateFile('blogentry_collection_portlet.pt')
 
-    
+    def get_items(self):
+        query = {'portal_type': 'BlogEntry',
+                 'sort_on': 'created',
+                 'sort_order': 'descending'}
+
+        if self.data.path:
+            query['path'] = self.data.path
+        else:
+            query['path'] = getNavigationRoot(self.context)
+
+        catalog = getToolByName(self.context, 'portal_catalog')
+        return catalog(query)
 
 
 class AddForm(form.AddForm):
