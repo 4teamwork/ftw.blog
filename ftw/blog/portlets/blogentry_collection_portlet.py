@@ -87,7 +87,7 @@ class Renderer(base.Renderer):
         else:
             query['path'] = getNavigationRoot(self.context)
 
-        return catalog(query)
+        return catalog(query)[:self.data.quantity]
 
 
 class AddForm(form.AddForm):

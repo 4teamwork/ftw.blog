@@ -170,3 +170,15 @@ class TestBlogEntryCollectionPortlet(TestCase):
 
         self.assertFalse(len(browser.css('.blogentryCollection')),
                          'There should be no portlet available.')
+
+    @browsing
+    def test_portlet_renderer_result_quantity(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+        browser.login()
+        info = {'Title': 'Portlet title', 'Quantity': '1'}
+        self.add_portlet(browser, **info)
+
+        self.assertEquals(
+            1,
+            len(browser.visit().css('.blogentryCollection .portletItemTitle')),
+            'There should be one entry.')
