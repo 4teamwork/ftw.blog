@@ -54,6 +54,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
 
     @browsing
     def test_default_portlet_creation(self, browser):
+        self.create_blog_entries()
         browser.login()
         self.add_portlet(browser, **{'Title': 'Portlet title'})
 
@@ -66,6 +67,7 @@ class TestBlogEntryCollectionPortlet(TestCase):
 
     @browsing
     def test_portlet_edit_view(self, browser):
+        self.create_blog_entries()
         browser.login()
         self.add_portlet(browser, **{'Title': 'Portlet title'})
 
@@ -159,3 +161,12 @@ class TestBlogEntryCollectionPortlet(TestCase):
         self.assertEquals(1, len(items), 'Expect one entry.')
 
         self.assertEquals(entry3.Title(), items[0])
+
+    @browsing
+    def test_portlet_renderer_availability(self, browser):
+        browser.login()
+        info = {'Title': 'Portlet title'}
+        self.add_portlet(browser, **info)
+
+        self.assertFalse(len(browser.css('.blogentryCollection')),
+                         'There should be no portlet available.')

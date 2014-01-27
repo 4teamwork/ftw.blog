@@ -67,6 +67,10 @@ class Assignment(base.Assignment):
 class Renderer(base.Renderer):
     render = ViewPageTemplateFile('blogentry_collection_portlet.pt')
 
+    @property
+    def available(self):
+        return bool(self.get_items())
+
     def get_items(self):
         catalog = getToolByName(self.context, 'portal_catalog')
         url_tool = getToolByName(self.context, 'portal_url')
