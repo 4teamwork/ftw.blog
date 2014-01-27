@@ -89,6 +89,19 @@ class Renderer(base.Renderer):
 
         return catalog(query)[:self.data.quantity]
 
+    def get_blog_entry_image_by_brain(self, brain):
+        if not self.data.show_image:
+            return False
+
+        obj = brain.getObject()
+        scale = getMultiAdapter((obj, self.request), name=u"images")
+        scaled_img = scale.scale('leadimage', scale='thumb', direction='down')
+
+        if scaled_img:
+            return scaled_img.tag()
+        else:
+            return ''
+
 
 class AddForm(form.AddForm):
     implements(IBlogEntryCollectionPortlet)

@@ -9,6 +9,7 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from StringIO import StringIO
 from unittest2 import TestCase
 import transaction
 
@@ -34,13 +35,20 @@ class TestBlogEntryCollectionPortlet(TestCase):
         browser.find('Save').click()
 
     def create_blog_entries(self):
+        image = StringIO(
+            'GIF89a\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00'
+            '\x00!\xf9\x04\x04\x00\x00\x00\x00,\x00\x00\x00\x00\x01\x00'
+            '\x01\x00\x00\x02\x02D\x01\x00;')
+
         entry1 = create(Builder('blog entry')
                         .titled('Blog entry 1')
-                        .having(text='Just a small text.')
+                        .having(text='Just a small text.',
+                                leadimage=image)
                         .within(self.blog))
         entry2 = create(Builder('blog entry')
                         .titled('Blog entry 2')
-                        .having(text='A lot of text. ' * 30)
+                        .having(text='A lot of text. ' * 30,
+                                leadimage=image)
                         .within(self.blog))
 
         return entry1, entry2
@@ -182,3 +190,29 @@ class TestBlogEntryCollectionPortlet(TestCase):
             1,
             len(browser.visit().css('.blogentryCollection .portletItemTitle')),
             'There should be one entry.')
+
+    @browsing
+    def test_portlet_renderer_show_images(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+
+        browser.login()
+        info = {'Title': 'Portlet title', 'Show lead images': True}
+        self.add_portlet(browser, **info)
+
+        self.assertEquals(
+            2,
+            len(browser.visit().css('.blogentryCollection .portletItemImage')),
+            'Expect 2 entries with 2 images.')
+
+    @browsing
+    def test_portlet_renderer_do_NOT_show_images(self, browser):
+        entry1, entry2 = self.create_blog_entries()
+
+        browser.login()
+        info = {'Title': 'Portlet title', 'Show lead images': False}
+        self.add_portlet(browser, **info)
+
+        self.assertEquals(
+            0,
+            len(browser.visit().css('.blogentryCollection .portletItemImage')),
+            'Expect 2 entries with 0 images.')

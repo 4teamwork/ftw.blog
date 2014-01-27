@@ -26,6 +26,11 @@
                 </div>
             </div>
 
+            <div class="portletItemImage"
+                tal:define="img python: view.get_blog_entry_image_by_brain(brain)" tal:condition="img" tal:content="structure img">
+            </div>
+
+
             <a class="portletItemMore"
                tal:attributes="href brain/getURL;"
                i18n:translate="label_readmore">
