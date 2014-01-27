@@ -18,6 +18,10 @@ You can enable a lead image for BlogEntries (Configuration registry).
 It's disabled by default. If enabled you are able to add an image to a BlogEntry.
 It will be shown on the BlogEntry itself and on the Blog overview
 
+BlogEntry collection portlet. This portlet lists blog entries sorted by
+creation date. You can show blog entries of multiple blog instances. It's also
+possible to show the leadimage and the description of a blog entry.
+
 Install
 =======
 
