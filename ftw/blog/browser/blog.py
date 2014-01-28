@@ -1,13 +1,12 @@
 from Acquisition import aq_inner, aq_parent
 from DateTime import DateTime
+from ftw.blog.interfaces import IBlogView
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.PloneBatch import Batch
 from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from ftw.blog.interfaces import IBlogView
-from plone.app.content.batching import Batch
 from urllib import quote_plus
-from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
 
@@ -108,9 +107,7 @@ class BlogView(BrowserView):
         pagenumber = int(self.request.form.get('pagenumber', 1))
         #req.set('pagenumber', pagenumber)
 
-        self.batch = Batch(self.entries,
-                           pagesize=pagesize, pagenumber=pagenumber,
-                           navlistsize=1)
+        self.batch = Batch(self.entries, pagesize, pagenumber)
 
         return self.template()
 
