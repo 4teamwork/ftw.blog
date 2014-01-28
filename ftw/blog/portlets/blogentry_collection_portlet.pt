@@ -1,0 +1,43 @@
+<dl class="portlet blogentryCollection"
+    i18n:domain="ftw.blog"
+    tal:define="plone_view context/@@plone;
+                toLocalizedTime nocall:plone_view/toLocalizedTime;">
+
+    <dt class="portletHeader">
+        <tal:title replace="view/data/portlet_title" />
+    </dt>
+
+    <tal:loop tal:repeat="brain view/get_items">
+        <dd class="portletItem"
+            tal:define="oddrow repeat/brain/odd;
+                        lastrow repeat/brain/end"
+            tal:attributes="class python:'%s%s' % (
+                            lastrow and 'lastItem ' or '',
+                            oddrow and 'portletItem even' or 'portletItem odd')">
+            <div class="portletItemBody">
+                    <div class="portletItemDate"
+                          tal:content="python:toLocalizedTime(brain.created)" />
+
+                <div class="portletItemTitle" tal:content="brain/Title" />
+
+                <div class="portletItemDescription"
+                     tal:condition="python: brain.Description and view.data.show_desc">
+                    <div tal:content="brain/Description" />
+                </div>
+            </div>
+
+            <div class="portletItemImage"
+                tal:define="img python: view.get_blog_entry_image_by_brain(brain)" tal:condition="img" tal:content="structure img">
+            </div>
+
+
+            <a class="portletItemMore"
+               tal:attributes="href brain/getURL;"
+               i18n:translate="label_readmore">
+                Read more
+            </a>
+        </dd>
+    </tal:loop>
+
+
+</dl>

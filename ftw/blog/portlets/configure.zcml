@@ -29,5 +29,13 @@
         permission="zope2.View"
     />
 
+    <plone:portlet
+        name="blog.blogentry.collection.portlet"
+        interface=".blogentry_collection_portlet.IBlogEntryCollectionPortlet"
+        assignment=".blogentry_collection_portlet.Assignment"
+        renderer=".blogentry_collection_portlet.Renderer"
+        addview=".blogentry_collection_portlet.AddForm"
+        editview=".blogentry_collection_portlet.EditForm"
+        />
 
 </configure>

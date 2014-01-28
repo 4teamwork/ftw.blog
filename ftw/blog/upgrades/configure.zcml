@@ -68,4 +68,24 @@
         directory="profiles/1501"
         />
 
+    <!-- 1501 -> 1600 -->
+    <genericsetup:upgradeStep
+        title="Register new blog entries collection portlet"
+        description=""
+        source="1501"
+        destination="1600"
+        handler="ftw.blog.upgrades.to1600.NewPortlet"
+        profile="ftw.blog:default"
+        />
+
+    <genericsetup:registerProfile
+        name="1600"
+        title="ftw.blog.upgrade.1600"
+        description=""
+        directory="profiles/1600"
+        for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+
 </configure>

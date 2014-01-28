@@ -5,6 +5,9 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- New portlet: BlogEntry collection portlet.
+  [mathias.leimgruber]
+
 - Update German, French and English translations.
   [jone]
 

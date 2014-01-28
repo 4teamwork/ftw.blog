@@ -6,9 +6,12 @@ version = '1.5.3.dev0'
 maintainer = 'Mathias Leimgruber'
 
 tests_require = [
+    'ftw.builder',
+    'ftw.testbrowser',
     'ftw.testing',
     'plone.app.testing',
-    'pyquery'
+    'plone.formwidget.contenttree',
+    'pyquery',
     ]
 
 extras_require = {
@@ -52,6 +55,7 @@ setup(name='ftw.blog',
         'ftw.upgrade>=1.6.0',
         'Plone',
         'plone.browserlayer',
+        'plone.formwidget.contenttree',
         'setuptools',
         # -*- Extra requirements: -*-
         ],
