@@ -13,6 +13,7 @@
 
         <tal:items define="normalizeString nocall:context/@@plone/normalizeString;
                            mtool context/portal_membership;
+                           batch view/batch;
                            toLocalizedTime nocall:context/@@plone/toLocalizedTime;"
                    condition="view/batch">
 
@@ -21,9 +22,10 @@
             <span tal:repeat="cat view/filters" tal:content="cat"/>
           </div>
 
-          <div class="batching" tal:content="structure view/batching" />
+          <div metal:use-macro="context/batch_macros/macros/navigation" />
+
           <div class="blogListing">
-            <tal:entry tal:repeat="item view/batch">
+            <tal:entry tal:repeat="item batch">
               <tal:block tal:define="item_url item/getURL|item/absolute_url;
                                      item_title_or_id item/pretty_title_or_id;
                                      item_type item/portal_type;

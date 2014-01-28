@@ -18,7 +18,6 @@ class BlogView(BrowserView):
     implements(IBlogView)
 
     template = ViewPageTemplateFile("blog.pt")
-    batching = ViewPageTemplateFile("batching.pt")
     filters = []
 
     def __init__(self, *args, **kwargs):
