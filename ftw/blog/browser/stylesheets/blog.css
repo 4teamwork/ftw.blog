@@ -10,8 +10,27 @@ body.template-discussion_reply_form .documentActions {
 .portletTagcloud .portletItem {
   font-size: 1em;
 }
+
+.portletBlogCategory ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.portletBlogCategory ul ul {
+  padding-left: 1em;
+}
+
+.portletBlogCategory ul li {
+  margin-bottom: 0.5em;
+}
+
 .portletTagcloud .portletItem a {
   color: #76797c;
+  padding:0 4px;
+}
+
+.portletTagcloud ul{
+  text-align: center;
 }
 
 .blogImages a {
