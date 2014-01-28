@@ -71,7 +71,7 @@ msgstr "Es existieren momentan keine Einträge in diesem Blog"
 msgid "description_show_images"
 msgstr "Falls ausgewählt, werden alle Bilder von diesem Blog-Eintrag als Galerie dargestellt."
 
-#. Default: "Chose from which blog you want to list the blog entries"
+#. Default: "Choose the blog of which the entries are listed. Defaults to all blogs."
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:36
 msgid "help_portlet_blogs"
 msgstr "Falls kein Blog angegeben wird, werden alle Blog-Einträge aufgelistet. Es können mehrere Blogs angegegben werden."
@@ -84,7 +84,7 @@ msgstr "Leadbilder können über die Konfigurationseinträge für das Blog aktiv
 #. Default: "Add BlogEntry collection portlet"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:116
 msgid "label_add_blogentry_collection_portlet"
-msgstr "Blog-Einträge Auflistungs Portlet hinzufügen"
+msgstr "Blog-Einträge Auflistungsportlet hinzufügen"
 
 #. Default: "by"
 #: ./ftw/blog/browser/blog.pt:60
@@ -100,7 +100,7 @@ msgstr "Abbrechen"
 #. Default: "Edit BlogEntry collection portlet"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:174
 msgid "label_edit_blogentry_collection_portlet"
-msgstr "Blog-Einträge Auflistungs Portlet bearbeiten"
+msgstr "Blog-Einträge Auflistungsportlet bearbeiten"
 
 #. Default: "Filtered by these criterions"
 #: ./ftw/blog/browser/blog.pt:25
@@ -115,7 +115,7 @@ msgstr "Leadbild"
 #. Default: "BlogEntries collection"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:71
 msgid "label_portlet_title"
-msgstr "Blog-Einträge Auflistungs Portlet"
+msgstr "Blog-Einträge Auflistungsportlet"
 
 #. Default: "Quantity"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:50
@@ -125,7 +125,7 @@ msgstr "Anzahl Einträge"
 #. Default: "Read more"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.pt:34
 msgid "label_readmore"
-msgstr "Weiterlesen"
+msgstr "Weiter lesen"
 
 #. Default: "Save"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:137

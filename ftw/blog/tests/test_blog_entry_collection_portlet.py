@@ -136,8 +136,10 @@ class TestBlogEntryCollectionPortlet(TestCase):
 
         self.assertEquals(2, len(descriptions), 'Expect two items')
 
-        self.assertTrue(len(descriptions[1]) <= 200 + 3,  # max 200 plus 3 dots
-                        'Description not cropped')
+        self.assertLessEqual(
+            len(descriptions[1]),
+            200 + 3,  # max 200 plus 3 dots
+            'Description not cropped')
 
     @browsing
     def test_portlet_renderer_do_not_show_description(self, browser):

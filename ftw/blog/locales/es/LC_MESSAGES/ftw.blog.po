@@ -71,7 +71,7 @@ msgstr "Actualmente no hay entradas en este blog"
 msgid "description_show_images"
 msgstr "Decide que quiere mostrar todas las imágenes subidas como galería"
 
-#. Default: "Chose from which blog you want to list the blog entries"
+#. Default: "Choose the blog of which the entries are listed. Defaults to all blogs."
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:36
 msgid "help_portlet_blogs"
 msgstr ""

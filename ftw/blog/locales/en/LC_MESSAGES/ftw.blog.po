@@ -71,10 +71,10 @@ msgstr "There are no entries in this blog."
 msgid "description_show_images"
 msgstr "Decide you want to show all uploaded images as gallery"
 
-#. Default: "Chose from which blog you want to list the blog entries"
+#. Default: "Choose the blog of which the entries are listed. Defaults to all blogs."
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:36
 msgid "help_portlet_blogs"
-msgstr "Chose from which blog you want to list the blog entries, by deault all blog enties are listed."
+msgstr "Choose the blog of which the entries are listed. Defaults to all blogs."
 
 #. Default: "You can enable the leadimage in the configuration registry"
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:28

@@ -35,8 +35,8 @@ class IBlogEntryCollectionPortlet(IPortletDataProvider):
         title=_(u'Blogs'),
         description=_(
             u'help_portlet_blogs',
-            default=u'Chose from which blog you want to list the blog '
-                     'entries'),
+            default=u'Choose the blog of which the entries are listed. '
+                     'Defaults to all blogs.'),
         value_type=schema.Choice(
             source=PathSourceBinder(
                 is_folderish=True,

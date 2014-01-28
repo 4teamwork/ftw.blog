@@ -10,7 +10,7 @@
     <tal:loop tal:repeat="brain view/get_items">
         <dd class="portletItem"
             tal:define="oddrow repeat/brain/odd;
-                        lastrow repeat/brain/_last"
+                        lastrow repeat/brain/end"
             tal:attributes="class python:'%s%s' % (
                             lastrow and 'lastItem ' or '',
                             oddrow and 'portletItem even' or 'portletItem odd')">
