@@ -5,6 +5,9 @@ Changelog
 1.5.3 (unreleased)
 ------------------
 
+- Improve blog archive portlet
+  [elio.schmutz]
+
 - Improve default tagcloud and categories styling.
   [mathias.leimgruber]
 

@@ -31,7 +31,7 @@ class BlogView(BrowserView):
         """ Get all the Blogentries and return the listingview template.
 
         It check if the request has some filtering parameters:
-        -archiv
+        -archive
         -searchable_text
         -getCategoryUids
         -tag
@@ -44,8 +44,8 @@ class BlogView(BrowserView):
         self.filters = []
         catalog = getToolByName(context, 'portal_catalog')
 
-        if self.request.form.get('archiv'):
-            datestr = self.request.form.get('archiv')
+        if self.request.form.get('archive'):
+            datestr = self.request.form.get('archive')
             try:
                 start = DateTime(datestr)
             except DateTime.SyntaxError:
