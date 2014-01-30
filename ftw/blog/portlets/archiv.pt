@@ -21,14 +21,16 @@
                     <span class="yearnumber" tal:content="python: '%s (%s)' % (year.get('title'), year.get('number'))" />
                 </dt>
                 <dd class="collapsibleContent">
-                    <li tal:repeat="month year/months"
-                        tal:attributes="class python:month.get('mark') and 'month highlight' or 'month'">
-                        <a tal:attributes="
-                            href month/url;
-                            title month/title"
-                            tal:content="python: '%s (%s)' % (month.get('title'), month.get('number'))"
-                            i18n:translate="" />
+                    <ul>
+                        <li tal:repeat="month year/months"
+                            tal:attributes="class python:month.get('mark') and 'month highlight' or 'month'">
+                            <a tal:attributes="
+                                href month/url;
+                                title month/title"
+                                tal:content="python: '%s (%s)' % (month.get('title'), month.get('number'))"
+                                i18n:translate="" />
                         </li>
+                    </ul>
                 </dd>
             </dl>
         </dd>
