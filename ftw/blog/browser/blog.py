@@ -102,9 +102,7 @@ class BlogView(BrowserView):
             self.entries = catalog(query)
 
         pagesize = int(self.request.form.get('pagesize', 5))
-        #req.set('pagesize', pagesize)
-        pagenumber = int(self.request.form.get('b_start', 1))
-        #req.set('pagenumber', pagenumber)
+        pagenumber = int(self.request.form.get('b_start', 0))
 
         self.batch = Batch(self.entries, pagesize, pagenumber)
 
