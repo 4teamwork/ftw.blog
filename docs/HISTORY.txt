@@ -5,7 +5,8 @@ Changelog
 1.6.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add own scale for leadimage in collection portlet.
+  [tschanzt]
 
 
 1.6.0 (2014-02-03)
