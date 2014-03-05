@@ -87,5 +87,13 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <upgrade-step:importProfile
+        title="Add image scale"
+        profile="ftw.blog:default"
+        source="1600"
+        destination="1601"
+        directory="profiles/1601"
+        />
+
 
 </configure>

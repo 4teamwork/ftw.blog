@@ -102,7 +102,9 @@ class Renderer(base.Renderer):
 
         obj = brain.getObject()
         scale = getMultiAdapter((obj, self.request), name=u"images")
-        scaled_img = scale.scale('leadimage', scale='thumb', direction='down')
+        scaled_img = scale.scale('leadimage',
+                                 scale="blog_portlet_leadimage",
+                                 direction='down')
 
         if scaled_img:
             return scaled_img.tag()
