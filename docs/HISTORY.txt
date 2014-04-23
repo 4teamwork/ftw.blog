@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.6.1 (unreleased)
+1.6.1 (2014-04-23)
 ------------------
 
 - Add own scale for leadimage in collection portlet.
