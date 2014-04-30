@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<portlets>
+
+  <portlet
+    addview="blog.categories.portlet"
+    remove="True" />
+
+  <portlet
+    addview="blog.archiv.portlet"
+    remove="True" />
+
+  <portlet
+    addview="blog.blogentry.collection.portlet"
+    remove="True" />
+
+  <assignment
+    name="blog-categories"
+    category="content_type"
+    key="BlogEntry"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="blog-categories"
+    category="content_type"
+    key="BlogCategory"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="blog-categories"
+    category="content_type"
+    key="Blog"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
+    key="BlogEntry"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
+    key="BlogCategory"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
+    key="Blog"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="blog-archive"
+    category="content_type"
+    key="BlogEntry"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="blog-archive"
+    category="content_type"
+    key="BlogCategory"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+  <assignment
+    name="blog-archive"
+    category="content_type"
+    key="Blog"
+    manager="plone.rightcolumn"
+    remove="True"
+    />
+
+</portlets>

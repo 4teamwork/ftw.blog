@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins">
+  <object name="ftw.blog"
+      remove="True"
+      directory="ftw.blog:skins/ftw.blog_templates" />
+
+  <skin-path name="*">
+    <layer name="ftw.blog" remove="True" />
+  </skin-path>
+</object>

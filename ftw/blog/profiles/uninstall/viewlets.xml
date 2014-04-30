@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object>
+  <hidden manager="plone.belowcontenttitle" skinname="iZug Theme" remove="True">
+    <viewlet name="plone.belowcontenttitle.documentbyline" remove="True"/>
+  </hidden>
+  <hidden manager="plone.belowcontent" skinname="iZug Theme" remove="True">
+    <viewlet name="plone.comments" remove="True"/>
+  </hidden>
+
+  <hidden manager="plone.belowcontenttitle" skinname="ZugSkin" remove="True">
+    <viewlet name="plone.belowcontenttitle.documentbyline" remove="True"/>
+  </hidden>
+  <hidden manager="plone.belowcontent" skinname="ZugSkin" remove="True">
+    <viewlet name="plone.comments" remove="True"/>
+  </hidden>
+
+</object>

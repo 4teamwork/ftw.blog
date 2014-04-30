@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="ftw.blog.interfaces.IBlogSettings.blog_entry_has_lead_image"
+          remove="True" delete="True" />
+</registry>

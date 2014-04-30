@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="ftw.blog: Add BlogEntry" acquire="True">
+    </permission>
+    <permission name="ftw.blog: Add BlogCategory" acquire="True">
+    </permission>
+    <permission name="ftw.blog: Add Blog" acquire="True">
+    </permission>
+  </permissions>
+</rolemap>
