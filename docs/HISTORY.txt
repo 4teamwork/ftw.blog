@@ -5,7 +5,11 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add uninstall profile.
+  [deif]
+
+- Remove import_steps.xml in favour of zcml import step definition.
+  [deif]
 
 
 1.6.1 (2014-04-23)
