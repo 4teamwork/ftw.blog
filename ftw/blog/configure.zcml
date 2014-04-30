@@ -29,6 +29,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- Register the import step -->
+    <genericsetup:importStep
+        name="ftw.blog.custom"
+        title="ftw.blog custom import handlers"
+        description="Custom import steps for ftw.contentpage"
+        handler="ftw.blog.setuphandlers.importVarious"
+        />
+
     <!-- Include the sub-packages that use their own configure.zcml files. -->
     <include package=".browser" />
     <include package=".content" />

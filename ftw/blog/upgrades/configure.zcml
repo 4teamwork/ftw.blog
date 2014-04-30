@@ -95,5 +95,13 @@
         directory="profiles/1601"
         />
 
+    <!-- 1601 -> 1602 -->
+    <genericsetup:upgradeStep
+        title="Remove import_steps.xml"
+        source="1601"
+        destination="1602"
+        handler="ftw.blog.upgrades.to1602.RemoveImportSteps"
+        profile="ftw.blog:default"
+        />
 
 </configure>
