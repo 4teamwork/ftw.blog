@@ -6,6 +6,14 @@ from ftw.blog.config import INDEXES
 PROFILE_ID = 'profile-ftw.blog:default'
 
 
+def installed(site):
+    add_catalog_indexes(site)
+
+
+def uninstalled(site):
+    remove_catalog_indexes(site)
+
+
 def add_catalog_indexes(context, logger=None):
     """Method to add our wanted indexes to the portal_catalog.
 
@@ -50,19 +58,3 @@ def remove_catalog_indexes(context):
     for name, meta_type in INDEXES:
         if name in indexes:
             catalog.delIndex(name)
-
-
-def importVarious(context):
-    """Miscellanous steps import handle
-    """
-    action = context.readDataFile('ftw.blog_various.txt')
-    action = action.strip() if action else None
-    if action is None:
-        return
-
-    logger = context.getLogger('ftw.blog')
-    site = context.getSite()
-    if action == 'install':
-        add_catalog_indexes(site, logger)
-    elif action == 'uninstall':
-        remove_catalog_indexes(site)
