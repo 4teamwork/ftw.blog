@@ -5,6 +5,9 @@ Changelog
 1.6.2 (unreleased)
 ------------------
 
+- Made File addable in BlogEntry.
+  [lknoepfel]
+
 - Add uninstall profile.
   [deif]
 
