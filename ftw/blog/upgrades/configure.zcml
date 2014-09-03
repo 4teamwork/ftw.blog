@@ -104,4 +104,12 @@
         profile="ftw.blog:default"
         />
 
+    <upgrade-step:importProfile
+        title="Make File addable in BlogEntry"
+        profile="ftw.blog:default"
+        source="1602"
+        destination="1603"
+        directory="profiles/1603"
+        />
+
 </configure>
