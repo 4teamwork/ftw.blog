@@ -1,26 +1,38 @@
 Overview
 ========
 
-``ftw.blog`` provides a blog implementation for Plone featuring tags and
-categories.
+``ftw.blog`` provides a very basic blog system for Plone
+featuring tags, categories and optional image galleries per blog entry.
 
-A user can add a new blog entry and tag it using tags and categories.
-Available categories are defined by the creator of the blog, whilst
-tags can be added freely by the author of a blog entry.
+A user can add a new blog entry (title and text) and assign tags and (nested)
+categories. Available categories are defined by the creator of the blog,
+whilst tags can be added freely by the author of a blog entry. Files and
+images can be added to a blog entry.
 
 Blog entries are listed in chronological order, in a tag cloud, by
 categories, and in a monthly archive. Entries can be searched by using the
 search function of the blog.
 
-Enable commenting by activating the ``global_allowed`` setting in the ``@@discussion-settings`` view.
+If the gallery option has been enabled for a blog entry, thumbnails of
+the entry's images are displayed below the text of the entry. An image slide
+show is started by clicking on any of the thumbnails.
 
-You can enable a lead image for BlogEntries (Configuration registry).
-It's disabled by default. If enabled you are able to add an image to a BlogEntry.
-It will be shown on the BlogEntry itself and on the Blog overview
+You can allow or disallow commenting per blog entry. Commenting needs
+to be enabled globally for this to work. You can enable commenting in the
+discussion settings of the Plone site configuration.
 
-BlogEntry collection portlet. This portlet lists blog entries sorted by
-creation date. You can show blog entries of multiple blog instances. It's also
-possible to show the leadimage and the description of a blog entry.
+A lead image can be uploaded and added to a blog entry. This feature is
+disabled by default and can be enabled in the configuration registry of
+the Plone site. If enabled the lead image is displayed on the blog entry
+itself and on the listing of all blog entries. Please note that the lead
+image will only be displayed on the blog entry if the gallery is enabled
+for the blog entry, though this will change in a future release)
+
+Besides the tag cloud portlet, monthly archive portlet and categories portlet,
+a *blog entry collection* portlet is available. This portlet lists blog
+entries from multiple blogs, sorted by creation date. It's also possible to
+display the lead image or the description of the blog entries rendered by the
+portlet.
 
 Install
 =======
@@ -43,7 +55,6 @@ Uninstall
 This package provides an uninstall Generic Setup profile, however, it will
 not uninstall the package dependencies.
 Make sure to uninstall the dependencies if you no longer use them.
-
 
 Links
 =====
