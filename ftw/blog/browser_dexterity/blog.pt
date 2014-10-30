@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ftw.blog">
+
+    <body>
+
+        <metal:content-core fill-slot="content-core">
+
+            <div tal:define="batch view/get_batch_results;
+                             isAnon context/@@plone_portal_state/anonymous;
+                             show_about python:not isAnon or site_properties.allowAnonymousViewAbout;">
+
+                <tal:block repeat="blog_entry batch">
+
+                    <tal:block tal:define="blog_entry_tags blog_entry/tags |nothing;">
+
+                        <h1>
+                            <a tal:attributes="href blog_entry/getURL"
+                               tal:content="blog_entry/Title"/>
+                        </h1>
+
+                        <span class="documentAuthor"
+                              tal:define="creator python:view.get_creator(blog_entry)"
+                              tal:condition="creator">
+                            <tal:def define="creator_id creator/id">
+                                <span i18n:domain="ftw.blog"
+                                      i18n:translate="label_by">by
+                                </span>
+                                <a href="#"
+                                   tal:attributes="href string:${context/@@plone_portal_state/navigation_root_url}/author/${creator_id}"
+                                   tal:content="creator/name"></a>
+                            </tal:def>
+                        </span>
+
+                        <div class="EntryDescription"
+                             tal:content="structure blog_entry/Description"></div>
+
+                        <div class="comments"
+                             i18n:domain="plone"
+                             i18n:translate="comments_header"
+                             tal:condition="python:view.comments_enabled(blog_entry)">
+                            Comments (<span
+                                tal:content="python:view.get_nb_comments(blog_entry)"
+                                i18n:name="comments"/>)
+                        </div>
+
+                        <tal:def define="tags python:view.get_tags(blog_entry)">
+                            <div class="tags" tal:condition="tags">
+                                <span i18n:translate="Tags">Tags</span>:
+                                <tal:tags repeat="tag tags">
+                                    <a href="#"
+                                       tal:define="tag_url python:'%s/@@objects_by_tag_view?tag=%s' % (context.absolute_url(), tag)"
+                                       tal:attributes="href tag_url"
+                                       tal:content="tag">Tag
+                                    </a>
+                                    <span tal:condition="not:repeat/tag/end"
+                                          tal:replace="string:, "/>
+                                </tal:tags>
+                            </div>
+                        </tal:def>
+
+                    </tal:block>
+
+                </tal:block>
+
+                <tal:batchnavigation
+                        define="batchnavigation nocall:context/@@batchnavigation"
+                        replace="structure python:batchnavigation(batch)"/>
+
+            </div>
+
+        </metal:content-core>
+
+    </body>
+</html>

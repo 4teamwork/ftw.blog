@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="ftw.blog">
+
+    <browser:page
+        for="ftw.blog.interfaces.IBlog"
+        name="view"
+        permission="zope2.View"
+        class=".blog.BlogView"
+        template="blog.pt"
+        />
+
+    <!-- Overwrite the standard Tag Overview,
+         With the standard Blog overview -->
+    <browser:page
+        name="objects_by_tag_view"
+        for="ftw.blog.interfaces.IBlog"
+        permission="zope2.View"
+        class=".blog.BlogView"
+        template="blog.pt"
+        />
+
+    <browser:page
+        for="ftw.blog.interfaces.IBlogEntry"
+        name="view"
+        permission="zope2.View"
+        class=".entry.BlogEntryView"
+        template="entry.pt"
+        />
+
+</configure>

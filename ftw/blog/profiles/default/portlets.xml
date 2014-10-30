@@ -59,6 +59,14 @@
   <assignment
     name="tagcloud"
     category="content_type"
+    key="ftw.blog.BlogEntry"
+    manager="plone.rightcolumn"
+    type="ftw.tagging.portlet.tagcloud"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
     key="BlogCategory"
     manager="plone.rightcolumn"
     type="ftw.tagging.portlet.tagcloud"
@@ -68,6 +76,14 @@
     name="tagcloud"
     category="content_type"
     key="Blog"
+    manager="plone.rightcolumn"
+    type="ftw.tagging.portlet.tagcloud"
+    />
+
+  <assignment
+    name="tagcloud"
+    category="content_type"
+    key="ftw.blog.Blog"
     manager="plone.rightcolumn"
     type="ftw.tagging.portlet.tagcloud"
     />
@@ -95,6 +111,5 @@
     manager="plone.rightcolumn"
     type="blog.archiv.portlet"
     />
-
 
 </portlets>

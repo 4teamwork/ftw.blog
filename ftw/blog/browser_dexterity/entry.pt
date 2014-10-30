@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ftw.blog">
+
+    <body>
+
+        <metal:content-core fill-slot="content-core">
+            <h1 tal:content="context/title"/>
+            <tal:entry_text replace="structure context/text/output"
+                            tal:condition="context/text"/>
+
+            <tal:def define="tags python:view.get_tags();
+                             tagroot_url python:context.aq_parent.absolute_url()">
+                <div class="tags" tal:condition="tags">
+                    <span i18n:translate="Tags">Tags</span>:
+                    <tal:tags repeat="tag tags">
+                        <a href="#"
+                           tal:define="tag_url python:'%s/@@objects_by_tag_view?tag=%s' % (tagroot_url, tag)"
+                           tal:attributes="href tag_url"
+                           tal:content="tag">Tag
+                        </a>
+                        <span tal:condition="not:repeat/tag/end"
+                              tal:replace="string:, "/>
+                    </tal:tags>
+                </div>
+            </tal:def>
+
+        </metal:content-core>
+
+    </body>
+</html>
