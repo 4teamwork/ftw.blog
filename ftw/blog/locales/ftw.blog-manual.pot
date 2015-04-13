@@ -1,8 +1,11 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-15 07:43+0000\n"
-"PO-Revision-Date: 2012-02-28 11:13+0100\n"
+"POT-Creation-Date: 2015-04-14 08:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -11,10 +14,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 "Preferred-Encodings: utf-8 latin1\n"
 
-msgid "blogentries"
-msgstr "Einträge"
+msgid "latex_categories"
+msgstr ""
 
-msgid "blogs"
-msgstr "Blogs"
-
-
+msgid "latex_tags"
+msgstr ""

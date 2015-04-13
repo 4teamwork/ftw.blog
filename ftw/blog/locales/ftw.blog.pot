@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-27 15:54+0000\n"
+"POT-Creation-Date: 2015-04-14 14:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,12 +12,9 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: ftw.blog\n"
 
-#: ./ftw/blog/portlets/archiv.pt:12
+#: ./ftw/blog/portlets/archiv.pt:11
 msgid "Archive"
 msgstr ""
 
@@ -88,7 +85,7 @@ msgid "help_portlet_show_image"
 msgstr ""
 
 #. Default: "Add BlogEntry collection portlet"
-#: ./ftw/blog/portlets/blogentry_collection_portlet.py:116
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:118
 msgid "label_add_blogentry_collection_portlet"
 msgstr ""
 
@@ -99,12 +96,12 @@ msgid "label_by"
 msgstr ""
 
 #. Default: "Cancel"
-#: ./ftw/blog/portlets/blogentry_collection_portlet.py:148
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:150
 msgid "label_cancel"
 msgstr ""
 
 #. Default: "Edit BlogEntry collection portlet"
-#: ./ftw/blog/portlets/blogentry_collection_portlet.py:174
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:176
 msgid "label_edit_blogentry_collection_portlet"
 msgstr ""
 
@@ -134,7 +131,7 @@ msgid "label_readmore"
 msgstr ""
 
 #. Default: "Save"
-#: ./ftw/blog/portlets/blogentry_collection_portlet.py:137
+#: ./ftw/blog/portlets/blogentry_collection_portlet.py:139
 msgid "label_save"
 msgstr ""
 
@@ -162,4 +159,16 @@ msgstr ""
 #: ./ftw/blog/portlets/blogentry_collection_portlet.py:23
 msgid "label_title"
 msgstr ""
+
+msgid "latex_categories"
+msgstr ""
+
+msgid "latex_tags"
+msgstr ""
+
+#. Default: "Unpublished"
+#: ./ftw/blog/latex/views.py:82
+msgid "latex_unpublished"
+msgstr ""
+
 
