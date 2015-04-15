@@ -5,6 +5,9 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
+- Added zipexport integration.
+  [lknoepfel]
+
 - Added PDF generation.
   [lknoepfel]
 

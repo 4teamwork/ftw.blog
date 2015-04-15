@@ -166,6 +166,6 @@ msgstr "Tags"
 #. Default: "Unpublished"
 #: ./ftw/blog/latex/views.py:82
 msgid "latex_unpublished"
-msgstr "Unpubliziert"
+msgstr "Nicht publiziert"
 
 

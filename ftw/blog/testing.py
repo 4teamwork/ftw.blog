@@ -50,9 +50,11 @@ class FtwBlogLayer(PloneSandboxLayer):
                        context=configurationContext)
 
         z2.installProduct(app, 'ftw.blog')
+        z2.installProduct(app, 'ftw.zipexport')
 
     def setUpPloneSite(self, portal):
         applyProfile(portal, 'ftw.blog:default')
+        applyProfile(portal, 'ftw.zipexport:default')
 
         wftool = getToolByName(portal, 'portal_workflow')
         wftool.setChainForPortalTypes(['Blog', 'BlogEntry'],

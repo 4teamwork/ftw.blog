@@ -73,9 +73,11 @@
              Products.Archetypes.interfaces.IObjectInitializedEvent"
         handler=".eventhandlers.set_description" />
 
-    <configure zcml:condition="installed ftw.pdfgenerator">
-        <include package="ftw.pdfgenerator" />
-        <include package=".latex" />
+    <include package="ftw.pdfgenerator" />
+    <include package=".latex" />
+
+    <configure zcml:condition="installed ftw.zipexport">
+        <adapter factory=".zipexport.BlogZipRepresentation" />
     </configure>
 
 </configure>
