@@ -1,0 +1,57 @@
+<%block name="documentclass">
+\documentclass[a4paper,10pt]{article}
+</%block>
+
+<%block name="usePackages">
+  ${packages}
+</%block>
+
+<%block name="beneathPackages">
+</%block>
+
+<%block name="textSettings">
+  \usepackage{titlesec}
+  \titleformat{\section}{\fontsize{20}{20}\selectfont}{}{0em}{}
+  \titleformat{\subsection}{\bf}{}{0em}{}
+  \titleformat{\subsubsection}{\em}{}{0em}{}
+
+  \renewcommand{\familydefault}{ma1}
+  \parindent=0pt
+  \raggedright%%
+  \parskip=\baselineskip%%
+
+  %% LISTINGS
+  \renewcommand\labelitemi{\textendash}
+</%block>
+
+
+<%block name="layoutSettings">
+  %% LAYOUT
+  \pagestyle{fancy}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyhf{}
+  \fancyfoot[R]{\fontsize{8}{9}\selectfont \thepage/\pageref{LastPage}}
+  \fancyfoot[L]{\fontsize{8}{9}\selectfont \today}
+</%block>
+
+<%block name="aboveDocument">
+</%block>
+
+\begin{document}
+
+<%block name="custom_logo">
+% if logo:
+  ${logo}
+% endif
+</%block>
+
+<%block name="documentTop">
+</%block>
+
+${content}
+
+<%block name="documentBottom">
+</%block>
+
+\end{document}

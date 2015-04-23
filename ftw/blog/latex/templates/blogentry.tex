@@ -1,0 +1,24 @@
+\clearpage
+
+% if leadimage:
+  ${leadimage}
+% endif
+
+\section{${title}}
+{
+  \vspace{-1.2\baselineskip}
+  \small
+  \date{${date}} --- ${owner}
+}
+
+% if text:
+  ${text}
+% endif
+
+\textbf{${_(u'latex_categories', default=u'Categories')}:}
+${categories}
+\linebreak
+\textbf{${_(u'latex_tags', default=u'Tags')}:}
+${tags}
+
+${images}

@@ -7,17 +7,14 @@ maintainer = 'Mathias Leimgruber'
 
 tests_require = [
     'ftw.builder',
+    'ftw.pdfgenerator',
     'ftw.testbrowser',
     'ftw.testing',
+    'ftw.zipexport',
     'plone.app.testing',
     'plone.formwidget.contenttree',
     'pyquery',
     ]
-
-extras_require = {
-    'tests': tests_require,
-    'tabbeview': [
-        'ftw.tabbedview']}
 
 setup(name='ftw.blog',
       version=version,
@@ -53,6 +50,7 @@ setup(name='ftw.blog',
         'ftw.colorbox',
         'ftw.tagging',
         'ftw.upgrade>=1.6.0',
+        'ftw.pdfgenerator',
         'ftw.profilehook',
         'Plone',
         'plone.browserlayer',
@@ -61,7 +59,10 @@ setup(name='ftw.blog',
         # -*- Extra requirements: -*-
         ],
       tests_require=tests_require,
-      extras_require=extras_require,
+      extras_require= {
+          'tests': tests_require,
+          'tabbeview': ['ftw.tabbedview'],
+          'zip_export': ['ftw.zipexport']},
 
       entry_points="""
       # -*- Entry points: -*-

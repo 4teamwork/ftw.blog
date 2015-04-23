@@ -22,6 +22,9 @@ BlogEntry collection portlet. This portlet lists blog entries sorted by
 creation date. You can show blog entries of multiple blog instances. It's also
 possible to show the leadimage and the description of a blog entry.
 
+Use ``ftw.blog [zip_export]`` if you want to enable zip export. Blogs will be
+exported as a PDF.
+
 Install
 =======
 
