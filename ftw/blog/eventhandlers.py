@@ -1,20 +1,21 @@
+from ftw.blog import _
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import _createObjectByType
 from Products.CMFPlone.utils import safe_hasattr
-from ftw.blog import _
+from zope.i18n import translate
 
 
 def objectAddedHandler(obj, event):
     """Handle IObjectAddedEvent
     """
 
-    #adding a categories root object
+    # adding a categories root object
     if not safe_hasattr(obj.aq_explicit, 'categories', False):
         _createObjectByType('BlogCategory', obj, 'categories',
                             excludeFromNav=True)
         category = getattr(obj.aq_explicit, 'categories', False)
         if category:
-            category.setTitle(obj.translate(_('Categories')))
+            category.setTitle(translate(_('Categories'), context=obj.REQUEST))
             category.reindexObject()
 
 

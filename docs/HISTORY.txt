@@ -5,6 +5,9 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
+- Never use obj.translate, use zope.i18n.translate.
+  [mathias.leimgruber]
+
 - Added zipexport integration.
   [lknoepfel]
 
