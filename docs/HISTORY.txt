@@ -5,6 +5,9 @@ Changelog
 1.7.1 (unreleased)
 ------------------
 
+- Move blog specific styles from plonetheme.onegov to this package.
+  [lknoepfel]
+
 - Never use obj.translate, use zope.i18n.translate.
   [mathias.leimgruber]
 
