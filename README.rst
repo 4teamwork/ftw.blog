@@ -51,9 +51,9 @@ Make sure to uninstall the dependencies if you no longer use them.
 Links
 =====
 
-- Package repository: https://github.com/4teamwork/ftw.blog
-- Issue tracker: https://github.com/4teamwork/ftw.blog/issues
-- Package on pypi: http://pypi.python.org/pypi/ftw.blog
+- Github: https://github.com/4teamwork/ftw.blog
+- Issues: https://github.com/4teamwork/ftw.blog/issues
+- Pypi: http://pypi.python.org/pypi/ftw.blog
 - Continuous integration: https://jenkins.4teamwork.ch/search?q=ftw.blog
 
 Copyright
