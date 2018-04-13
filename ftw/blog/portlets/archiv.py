@@ -4,12 +4,11 @@ from plone.app.portlets.portlets import base
 from plone.memoize.view import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.i18nl10n import monthname_msgid
 from Products.CMFPlone.utils import base_hasattr
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.component import getUtility
-from zope.i18n import translate
 from zope.interface import implements
+from ftw.blog.tools import zLocalizedTime
 
 
 class IArchivePortlet(IPortletDataProvider):
@@ -57,16 +56,6 @@ class AddForm(base.NullAddForm):
 
     def create(self):
         return Assignment()
-
-
-def zLocalizedTime(request, time, long_format=False):
-    """Convert time to localized time
-    """
-    month_msgid = monthname_msgid(time.strftime("%m"))
-    month = translate(month_msgid, domain='plonelocales',
-                      context=request)
-
-    return u"%s" % (month)
 
 
 class ArchiveSummary(object):

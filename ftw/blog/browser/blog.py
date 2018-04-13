@@ -11,6 +11,7 @@ from urllib import quote_plus
 from zope.component import getMultiAdapter
 from zope.i18n import translate
 from zope.interface import implements
+from ftw.blog.tools import zLocalizedTime
 
 
 class BlogView(BrowserView):
@@ -56,9 +57,7 @@ class BlogView(BrowserView):
             query['created'] = {'query': (start.earliestTime(),
                                           end.latestTime()),
                                 'range': 'minmax'}
-            month_msgid = 'month_%s' % start.strftime("%b").lower()
-            month = translate(month_msgid, domain='plonelocales',
-                              context=self.request)
+            month = zLocalizedTime(self.request, start)
             self.filters.append("%s %s" % (month, start.strftime('%Y')))
         if self.request.form.get('getCategoryUids'):
             uid = self.request.form.get('getCategoryUids')

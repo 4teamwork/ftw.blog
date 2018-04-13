@@ -6,6 +6,7 @@ Changelog
 ------------------
 
 - Drop support for Plone 4.1 [jone]
+- Fix month name localization [kiorky]
 
 
 1.8.0 (2015-05-26)
